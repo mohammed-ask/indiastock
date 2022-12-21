@@ -45,7 +45,7 @@ include './main/conn.php';
                     <form action="checklogin.php" method="post" onsubmit="event.preventDefault();sendForm('', '', 'checkadminlogin', 'resultid', 'loginform');return 0;" id="loginform">
                         <div class="w-full">
                             <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
-                                Login
+                                Admin Login
                             </h1>
                             <label class="block text-sm">
                                 <span class="text-gray-700 dark:text-gray-400">Email</span>

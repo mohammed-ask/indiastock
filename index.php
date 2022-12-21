@@ -24,6 +24,12 @@ switch ($request['path']) {
     case "/indiastock/adminlogin";
         require __DIR__ . '/main/adminlogin.php';
         break;
+    case "/indiastock/checkadminlogin";
+        require __DIR__ . '/main/checkadminlogin.php';
+        break;
+    case "/indiastock/viewrole";
+        require __DIR__ . '/main/viewrole.php';
+        break;
     case "/indiastock/checklogin";
         require __DIR__ . '/main/checklogin.php';
         break;
