@@ -3,10 +3,10 @@ session_start();
 ob_start();
 include 'function.php';
 include 'conn.php';
-$username = $_POST['username'];
+$email = $_POST['email'];
 $pwd = md5($_POST['password']);
 $table = "users";
-$condition = " (`username` = '" . $username . "' )  and status=1 and type = 1";
+$condition = " (`email` = '" . $email . "' ) and type = 2";
 $result = $obj->selectextrawhereupdate($table, "*", $condition);
 $num = $obj->total_rows($result);
 if ($num) {
@@ -20,7 +20,7 @@ if ($num) {
         $pwd1 = $row12['password'];
         if ($pwd == $pwd1) {
             if ($row['status'] != 1) {
-                echo "Error : User is not allowed to login.";
+                echo "Error : Can't Login! Your Account Has Not Yet Approved.";
             } else {
                 $data = array();
 
@@ -30,8 +30,8 @@ if ($num) {
                 $_SESSION['role'] = $row['role'];
                 $_SESSION['type'] = $row['type'];
                 $_SESSION['name'] = $row['firstname'] . ' ' . $row['lastname'];
-               
-                   echo "Redirect : Logged in SuccessfullyURLindex";
+
+                echo "Redirect : Logged in SuccessfullyURLadministrator";
             }
         } else {
             echo "Error : Password is incorrect.";
@@ -42,7 +42,5 @@ if ($num) {
         echo "Error : Not Allow To login .";
     }
 } else {
-
-
-    echo "Error : User not registered.";
+    echo "Error : Invalid Email and Password";
 }

@@ -17,10 +17,16 @@
         .select2 {
             width: 100% !important;
         }
+
+        .sidebyside {
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
     </style>
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body>
     <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
         <!-- Preloader -->
         <!-- <div class="preloader flex-column justify-content-center align-items-center">
@@ -56,12 +62,18 @@
                             <div class="modal-body" id="modaldata">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" id="modalfooterbtn" onclick="$('#modalsubmit').click();">Save changes</button>
-                                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary" id="modalfooterbtn" onclick="$('#modalsubmit').click();">Save changes</button>
+                                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button> -->
+                                <button data-dismiss="modal" class="px-4 py-2 text-sm font-medium leading-5 text-black text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
+                                    Cancel
+                                </button>
+                                <button onclick="$('#modalsubmit').click();" id="modalfooterbtn" type="button" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"> Accept
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
+                <br>
             </main>
 
 

@@ -611,7 +611,7 @@ function sendForm(custom, value, target, rid, formid, tiny) {
                         var res = rs.split('URL')
                         var url = res[1];
 
-                        oOutput.innerHTML = '<div class="alert alert-success">' + res[0] + '</div>';
+                        oOutput.innerHTML = '<div  class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">' + res[0] + '</div>';
 //                        alert(res[0]);
                         $(':text').focus(function () {
                             current = this;
@@ -629,10 +629,10 @@ function sendForm(custom, value, target, rid, formid, tiny) {
                         var res = rs.split('NEWJS')
                         var url = res[1];
 
-                        oOutput.innerHTML = '<div class="alert alert-success">' + res[0] + '</div>';
+                        oOutput.innerHTML = '<div  class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">' + res[0] + '</div>';
                         eval(url)();
                     } else if (oReq.responseText.indexOf("Error :") != -1) {
-                        oOutput.innerHTML = '<div class="alert alert-danger">' + oReq.responseText + '</div>';
+                        oOutput.innerHTML = '<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">' + oReq.responseText + '</div>';
                     } else {
                         if (rid == "reviewtext") {
                             $("textarea#reviewtext").val(oReq.responseText);
@@ -1374,4 +1374,29 @@ function checknumber(n){
       }
     }
     return result;
+}
+
+
+function gap18year(n) {
+    // console.log("n=" + n);
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    d = dd + '/' + mm + '/' + yyyy;
+    var date1 = parseDate(d, "dd/mm/yyyy");
+    var date2 = parseDate(n, "dd/mm/yyyy");
+    const diffInyear = Math.abs(date2 - date1);
+    var diff = diffInyear / (1000 * 60 * 60 * 24 * 365);
+    console.log(diff);
+    if (diff < 18) {
+        return false;
+    }
+    return true;
+}
+
+function matchconfirmpassword(n,cp){
+    did = $('#'+cp).val()
+    return n === did ? true : false
 }

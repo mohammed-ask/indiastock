@@ -42,7 +42,7 @@ include './main/conn.php';
                     <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="main/dist/img/login-office-dark.jpeg" alt="Office" />
                 </div>
                 <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-                    <form action="checklogin.php" method="post" onsubmit="event.preventDefault();sendForm('', '', 'checklogin', 'resultid', 'loginform');return 0;" id="loginform">
+                    <form action="checklogin.php" method="post" onsubmit="event.preventDefault();sendForm('', '', 'checkadminlogin', 'resultid', 'loginform');return 0;" id="loginform">
                         <div class="w-full">
                             <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
                                 Login

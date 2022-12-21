@@ -55,8 +55,8 @@ if (($_SERVER['HTTP_HOST'] == 'localhost')) {
 date_default_timezone_set('Asia/Kolkata');
 /* object for db class in function.php $obj */
 $obj = new db($host, $database_Username, $database_Password, $database_Name, $port);
-$sendmailfrom = "";
-$sendemailpassword = "";
+$sendmailfrom = "mohammedhusain559@gmail.com";
+$sendemailpassword = "vxxweetirdhhkwpb";
 
 $defaultpagetitle = "Indiastock";
 $defaultemail = $sendmailfrom;
