@@ -146,7 +146,7 @@ ob_start();
     </div>
   </div>
   <h3 class="my-6 text-1xl font-semibold text-gray-700 dark:text-gray-200">
-    Carry Forword Transactionssss
+    Carry Forword Transactions
   </h3>
   <div class="w-full overflow-hidden rounded-lg shadow-xs">
 
