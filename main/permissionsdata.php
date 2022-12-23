@@ -52,7 +52,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $obj->selectfieldwhere("modules", "name", "id='" . $row['module'] . "'");
     $a = "";
     if (in_array(83, $permissions)) {
-        $a = '<a class="px-4 py-2  text-sm  bg-blue  rounded-lg " href="editpermission.php?hakuna=' . $row['id'] . '" class="btn btn-blue">Edit</a>';
+        $a = '<a class="px-4 py-2  text-sm  bg-blue  rounded-lg " href="editpermission?hakuna=' . $row['id'] . '" class="btn btn-blue">Edit</a>';
     }
     if (in_array(84, $permissions)) {
         $a .= "<a style='cursor: pointer;' class='px-4 py-2 ml-1 text-sm font-medium leading-5 text-white  bg-red  rounded-lg '  onclick='del(\"" . $row['id'] . "\", \"deletepermission\", \"Delete Role \")' >Delete</a>";

@@ -2,50 +2,73 @@
 include "session.php";
 ob_flush();
 ob_start();
+$responsive = true;
+if (isset($_GET["hakuna"])) {
+    $responsive = $_GET["hakuna"];
+}
 ?>
-<div class="card">
-    <div class="card-header with-border">
-        <h3 class="card-title with-border">Permission List</h3>
-        <div class="card-tools pull-right">
-            <?php if (in_array(82, $permissions)) { ?>
-                <a href="addpermission" class="px-4 py-2 text-sm bg-purple rounded-lg">+ Add New Permission
-                </a>
-            <?php } ?>
-            <a href="administrator" class="px-4 py-2 ml-2 text-sm font-medium leading-5 text-black text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
-                << Back </a>
-                    <button type="button" class="btn btn-tool" data-card-widget="">
-                        <i class="fas fa-times"></i>
-                    </button>
+<?php
+if ($responsive !== 'true') { ?>
+    <div class="row">
+        <div class="col-sm-12">
+        <?php } ?>
+        <div class="card">
+            <form action="">
+                <?php
+                if ($responsive == "true") { ?>
+                    <input type="" hidden name="hakuna" value="<?= ($responsive == "true") ? "false" : "true" ?>" id="">
+                    <button class="btn"><i class="fa fa-toggle-on" style="color:green"></i> Responsive On</button>
+                <?php } else { ?>
+                    <input type="" hidden name="hakuna" value="<?= ($responsive == "false") ? "true" : "false" ?>" id="">
+                    <button class="btn"><i class="fa fa-toggle-off" style="color:red"></i> Responsive Off</button>
+                <?php } ?>
+            </form>
+            <div class="card-header with-border">
+                <h3 class="card-title with-border">Permission List</h3>
+                <div class="card-tools pull-right">
+                    <?php if (in_array(82, $permissions)) { ?>
+                        <a href="addpermission" class="px-4 py-2 text-sm bg-purple rounded-lg">+ Add New Permission
+                        </a>
+                    <?php } ?>
+                    <a href="administrator" class="px-4 py-2 ml-2 text-sm font-medium leading-5 text-black text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
+                        << Back </a>
+                            <button type="button" class="btn btn-tool" data-card-widget="">
+                                <i class="fas fa-times"></i>
+                            </button>
+                </div>
+            </div>
+            <div class="card-body" id="catid">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Module</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Module</th>
+                            <th>Actions</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.card-body -->
+
+        </div>
+        <?php
+        if ($responsive !== 'true') { ?>
         </div>
     </div>
-    <div class="card-body" id="catid">
-        <table id="example1" class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Module</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Module</th>
-                    <th>Actions</th>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-    <!-- /.card-body -->
-
-</div>
-</div>
+<?php } ?>
 <?php
 //Assign all Page Specific variables
 $pagemaincontent = ob_get_contents();
@@ -57,10 +80,6 @@ $pagekeywords = "Some keywords Goes here";
 $contentheader = "Manage Permissions";
 include "main/templete.php";
 ?>
-<link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
-<!-- DataTables -->
-<script src="plugins/datatables/jquery.dataTables.min.js"></script>
-<!--<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>-->
 <script>
     $(document).ready(function() {
         $('#example1 tfoot th').each(function() {

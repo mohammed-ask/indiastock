@@ -57,6 +57,15 @@ switch ($request['path']) {
     case "/indiastock/insertpermission";
         require __DIR__ . '/main/insertpermission.php';
         break;
+    case "/indiastock/editpermission";
+        require __DIR__ . '/main/editpermission.php';
+        break;
+    case "/indiastock/updatepermission";
+        require __DIR__ . '/main/updatepermission.php';
+        break;
+    case "/indiastock/deletepermission";
+        require __DIR__ . '/main/deletepermission.php';
+        break;
     case "/indiastock/checklogin";
         require __DIR__ . '/main/checklogin.php';
         break;

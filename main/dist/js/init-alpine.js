@@ -77,6 +77,12 @@ function data() {
       this.isTransectionMenuOpen = !this.isTransectionMenuOpen
     },
 
+    // Overview page menu 
+    isRolePagesMenuOpen: false,
+    toggleRolePagesMenu() {
+      this.isRolePagesMenuOpen = !this.isRolePagesMenuOpen
+    },
+
 
     // Modal
     isAdduserOpen: false,
