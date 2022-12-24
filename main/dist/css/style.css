@@ -28,7 +28,7 @@
   z-index: 1 !important;
 }
 #ui-datepicker-div {
-  z-index: 7 !important;
+  z-index: 30 !important;
 }
 
 #overlay {
