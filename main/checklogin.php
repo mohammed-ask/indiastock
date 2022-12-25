@@ -29,8 +29,14 @@ if ($num) {
                 $_SESSION['useremail'] = $row['email'];
                 $_SESSION['role'] = $row['role'];
                 $_SESSION['type'] = $row['type'];
-                $_SESSION['name'] = $row['firstname'] . ' ' . $row['lastname'];
+                $_SESSION['name'] = $row['name'];
 
+                $log['ip'] = $_SERVER['REMOTE_ADDR'];
+                $log['username'] = $_SESSION['name'];
+                $log['userid'] = $_SESSION['userid'];
+                $log['datetime'] = date('Y-m-d H:i:s');
+                $log['status'] = 1;
+                $obj->insertnew($log, 'loginlog');
                 echo "Redirect : Logged in SuccessfullyURLadministrator";
             }
         } else {

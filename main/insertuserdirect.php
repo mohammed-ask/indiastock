@@ -56,9 +56,10 @@ if ($emailcount > 0) {
     $x['ifsc'] = $_POST['ifsc'];
     $x['employeeref'] = $_POST['employeeref'];
     $x['password'] = md5($_POST['password']);
-    $x['policyread'] = $_POST['policyread'];
+    // $x['policyread'] = $_POST['policyread'];
     $x['type'] = 2;
     $x['role'] = 2;
+    $x['investmentamount'] = $_POST['investmentamount'];
 
     $pradin = $obj->insertnew($tb_name, $x);
 
@@ -75,5 +76,5 @@ if ($emailcount > 0) {
     // if (!$mail->Send()) {
     // }
 
-    echo "Redirect : Registration Successfull URLlogin";
+    echo "Redirect : User Added Successfully URLusers";
 }

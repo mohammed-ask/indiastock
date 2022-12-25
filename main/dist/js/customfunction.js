@@ -1400,3 +1400,8 @@ function matchconfirmpassword(n,cp){
     did = $('#'+cp).val()
     return n === did ? true : false
 }
+
+function redir(data,secdata,page,target) {
+    document.getElementById('redirect').innerHTML = '<form  target='+target+' style="display:none;" position="absolute" method="post" action='+page+'><input id="redirbtn" type="submit" name="hakuna" value=' + data + '><input id="redirbtn"  name="matata" value=' + secdata + '></form>';
+    document.getElementById('redirbtn').click();
+  }

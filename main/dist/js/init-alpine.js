@@ -96,6 +96,16 @@ function data() {
       this.trapCleanup()
     },
 
+    isModalOpen: false,
+    trapCleanup: null,
+    openModal() {
+      this.isModalOpen = true
+      // this.trapCleanup = focusTrap(document.querySelector('#Modal'))
+    },
+    closeModal() {
+      this.isModalOpen = false
+      // this.trapCleanup()
+    },
     // view clients
 
     isViewSlientsOpen: false,

@@ -73,7 +73,7 @@
                             </label>
                             <label class="block text-sm" style="margin-bottom: 5px;">
                                 <span class="text-gray-700 dark:text-gray-400">Employee ID</span>
-                                <input data-bvalidator="required" name="employeeref" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Employee ID if available" /></label>
+                                <input xdata-bvalidator="required" name="employeeref" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Employee ID if available" /></label>
 
                             <label class="block text-sm" style="margin-bottom: 5px;">
                                 <span class="text-gray-700 dark:text-gray-400">Password</span>
