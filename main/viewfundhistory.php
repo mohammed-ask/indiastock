@@ -2,15 +2,15 @@
 include "session.php";
 /* @var $obj db */
 ob_start();
-
+$id = $_GET['hakuna'];
 
 ?>
 <div class="container px-6 mx-auto grid">
 
     <div class="flex" style="align-items: center;justify-content:space-between">
-        <h3>Users List</h3>
-        <button @click="openModal" onclick='dynamicmodal("none", "adduser", "Unlink", "Add New User")' class="my-6 px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-            + Add User
+        <h3>Fund History</h3>
+        <button @click="openModal" onclick='dynamicmodal("<?= $id ?>", "addinvestmentamount", "", "Add Fund")' class="my-6 px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+            + Add Fund
         </button>
 
     </div>
@@ -25,24 +25,10 @@ ob_start();
                     <tr class="text-sm font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-4 py-3">S.No.</th>
                         <th class="px-4 py-3">User Name</th>
-                        <th class="px-4 py-3">Emp ID</th>
-                        <th class="px-4 py-3">Email ID</th>
-                        <th class="px-4 py-3">Mob No.</th>
-                        <th class="px-4 py-3">PAN No.</th>
-                        <th class="px-4 py-3">DOB</th>
-                        <th class="px-4 py-3">Addresss</th>
-                        <th class="px-4 py-3">Bank Name</th>
-                        <th class="px-4 py-3">A/c No.</th>
-                        <th class="px-4 py-3">IFSC</th>
-                        <th class="px-4 py-3">Aadhar No.</th>
-                        <th class="px-4 py-3">Password</th>
-                        <th class="px-4 py-3">Cost</th>
-                        <th class="px-4 py-3">Value</th>
-                        <th class="px-4 py-3">SMS</th>
-                        <th class="px-4 py-3">Email</th>
-                        <th class="px-4 py-3">Status</th>
-                        <th class="px-4 py-3">Fund History</th>
-                        <th class="px-4 py-3">Action</th>
+                        <th class="px-4 py-3">Amount</th>
+                        <th class="px-4 py-3">Remark</th>
+                        <th class="px-4 py-3">Date & Time</th>
+                        <!-- <th class="px-4 py-3">Action</th> -->
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y text-s dark:divide-gray-700 dark:bg-gray-800">
@@ -58,7 +44,7 @@ ob_start();
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Transaction";
+$pagetitle = "Indiastock: Investment Log";
 $contentheader = "";
 $pageheader = "";
 include "main/templete.php";
@@ -66,7 +52,7 @@ include "main/templete.php";
 <script>
     $(function() {
         $('#example2').DataTable({
-            "ajax": "main/usersdata.php",
+            "ajax": "main/fundhistorydata.php?hakuna=<?= $id ?>",
             "processing": true,
             "serverSide": true,
             "pageLength": 25,

@@ -39,7 +39,7 @@ $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "users ",
     "*",
-    "status in (0,1) $search $order limit $start, $limit"
+    "status in (0,1) and type = 2 $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
@@ -60,18 +60,22 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] =  $row['password'];
     $n[] =  $row['investmentamount'];
     $n[] =  $row['investmentamount'];
+    $smsenable = $row['sms'] === 'Yes' ? 'checked' : '';
+    $emailenabled = $row['emailenabled'] === 'Yes' ? 'checked' : '';
+    $activation = $row['activate'] === 'Yes' ? 'checked' : '';
     $n[] =  ' <label class="switch">
-    <input type="checkbox">
-    <span class="slider round"></span>
+    <input type="checkbox" ' . $smsenable . ' class="setactive" data-type="sms" data-id="' . $row['id'] . '" value="' . $row['sms'] . '">
+    <span class="slider round" ></span>
 </label>';
     $n[] =  '<label class="switch">
-    <input type="checkbox">
+    <input type="checkbox" ' . $emailenabled . ' class="setactive" data-type="emailenabled" data-id="' . $row['id'] . '" value="' . $row['emailenabled'] . '">
     <span class="slider round"></span>
 </label>';
     $n[] = '<label class="switch">
-    <input type="checkbox">
+    <input type="checkbox" ' . $activation . ' class="setactive" data-type="activate" data-id="' . $row['id'] . '" value="' . $row['activate'] . '">
     <span class="slider round"></span>
 </label>';
+    $n[] = '<button id="modalsubmit" class="px-3 py-1  text-sm  bg-blue  rounded-sm " onclick="window.location.href=\'viewfundhistory?hakuna=' . $row['id'] . '\'">View Detail</button>';
     $a = "<div class='flex items-center space-x-4 text-sm'>";
     if (in_array(83, $permissions)) {
         $a .= "<button class='flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"edituser\", \"\", \"Edit Customer\")' aria-label='Edit'>
@@ -90,6 +94,11 @@ while ($row = $obj->fetch_assoc($result)) {
         $a .= "<button class='flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' onclick='redir(\"" . $row['id'] . "\",\"\",\"userprofile\",\"_blank\")'  aria-label='Go'>
              <span class='w-5 h-5'><i class='fa fa-duotone fa-share-from-square'></i></span>
          </button><div id='redirect'></div>";
+    }
+    if (in_array(84, $permissions)) {
+        $a .= "<button class='flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"addinvestmentamount\", \"\", \"Add Fund\")'  aria-label='Go'>
+             <span class='w-5 h-5'><i class='fa fa-plus'></i></span>
+         </button>";
     }
     $a  .= '</div>';
     $n[] = $a;

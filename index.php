@@ -48,6 +48,15 @@ switch ($request['path']) {
     case "/indiastock/userlogindetails";
         require __DIR__ . '/main/userlogindetails.php';
         break;
+    case "/indiastock/addinvestmentamount";
+        require __DIR__ . '/main/addinvestmentamount.php';
+        break;
+    case "/indiastock/insertinvestmentamount";
+        require __DIR__ . '/main/insertinvestmentamount.php';
+        break;
+    case "/indiastock/viewfundhistory";
+        require __DIR__ . '/main/viewfundhistory.php';
+        break;
     case "/indiastock/editrole";
         require __DIR__ . '/main/editrole.php';
         break;

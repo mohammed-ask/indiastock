@@ -27,6 +27,10 @@
         .select2-container--default .select2-selection--single {
             padding: 5px;
         }
+
+        /* body {
+            font-family: 'cursive';
+        } */
     </style>
 </head>
 
@@ -100,7 +104,7 @@
                         <!-- Modal body -->
                         <div class=" adduserform mt-4 mb-6">
                             <div class="container px-3 mx-auto grid">
-                                <h5 style="text-align: center;" id="#modalheading" class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
+                                <h5 style="text-align: center;" id="modalheading" class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
                                     Add New User
                                 </h5>
                                 <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800" id="modaldata">
