@@ -1860,7 +1860,7 @@ pre code {
 
 .table th,
 .table td {
-  padding: 0.75rem;
+  padding: 1rem !important;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
 }
@@ -1876,7 +1876,7 @@ pre code {
 
 .table-sm th,
 .table-sm td {
-  padding: 0.3rem;
+  padding: 1rem !important;
 }
 
 .table-bordered {
@@ -8950,7 +8950,7 @@ button.bg-dark:focus {
 
 .pb-3,
 .py-3 {
-  padding-bottom: 1rem !important;
+  padding-bottom: 0.75rem !important;
 }
 
 .pl-3,
@@ -8959,27 +8959,27 @@ button.bg-dark:focus {
 }
 
 .p-4 {
-  padding: 1.5rem !important;
+  padding: 1rem !important;
 }
 
 .pt-4,
 .py-4 {
-  padding-top: 1.5rem !important;
+  padding-top: 1rem !important;
 }
 
 .pr-4,
 .px-4 {
-  padding-right: 1.5rem !important;
+  padding-right: 1rem !important;
 }
 
 .pb-4,
 .py-4 {
-  padding-bottom: 1.5rem !important;
+  padding-bottom: 1rem !important;
 }
 
 .pl-4,
 .px-4 {
-  padding-left: 1.5rem !important;
+  padding-left: 1rem !important;
 }
 
 .p-5 {

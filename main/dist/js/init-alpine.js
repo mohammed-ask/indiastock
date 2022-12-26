@@ -83,6 +83,17 @@ function data() {
       this.isRolePagesMenuOpen = !this.isRolePagesMenuOpen
     },
 
+      // Investment menu
+      isInvestmentPageMenuOpen: false,
+      toggleInvestmentPageMenu() {
+        this.isInvestmentPageMenuOpen = !this.isInvestmentPageMenuOpen
+      },
+
+  // Email menu
+  isEmailPageMenuOpen: false,
+  toggleEmailPageMenu() {
+    this.isEmailPageMenuOpen = !this.isEmailPageMenuOpen
+  },
 
     // Modal
     isAdduserOpen: false,
