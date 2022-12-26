@@ -35,72 +35,8 @@ ob_start();
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                    <tr class="text-gray-700 dark:text-gray-400">
-                        <td class=" px-4 py-3">1</td>
-                        <td class=" px-4 py-3 text-sm font-semibold">
-                            Abhishek Sharma
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                            152.58.35.137
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                            15-12-2022 17:38:57 pm </td>
-
-                    </tr>
-                    <tr class="text-gray-700 dark:text-gray-400">
-                        <td class=" px-4 py-3">1</td>
-                        <td class=" px-4 py-3 text-sm font-semibold">
-                            Abhishek Sharma
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                            152.58.35.137
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                            15-12-2022 17:38:57 pm </td>
-
-                    </tr>
-                    <tr class="text-gray-700 dark:text-gray-400">
-                        <td class=" px-4 py-3">1</td>
-                        <td class=" px-4 py-3 text-sm font-semibold">
-                            Abhishek Sharma
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                            152.58.35.137
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                            15-12-2022 17:38:57 pm </td>
-
-                    </tr>
-                    <tr class="text-gray-700 dark:text-gray-400">
-                        <td class=" px-4 py-3">1</td>
-                        <td class=" px-4 py-3 text-sm font-semibold">
-                            Abhishek Sharma
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                            152.58.35.137
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                            15-12-2022 17:38:57 pm </td>
-
-                    </tr>
-                    <tr class="text-gray-700 dark:text-gray-400">
-                        <td class=" px-4 py-3">1</td>
-                        <td class=" px-4 py-3 text-sm font-semibold">
-                            Abhishek Sharma
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                            152.58.35.137
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                            15-12-2022 17:38:57 pm </td>
-
-                    </tr>
                 </tbody>
             </table>
-            <div style="text-align: center;"> <button class="my-5 px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" style="margin: 13px 13px;">
-                    View More
-                </button>
-            </div>
         </div>
     </div>
 </div>
@@ -109,7 +45,7 @@ ob_start();
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Transaction";
+$pagetitle = "Indiastock: User Login Detail";
 $contentheader = "";
 $pageheader = "";
 include "main/templete.php";
