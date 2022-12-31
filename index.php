@@ -129,6 +129,12 @@ switch ($request['path']) {
     case "$head/composemail";
         require __DIR__ . '/main/composemail.php';
         break;
+    case "$head/insertmail";
+        require __DIR__ . '/main/insertmail.php';
+        break;
+    case "$head/viewinbox";
+        require __DIR__ . '/main/viewinbox.php';
+        break;
     case "$head/logout";
         require __DIR__ . '/main/logout.php';
         break;
