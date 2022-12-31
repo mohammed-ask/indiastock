@@ -83,11 +83,6 @@ include "main/templete.php";
         });
     });
 
-    // $('.sms1').click(() => {
-    //     alert('yoyo')
-    //     alert($(this).val())
-    // })
-
     $(document).on("click", ".setactive", function() {
         value = $(this).val();
         id = $(this).data("id");

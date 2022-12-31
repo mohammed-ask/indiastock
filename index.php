@@ -117,6 +117,18 @@ switch ($request['path']) {
     case "$head/adduser";
         require __DIR__ . '/main/adduser.php';
         break;
+    case "$head/pendingapproval";
+        require __DIR__ . '/main/pendingapproval.php';
+        break;
+    case "$head/viewusermodal";
+        require __DIR__ . '/main/viewusermodal.php';
+        break;
+    case "$head/approveuser";
+        require __DIR__ . '/main/approveuser.php';
+        break;
+    case "$head/composemail";
+        require __DIR__ . '/main/composemail.php';
+        break;
     case "$head/logout";
         require __DIR__ . '/main/logout.php';
         break;

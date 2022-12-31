@@ -69,7 +69,7 @@ if ($emailcount > 0) {
     $x['role'] = 2;
 
     $pradin = $obj->insertnew($tb_name, $x);
-
+    $obj->saveactivity("Customer Registered", "", $pradin, $pradin, "User", "Customer Registered");
     $mail = new PHPMailer(true);
 
     $mail->isSMTP();
