@@ -67,7 +67,7 @@ if ($emailcount > 0) {
     $x['policyread'] = $_POST['policyread'];
     $x['type'] = 2;
     $x['role'] = 2;
-
+    $x['limit'] = $_POST['limit'];
     $pradin = $obj->insertnew($tb_name, $x);
     $obj->saveactivity("Customer Registered", "", $pradin, $pradin, "User", "Customer Registered");
     $mail = new PHPMailer(true);

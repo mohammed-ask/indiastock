@@ -1,4 +1,5 @@
 <?php
+include "session.php";
 $id = $_GET['hakuna'];
 ?>
 <form id="adduser" onsubmit="event.preventDefault();sendForm('id', '<?= $id ?>', 'insertinvestmentamount', 'resultid', 'adduser');return 0;">

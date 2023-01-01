@@ -34,21 +34,8 @@ else {
     $x['type'] = 2;
     $x['role'] = 2;
     // $x['investmentamount'] = $_POST['investmentamount'];
-
+    $x['limit'] = $_POST['limit'];
     $pradin = $obj->update($tb_name, $x, $id);
-
-    include 'main/mailsetting.php';
-
-    // $mail->addAddress($x['email']);
-
-    // $mail->Subject = "Trainer Assined For Practical Training";
-    // $message = "Hello," . "<br/>";
-    // $message .= "<h2>Welcome to </h2>" . "<br/>";
-    // $message .= "<p>Congrats ! Your Are Successfully Registered Your Account Has Been Sent to Admin for Approval". "</p>" . "<br/>";
-    // // $message .= "<p>If You are login in the system then <a href='" . BASE_URL . "practicalTraining.php'> click here to goto trainer Requests page</p>" . "<br/>";
-    // $mail->Body = $message;
-    // if (!$mail->Send()) {
-    // }
 
     echo "Redirect : User Updated Successfully URLusers";
 }

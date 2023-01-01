@@ -2,6 +2,10 @@
 include "session.php";
 /* @var $obj db */
 ob_start();
+$sid = "";
+if (isset($_POST['hakuna'])) {
+    $sid = $_POST['hakuna'];
+}
 $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
 
 ?>
@@ -42,8 +46,12 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
                                 $cust = $obj->selectextrawhereupdate("users", "id,name", "status != 99 and id != $employeeid");
                                 $custname = mysqli_fetch_all($cust);
                                 foreach ($custname as list($id, $name)) { ?>
-                                    <option value="<?php echo $id; ?>"> <?php echo $name; ?></option>
-                                <?php } ?>
+                                    <?php if (!empty($sid) && $sid == $id) { ?>
+                                        <option selected value="<?php echo $id; ?>"> <?php echo $name; ?></option>
+                                    <?php } else { ?>
+                                        <option value="<?php echo $id; ?>"> <?php echo $name; ?></option>
+                                <?php }
+                                } ?>
                             </select>
                         </label><br>
                         <label class="block text-md" style="margin-bottom: 5px;">
