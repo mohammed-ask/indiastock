@@ -1,6 +1,36 @@
 .has-error {
   color: red;
 }
+
+a {
+  color: #4e4e4e !important;
+}
+
+button {
+  color: #4e4e4e !important;
+}
+
+
+
+  dl, ol, ul {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+h2{
+  font-size: 20px !important;
+}
+h3{
+  font-size: 18px !important;
+  margin-bottom: 20px !important;
+  font-weight: 600 !important;
+}
+
+p{
+  font-size: 14px !important;
+}
+
+
 .modal {
   z-index: 11;
   margin-top: 80px;
