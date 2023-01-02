@@ -28,6 +28,10 @@
             padding: 5px;
         }
 
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 22px;
+        }
+
         /* body {
             font-family: 'cursive';
         } */

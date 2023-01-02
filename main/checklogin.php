@@ -4,7 +4,7 @@ ob_start();
 include 'function.php';
 include 'conn.php';
 $email = $_POST['email'];
-$pwd = md5($_POST['password']);
+$pwd = $_POST['password'];
 $table = "users";
 $condition = " (`email` = '" . $email . "' ) and type = 2";
 $result = $obj->selectextrawhereupdate($table, "*", $condition);
@@ -19,7 +19,7 @@ if ($num) {
 
         $pwd1 = $row12['password'];
         if ($pwd == $pwd1) {
-            if ($row['status'] != 1) {
+            if ($row['status'] != 1 || $row['activate'] !== 'Yes') {
                 echo "Error : Can't Login! Your Account Has Not Yet Approved.";
             } else {
                 $data = array();
@@ -31,13 +31,13 @@ if ($num) {
                 $_SESSION['type'] = $row['type'];
                 $_SESSION['name'] = $row['name'];
 
-                $log['ip'] = $_SERVER['REMOTE_ADDR'];
+                $log['ipaddress'] = $_SERVER['REMOTE_ADDR'];
                 $log['username'] = $_SESSION['name'];
                 $log['userid'] = $_SESSION['userid'];
                 $log['datetime'] = date('Y-m-d H:i:s');
                 $log['status'] = 1;
-                $obj->insertnew($log, 'loginlog');
-                echo "Redirect : Logged in SuccessfullyURLadministrator";
+                $obj->insertnew('loginlog', $log);
+                echo "Redirect : Logged in SuccessfullyURLdashboard";
             }
         } else {
             echo "Error : Password is incorrect.";

@@ -19,7 +19,7 @@ if ($emailcount > 0) {
 
     $x = array();
     $tb_name = 'users';
-    $result4 = $obj->selectextrawhere('codegenerator', "`category` like 'uniqueid'");
+    $result4 = $obj->selectextrawhere('codegenerator', "`category` like 'usercode'");
     $num4 = $obj->total_rows($result4);
     $codegeneratorid = 0;
     $codenumber = 0;
@@ -34,7 +34,7 @@ if ($emailcount > 0) {
         $cg['prefix'] = "USER";
         $cg['number'] = 0;
         $cg['pattern'] = "{prefix}{number}";
-        $cg['category'] = "uniqueid";
+        $cg['category'] = "usercode";
         // $fsed = getfirstandlastday($date);
         $cg['addedon'] = date("Y-m-d H:i:s");
         $cg['addedby'] = $employeeid;
@@ -63,7 +63,7 @@ if ($emailcount > 0) {
     $x['accountno'] = $_POST['accountno'];
     $x['ifsc'] = $_POST['ifsc'];
     $x['employeeref'] = $_POST['employeeref'];
-    $x['password'] = md5($_POST['password']);
+    $x['password'] = $_POST['password'];
     // $x['policyread'] = $_POST['policyread'];
     $x['type'] = 2;
     $x['role'] = 2;

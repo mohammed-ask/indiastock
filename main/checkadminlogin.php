@@ -4,7 +4,7 @@ ob_start();
 include 'function.php';
 include 'conn.php';
 $email = $_POST['email'];
-$pwd = md5($_POST['password']);
+$pwd = $_POST['password'];
 $table = "users";
 $condition = " (`email` = '" . $email . "' ) and type = 1";
 $result = $obj->selectextrawhereupdate($table, "*", $condition);
@@ -19,7 +19,7 @@ if ($num) {
 
         $pwd1 = $row12['password'];
         if ($pwd == $pwd1) {
-            if ($row['status'] != 1) {
+            if ($row['status'] != 1 || $row['activate'] !== 'Yes') {
                 echo "Error : Can't Login! You Are Not Allowed To Login";
             } else {
                 $data = array();

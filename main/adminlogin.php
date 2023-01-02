@@ -66,11 +66,6 @@ include './main/conn.php';
                                     Forgot your password?
                                 </a>
                             </p>
-                            <p class="mt-1">
-                                <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="./create-account.html">
-                                    Create account
-                                </a>
-                            </p>
                         </div>
                     </form>
                 </div>

@@ -120,17 +120,13 @@ include "main/templete.php";
                 });
                 editor.on("init", function(ed) {
                     ed.target.editorCommands.execCommand("fontName", false, "Century Gothic");
-                    ed.target.editorCommands.execCommand("fontSize", false, "12px");
+                    ed.target.editorCommands.execCommand("fontSize", false, "16px");
 
                 });
 
             },
             height: 300,
-            plugins: [
-                "advlist autolink link image lists charmap print preview hr anchor pagebreak",
-                "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking spellchecker",
-                "table contextmenu directionality emoticons textcolor responsivefilemanager powerpaste "
-            ],
+
             relative_urls: false,
             browser_spellcheck: true,
             external_filemanager_path: "filemanager/filemanager/",
@@ -144,8 +140,7 @@ include "main/templete.php";
             },
             image_advtab: true,
             fontsize_formats: "8px 9px 10px 11px 12px 13px 14px 15px 16px 18px 20px 22px 24px 28px 30px 34px 36px 40px 44px 48px 50px",
-            toolbar1: "undo redo | bold italic underline | strikethrough superscript subscript | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | hr pagebreak ",
-            toolbar2: "responsivefilemanager | image | media | forecolor backcolor fontsize fontsizeselect fontselect sizeselect | easyColorPicker styleselect",
+            toolbar1: "undo redo | bold italic underline | strikethrough superscript subscript | alignleft aligncenter alignright alignjustify | bullist numlist  | hr pagebreak | forecolor backcolor fontsize fontsizeselect  sizeselect",
 
 
 
