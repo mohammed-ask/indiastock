@@ -16,6 +16,16 @@
         </a>
       </li>
     </ul>
+    <?php if (in_array(31, $permissions)) { ?>
+      <ul>
+        <li class="relative px-6 py-3">
+          <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="requestwithdrawal">
+            <i class="fas fa-rupee-sign"></i>
+            <span class="ml-3">Request Withdrawal</span>
+          </a>
+        </li>
+      </ul>
+    <?php } ?>
     <ul>
       <?php if (in_array(4, $permissions) || in_array(14, $permissions)) { ?>
         <li class="relative px-6 py-3">

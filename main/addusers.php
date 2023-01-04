@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="main/dist/css/tailwind.output.css" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="main/dist/js/init-alpine.js"></script>
+    <link rel="stylesheet" href="main/plugins/fontawesome-free/css/all.min.css">
+
     <link rel="stylesheet" href="main/plugins/jquery-ui/jquery-ui.css">
 
     <link rel="stylesheet" href="main/dist/css/bvalidator.css">
@@ -75,9 +77,10 @@
                                 <span class="text-gray-700 dark:text-gray-400">Employee ID</span>
                                 <input xdata-bvalidator="required" name="employeeref" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Employee ID if available" /></label>
 
-                            <label class="block text-sm" style="margin-bottom: 5px;">
+                            <label class="block text-sm" style="margin-bottom: 5px;position:relative">
                                 <span class="text-gray-700 dark:text-gray-400">Password</span>
                                 <input type="password" data-bvalidator="required" id="password" name="password" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Please Give Strong Password!" />
+                                <i id="eye" class="fa fa-eye" style="position: absolute;top:33px;right:10px" aria-hidden="true"></i>
                             </label>
                             <label class="block text-sm" style="margin-bottom: 5px;">
                                 <span class="text-gray-700 dark:text-gray-400">Confirm Password</span>
@@ -133,6 +136,17 @@
         }
 
     }
+    $("#eye").click(() => {
+        iconname = $("#eye").attr("class");
+        if (iconname === 'fa fa-eye') {
+            $('#password').attr('type', 'text')
+            $("#eye").attr('class', 'fa fa-eye-slash')
+
+        } else {
+            $('#password').attr('type', 'password')
+            $("#eye").attr('class', 'fa fa-eye')
+        }
+    })
 </script>
 
 </html>

@@ -6,6 +6,8 @@ if (isset($_SESSION['userid'])) {
 }
 include './main/function.php';
 include './main/conn.php';
+
+$id = $_GET['hakuna'];
 ?>
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
@@ -42,36 +44,26 @@ include './main/conn.php';
                     <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="main/dist/img/login-office-dark.jpeg" alt="Office" />
                 </div>
                 <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-                    <form action="checklogin.php" method="post" onsubmit="event.preventDefault();sendForm('', '', 'checklogin', 'resultid', 'loginform');return 0;" id="loginform">
+                    <form onsubmit="event.preventDefault();sendForm('id', '<?= $id ?>', 'insertresetpassword', 'resultid', 'loginform');return 0;" id="loginform">
                         <div class="w-full">
                             <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
-                                Login
+                                Set Password
                             </h1>
-                            <label class="block text-sm">
-                                <span class="text-gray-700 dark:text-gray-400">Email</span>
-                                <input name="email" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="example@gmail.com" />
+                            <label class="block text-sm" style="margin-bottom: 5px;position:relative">
+                                <span class="text-gray-700 dark:text-gray-400">New Password</span>
+                                <input type="password" data-bvalidator="required,minlength[6]" id="password" name="password" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Give Strong Password!" />
+                                <i id="eye" class="fa fa-eye" style="position: absolute;top:33px;right:10px" aria-hidden="true"></i>
                             </label>
-                            <label class="block mt-4 mb-2 text-sm" style="position:relative">
-                                <span class="text-gray-700 dark:text-gray-400">Password</span>
-                                <input name="password" id="pass" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="***************" type="password" />
-                                <i id="eye" class="fa fa-eye" style="position: absolute;top:38px;right:10px" aria-hidden="true"></i>
+                            <label class="block text-sm" style="margin-bottom: 5px;">
+                                <span class="text-gray-700 dark:text-gray-400">Confirm Password</span>
+                                <input type="password" id="confirmpassword" data-bvalidator="required,matchconfirmpassword[password]" data-bvalidator-msg-matchconfirmpassword="Confirm Password Not Matched" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Confirm Password" />
                             </label>
                             <div id="resultid"></div>
                             <!-- You should use a button here, as the anchor is only used for the example  -->
                             <button type="submit" class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                                Log in
+                                Reset
                             </button>
 
-                            <p class="mt-4">
-                                <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="./forgotpassword">
-                                    Forgot your password?
-                                </a>
-                            </p>
-                            <p class="mt-1">
-                                <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="register">
-                                    Create account
-                                </a>
-                            </p>
                         </div>
                     </form>
                 </div>
@@ -96,11 +88,11 @@ include './main/conn.php';
         $("#eye").click(() => {
             iconname = $("#eye").attr("class");
             if (iconname === 'fa fa-eye') {
-                $('#pass').attr('type', 'text')
+                $('#password').attr('type', 'text')
                 $("#eye").attr('class', 'fa fa-eye-slash')
 
             } else {
-                $('#pass').attr('type', 'password')
+                $('#password').attr('type', 'password')
                 $("#eye").attr('class', 'fa fa-eye')
             }
         })

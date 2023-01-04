@@ -16,7 +16,7 @@ ob_start();
 
         <div class="w-full overflow-x-auto">
 
-            <table class="w-full whitespace-no-wrap">
+            <table id="example2" class="table w-full whitespace-no-wrap">
                 <thead>
                     <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-4 py-3">S.No.</th>
@@ -30,7 +30,7 @@ ob_start();
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                    <tr class="text-gray-700 dark:text-gray-400">
+                    <!-- <tr class="text-gray-700 dark:text-gray-400">
                         <td class=" px-4 py-3">1</td>
                         <td class=" px-4 py-3 font-semibold">Suresh Yadav</td>
                         <td class=" px-4 py-3">7845639860</td>
@@ -47,7 +47,7 @@ ob_start();
                             </li>
                         </td>
 
-                    </tr>
+                    </tr> -->
 
 
                 </tbody>
@@ -70,7 +70,7 @@ include "main/templete.php";
 <script>
     $(function() {
         $('#example2').DataTable({
-            "ajax": "main/employeelistdata.php",
+            "ajax": "main/disapprovedinvestmentdata.php",
             "processing": true,
             "serverSide": true,
             "pageLength": 25,
