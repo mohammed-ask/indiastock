@@ -1612,15 +1612,7 @@ class db
         if (isset($_SESSION['username'])) {
             $user = $_SESSION['username'];
         } else {
-            $head = "";
-            if (($_SERVER['HTTP_HOST'] == 'localhost')) {
-                $head = "/indiastock";
-            }
-            if ($_SERVER['REQUEST_URI'] === "$head/admin") {
-                header('location:admin/adminlogin');
-            } else {
-                header('location:login');
-            }
+            header('location:admin/adminlogin');
         }
     }
 
