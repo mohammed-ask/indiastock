@@ -53,11 +53,9 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] =  "<button class='px-4 py-2 leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100' aria-label='view' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"viewmaildetail\", \"\", \"View Mail\")'>
     <span class='w-5 h-5' fill='currentColor'><i fill='currentColor' class='fa-sharp fa-solid fa-eye'></i></span>
 </button>";
-    $n[] = $row['readstatus'];
     $data[] = $n;
 
     $i++;
 }
-$obj->updatewhere("mail", ["readstatus" => 1], "receiverid=" . $employeeid . "");
 $return['data'] = $data;
 echo json_encode($return);

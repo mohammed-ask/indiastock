@@ -31,7 +31,7 @@ ob_start();
                     Active clients
                 </p>
                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                    6389
+                    0000
                 </p>
             </div>
         </div>
@@ -215,5 +215,5 @@ $pagemeta = "";
 $pagetitle = "Indiastock: Dashboard";
 $contentheader = "";
 $pageheader = "";
-include "main/admin/templete.php";
+include "main/templete.php";
 ?>

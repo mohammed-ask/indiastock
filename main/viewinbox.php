@@ -2,6 +2,7 @@
 include "main/session.php";
 /* @var $obj db */
 ob_start();
+$obj->updatewhere("mail", ["readstatus" => 1], "receiverid=" . $employeeid . "");
 ?>
 <div class="container px-6 mx-auto grid">
     <div class="grid gap-6 mt-8 md:grid-cols-2 xl:grid-cols-2">
@@ -30,7 +31,6 @@ ob_start();
                         <th class="px-4 py-3">Sender Email</th>
                         <th class="px-4 py-3">Subject</th>
                         <th class="px-4 py-3">View Message</th>
-                        <th class="px-4 py-3">Read Status</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y text-s dark:divide-gray-700 dark:bg-gray-800">
@@ -68,22 +68,7 @@ include "templete.php";
             "responsive": true,
             "order": [
                 [0, "desc"]
-            ],
-            columnDefs: [{
-                render: function(data, type, full, meta) {
-                    return "<div class='text-wrap width-200 bg-red'>" + data + "</div>";
-                },
-                targets: 5,
-                visible: false,
-            }],
-            "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
-                console.log(aData)
-                if (aData[5] == 1) {
-
-                } else {
-                    $('td', nRow).attr('style', 'background-color: hsl(138, 39%, 56%) !important');
-                }
-            },
+            ]
         });
     });
 </script>

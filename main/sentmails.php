@@ -2,6 +2,8 @@
 include "main/session.php";
 /* @var $obj db */
 ob_start();
+
+
 ?>
 <div class="container px-6 mx-auto grid">
     <div class="grid gap-6 mt-8 md:grid-cols-2 xl:grid-cols-2">
@@ -27,10 +29,9 @@ ob_start();
                     <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-4 py-3">S.No.</th>
                         <th class="px-4 py-3">Date & Time</th>
-                        <th class="px-4 py-3">Sender Email</th>
+                        <th class="px-4 py-3">Sent To</th>
                         <th class="px-4 py-3">Subject</th>
                         <th class="px-4 py-3">View Message</th>
-                        <th class="px-4 py-3">Read Status</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y text-s dark:divide-gray-700 dark:bg-gray-800">
@@ -55,7 +56,7 @@ include "templete.php";
 <script>
     $(function() {
         $('#example2').DataTable({
-            "ajax": "../main/admin/inboxdata.php",
+            "ajax": "../main/admin/sentmaildata.php",
             "processing": true,
             "serverSide": true,
             "pageLength": 25,
@@ -68,22 +69,7 @@ include "templete.php";
             "responsive": true,
             "order": [
                 [0, "desc"]
-            ],
-            columnDefs: [{
-                render: function(data, type, full, meta) {
-                    return "<div class='text-wrap width-200 bg-red'>" + data + "</div>";
-                },
-                targets: 5,
-                visible: false,
-            }],
-            "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
-                console.log(aData)
-                if (aData[5] == 1) {
-
-                } else {
-                    $('td', nRow).attr('style', 'background-color: hsl(138, 39%, 56%) !important');
-                }
-            },
+            ]
         });
     });
 </script>

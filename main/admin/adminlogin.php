@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['userid'])) {
+if (isset($_SESSION['userid']) && $_SESSION['type'] == 1) {
     $employeeid = $_SESSION['userid'];
     header("location:index");
 }
@@ -49,11 +49,12 @@ include './main/conn.php';
                             </h1>
                             <label class="block text-sm">
                                 <span class="text-gray-700 dark:text-gray-400">Email</span>
-                                <input name="email" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Jane Doe" />
+                                <input name="email" data-bvalidator='required' class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Jane Doe" />
                             </label>
-                            <label class="block mt-4 mb-2 text-sm">
+                            <label class="block mt-4 mb-2 text-sm" style="position: relative;">
                                 <span class="text-gray-700 dark:text-gray-400">Password</span>
-                                <input name="password" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="***************" type="password" />
+                                <input name="password" id="password" data-bvalidator='required' class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="***************" type="password" />
+                                <i id="eye" class="fa fa-eye" style="position: absolute;top:38px;right:10px" aria-hidden="true"></i>
                             </label>
                             <div id="resultid"></div>
                             <!-- You should use a button here, as the anchor is only used for the example  -->
@@ -84,3 +85,16 @@ include './main/conn.php';
 </body>
 
 </html>
+<script>
+    $("#eye").click(() => {
+        iconname = $("#eye").attr("class");
+        if (iconname === 'fa fa-eye') {
+            $('#password').attr('type', 'text')
+            $("#eye").attr('class', 'fa fa-eye-slash')
+
+        } else {
+            $('#password').attr('type', 'password')
+            $("#eye").attr('class', 'fa fa-eye')
+        }
+    })
+</script>

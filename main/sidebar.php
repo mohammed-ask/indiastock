@@ -26,214 +26,44 @@
         </li>
       </ul>
     <?php } ?>
-    <ul>
-      <?php if (in_array(4, $permissions) || in_array(14, $permissions)) { ?>
-        <li class="relative px-6 py-3">
-          <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleOverviewPagesMenu" aria-haspopup="true">
-            <span class="inline-flex items-center">
-              <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <i class="fa-solid fa-user"></i>
-              </span>
-              <span class="ml-3">Users Overview</span>
+    <?php if (in_array(15, $permissions) || in_array(16, $permissions) || in_array(17, $permissions)) { ?>
+      <li class="relative px-6 py-3">
+        <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="togglePagesMenu" aria-haspopup="true">
+          <span class="inline-flex items-center">
+            <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+              <i class="fa-solid fa-envelope"></i>
             </span>
-            <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-            </svg>
-          </button>
-          <template x-if="isOverviewPagesMenuOpen">
-            <ul x-transition:enter="transition-all ease-in-out duration-300" x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300" x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0" class="p-2 mt-2 space-y-2 overflow-hidden  font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900" aria-label="submenu">
-              <?php if (in_array(4, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                  <a class="w-full" href="users">Users List</a>
-                </li>
-              <?php } ?>
-              <?php if (in_array(14, $permissions)) { ?>
-
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                  <a class="w-full" href="userlogindetails">
-                    Logins Time Details
-                  </a>
-                </li>
-              <?php } ?>
-            </ul>
-          </template>
-        </li>
-      <?php } ?>
-      <?php if (in_array(8, $permissions) || in_array(18, $permissions)) { ?>
-
-        <li class="relative px-6 py-3">
-          <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleRolePagesMenu" aria-haspopup="true">
-            <span class="inline-flex items-center">
-              <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <i class="fa-solid fa-users-gear"></i>
-              </span>
-              <span class="ml-3">Role Management</span>
-            </span>
-            <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-            </svg>
-          </button>
-          <template x-if="isRolePagesMenuOpen">
-            <ul x-transition:enter="transition-all ease-in-out duration-300" x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300" x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0" class="p-2 mt-2 space-y-2 overflow-hidden  font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900" aria-label="submenu">
-              <?php if (in_array(8, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                  <a class="w-full" href="viewrole">Roles</a>
-                </li>
-              <?php } ?>
-              <?php if (in_array(18, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                  <a class="w-full" href="permission">Permissions</a>
-                </li>
-              <?php } ?>
-
-            </ul>
-          </template>
-        </li>
-      <?php } ?>
-      <?php if (in_array(22, $permissions) || in_array(23, $permissions)) { ?>
-        <li class="relative px-6 py-3">
-          <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleTransectionMenu" aria-haspopup="true">
-            <span class="inline-flex items-center">
-              <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <i class="fa-solid fa-money-bill-transfer"></i>
-              </span>
-              <span class="ml-3">Transactions</span>
-            </span>
-            <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-            </svg>
-          </button>
-          <template x-if="isTransectionMenuOpen">
-            <ul x-transition:enter="transition-all ease-in-out duration-300" x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300" x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0" class="p-2 mt-2 space-y-2 overflow-hidden  font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900" aria-label="submenu">
-              <?php if (in_array(22, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                  <a class="w-full" href="todaytransactions">Today's Transactions</a>
-                </li>
-              <?php } ?>
-              <?php if (in_array(23, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                  <a class="w-full" href="alltransactions">
-                    All Transactions
-                  </a>
-                </li>
-              <?php } ?>
-            </ul>
-          </template>
-        </li>
-      <?php } ?>
-      <?php if (in_array(15, $permissions) || in_array(16, $permissions) || in_array(17, $permissions)) { ?>
-        <li class="relative px-6 py-3">
-          <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="togglePagesMenu" aria-haspopup="true">
-            <span class="inline-flex items-center">
-              <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <i class="fa-solid fa-envelope"></i>
-              </span>
-              <span class="ml-3">EMail</span>
-            </span>
-            <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-            </svg>
-          </button>
-          <template x-if="isPagesMenuOpen">
-            <ul x-transition:enter="transition-all ease-in-out duration-300" x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300" x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0" class="p-2 mt-2 space-y-2 overflow-hidden  font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900" aria-label="submenu">
-              <?php if (in_array(15, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                  <a class="w-full" href="composemail">Compose Mail</a>
-                </li>
-              <?php } ?>
-              <?php if (in_array(16, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                  <a class="w-full" href="viewinbox">
-                    Inbox
-                  </a>
-                </li>
-              <?php } ?>
-              <?php if (in_array(17, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                  <a class="w-full" href="sentmails">
-                    Sent Mail
-                  </a>
-                </li>
-              <?php } ?>
-            </ul>
-          </template>
-        </li>
-      <?php } ?>
-      <?php if (in_array(15, $permissions)) { ?>
-        <ul>
-          <li class="relative px-6 py-3">
-            <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="pendingapproval">
-              <i class="fa-solid fa-user-clock"></i>
-              <span class="ml-3">Pending Approvals</span>
-            </a>
-          </li>
-        </ul>
-      <?php } ?>
-      <?php if (in_array(25, $permissions) || in_array(26, $permissions) || in_array(27, $permissions) || in_array(28, $permissions) || in_array(29, $permissions)) { ?>
-        <li class="relative px-6 py-3">
-          <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleInvestmentPageMenu" aria-haspopup="true">
-            <span class="inline-flex items-center">
-              <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <i class="fa-solid fa-indian-rupee-sign"></i>
-              </span>
-              <span class="ml-3">Investment</span>
-            </span>
-            <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-            </svg>
-          </button>
-          <template x-if="isInvestmentPageMenuOpen">
-            <ul x-transition:enter="transition-all ease-in-out duration-300" x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300" x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0" class="p-2 mt-2 space-y-2 overflow-hidden  font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900" aria-label="submenu">
-              <?php if (in_array(25, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                  <a class="w-full" href="allinvestment">All</a>
-                </li>
-              <?php } ?>
-              <?php if (in_array(26, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                  <a class="w-full" href="pendinginvestment">Pending</a>
-                </li>
-              <?php } ?>
-              <?php if (in_array(27, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                  <a class="w-full" href="approvedinvestment">Approved</a>
-                </li>
-              <?php } ?>
-              <?php if (in_array(28, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                  <a class="w-full" href="disapprovedinvestment">Disapproved</a>
-                </li>
-              <?php } ?>
-              <?php if (in_array(29, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                  <a class="w-full" href="withdrawalrequest">Withdrawal Requests</a>
-                </li>
-              <?php } ?>
-            </ul>
-          </template>
-        </li>
-      <?php } ?>
-      <?php if (in_array(12, $permissions)) { ?>
-        <ul>
-          <li class="relative px-6 py-3">
-            <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="employeelist">
-              <i class="fa-solid fa-circle-info"></i>
-              <span class="ml-3">Employees Details</span>
-            </a>
-          </li>
-        </ul>
-      <?php } ?>
-      <?php if (in_array(30, $permissions)) { ?>
-        <ul>
-          <li class="relative px-6 py-3">
-            <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="settings">
-              <i class="fa fa-cog fa-lg"></i>
-              <span class="ml-3">Settings</span>
-            </a>
-          </li>
-        </ul>
-      <?php } ?>
-    </ul>
+            <span class="ml-3">EMail</span>
+          </span>
+          <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <template x-if="isPagesMenuOpen">
+          <ul x-transition:enter="transition-all ease-in-out duration-300" x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300" x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0" class="p-2 mt-2 space-y-2 overflow-hidden  font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900" aria-label="submenu">
+            <?php if (in_array(15, $permissions)) { ?>
+              <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                <a class="w-full" href="composemail">Compose Mail</a>
+              </li>
+            <?php } ?>
+            <?php if (in_array(16, $permissions)) { ?>
+              <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                <a class="w-full" href="viewinbox">
+                  Inbox
+                </a>
+              </li>
+            <?php } ?>
+            <?php if (in_array(17, $permissions)) { ?>
+              <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                <a class="w-full" href="sentmails">
+                  Sent Mail
+                </a>
+              </li>
+            <?php } ?>
+          </ul>
+        </template>
+      </li>
+    <?php } ?>
     <div class="px-6 my-6">
       <button class="flex items-center justify-between w-full px-4 py-2  font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
         Create account

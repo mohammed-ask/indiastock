@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (isset($_SESSION['userid'])) {
+if (isset($_SESSION['userid']) && $_SESSION['type'] == 2) {
     $employeeid = $_SESSION['userid'];
-    header("location:administrator");
+    header("location:dashboard");
 }
 include './main/function.php';
 include './main/conn.php';
@@ -42,19 +42,24 @@ include './main/conn.php';
                     <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="main/dist/img/login-office-dark.jpeg" alt="Office" />
                 </div>
                 <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-                    <form action="checklogin.php" method="post" onsubmit="event.preventDefault();sendForm('', '', 'checklogin', 'resultid', 'loginform');return 0;" id="loginform">
+                    <form method="post" onsubmit="event.preventDefault();sendForm('', '', 'checklogin', 'resultid', 'loginform');return 0;" id="loginform">
                         <div class="w-full">
                             <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
                                 Login
                             </h1>
                             <label class="block text-sm">
                                 <span class="text-gray-700 dark:text-gray-400">Email</span>
-                                <input name="email" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="example@gmail.com" />
+                                <input name="email" data-bvalidator='required' class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="example@gmail.com" />
                             </label>
                             <label class="block mt-4 mb-2 text-sm" style="position:relative">
                                 <span class="text-gray-700 dark:text-gray-400">Password</span>
-                                <input name="password" id="pass" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="***************" type="password" />
+                                <input name="password" data-bvalidator='required' id="pass" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="***************" type="password" />
                                 <i id="eye" class="fa fa-eye" style="position: absolute;top:38px;right:10px" aria-hidden="true"></i>
+                            </label>
+                            <label class="block mt-4 mb-2 text-sm" style="position:relative">
+                                <span class="text-gray-700 dark:text-gray-400">CAPTCHA</span>
+                                <img src="main/generateimage.php" alt="CAPTCHA">
+                                <input name="captcha" data-bvalidator='required' class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter Captcha" />
                             </label>
                             <div id="resultid"></div>
                             <!-- You should use a button here, as the anchor is only used for the example  -->

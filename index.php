@@ -6,7 +6,7 @@ if (($_SERVER['HTTP_HOST'] == 'localhost')) {
 }
 $request = parse_url($_SERVER['REQUEST_URI']);
 switch ($request['path']) {
-    case "$head/admin/index":
+    case "$head/admin/index":                                  // Admin Routes
         require __DIR__ . '/main/admin/index.php';
         break;
     case "$head/admin":
@@ -15,27 +15,9 @@ switch ($request['path']) {
     case "$head/admin/adminlogin":
         require __DIR__ . '/main/admin/adminlogin.php';
         break;
-    case "$head/index":
-        require __DIR__ . '/main/index.php'; //User pages
-        break;
-    case "$head/":
-        require __DIR__ . '/main/index.php';
-        break;
-    case "$head";
-        require __DIR__ . '/main/index.php';
-        break;
-        // case "$head/administrator";
-        //     require __DIR__ . '/main/admin/admin.php';
-        //     break;
     case "$head/about";
         require __DIR__ . '/main/admin/about.php';
         break;
-    case "$head/login";
-        require __DIR__ . '/main/admin/login.php';
-        break;
-        // case "$head/adminlogin";
-        //     require __DIR__ . '/main/admin/adminlogin.php';
-        //     break;
     case "$head/admin/checkadminlogin";
         require __DIR__ . '/main/admin/checkadminlogin.php';
         break;
@@ -105,9 +87,6 @@ switch ($request['path']) {
     case "$head/admin/deletepermission";
         require __DIR__ . '/main/admin/deletepermission.php';
         break;
-    case "$head/admin/checklogin";
-        require __DIR__ . '/main/admin/checklogin.php';
-        break;
     case "$head/admin/transaction";
         require __DIR__ . '/main/admin/viewtransaction.php';
         break;
@@ -119,9 +98,6 @@ switch ($request['path']) {
         break;
     case "$head/admin/register";
         require __DIR__ . '/main/admin/addusers.php';
-        break;
-    case "$head/admin/insertuser";
-        require __DIR__ . '/main/admin/insertuser.php';
         break;
     case "$head/admin/adduser";
         require __DIR__ . '/main/admin/adduser.php';
@@ -222,9 +198,58 @@ switch ($request['path']) {
     case "$head/admin/insertpersonalaccount";
         require __DIR__ . '/main/admin/insertpersonalaccount.php';
         break;
-    case "$head/admin/logout";
-        require __DIR__ . '/main/admin/logout.php';
+    case "$head/admin/adminprofile";
+        require __DIR__ . '/main/admin/adminprofile.php';
         break;
+    case "$head/admin/updateprofile";
+        require __DIR__ . '/main/admin/updateprofile.php';    //admin Route close
+        break;
+    case "$head/admin/logout";
+        require __DIR__ . '/main/logout.php';
+        break;
+    case "$head/logout";
+        require __DIR__ . '/main/logout.php';
+        break;
+    case "$head/index":                                    //User Routes
+        require __DIR__ . '/main/index.php';
+        break;
+    case "$head/":
+        require __DIR__ . '/main/index.php';
+        break;
+    case "$head";
+        require __DIR__ . '/main/index.php';
+        break;
+    case "$head/register";
+        require __DIR__ . '/main/addusers.php';
+        break;
+    case "$head/insertuser";
+        require __DIR__ . '/main/insertuser.php';
+        break;
+    case "$head/login";
+        require __DIR__ . '/main/login.php';
+        break;
+    case "$head/checklogin";
+        require __DIR__ . '/main/checklogin.php';
+        break;
+    case "$head/dashboard";
+        require __DIR__ . '/main/dashboard.php';
+        break;
+    case "$head/composemail";
+        require __DIR__ . '/main/composemail.php';
+        break;
+    case "$head/insertmail";
+        require __DIR__ . '/main/insertmail.php';
+        break;
+    case "$head/viewinbox";
+        require __DIR__ . '/main/viewinbox.php';
+        break;
+    case "$head/viewmaildetail";
+        require __DIR__ . '/main/viewmaildetail.php';
+        break;
+    case "$head/sentmails";
+        require __DIR__ . '/main/sentmails.php';
+        break;
+
     default:
         http_response_code(404);
         require __DIR__ . '/main/admin/404.php';

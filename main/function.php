@@ -1609,15 +1609,42 @@ class db
 
     function check_login()
     {
-        if (isset($_SESSION['username'])) {
+        if (isset($_SESSION['username']) && $_SESSION['type'] == 2) {
             $user = $_SESSION['username'];
+            $head = "";
+            if (($_SERVER['HTTP_HOST'] == 'localhost')) {
+                $head = "/indiastock";
+            }
+            if (str_contains($_SERVER['REQUEST_URI'], "$head/admin")) {
+                if ($_SERVER['REQUEST_URI'] === "$head/admin") {
+                    header('location:admin/adminlogin');
+                } else {
+                    header('location:adminlogin');
+                }
+            }
+        } elseif (isset($_SESSION['username']) && $_SESSION['type'] == 1) {
+            $head = "";
+            // if ($_SERVER['REQUEST_URI'] !== '/indiastock/admin/users') {
+            //     echo $_SERVER['REQUEST_URI'];
+            //     die;
+            // }
+            if (($_SERVER['HTTP_HOST'] == 'localhost')) {
+                $head = "/indiastock";
+            }
+            if (!str_contains($_SERVER['REQUEST_URI'], "$head/admin") && !str_contains($_SERVER['REQUEST_URI'], "$head/main/admin")) {
+                header('location:login');
+            }
         } else {
             $head = "";
             if (($_SERVER['HTTP_HOST'] == 'localhost')) {
                 $head = "/indiastock";
             }
-            if ($_SERVER['REQUEST_URI'] === "$head/admin") {
-                header('location:admin/adminlogin');
+            if (str_contains($_SERVER['REQUEST_URI'], "$head/admin")) {
+                if ($_SERVER['REQUEST_URI'] === "$head/admin") {
+                    header('location:admin/adminlogin');
+                } else {
+                    header('location:adminlogin');
+                }
             } else {
                 header('location:login');
             }
