@@ -1,4 +1,20 @@
 <!-- Shoubham Templte -->
+<script src="main/dist/userjs/selectr.min.js"></script>
+<script src="main/dist/plugins/apex-chart/apexcharts.min.js"></script>
+<script src="main/dist/pages/market.init.js"></script>
+<!-- App js -->
+<script src="main/dist/userjs/app.js"></script>
+<script>
+  new Selectr('#Watchlist', {
+    searchable: false,
+  });
+
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+  var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+  });
+</script>
+
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 <script src="main/dist/js/init-alpine.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script> -->

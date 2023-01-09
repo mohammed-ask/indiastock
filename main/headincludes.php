@@ -1,5 +1,3 @@
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
  <title><?php
         if (isset($pagetitle) && (!empty($pagetitle))) {
           echo $pagetitle;
@@ -8,12 +6,28 @@
         }
         ?></title>
  <!-- Shubham Template -->
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Market</title>
- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+ <title>Admin &amp; Dashboard</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <meta content="Premium Multipurpose Admin &amp; Dashboard Template" name="description">
+ <meta content="" name="author">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+ <!-- App favicon -->
+ <link rel="shortcut icon" href="main/dist/userimages/favicon.ico">
+
+
+
+ <link href="main/dist/usercss/selectr.min.css" rel="stylesheet" type="text/css">
+
+ <!-- App css -->
+ <link href="main/dist/usercss/bootstrap.min.css" rel="stylesheet" type="text/css">
+ <link href="main/dist/usercss/icons.min.css" rel="stylesheet" type="text/css">
+ <link href="main/dist/usercss/app.min.css" rel="stylesheet" type="text/css">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <link href="main/dist/usercss/style.css" rel="stylesheet" type="text/css">
 
  <!-- Google Font: Source Sans Pro -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -24,7 +38,6 @@
  <!-- Tempusdominus Bootstrap 4 -->
  <link rel="stylesheet" href="main/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
 
- <link rel="stylesheet" href="main/dist/css/tailwind.output.css" />
  <!-- iCheck -->
  <link rel="stylesheet" href="main/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
  <!-- JQVMap -->
@@ -51,6 +64,7 @@
 
  <!-- summernote -->
  <link rel="stylesheet" href="main/plugins/summernote/summernote-bs4.min.css">
+
 
  <?php
   if (isset($extracss)) {

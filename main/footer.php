@@ -1,7 +1,6 @@
-<footer class="main-footer no-print">
-    <strong>Copyright &copy; <a href="http://www.abaxsoft.com">Abaxsoft Solutions Pvt. Ltd.</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      
-    </div>
-  </footer>
+<footer class="footer text-center text-sm-start">
+  ©
+  <script>
+    document.write(new Date().getFullYear())
+  </script> PMS Equity <span class="text-muted d-none d-sm-inline-block float-end">India's Best <i class="mdi mdi-heart text-danger"></i>Resarchers & Advisor</span>
+</footer>
