@@ -51,7 +51,7 @@
                         <i class="fa-regular fa-user font-14 me-1 align-text-bottom"></i> Profile</a>
 
                     <div class="dropdown-divider mb-0"></div>
-                    <a class="dropdown-item" href="login.html"><i class="fa-solid fa-arrow-right-from-bracket font-14 me-1 align-text-bottom"></i>
+                    <a class="dropdown-item" href="logout"><i class="fa-solid fa-arrow-right-from-bracket font-14 me-1 align-text-bottom"></i>
                         Logout</a>
                 </div>
             </li><!--end topbar-profile-->
