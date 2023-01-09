@@ -29,7 +29,7 @@
                         </div>
                         <div class="simplebar-mask">
                             <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
-                                <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden;">
+                                <div class="simplebar-content-wrapper" style="height: 100%; overflow: scroll;">
                                     <div class="simplebar-content" style="padding: 0px;">
 
 
