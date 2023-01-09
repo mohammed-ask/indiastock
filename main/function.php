@@ -1412,6 +1412,97 @@ class db
         return $output;
     }
 
+    function getexchangerate()
+    {
+        $from_currency = 'USD';
+        $to_currency = 'INR';
+        $api_key = AVAPIKEY;
+        $exchange_rate_url = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=' . $from_currency . '&to_currency=' . $to_currency . '&apikey=' . $api_key;
+
+        // Set up cURL for the exchange rate
+        $exchange_rate_ch = curl_init();
+
+        // Set the URL and other options for the exchange rate
+        curl_setopt($exchange_rate_ch, CURLOPT_URL, $exchange_rate_url);
+        curl_setopt($exchange_rate_ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Execute the request and get the response for the exchange rate
+        $exchange_rate_response = curl_exec($exchange_rate_ch);
+
+        // Close the cURL handle for the exchange rate
+        curl_close($exchange_rate_ch);
+
+        // Decode the JSON response for the exchange rate
+        $exchange_rate_data = json_decode($exchange_rate_response, true);
+
+        // Extract the exchange rate from the response
+        $exchange_rate = $exchange_rate_data['Realtime Currency Exchange Rate']['5. Exchange Rate'];
+        return $exchange_rate;
+    }
+
+    function stockpricedata($sym)
+    {
+
+        // Set up the API URL with the desired stock symbol
+        $symbol = 'TATAMOTORS.NS';
+        $api_url = 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-quotes?region=IN&lang=en&symbols=' . $symbol;
+
+        // Set up the HTTP headers with the API key and other options
+        $headers = array(
+            'X-RapidAPI-Key: 40b3dc48bfmsh3d51e5f5ff3e78ep1588d1jsnfea1926189a2',
+            'X-RapidAPI-Host: apidojo-yahoo-finance-v1.p.rapidapi.com'
+        );
+
+        // Set up cURL
+        $ch = curl_init();
+
+        // Set the URL and other options
+        curl_setopt($ch, CURLOPT_URL, $api_url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Execute the request and get the response
+        $response = curl_exec($ch);
+
+        // Close the cURL handle
+        curl_close($ch);
+
+        // Decode the JSON response
+        $data = json_decode($response, true);
+
+        // Extract the stock price from the response
+        $stock_price = $data['quoteResponse']['result'][0]['regularMarketPrice']['raw'];
+
+        // Print the stock price
+        echo "The current stock price for Tata Motors is $stock_price.\n";
+    }
+
+    function stockdata()
+    {
+        $api_key = AVAPIKEY;
+        $url = 'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=INDIA&apikey=' . $api_key;
+
+        // Set up cURL
+        $ch = curl_init();
+
+        // Set the URL and other options
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Execute the request and get the response
+        $response = curl_exec($ch);
+
+        // Close the cURL handle
+        curl_close($ch);
+
+        // Decode the JSON response
+        $data = json_decode($response, true);
+
+        // Extract the list of symbols from the response
+        $symbols = $data;
+        return $symbols;
+    }
+
     function insertnew($tb_name, $postdata, $print = 0)
     {
         foreach ($postdata as $key => $value) {

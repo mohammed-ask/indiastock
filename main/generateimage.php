@@ -9,7 +9,7 @@ $_SESSION['captcha_code'] = $code;
 // Create the image
 $image = imagecreatetruecolor(100, 30);
 $bg_color = imagecolorallocate($image, 0, 255, 0);
-$text_color = imagecolorallocate($image, 255, 0, 0);
+$text_color = imagecolorallocate($image, 160, 32, 240);
 
 // Add noise to the image
 for ($i = 0; $i < 500; $i++) {
