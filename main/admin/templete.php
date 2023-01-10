@@ -4,6 +4,21 @@
 <head>
     <?php include 'headincludes.php'; ?>
     <style>
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 2px;
+        }
+
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: lightblue;
+            border-radius: 10px;
+        }
+
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
