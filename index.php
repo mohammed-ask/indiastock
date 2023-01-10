@@ -201,6 +201,9 @@ switch ($request['path']) {
     case "$head/admin/adminprofile";
         require __DIR__ . '/main/admin/adminprofile.php';
         break;
+    case "$head/admin/stockdata";
+        require __DIR__ . '/main/admin/stockdata.php';
+        break;
     case "$head/admin/updateprofile";
         require __DIR__ . '/main/admin/updateprofile.php';    //admin Route close
         break;
@@ -222,6 +225,9 @@ switch ($request['path']) {
     case "$head/register";
         require __DIR__ . '/main/addusers.php';
         break;
+    case "$head/dummyregister":                                    //User Routes
+        require __DIR__ . '/main/dummyregister.php';
+        break;
     case "$head/insertuser";
         require __DIR__ . '/main/insertuser.php';
         break;
@@ -234,22 +240,15 @@ switch ($request['path']) {
     case "$head/dashboard";
         require __DIR__ . '/main/dashboard.php';
         break;
-    case "$head/composemail";
-        require __DIR__ . '/main/composemail.php';
+    case "$head/mail";
+        require __DIR__ . '/main/mail.php';
         break;
     case "$head/insertmail";
         require __DIR__ . '/main/insertmail.php';
         break;
-    case "$head/viewinbox";
-        require __DIR__ . '/main/viewinbox.php';
-        break;
     case "$head/viewmaildetail";
         require __DIR__ . '/main/viewmaildetail.php';
         break;
-    case "$head/sentmails";
-        require __DIR__ . '/main/sentmails.php';
-        break;
-
     default:
         http_response_code(404);
         require __DIR__ . '/main/admin/404.php';
