@@ -96,8 +96,8 @@ while ($row = $obj->fetch_assoc($result)) {
          </button><div id='redirect'></div>";
     }
     if (in_array(84, $permissions)) {
-        $a .= "<button class='flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"addinvestmentamount\", \"\", \"Add Fund\")'  aria-label='Go'>
-             <span class='w-5 h-5'><i class='fa fa-plus'></i></span>
+        $a .= "<button class='flex items-center justify-between px-2 py-2 bg-green text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"addinvestmentamount\", \"\", \"Add Fund\")'  aria-label='Go'>
+             <span ><i class='fa fa-plus'></i> <strong>Add Fund</strong></span>
          </button>";
     }
     $a  .= '</div>';

@@ -1,4 +1,7 @@
 <!-- Shoubham Templte -->
+<script src="main/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="main/plugins/jquery-ui/jquery-ui.min.js"></script>
 <script src="main/dist/userjs/selectr.min.js"></script>
 <script src="main/dist/plugins/apex-chart/apexcharts.min.js"></script>
 <script src="main/dist/pages/market.init.js"></script>
@@ -27,9 +30,7 @@
   }
 </style>
 <!-- jQuery -->
-<script src="main/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="main/plugins/jquery-ui/jquery-ui.min.js"></script>
+
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)

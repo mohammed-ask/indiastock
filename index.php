@@ -249,6 +249,12 @@ switch ($request['path']) {
     case "$head/viewmaildetail";
         require __DIR__ . '/main/viewmaildetail.php';
         break;
+    case "$head/profile";
+        require __DIR__ . '/main/profile.php';
+        break;
+    case "$head/updateprofile";
+        require __DIR__ . '/main/updateprofile.php';
+        break;
     default:
         http_response_code(404);
         require __DIR__ . '/main/admin/404.php';

@@ -62,7 +62,7 @@
                                                             <div class="action-icons">
                                                                 <ul class="list-inline">
                                                                     <li class="list-inline-item align-self-center mx-0 bg-success">
-                                                                        <a href="javascript: void(0);" data-bs-toggle="modal" data-bs-target="#BuyStocks"><i class="fa-solid fa-b text-white email-action-icons-item"></i></a>
+                                                                        <a data-bs-backdrop="static" data-bs-keyboard="false" href="javascript: void(0);" data-bs-toggle="modal" data-bs-target="#BuyStocks"><i class="fa-solid fa-b text-white email-action-icons-item"></i></a>
                                                                     </li><!--end /li-->
                                                                     <li class="list-inline-item align-self-center mx-0 bg-danger">
                                                                         <a href="javascript: void(0);" data-bs-toggle="modal" data-bs-target="#SellStocks"><i class="fa-solid fa-s text-white email-action-icons-item"></i></a>

@@ -17,14 +17,14 @@
       </li>
     </ul>
     <?php if (in_array(31, $permissions)) { ?>
-      <ul>
+      <!-- <ul>
         <li class="relative px-6 py-3">
           <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="requestwithdrawal">
             <i class="fas fa-rupee-sign"></i>
             <span class="ml-3">Request Withdrawal</span>
           </a>
         </li>
-      </ul>
+      </ul> -->
     <?php } ?>
     <ul>
       <?php if (in_array(4, $permissions) || in_array(14, $permissions)) { ?>
@@ -205,13 +205,23 @@
                 </li>
               <?php } ?>
               <?php if (in_array(29, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                <!-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                   <a class="w-full" href="withdrawalrequest">Withdrawal Requests</a>
-                </li>
+                </li> -->
               <?php } ?>
             </ul>
           </template>
         </li>
+      <?php } ?>
+      <?php if (in_array(29, $permissions)) { ?>
+        <ul>
+          <li class="relative px-6 py-3">
+            <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="withdrawalrequest">
+              <i class="fa-solid fa-circle-info"></i>
+              <span class="ml-3">Withdrawal Requests</span>
+            </a>
+          </li>
+        </ul>
       <?php } ?>
       <?php if (in_array(12, $permissions)) { ?>
         <ul>
@@ -223,23 +233,16 @@
           </li>
         </ul>
       <?php } ?>
-      <?php if (in_array(30, $permissions)) { ?>
-        <ul>
-          <li class="relative px-6 py-3">
-            <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="settings">
-              <i class="fa fa-cog fa-lg"></i>
-              <span class="ml-3">Settings</span>
-            </a>
-          </li>
-        </ul>
-      <?php } ?>
     </ul>
-    <div class="px-6 my-6">
-      <button class="flex items-center justify-between w-full px-4 py-2  font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-        Create account
-        <span class="ml-2" aria-hidden="true">+</span>
-      </button>
-    </div>
+    <?php if (in_array(30, $permissions)) { ?>
+      <div class="px-6 my-6">
+        <button class="flex items-center justify-between w-full px-4 py-2  font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" onclick='window.location.href="settings"'>
+          Settings
+          <span class="ml-2" aria-hidden="true"> <i class="fa fa-cog "></i></span>
+        </button>
+      </div>
+    <?php } ?>
+
   </div>
 </aside>
 <!-- Mobile sidebar -->
@@ -401,12 +404,20 @@
             <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
               <a class="w-full" href="disapprovedinvestment">Disapproved</a>
             </li>
-            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+            <!-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
               <a class="w-full" href="withdrawalrequest">Withdrawal Requests</a>
-            </li>
+            </li> -->
           </ul>
         </template>
       </li>
+      <ul>
+        <li class="relative px-6 py-3">
+          <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="withdrawalrequest">
+            <i class="fa-solid fa-circle-info"></i>
+            <span class="ml-3">Withdrawal Request</span>
+          </a>
+        </li>
+      </ul>
       <ul>
         <li class="relative px-6 py-3">
           <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="employeelist">

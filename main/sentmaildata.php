@@ -1,5 +1,5 @@
 <?php
-include '../session.php';
+include 'session.php';
 /* @var $obj db */
 $id = $employeeid;
 $limit = $_GET['length'];
@@ -50,9 +50,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d/m/Y H:i:s");
     $n[] = $obj->selectfieldwhere("users", "email", "id=" . $row['receiverid'] . "");
     $n[] =  $row['subject'];
-    $n[] =  "<button class='px-4 py-2 leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100' aria-label='view' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"viewmaildetail\", \"sentmail\", \"View Mail\")'>
-    <span class='w-5 h-5' fill='currentColor'><i fill='currentColor' class='fa-sharp fa-solid fa-eye'></i></span>
-</button>";
+    $n[] =  "<button class='btn btn-sm btn-success' data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal(\"" . $row['id'] . "\", \"viewmaildetail\", \"\", \"Add New User\")' style='background-color: #0b51b7;'>View</button>";
     $data[] = $n;
 
     $i++;

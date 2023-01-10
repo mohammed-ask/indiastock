@@ -47,7 +47,7 @@
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
-                    <a class="dropdown-item" href="profile.html">
+                    <a class="dropdown-item" href="profile">
                         <i class="fa-regular fa-user font-14 me-1 align-text-bottom"></i> Profile</a>
 
                     <div class="dropdown-divider mb-0"></div>
@@ -76,33 +76,33 @@
                 <!-- Navigation Menu-->
                 <ul class="navigation-menu">
                     <li class="nav-item parent-menu-item active">
-                        <a class="nav-link" href="user-index.html" id="navbarDashboards">
+                        <a class="nav-link" href="dashboard" id="navbarDashboards">
                             <span><i class="fa-regular fa-envelope-open menu-icon"></i>Dashboards</span>
                         </a>
                     </li><!--end nav-item-->
 
                     <li class="nav-item  parent-menu-item">
-                        <a class="nav-link" href="market.html" id="navbarMarket">
+                        <a class="nav-link" href="market" id="navbarMarket">
                             <span><i class="fa-solid fa-chart-column menu-icon"></i>Market</span>
                         </a>
                     </li><!--end nav-item-->
 
                     <li class="nav-item  parent-menu-item">
-                        <a class="nav-link" href="portfolio.html" id="navbarMarket">
+                        <a class="nav-link" href="portfolio" id="navbarMarket">
                             <span><i class="fa-solid fa-briefcase menu-icon"></i>Portfolio</span>
                         </a>
                     </li><!--end nav-item-->
 
 
                     <li class="nav-item  parent-menu-item">
-                        <a class="nav-link" href="email.html" id="navbarMarket">
+                        <a class="nav-link" href="mail" id="navbarMarket">
                             <span class="position-relative"><i class="fa-solid fa-envelope-open-text menu-icon"></i>Email
                                 <small class="order-badge pending"></small></span>
                         </a>
                     </li><!--end nav-item-->
 
                     <li class="nav-item  parent-menu-item">
-                        <a class="nav-link" href="fund.html" id="navbarMarket">
+                        <a class="nav-link" href="fund" id="navbarMarket">
                             <span><i class="fa-solid fa-money-bill menu-icon"></i>Funds</span>
                         </a><i class=""></i>
                     </li><!--end nav-item-->

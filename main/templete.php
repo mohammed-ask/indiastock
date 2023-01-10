@@ -45,8 +45,25 @@
         </div>
         <!-- end page content -->
     </div>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title m-0 mb-n1" id="modalheading">Add Service Code</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modaldata">
+                </div>
+                <div class="p-3">
+                    <button type="button" class="btn btn-success w-10 my-3" id="modalfooterbtn" onclick="$('#modalsubmit').click();">Reply</button>
+                    <!-- <button type="button" class="btn btn-primary" id="modalfooterbtn" onclick="$('#modalsubmit').click();">Save changes</button> -->
+                    <!-- <button type="button" class="btn btn-info" data-dismiss="modal">Close</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- end page-wrapper -->
-    <div class="modal fade" id="BuyStocks" tabindex="-1" aria-labelledby="BuyStocksLabel" aria-hidden="true">
+    <div class="modal fade" id="BuyStocks" aria-labelledby="BuyStocksLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

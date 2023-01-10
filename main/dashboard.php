@@ -15,7 +15,7 @@ include "main/session.php";
                         <img src="main/dist/userimages/money.png" class="thumb-lg" alt="...">
                     </div><!--end col-->
                 </div><!--end row-->
-                <button type="button" class="btn btn-sm btn-de-primary">Add Funds</button>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" data-bs-backdrop="static" data-bs-keyboard="false" onclick='dynamicmodal("", "viewmaildetail", "", "Add New User")' class="btn btn-sm btn-de-primary">Add Funds</button>
             </div><!--end card-body-->
         </div><!--end card-->
         <div class="card">
