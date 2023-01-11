@@ -54,6 +54,8 @@ date_default_timezone_set('Asia/Kolkata');
 $obj = new db($host, $database_Username, $database_Password, $database_Name, $port);
 $sendmailfrom = "mohammedhusain559@gmail.com";
 $sendemailpassword = "grznigwfoititsbm";
+$key = 'e3760839d308313b3ebd8b055be079d0';
+define("FMPAPIKEY", $key);
 
 $defaultpagetitle = "Indiastock";
 $defaultemail = $sendmailfrom;
@@ -67,13 +69,7 @@ $bankaccountno = $compdata["account_number"];
 $bankaccountname = $compdata["account_name"];
 // $bankactype = $obj->selectfield("bank_account_type", "name", "id", $compdata["account_type_id"]);
 $bankifsccode = $compdata["ifsc_code"];
-$bankmicr = $compdata["micr_no"];
 $companylocation = $compdata["city"];
-$companypanno = $compdata["pan_no"];
-$companysaccode = $compdata["sac_code"];
-$companysmeno = $compdata["sme_no"];
-$companycinno = $compdata["cin_no"];
-$companygstno = $compdata["gst_no"];
 $topadd = $compdata["address_1"] . " " . $compdata["city"] . " Pincode-" . $compdata["pincode"];
 
 $state = ($compdata["state"] == "") ? $obj->selectfield("state_list", "state", "id", $compdata["indian_state"]) : $state;
@@ -84,8 +80,8 @@ $companyaddress1 = $compdata["address_1"] . ", <br>" . $compdata["city"] . "-" .
 $companyphone = $compdata["phone"];
 $companyemailid = $compdata["email"];
 $companywebsite = $compdata["website"];
-$companyhsn = $compdata["hsn_code"];
 $contactperson = $compdata["person_name"];
 $companylogo = $obj->fetchattachment($compdata["uploadfile_id"]);
 $companyfavicon = $obj->fetchattachment($compdata["faviconicon"]);
-$nooflicence = $compdata['licence'];
+$qrimage = $obj->fetchattachment($compdata['paymentqr']);
+$upiid = $compdata['upiid'];

@@ -10,14 +10,16 @@ ob_start();
 include 'function.php';
 include 'conn.php';
 /* @var $obj db */
- $obj->check_login();
- $employeeid = $_SESSION['userid'];
- $role = $_SESSION['role'];
- $permissions = array();
- if (isset($_SESSION['permissions']) && (!empty($_SESSION['permissions']))) {
-     $permissions = explode(",", $_SESSION['permissions']);
- } else {
-      $permissions = $obj->selectfieldwhere("roles", "`permissions`", "id='$role'");
-     $_SESSION['permissions']=$permissions;
-     $permissions = explode(",", $_SESSION['permissions']);
- }
+$obj->check_login();
+$employeeid = $_SESSION['userid'];
+$role = $_SESSION['role'];
+$aid = $obj->selectfieldwhere("users", "avatar", "id=" . $employeeid . "");
+$avatarpath = $obj->fetchattachment($aid);
+$permissions = array();
+if (isset($_SESSION['permissions']) && (!empty($_SESSION['permissions']))) {
+    $permissions = explode(",", $_SESSION['permissions']);
+} else {
+    $permissions = $obj->selectfieldwhere("roles", "`permissions`", "id='$role'");
+    $_SESSION['permissions'] = $permissions;
+    $permissions = explode(",", $_SESSION['permissions']);
+}

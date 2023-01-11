@@ -3,7 +3,7 @@ include "main/session.php";
 /* @var $obj db */
 $id = $obj->selectfield("personal_detail", "id", "status", "11");
 if ($id == "Not Applicable") {
-    $path = "uploads/logo";
+    $path = "main/uploads";
     if (!empty($_FILES["logo_upload"]["name"])) {
         $imgreturn = $obj->uploadfilenew($path, $_FILES, "logo_upload",  array("jpg", "jpeg", "png"));
         $personal["uploadfile_id"] = $imgreturn;
@@ -11,6 +11,10 @@ if ($id == "Not Applicable") {
     if (!empty($_FILES["favicon"]["name"])) {
         $imgreturn = $obj->uploadfilenew($path, $_FILES, "favicon",  array("jpg", "jpeg", "png"));
         $personal["faviconicon"] = $imgreturn;
+    }
+    if (!empty($_FILES["paymentqr"]["name"])) {
+        $imgreturn = $obj->uploadfilenew($path, $_FILES, "paymentqr",  array("jpg", "jpeg", "png"));
+        $personal["paymentqr"] = $imgreturn;
     }
     $common_data['added_on'] = date('Y-m-d H:i:s');
     $common_data['added_by'] = $employeeid;
@@ -42,21 +46,21 @@ if ($id == "Not Applicable") {
         $personal["account_type_id"] = $_POST["account_type_id"];
         $personal["account_number"] = $_POST["account_no"];
         $personal["ifsc_code"] = $_POST["ifsc_code"];
-        $personal["swift_code"] = $_POST["swift_code"];
-        $personal['micr_no'] = $_POST["micr_code"];
+        // $personal["swift_code"] = $_POST["swift_code"];
+        // $personal['micr_no'] = $_POST["micr_code"];
         $personal['branch_name'] = $_POST["branch_name"];
         $personal = $personal + $common_data;
     }
-    if (isset($_POST["company_detail"])) {
-        $personal["gumasta_no"] = $_POST["gumasta_no"];
-        $personal["msme_no"] = $_POST["msme_no"];
-        $personal["sme_no"] = $_POST["sme_no"];
-        $personal["cin_no"] = $_POST["cin_no"];
-        $personal["hsn_code"] = $_POST["hsn_code"];
-        $personal["sac_code"] = $_POST["sac_code"];
-        $personal["tan_no"] = $_POST["tan_no"];
-        $personal['pan_no'] = $_POST["pan_no"];
-    }
+    // if (isset($_POST["company_detail"])) {
+    //     $personal["gumasta_no"] = $_POST["gumasta_no"];
+    //     $personal["msme_no"] = $_POST["msme_no"];
+    //     $personal["sme_no"] = $_POST["sme_no"];
+    //     $personal["cin_no"] = $_POST["cin_no"];
+    //     $personal["hsn_code"] = $_POST["hsn_code"];
+    //     $personal["sac_code"] = $_POST["sac_code"];
+    //     $personal["tan_no"] = $_POST["tan_no"];
+    //     $personal['pan_no'] = $_POST["pan_no"];
+    // }
     $tb_name = "personal_detail";
     $pradin = $obj->insertnew($tb_name, $personal);
     if (is_integer($pradin) && $pradin > 0) {
@@ -65,6 +69,7 @@ if ($id == "Not Applicable") {
         echo "Some Error Occured";
     }
 } else {
+    $path = "main/uploads";
     if (!empty($_FILES["logo_upload"]["name"])) {
         $uplid = $obj->selectfield("personal_detail", "uploadfile_id", "id", $id);
         $oldfile = $obj->selectfield("uploadfile", "path", "id", $uplid);
@@ -72,7 +77,6 @@ if ($id == "Not Applicable") {
             $delfile = unlink($oldfile);
             $del_file = $obj->updatewhere("uploadfile", ["status" => 99], "id=$uplid");
         }
-        $path = "uploads/logo";
         $imgreturn = $obj->uploadfilenew($path, $_FILES, "logo_upload",  array("jpg", "jpeg", "png"));
         $personal['uploadfile_id'] = $imgreturn;
     }
@@ -83,9 +87,18 @@ if ($id == "Not Applicable") {
             $delfile = unlink($oldfile);
             $del_file = $obj->updatewhere("uploadfile", ["status" => 99], "id=$uplid");
         }
-        $path = "uploads/logo";
         $imgreturn = $obj->uploadfilenew($path, $_FILES, "favicon",  array("jpg", "jpeg", "png"));
         $personal["faviconicon"] = $imgreturn;
+    }
+    if (!empty($_FILES["paymentqr"]["name"])) {
+        $uplid = $obj->selectfield("personal_detail", "paymentqr", "id", $id);
+        $oldfile = $obj->selectfield("uploadfile", "path", "id", $uplid);
+        if (file_exists($oldfile)) {
+            $delfile = unlink($oldfile);
+            $del_file = $obj->updatewhere("uploadfile", ["status" => 99], "id=$uplid");
+        }
+        $imgreturn = $obj->uploadfilenew($path, $_FILES, "paymentqr",  array("jpg", "jpeg", "png"));
+        $personal["paymentqr"] = $imgreturn;
     }
     $common_data['updated_on'] = date('Y-m-d H:i:s');
     $common_data['updated_by'] = $employeeid;
@@ -114,24 +127,22 @@ if ($id == "Not Applicable") {
     if (isset($_POST["bank_detail"])) {
         $personal["bank_name"] = $_POST["bank_name"];
         $personal["account_name"] = $_POST["account_name"];
-        $personal["account_type_id"] = $_POST["account_type_id"];
+        $personal["upiid"] = $_POST["upiid"];
         $personal["account_number"] = $_POST["account_no"];
         $personal["ifsc_code"] = $_POST["ifsc_code"];
-        $personal["swift_code"] = $_POST["swift_code"];
-        $personal['micr_no'] = $_POST["micr_code"];
         $personal['branch_name'] = $_POST["branch_name"];
         $personal = $personal + $common_data;
     }
-    if (isset($_POST["company_detail"])) {
-        $personal["gumasta_no"] = $_POST["gumasta_no"];
-        $personal["msme_no"] = $_POST["msme_no"];
-        $personal["sme_no"] = $_POST["sme_no"];
-        $personal["cin_no"] = $_POST["cin_no"];
-        $personal["hsn_code"] = $_POST["hsn_code"];
-        $personal["sac_code"] = $_POST["sac_code"];
-        $personal["tan_no"] = $_POST["tan_no"];
-        $personal['pan_no'] = $_POST["pan_no"];
-    }
+    // if (isset($_POST["company_detail"])) {
+    //     $personal["gumasta_no"] = $_POST["gumasta_no"];
+    //     $personal["msme_no"] = $_POST["msme_no"];
+    //     $personal["sme_no"] = $_POST["sme_no"];
+    //     $personal["cin_no"] = $_POST["cin_no"];
+    //     $personal["hsn_code"] = $_POST["hsn_code"];
+    //     $personal["sac_code"] = $_POST["sac_code"];
+    //     $personal["tan_no"] = $_POST["tan_no"];
+    //     $personal['pan_no'] = $_POST["pan_no"];
+    // }
     $tb_name = "personal_detail";
     $pradin = $obj->update($tb_name, $personal, $id);
     if ($pradin == 1) {

@@ -4,6 +4,17 @@
 <head>
     <?php include "headincludes.php"; ?>
 </head>
+<style>
+    .help-block {
+        color: red;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>
 
 <body id="body" data-layout="horizontal" class="" data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="">
 
@@ -55,7 +66,7 @@
                 <div class="modal-body" id="modaldata">
                 </div>
                 <div class="p-3">
-                    <button type="button" class="btn btn-success w-10 my-3" id="modalfooterbtn" onclick="$('#modalsubmit').click();">Reply</button>
+                    <button type="button" class="btn btn-success w-10 my-3" id="modalfooterbtn" onclick="$('#modalsubmit').click();">Submit</button>
                     <!-- <button type="button" class="btn btn-primary" id="modalfooterbtn" onclick="$('#modalsubmit').click();">Save changes</button> -->
                     <!-- <button type="button" class="btn btn-info" data-dismiss="modal">Close</button> -->
                 </div>

@@ -3,10 +3,10 @@ include "main/session.php";
 $oldrequest = $obj->selectfieldwhere("withdrawalrequests", "count(id)", "status = 0 and userid = " . $employeeid . "");
 $amount = $obj->selectfieldwhere("users", "investmentamount", "id=" . $employeeid . "");
 if ($_POST['amount'] > $amount) {
-    echo "<div  class='bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md' role='alert'>Your dont have requested amount in your wallet</div>";
+    echo "<div  class='alert alert-danger'>Your dont have requested amount in your wallet</div>";
     die;
 } elseif ($oldrequest > 0) {
-    echo "<div  class='bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md' role='alert'>Request Already Pending</div>";
+    echo "<div  class='alert alert-danger'>Request Already Pending</div>";
     die;
 } else {
     $xx['userid'] = $employeeid;
@@ -20,7 +20,7 @@ if ($_POST['amount'] > $amount) {
     $wr = $obj->insertnew("withdrawalrequests", $xx);
 }
 if (is_integer($wr) && $wr > 0) {
-    echo "Redirect : Withdrawal Request Sent URLrequestwithdrawal";
+    echo "Redirect : Withdrawal Request Sent URLfund";
 } else {
     echo "Some Error Occured";
 }

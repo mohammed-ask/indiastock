@@ -9,7 +9,7 @@ ob_start();
             <div class="col-4 align-self-center">
                 <div class="media">
                     <div class="d-inline-block">
-                        <img src="assets/images/users/user-4.jpg" alt="" class="thumb-lg rounded-circle">
+                        <img src="<?= $avatarpath ?>" alt="" class="thumb-lg rounded-circle">
                     </div>
                     <div class="media-body align-self-center ms-3">
                         <h5 class="fw-semibold mb-1 font-18">Rosan Dildolal</h5>
@@ -19,8 +19,8 @@ ob_start();
             </div>
             <div class="col-lg-4 ms-auto align-self-center">
                 <ul class="list-unstyled personal-detail mb-0">
-                    <li class=""><i style="margin-right: 5px !important;" class="fa-solid fa-phone mr-3 text-secondary font-16 align-middle"></i> <b> Phone </b> : +91 23456 78910</li>
-                    <li class="mt-2"><i style="margin-right: 5px !important;" class="fa-solid fa-envelope text-secondary font-16 align-middle mr-3"></i> <b> Email </b> : mannat.temhe@gmail.com</li>
+                    <li class=""><i style="margin-right: 5px !important;" class="fa-solid fa-phone mr-3 text-secondary font-16 align-middle"></i> <b> Phone </b> : +91 <?= $rowprofile['mobile'] ?></li>
+                    <li class="mt-2"><i style="margin-right: 5px !important;" class="fa-solid fa-envelope text-secondary font-16 align-middle mr-3"></i> <b> Email </b> : <?= $rowprofile['email'] ?></li>
                 </ul>
             </div><!--end col-->
 
@@ -38,7 +38,7 @@ ob_start();
                             <div class="bg-light d-flex justify-content-between">
                                 <h5 class="m-0 font-15 p-3"> Bank Details</h5>
                                 <div class="align-self-center me-3">
-                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $employeeid ?>", "viewmaildetail","", "Add New User\)'>Edit</button>
+                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "bankaccountchange","", "Add New User")'>Edit</button>
                                 </div>
                             </div>
                             <div class="row p-3">
@@ -75,14 +75,14 @@ ob_start();
                             <h5 class="font-13">Change Profile Image</h5>
                             <div class="row row-cols-lg-auto g-3 align-items-center">
                                 <div class="col-sm-3">
-                                    <input class="form-control" type="file" id="myFile" name="filename">
+                                    <input class="form-control" type="file" id="myFile" name="avatar">
                                 </div>
                             </div>
 
                             <h5 class="mt-3 font-13">Update Contact Number</h5>
                             <div class="row row-cols-lg-auto g-3 align-items-center">
                                 <div class="col-12">
-                                    <input class="form-control" name="phone" data-bvalidator='digit,required,minlength[10],maxlength[10]' type="text" placeholder="" value="1234567890">
+                                    <input class="form-control" name="mobile" data-bvalidator='digit,required,minlength[10],maxlength[10]' type="text" placeholder="" value="<?= $rowprofile['mobile'] ?>">
                                 </div>
 
                                 <!-- <div class="col-12">
@@ -93,8 +93,9 @@ ob_start();
 
                             <h5 class="mt-3 font-13">Change Password</h5>
                             <div class="row row-cols-lg-auto g-3 align-items-center">
-                                <div class="col-12">
-                                    <input class="form-control" name="password" type="password" placeholder="Currant Password">
+                                <div class="col-12" style="position: relative;">
+                                    <input class="form-control" value="<?= $rowprofile['password'] ?>" name="password" type="password" id="password" placeholder="Currant Password">
+                                    <i id="eye" class="fa fa-eye" style="position: absolute; top:10px; right:15px" aria-hidden="true"></i>
                                 </div>
 
 
@@ -118,4 +119,20 @@ $pagemeta = "";
 $pagetitle = "Indiastock: Profile";
 $contentheader = "";
 $pageheader = "";
-include "main/templete.php";
+include "main/templete.php"; ?>
+<script>
+    $(function() {
+
+        $("#eye").click(() => {
+            iconname = $("#eye").attr("class");
+            if (iconname === 'fa fa-eye') {
+                $('#password').attr('type', 'text')
+                $("#eye").attr('class', 'fa fa-eye-slash')
+
+            } else {
+                $('#password').attr('type', 'password')
+                $("#eye").attr('class', 'fa fa-eye')
+            }
+        })
+    });
+</script>
