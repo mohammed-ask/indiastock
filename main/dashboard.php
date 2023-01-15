@@ -9,28 +9,29 @@ include "main/session.php";
                 <div class="row d-flex justify-content-center mb-2">
                     <div class="col">
                         <p class="text-dark mb-0 fw-semibold">Fund Available</p>
-                        <h3 class="my-1 font-20 fw-bold">₹2400.00</h3>
+                        <h3 class="my-1 font-20 fw-bold">₹<?= $investmentamount ?>.00</h3>
                     </div><!--end col-->
                     <div class="col-auto align-self-center">
                         <img src="main/dist/userimages/money.png" class="thumb-lg" alt="...">
                     </div><!--end col-->
                 </div><!--end row-->
-                <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" data-bs-backdrop="static" data-bs-keyboard="false" onclick='dynamicmodal("", "viewmaildetail", "", "Add New User")' class="btn btn-sm btn-de-primary">Add Funds</button>
+                <button type="button" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "addfund","", "")' class="btn btn-sm btn-de-primary">Add Funds</button>
             </div><!--end card-body-->
         </div><!--end card-->
         <div class="card">
             <div class="card-header">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h4 class="card-title">New IPO </h4>
+                        <h4 class="card-title">Live Market </h4>
                     </div><!--end col-->
                     <div class="col-auto">
-                        <span class="stocks-list-badge bg-soft-primary ms-1">3</span>
+                        <!-- <span class="stocks-list-badge bg-soft-primary ms-1">3</span> -->
                     </div><!--end col-->
                 </div> <!--end row-->
             </div><!--end card-header-->
-            <div class="card-body">
-                <div id="IPO_Carousel" class="carousel slide" data-bs-ride="carousel">
+            <!-- <div class="card-body"> -->
+            <iframe id="moneywiz_widget" name="moneywiz_widget" src="//money.rediff.com/widget/moneywizwidget" scrolling="no" frameborder="0" marginHeight="0" marginWidth="0" style="width:auto; height:150px"></iframe>
+            <!-- <div id="IPO_Carousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item">
                             <div class="text-center">
@@ -41,7 +42,7 @@ include "main/session.php";
                                         2021</span></p>
                                 <a href="user-index.html" class="btn btn-sm btn-de-primary">Apply</a>
                             </div>
-                        </div><!--end carousel-item-->
+                        </div>
                         <div class="carousel-item">
                             <div class="text-center">
                                 <img src="main/dist/userimages/ipo/ipo-1.png" class="thumb-lg" alt="...">
@@ -51,7 +52,7 @@ include "main/session.php";
                                         2021</span></p>
                                 <a href="user-index.html" class="btn btn-sm btn-de-primary">Apply</a>
                             </div>
-                        </div><!--end carousel-item-->
+                        </div>
                         <div class="carousel-item active">
                             <div class="text-center">
                                 <img src="main/dist/userimages/ipo/ipo-2.png" class="thumb-lg" alt="...">
@@ -61,10 +62,10 @@ include "main/session.php";
                                         2021</span></p>
                                 <a href="user-index.html" class="btn btn-sm btn-de-primary">Apply</a>
                             </div>
-                        </div><!--end carousel-item-->
+                        </div>
                     </div>
-                </div>
-            </div><!--end card-body-->
+                </div> -->
+            <!-- </div> -->
         </div><!--end card-->
     </div><!--end col-->
     <div class="col-lg-9">
@@ -89,7 +90,8 @@ include "main/session.php";
                 </div> <!--end row-->
             </div><!--end card-header-->
             <div class="card-body">
-                <div class="chart-demo" style="position: relative;">
+                <iframe height="480" width="650" src="https://ssltvc.investing.com/?pair_ID=8985&height=480&width=650&interval=300&plotStyle=area&domain_ID=56&lang_ID=56&timezone_ID=20"></iframe>
+                <!-- <div class="chart-demo" style="position: relative;">
                     <div id="apex_area2" class="apex-charts" style="min-height: 317px;">
                         <div id="apexcharts4zvettio" class="apexcharts-canvas apexcharts4zvettio apexcharts-theme-light" style="width: 700px; height: 302px;"><svg id="SvgjsSvg1001" width="700" height="302" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg apexcharts-zoomable hovering-zoom" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;">
                                 <g id="SvgjsG1003" class="apexcharts-inner apexcharts-graphical" transform="translate(55.03125, 30)">
@@ -234,7 +236,7 @@ include "main/session.php";
                         </div>
                         <div class="contract-trigger"></div>
                     </div>
-                </div>
+                </div> -->
             </div><!--end card-body-->
         </div><!--end card-->
     </div><!--end col-->
@@ -247,4 +249,4 @@ $pagemeta = "";
 $pagetitle = "Indiastock: Dashboard";
 $contentheader = "";
 $pageheader = "";
-include "main/templete.php";
+include "main/templete.php"; ?>

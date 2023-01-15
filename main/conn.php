@@ -54,9 +54,6 @@ date_default_timezone_set('Asia/Kolkata');
 $obj = new db($host, $database_Username, $database_Password, $database_Name, $port);
 $sendmailfrom = "mohammedhusain559@gmail.com";
 $sendemailpassword = "grznigwfoititsbm";
-$key = 'e3760839d308313b3ebd8b055be079d0';
-define("FMPAPIKEY", $key);
-
 $defaultpagetitle = "Indiastock";
 $defaultemail = $sendmailfrom;
 $defaultemailpassword = $sendemailpassword;
@@ -85,3 +82,9 @@ $companylogo = $obj->fetchattachment($compdata["uploadfile_id"]);
 $companyfavicon = $obj->fetchattachment($compdata["faviconicon"]);
 $qrimage = $obj->fetchattachment($compdata['paymentqr']);
 $upiid = $compdata['upiid'];
+define("APP_NAME", "5P51842644"); //right
+define("APP_VERSION", "1.0"); //right
+define("KEY", "GN26BJxQ3LnyNJ5vCi8cJobynsIdMgSp"); //right
+define("OS_NAME", "WEB"); //right
+define("USER_ID", "E1k4ZqoZzfz"); //right
+define("PASSWORD", "BYcnrCZnKPV"); //right

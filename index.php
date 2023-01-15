@@ -273,6 +273,24 @@ switch ($request['path']) {
     case "$head/insertrequestwithdrawal";
         require __DIR__ . '/main/insertrequestwithdrawal.php';
         break;
+    case "$head/searchstock";
+        require __DIR__ . '/main/searchstock.php';
+        break;
+    case "$head/market";
+        require __DIR__ . '/main/market.php';
+        break;
+    case "$head/buystock";
+        require __DIR__ . '/main/buystock.php';
+        break;
+    case "$head/insertbuystock";
+        require __DIR__ . '/main/insertbuystock.php';
+        break;
+    case "$head/sellstock";
+        require __DIR__ . '/main/sellstock.php';
+        break;
+    case "$head/portfolio";
+        require __DIR__ . '/main/portfolio.php';
+        break;
     default:
         http_response_code(404);
         require __DIR__ . '/main/admin/404.php';

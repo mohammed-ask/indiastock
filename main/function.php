@@ -1440,67 +1440,149 @@ class db
         return $exchange_rate;
     }
 
-    function stockpricedata($sym)
+    function searchstockapi($symbol)
     {
-
-        // Set up the API URL with the desired stock symbol
-        $symbol = 'TATAMOTORS.NS';
-        $api_url = 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-quotes?region=IN&lang=en&symbols=' . $symbol;
-
-        // Set up the HTTP headers with the API key and other options
-        $headers = array(
-            'X-RapidAPI-Key: 40b3dc48bfmsh3d51e5f5ff3e78ep1588d1jsnfea1926189a2',
-            'X-RapidAPI-Host: apidojo-yahoo-finance-v1.p.rapidapi.com'
+        $headArry = array(
+            'appName' => APP_NAME,
+            'appVer' => APP_VERSION,
+            'key' => KEY,
+            'osName' => OS_NAME,
+            'requestCode' => '5PMF',
+            'userId' => USER_ID,
+            'password' => PASSWORD,
         );
 
-        // Set up cURL
-        $ch = curl_init();
+        $subArray = array(
+            ["Exch" => "N", "ExchType" => "C", "Symbol" => "$symbol", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""],
+            ["Exch" => "B", "ExchType" => "C", "Symbol" => "$symbol", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""],
+        );
 
-        // Set the URL and other options
-        curl_setopt($ch, CURLOPT_URL, $api_url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $bodyArry = array(
+            'Count' => 1,
+            'MarketFeedData' => $subArray,
+            'ClientLoginType' => 0,
+            'LastRequestTime' => '/Date(0)/',
+            'RefreshRate' => 'H',
+        );
+
+        $requestData = array("head" => $headArry, "body" => $bodyArry);
+
+        $data_string = json_encode($requestData);
+
+        $ch = curl_init('https://openapi.5paisa.com/VendorsAPI/Service1.svc/MarketFeed');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt(
+            $ch,
+            CURLOPT_HTTPHEADER,
+            array(
+                'Content-Type: application/json',
+            )
+        );
 
-        // Execute the request and get the response
-        $response = curl_exec($ch);
-
-        // Close the cURL handle
+        $result = curl_exec($ch);
+        $result = json_decode($result, true);
         curl_close($ch);
-
-        // Decode the JSON response
-        $data = json_decode($response, true);
-
-        // Extract the stock price from the response
-        $stock_price = $data['quoteResponse']['result'][0]['regularMarketPrice']['raw'];
-
-        // Print the stock price
-        echo "The current stock price for Tata Motors is $stock_price.\n";
+        return $result;
     }
 
-    function stockdata()
+    function fivepaisaapi($userstock)
     {
-        $api_key = AVAPIKEY;
-        $url = 'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=INDIA&apikey=' . $api_key;
 
-        // Set up cURL
-        $ch = curl_init();
+        $headArry = array(
+            'appName' => APP_NAME,
+            'appVer' => APP_VERSION,
+            'key' => KEY,
+            'osName' => OS_NAME,
+            'requestCode' => '5PMF',
+            'userId' => USER_ID,
+            'password' => PASSWORD,
+        );
 
-        // Set the URL and other options
-        curl_setopt($ch, CURLOPT_URL, $url);
+        $subArray = $userstock;
+        // array(
+        //     ["Exch" => "N", "ExchType" => "C", "Symbol" => "BHEL", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "N", "ExchType" => "C", "Symbol" => "RELIANCE", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""],
+        //     ["Exch" => "N", "ExchType" => "C", "Symbol" => "AXISBANK", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]
+        // );
+        $bodyArry = array(
+            'Count' => 1,
+            'MarketFeedData' => $subArray,
+            'ClientLoginType' => 0,
+            'LastRequestTime' => '/Date(0)/',
+            'RefreshRate' => 'H',
+        );
+        $requestData = array("head" => $headArry, "body" => $bodyArry);
+
+        $data_string = json_encode($requestData);
+
+        $ch = curl_init('https://openapi.5paisa.com/VendorsAPI/Service1.svc/MarketFeed');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt(
+            $ch,
+            CURLOPT_HTTPHEADER,
+            array(
+                'Content-Type: application/json',
+            )
+        );
 
-        // Execute the request and get the response
-        $response = curl_exec($ch);
+        $result = curl_exec($ch);
+        $result = json_decode($result, true);
+        return $result['body']['Data'];
+    }
 
-        // Close the cURL handle
-        curl_close($ch);
+    function getcftokenfp()
+    {
 
-        // Decode the JSON response
-        $data = json_decode($response, true);
+        error_reporting(E_ALL);
+        ini_set("display_errors", 1);
 
-        // Extract the list of symbols from the response
-        $symbols = $data;
-        return $symbols;
+        $verifyurl = 'https://openapi.5paisa.com/VendorsAPI/Service1.svc/TradeInformation';
+
+
+        $time = $this->fetch_assoc($tokentime);
+        $verify = array();
+
+        $date = date('Y-m-d H:i:s');
+        $da = strtotime($date);
+
+        try {
+            $ch = curl_init($verifyurl);
+
+            if (FALSE === $ch)
+                throw new Exception('failed to initialize');
+
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+            curl_setopt($ch, CURLOPT_TIMEOUT, 28000);
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 28000);
+
+            $output = curl_exec($ch);
+
+            $res = json_decode($output);
+
+            print_r($res);
+
+
+            if (FALSE === $output) {
+                throw new Exception(curl_error($ch), curl_errno($ch));
+            }
+        } catch (Exception $e) {
+
+            trigger_error(
+                sprintf(
+                    'Curl failed with error #%d: %s',
+                    $e->getCode(),
+                    $e->getMessage()
+                ),
+                E_USER_ERROR
+            );
+        }
     }
 
     function insertnew($tb_name, $postdata, $print = 0)

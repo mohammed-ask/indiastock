@@ -6,6 +6,7 @@ if (!empty($_FILES['avatar']['name'])) {
     $xx['avatar'] = $imgreturn;
 }
 $xx['mobile'] = $_POST['mobile'];
+$xx['trademode'] = $_POST['trademode'];
 $xx['password'] = $_POST['password'];
 $user = $obj->update("users", $xx, $employeeid);
 echo "Redirect : Profile Updated Successfully URLprofile";

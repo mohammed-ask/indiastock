@@ -90,7 +90,19 @@ ob_start();
                                 </div> -->
 
                             </div>
-
+                            <h5 class="mt-3 font-13">Trade Mode</h5>
+                            <div class="form-check d-inline-block me-2">
+                                <input class="form-check-input" value="Holding" type="radio" name="trademode" id="trademode1" <?= $rowprofile['trademode'] == 'Holding' ? "checked" : "" ?>>
+                                <label class="form-check-label" for="trademode1">
+                                    Holding
+                                </label>
+                            </div>
+                            <div class="form-check mb-2 d-inline-block">
+                                <input class="form-check-input" value="Intraday" type="radio" name="trademode" id="trademode2" <?= $rowprofile['trademode'] == 'Intraday' ? "checked" : "" ?>>
+                                <label class="form-check-label" for="trademode2">
+                                    Intraday
+                                </label>
+                            </div>
                             <h5 class="mt-3 font-13">Change Password</h5>
                             <div class="row row-cols-lg-auto g-3 align-items-center">
                                 <div class="col-12" style="position: relative;">

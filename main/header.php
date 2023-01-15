@@ -105,7 +105,13 @@
                         <a class="nav-link" href="fund" id="navbarMarket">
                             <span><i class="fa-solid fa-money-bill menu-icon"></i>Funds</span>
                         </a><i class=""></i>
-                    </li><!--end nav-item-->
+                    </li>
+                    <li class="nav-item  parent-menu-item">
+                        <a class="nav-link" href="search" id="navbarMarket" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "searchstock","", "Search Stock by Symbol")'>
+                            <span><i class="fa fa-search"></i> Search</span>
+                        </a><i class=""></i>
+                    </li>
+                    <!--end nav-item-->
                 </ul><!-- End navigation menu -->
             </div> <!-- end navigation -->
         </div>
@@ -134,9 +140,8 @@
                         </div>
                     </div>
 
-                </div><!--end page-title-box-->
-            </div><!--end col-->
+                </div>
+            </div>
         </div>
-        <!-- end page title end breadcrumb -->
-    </div><!--end container-->
-</div><!--end national-data-->
+    </div>
+</div>
