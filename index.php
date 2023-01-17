@@ -288,6 +288,15 @@ switch ($request['path']) {
     case "$head/sellstock";
         require __DIR__ . '/main/sellstock.php';
         break;
+    case "$head/insertsellstock";
+        require __DIR__ . '/main/insertsellstock.php';
+        break;
+    case "$head/closetrade";
+        require __DIR__ . '/main/closetrade.php';
+        break;
+    case "$head/insertclosetrade";
+        require __DIR__ . '/main/insertclosetrade.php';
+        break;
     case "$head/portfolio";
         require __DIR__ . '/main/portfolio.php';
         break;

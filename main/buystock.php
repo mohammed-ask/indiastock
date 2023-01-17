@@ -1,6 +1,5 @@
 <?php
 include "main/session.php";
-$rowfund = $obj->selectfieldwhere("users", "investmentamount", "id=" . $employeeid . " and status = 1");
 $symbol = $_GET['hakuna'];
 $exchange = $_GET['what'];
 $rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1")->fetch_assoc();
@@ -17,8 +16,13 @@ $stockdata = $stockdata[0];
         <span class="border border-success px-1 rounded text-success">B</span>
     </div>
     <div>
-        <h6 class="m-0 text-uppercase font-16 fw-bold">₹<?= $stockdata['LastRate'] ?> <i class="fa-solid fa-arrow-trend-down text-danger"></i></h6>
-        <div class="d-inline-block font-10"><span class="text-danger"><?= $stockdata['Chg'] ?></span> <span class="text-danger">(<?= round($stockdata['ChgPcnt'], 2) ?>%)</span></div>
+        <h6 class="m-0 text-uppercase font-16 fw-bold">₹<?= $stockdata['LastRate'] ?> <?php if ($stockdata['ChgPcnt'] > 0) { ?>
+                <i class="fa-solid fa-arrow-trend-up text-success"></i>
+            <?php } else { ?>
+                <i class="fa-solid fa-arrow-trend-down text-danger"></i>
+            <?php } ?>
+        </h6>
+        <div class="d-inline-block font-10"><span <?= $stockdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $stockdata['Chg'] ?></span> <span <?= $stockdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($stockdata['ChgPcnt'], 2) ?>%)</span></div>
         <div class="text-success">Live <span><i class="fa-regular fa-circle-dot"></i></span></div>
     </div>
     <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
@@ -28,6 +32,7 @@ $stockdata = $stockdata[0];
     <form class="row gy-2 gx-3 align-items-end" id="buystock">
         <input type="hidden" name="symbol" value="<?= $stockdata['Symbol'] ?>" id="">
         <input type="hidden" name="exchange" value="<?= $stockdata['Exch'] ?>" id="">
+        <input type="hidden" name="totalamount" id="totalamount" value="<?= $usermargin > 0 ? $stockdata['LastRate'] / $usermargin : $stockdata['LastRate'] ?>">
         <div class="col-auto">
             <label class="form-label" for="Quantity">Quantity</label>
             <input data-bvalidator='required' name="qty" type="number" id="qty" onkeyup="sumfund()" onclick="this.select();" value="1" class="form-control form-control-sm">
@@ -77,7 +82,7 @@ $stockdata = $stockdata[0];
         </div><!--end col-->
         <div class="col-auto">
             <small class="text-muted d-block">Available Fund</small>
-            <small>₹<?= $rowfund ?></small>
+            <small>₹<?= $investmentamount ?></small>
         </div><!--end col-->
     </div><!--end row-->
 </div><!--end modal-body-->
@@ -108,5 +113,6 @@ $stockdata = $stockdata[0];
             require = parseInt(qty) * parseFloat(price)
         }
         $("#reqfund").html("₹" + require)
+        $("#totalamount").val(require)
     }
 </script>

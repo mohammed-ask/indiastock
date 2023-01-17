@@ -67,6 +67,7 @@ if ($emailcount > 0) {
     $x['type'] = 2;
     $x['role'] = 2;
     $x['investmentamount'] = $_POST['investmentamount'];
+    $x['limit'] = $_POST['limit'];
 
     $pradin = $obj->insertnew($tb_name, $x);
     $obj->saveactivity("Add Customer", "", $pradin, $pradin, "User", "Add Customer");

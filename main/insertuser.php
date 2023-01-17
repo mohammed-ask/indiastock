@@ -1,14 +1,16 @@
 <?php
+// print_r($_POST);
+// die;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'main/phpmailer/src/Exception.php';
-require 'main/phpmailer/src/PHPMailer.php';
-require 'main/phpmailer/src/SMTP.php';
+require './phpmailer/src/Exception.php';
+require './phpmailer/src/PHPMailer.php';
+require './phpmailer/src/SMTP.php';
 
-include 'main/function.php';
-include 'main/conn.php';
+include './function.php';
+include './conn.php';
 $emailcount = $obj->selectfieldwhere('users', "count(id)", "email='" . $_POST['email'] . "' and status != 99");
 $empcode = $obj->selectfieldwhere('users', 'count(id)', 'usercode="' . trim($_POST['employeeref']) . '" and type = 1');
 if ($emailcount > 0) {
@@ -56,7 +58,7 @@ if ($emailcount > 0) {
     $x['email'] = $_POST['email'];
     $x['mobile'] = $_POST['mobileno'];
     $x['address'] = $_POST['address'];
-    $x['dob'] = changedateformate($_POST['dob']);
+    $x['dob'] = $_POST['dob'];
     $x['adharno'] = $_POST['adharno'];
     $x['panno'] = $_POST['panno'];
     $x['bankname'] = $_POST['bankname'];
@@ -64,10 +66,9 @@ if ($emailcount > 0) {
     $x['ifsc'] = $_POST['ifsc'];
     $x['employeeref'] = $_POST['employeeref'];
     $x['password'] = $_POST['password'];
-    $x['policyread'] = $_POST['policyread'];
+    // $x['policyread'] = $_POST['policyread'];
     $x['type'] = 2;
     $x['role'] = 2;
-    $x['limit'] = $_POST['limit'];
     $pradin = $obj->insertnew($tb_name, $x);
     $obj->saveactivity("Customer Registered", "", $pradin, $pradin, "User", "Customer Registered");
     $mail = new PHPMailer(true);
@@ -83,8 +84,8 @@ if ($emailcount > 0) {
     $mail->addAddress($_POST['email']);
     $mail->isHTML(true);
     $mail->Subject = "Registration Successfull";
-    $mail->AddEmbeddedImage('main/images/indstock.png', 'logo', 'main/images/indstock.png ');
-    $mail->AddEmbeddedImage('main/images/envelope.png', 'envelope', 'main/images/envelope.png ');
+    $mail->AddEmbeddedImage('./images/indstock.png', 'logo', './images/indstock.png ');
+    $mail->AddEmbeddedImage('./images/envelope.png', 'envelope', './images/envelope.png ');
     $mail->Body = "<div style='text-align:center'><img alt='PHPMailer' style='height:80px;width:150px' src='cid:logo'> </div>
     <div style='border:1px solid darkblue;width:90%;margin:auto'></div><br>
     <div style='text-align:center;margin: auto;width:100%'>
@@ -94,5 +95,5 @@ if ($emailcount > 0) {
         <div style='font-weight: 600;'>We will notify you about your Approval status shortly.</div>
     </div>";
     $mail->send();
-    echo "Redirect : Registration Successfull URLlogin";
+    echo "Success";
 }

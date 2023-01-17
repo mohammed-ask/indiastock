@@ -21,8 +21,14 @@ $stockdata = $obj->fivepaisaapi($rowfetch);
                                                                         echo  $exc  ?></p>
                             </div>
                             <div>
-                                <h6 class="m-0 text-uppercase font-11">₹<?= $data['LastRate'] ?><i class="fa-solid fa-arrow-trend-down text-danger"></i></h6>
-                                <div class="d-inline-block font-10"><span class="text-danger"><?= $data['Chg'] ?></span> <span class="text-danger">(<?= round($data['ChgPcnt'], 2) ?>%)</span></div>
+                                <h6 class="m-0 text-uppercase font-11">₹<?= $data['LastRate'] ?>
+                                    <?php if ($data['ChgPcnt'] > 0) { ?>
+                                        <i class="fa-solid fa-arrow-trend-up text-success"></i>
+                                    <?php } else { ?>
+                                        <i class="fa-solid fa-arrow-trend-down text-danger"></i>
+                                    <?php } ?>
+                                </h6>
+                                <div class="d-inline-block font-10"><span <?= $data['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $data['Chg'] ?></span> <span <?= $data['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($data['ChgPcnt'], 2) ?>%)</span></div>
                             </div>
                         </div><!-- end /div -->
                     </a> <!--end-->

@@ -18,6 +18,7 @@ $avatarpath = $obj->fetchattachment($aid);
 $investmentamount = $obj->selectfieldwhere("users", "investmentamount", "id='" . $employeeid . "'");
 $trademode = $obj->selectfieldwhere("users", "trademode", "id='" . $employeeid . "'");
 $usermargin = $obj->selectfieldwhere("users", "`limit`", "id='" . $employeeid . "'");
+$username = $obj->selectfieldwhere("users", "`name`", "id='" . $employeeid . "'");
 $permissions = array();
 if (isset($_SESSION['permissions']) && (!empty($_SESSION['permissions']))) {
     $permissions = explode(",", $_SESSION['permissions']);

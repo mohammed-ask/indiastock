@@ -13,8 +13,13 @@ $stockdata = $stockdata[0];
     <span class="border border-success px-1 rounded text-success">B</span>
 </div>
 <div>
-    <h6 class="m-0 text-uppercase font-16 fw-bold">₹<?= $stockdata['LastRate'] ?> <i class="fa-solid fa-arrow-trend-down text-danger"></i></h6>
-    <div class="d-inline-block font-10"><span class="text-danger"><?= $stockdata['Chg'] ?></span> <span class="text-danger">(<?= round($stockdata['ChgPcnt'], 2) ?>%)</span></div>
+    <h6 class="m-0 text-uppercase font-16 fw-bold">₹<?= $stockdata['LastRate'] ?> <?php if ($stockdata['ChgPcnt'] > 0) { ?>
+            <i class="fa-solid fa-arrow-trend-up text-success"></i>
+        <?php } else { ?>
+            <i class="fa-solid fa-arrow-trend-down text-danger"></i>
+        <?php } ?>
+    </h6>
+    <div class="d-inline-block font-10"><span <?= $stockdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $stockdata['Chg'] ?></span> <span <?= $stockdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($stockdata['ChgPcnt'], 2) ?>%)</span></div>
     <div class="text-success">Live <span><i class="fa-regular fa-circle-dot"></i></span></div>
     <input type="hidden" value="<?= $stockdata['PClose'] ?>" id="closingprice">
 </div>

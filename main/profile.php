@@ -12,7 +12,7 @@ ob_start();
                         <img src="<?= $avatarpath ?>" alt="" class="thumb-lg rounded-circle">
                     </div>
                     <div class="media-body align-self-center ms-3">
-                        <h5 class="fw-semibold mb-1 font-18">Rosan Dildolal</h5>
+                        <h5 class="fw-semibold mb-1 font-18"><?= $username ?></h5>
                         <p class="mb-0 font-13">India</p>
                     </div>
                 </div>

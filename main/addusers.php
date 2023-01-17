@@ -10,7 +10,6 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="main/dist/js/init-alpine.js"></script>
     <link rel="stylesheet" href="main/plugins/fontawesome-free/css/all.min.css">
-
     <link rel="stylesheet" href="main/plugins/jquery-ui/jquery-ui.css">
 
     <link rel="stylesheet" href="main/dist/css/bvalidator.css">
@@ -18,99 +17,715 @@
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
 
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8) url(main/images/loader.gif) no-repeat center center;
+            z-index: 10000;
+        }
+
+        .container-dabba {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eee;
+        }
+
+        .container-dabba .card {
+            height: 500px;
+            width: 800px;
+            background-color: #fff;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            font-family: 'Poppins', sans-serif;
+            border-radius: 20px;
+        }
+
+        .container-dabba .card .form {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+        }
+
+        .container-dabba .card .left-side {
+            width: 35%;
+            background-color: #00AAAA;
+            height: 100%;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            padding: 20px 30px;
+            box-sizing: border-box;
+
+        }
+
+        /*left-side-start*/
+        .left-heading {
+            color: #fff;
+
+        }
+
+        .steps-content {
+            margin-top: 30px;
+            color: #fff;
+        }
+
+        .steps-content p {
+            font-size: 12px;
+            margin-top: 15px;
+        }
+
+        .progress-bar {
+            list-style: none;
+            /*color:#fff;*/
+            margin-top: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            counter-reset: container-dabba 0;
+        }
+
+        .progress-bar li {
+            position: relative;
+            margin-left: 40px;
+            margin-top: 50px;
+            counter-increment: container-dabba 1;
+            color: #065b5b;
+        }
+
+        .progress-bar li::before {
+            content: counter(container-dabba);
+            line-height: 25px;
+            text-align: center;
+            position: absolute;
+            height: 25px;
+            width: 25px;
+            border: 1px solid #048e8e;
+            border-radius: 50%;
+            left: -40px;
+            top: -5px;
+            z-index: 10;
+            background-color: #00AAAA;
+
+
+        }
+
+
+        .progress-bar li::after {
+            content: '';
+            position: absolute;
+            height: 90px;
+            width: 2px;
+            background-color: #048e8e;
+            z-index: 1;
+            left: -27px;
+            top: -70px;
+        }
+
+
+        .progress-bar li.active::after {
+            background-color: #fff;
+
+        }
+
+        .progress-bar li:first-child:after {
+            display: none;
+        }
+
+        /*.progress-bar li:last-child:after{*/
+        /*  display:none;  */
+        /*}*/
+        .progress-bar li.active::before {
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        .progress-bar li.active {
+            color: #fff;
+        }
+
+        .d-none {
+            display: none;
+        }
+
+        /*left-side-end*/
+        .container-dabba .card .right-side {
+            width: 65%;
+            background-color: #fff;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        /*right-side-start*/
+        .main {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .main {
+            padding: 40px;
+        }
+
+        .main small {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2px;
+            height: 30px;
+            width: 30px;
+            background-color: #ccc;
+            border-radius: 50%;
+            color: yellow;
+            font-size: 19px;
+        }
+
+        .text {
+            margin-top: 20px;
+        }
+
+        .congrats {
+            text-align: center;
+        }
+
+        .text p {
+            margin-top: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #cbced4;
+        }
+
+        .input-text {
+            margin: 30px 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .input-text .input-div {
+            width: 100%;
+            position: relative;
+
+        }
+
+
+
+        input[type="text"] {
+            width: 100%;
+            height: 40px;
+            border: none;
+            outline: 0;
+            border-radius: 5px;
+            border: 1px solid #057c7c;
+            gap: 20px;
+            box-sizing: border-box;
+            padding: 0px 10px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            height: 40px;
+            border: none;
+            outline: 0;
+            border-radius: 5px;
+            border: 1px solid #057c7c;
+            gap: 20px;
+            box-sizing: border-box;
+            padding: 0px 10px;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            height: 40px;
+            border: none;
+            outline: 0;
+            border-radius: 5px;
+            border: 1px solid #057c7c;
+            gap: 20px;
+            box-sizing: border-box;
+            padding: 0px 10px;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            height: 40px;
+            border: none;
+            outline: 0;
+            border-radius: 5px;
+            border: 1px solid #057c7c;
+            gap: 20px;
+            box-sizing: border-box;
+            padding: 0px 10px;
+        }
+
+        select {
+            width: 100%;
+            height: 40px;
+            border: none;
+            outline: 0;
+            border-radius: 5px;
+            border: 1px solid #057c7c;
+            gap: 20px;
+            box-sizing: border-box;
+            padding: 0px 10px;
+        }
+
+        .input-text .input-div span {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 13px;
+            transition: all 0.5s;
+        }
+
+        .input-div input:focus~span,
+        .input-div input:valid~span {
+            top: -20px;
+            left: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .input-div span {
+            top: -15px;
+            left: 6px;
+            font-size: 10px;
+        }
+
+        .buttons button {
+            height: 40px;
+            width: 100px;
+            border: none;
+            border-radius: 5px;
+            background-color: #057c7c;
+            font-size: 12px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .button_space {
+            display: flex;
+            gap: 20px;
+
+        }
+
+        .button_space button:nth-child(1) {
+            background-color: #fff;
+            color: #057c7c;
+            border: 1px solid #057c7c;
+        }
+
+        .user_card {
+            margin-top: 20px;
+            margin-bottom: 40px;
+            height: 200px;
+            width: 100%;
+            border: 1px solid #c7d3d9;
+            border-radius: 10px;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .user_card span {
+            height: 80px;
+            width: 100%;
+            background-color: #dfeeff;
+        }
+
+        .circle {
+            position: absolute;
+            top: 40px;
+            left: 60px;
+        }
+
+        .circle span {
+            height: 70px;
+            width: 70px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #fff;
+            border-radius: 50%;
+        }
+
+        .circle span img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .social {
+            display: flex;
+            position: absolute;
+            top: 100px;
+            right: 10px;
+        }
+
+        .social span {
+            height: 30px;
+            width: 30px;
+            border-radius: 7px;
+            background-color: #fff;
+            border: 1px solid #cbd6dc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+            color: #cbd6dc;
+
+        }
+
+        .social span i {
+            cursor: pointer;
+        }
+
+        .heart {
+            color: red !important;
+        }
+
+        .share {
+            color: red !important;
+        }
+
+        .user_name {
+            position: absolute;
+            top: 110px;
+            margin: 10px;
+            padding: 0 30px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+        }
+
+        .user_name h3 {
+            color: #4c5b68;
+        }
+
+        .detail {
+            /*margin-top:10px;*/
+            display: flex;
+            justify-content: space-between;
+            margin-right: 50px;
+        }
+
+        .detail p {
+            font-size: 12px;
+            font-weight: 700;
+
+        }
+
+        .detail p a {
+            text-decoration: none;
+            color: blue;
+        }
+
+
+
+
+
+
+        .checkmark__circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            stroke: #7ac142;
+            fill: none;
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+
+        .checkmark {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 2;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+            margin: 10% auto;
+            box-shadow: inset 0px 0px 0px #7ac142;
+            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+        }
+
+        .checkmark__check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        }
+
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes scale {
+
+            0%,
+            100% {
+                transform: none;
+            }
+
+            50% {
+                transform: scale3d(1.1, 1.1, 1);
+            }
+        }
+
+        @keyframes fill {
+            100% {
+                box-shadow: inset 0px 0px 0px 30px #7ac142;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+        .warning {
+            border: 1px solid red !important;
+        }
+
+
+        /*right-side-end*/
+        @media (max-width:750px) {
+            .container-dabba {
+                height: scroll;
+
+
+            }
+
+            .container-dabba .card {
+                max-width: 350px;
+                height: auto !important;
+                margin: 30px 0;
+            }
+
+            .container-dabba .card .right-side {
+                width: 100%;
+
+            }
+
+            .input-text {
+                display: block;
+            }
+
+            .input-text .input-div {
+                margin-top: 20px;
+
+            }
+
+            .container-dabba .card .left-side {
+
+                display: none;
+            }
+
+            .container-dabba .card {
+
+                border-radius: 10px !important;
+            }
+
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
-        <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
-            <div class="flex flex-col overflow-y-auto md:flex-row">
-                <div class="h-32 md:h-auto md:w-1/2">
-                    <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="main/dist/img/create-account-office.jpeg" alt="Office" />
-                    <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="main/dist/img/create-account-office-dark.jpeg" alt="Office" />
+    <div class="container-dabba">
+        <div class="card">
+            <div class="form">
+                <div class="left-side">
+                    <div class="left-heading">
+                        <h3>PMS EQUITY</h3>
+                    </div>
+                    <div class="steps-content">
+                        <h3>Step <span class="step-number">1</span></h3>
+                        <p class="step-number-content active">Enter your personal information to create your account.</p>
+                        <p class="step-number-content d-none">Enter required documents details and press next.</p>
+                        <p class="step-number-content d-none">Enter your bank details and press next.</p>
+                        <p class="step-number-content d-none">Enter employee ID & password and click on submit. </p>
+                    </div>
+                    <ul class="progress-bar">
+                        <li class="active">Personal Information</li>
+                        <li>Required Documents</li>
+                        <li>Bank Details</li>
+                        <li>Password</li>
+                    </ul>
+
+
+
                 </div>
-                <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-                    <div class="w-full">
-                        <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
-                            Create account
-                        </h1>
-                        <form id="adduser" onsubmit="event.preventDefault();sendForm('', '', 'insertuser', 'resultid', 'adduser');return 0;">
-                            <label class="block text-sm" style="margin-bottom: 5px;">
-                                <span class="text-gray-700 dark:text-gray-400">Name</span>
-                                <input data-bvalidator="required" name="username" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter your name" autocomplete="off" />
-                                <span></label>
-                            <label class="block text-sm" style="margin-bottom: 5px;">
-                                <span class="text-gray-700 dark:text-gray-400">Email</span>
-                                <input data-bvalidator="required" name="email" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter you email id" />
-                            </label>
-                            <label class="block text-sm" style="margin-bottom: 5px;">
-                                <span class="text-gray-700 dark:text-gray-400">Mob No.</span>
-                                <input data-bvalidator="required,digit,minlength[10],maxlength[10]" name="mobileno" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter your mobile no." />
-                            </label></span>
+                <div class="right-side">
+                    <div class="main active">
+                        <small><i class="fa fa-smile-o"></i></small>
+                        <div class="text">
+                            <h2>Your Personal Information</h2>
+                            <p>Enter your personal information and click on next step</p>
+                        </div>
+                        <div class="input-text">
+                            <div class="input-div">
+                                <input type="text" required require id="username">
+                                <span>Full Name</span>
+                            </div>
+                        </div>
+
+                        <div class="input-text">
+                            <div class="input-div">
+                                <input type="email" id="email" required require>
+                                <span>Email ID</span>
+                            </div>
+                        </div>
+
+                        <div class="input-text">
+                            <div class="input-div">
+                                <input type="text" id="mobileno" required require>
+                                <span>Mobile Number</span>
+                            </div>
+                        </div>
+
+                        <div class="buttons">
+                            <button class="next_button">Next Step</button>
+                        </div>
+                    </div>
+                    <div class="main">
+                        <small><i class="fa fa-smile-o"></i></small>
+                        <div class="text">
+                            <h2>Required Documents Details</h2>
+                            <p>Please enter your documents details for next step .</p>
+                        </div>
 
 
-                            <label class="block text-sm" style="margin-bottom: 5px;">
-                                <span class="text-gray-700 dark:text-gray-400">Date of Birth</span>
-                                <input id="date" onfocus="setcalenderlimit(this.id,'')" data-bvalidator="required,gap18year" data-bvalidator-msg-gap18year="Customer Should be minimum 18 year Old" name="dob" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder=" Your date of birth" /></label>
-                            <label class="block text-sm" style="margin-bottom: 5px;">
-                                <span class="text-gray-700 dark:text-gray-400">Address</span>
-                                <input data-bvalidator="required" name="address" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Full address" />
-                            </label>
-                            <label class="block text-sm" style="margin-bottom: 5px;">
-                                <span class="text-gray-700 dark:text-gray-400">Aadhar No.</span>
-                                <input data-bvalidator="required" name="adharno" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter 12 Digit Aadhar No." /></label>
-                            <label class="block text-sm" style="margin-bottom: 5px;">
-                                <span class="text-gray-700 dark:text-gray-400">PAN No.</span>
-                                <input data-bvalidator="required" name="panno" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Your Pan No." /></label>
+                        <div class="input-text">
+                            <div class="input-div">
+                                <input type="text" id="address" required require>
+                                <span>Address</span>
+                            </div>
+                        </div>
 
-                            <label class="block text-sm" style="margin-bottom: 5px;">
-                                <span class="text-gray-700 dark:text-gray-400">Bank Name</span>
-                                <input data-bvalidator="required" name="bankname" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="eg. BOI, State bank of India, Kotak etc..." /></label>
-
-                            <label class="block text-sm" style="margin-bottom: 5px;">
-                                <span class="text-gray-700 dark:text-gray-400">Account No.</span>
-                                <input data-bvalidator="required" name="accountno" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter A/c No." /></label>
-                            <label class="block text-sm" style="margin-bottom: 5px;">
-                                <span class="text-gray-700 dark:text-gray-400">IFSC Code</span>
-                                <input data-bvalidator="required" name="ifsc" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="IFSC Code of Bank" /></label>
-                            </label>
-                            <label class="block text-sm" style="margin-bottom: 5px;">
-                                <span class="text-gray-700 dark:text-gray-400">Employee ID</span>
-                                <input xdata-bvalidator="required" name="employeeref" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Employee ID if available" /></label>
-
-                            <label class="block text-sm" style="margin-bottom: 5px;position:relative">
-                                <span class="text-gray-700 dark:text-gray-400">Password</span>
-                                <input type="password" data-bvalidator="required" id="password" name="password" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Please Give Strong Password!" />
-                                <i id="eye" class="fa fa-eye" style="position: absolute;top:33px;right:10px" aria-hidden="true"></i>
-                            </label>
-                            <label class="block text-sm" style="margin-bottom: 5px;">
-                                <span class="text-gray-700 dark:text-gray-400">Confirm Password</span>
-                                <input type="password" id="confirmpassword" data-bvalidator="required,matchconfirmpassword[password]" data-bvalidator-msg-matchconfirmpassword="Confirm Password Not Matched" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Confirm Password" />
-                            </label>
-                            <div id="resultid"></div>
-
-                            <div class="flex mt-6 text-sm">
-                                <label class="flex items-center dark:text-gray-400">
-                                    <input id="chekbox" data-bvalidator-msg-dispatchchecking="Please Check The Box" value="Yes" name="policyread" data-bvalidator="valempty,dispatchchecking" type="checkbox" class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" />
-                                    <span class="ml-2">
-                                        I agree to the
-                                        <span class="underline">privacy policy</span>
-                                    </span>
-                                </label>
+                        <div class="input-text">
+                            <div class="input-div">
+                                <input type="number" id="adharno" required require>
+                                <span>Aadhar Number</span>
+                            </div>
+                        </div>
+                        <div class="input-text">
+                            <div class="input-div">
+                                <input type="text" id="panno" required require>
+                                <span>PAN Number</span>
                             </div>
 
-                            <!-- You should use a button here, as the anchor is only used for the example  -->
-                            <button type="submit" class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                                Create account
-                            </button>
-                        </form>
-
-
-                        <p class=" mt-4">
-                            <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="./login">
-                                Already have an account? Login
-                            </a>
-                        </p>
+                            <div class="input-div">
+                                <input type="date" id="dob" required require>
+                                <span>Date Of Birth</span>
+                            </div>
+                        </div>
+                        <div class="buttons button_space">
+                            <button class="back_button">Back</button>
+                            <button class="next_button">Next Step</button>
+                        </div>
                     </div>
+                    <div class="main">
+                        <small><i class="fa fa-smile-o"></i></small>
+                        <div class="text">
+                            <h2>Bank Details</h2>
+                            <p>Please enter your bank details & press next</p>
+                        </div>
+                        <div class="input-text">
+                            <div class="input-div">
+                                <input type="text" id="bankname" required require>
+                                <span>Bank Name</span>
+                            </div>
+                        </div>
+
+                        <div class="input-text">
+                            <div class="input-div">
+                                <input type="number" id="accountno" required require>
+                                <span>Account Number</span>
+                            </div>
+                        </div>
+
+                        <div class="input-text">
+                            <div class="input-div">
+                                <input type="text" id="ifsc" required require>
+                                <span>IFSC</span>
+                            </div>
+                        </div>
+                        <div class="buttons button_space">
+                            <button class="back_button">Back</button>
+                            <button class="next_button">Next Step</button>
+                        </div>
+                    </div>
+
+
+
+                    <div class="main">
+                        <small><i class="fa fa-smile-o"></i></small>
+                        <div class="text">
+                            <h2>Employee ID & Password</h2>
+                            <p>Please enter employee ID(if any) & password.</p>
+                        </div>
+                        <div class="input-text">
+                            <div class="input-div">
+                                <input type="text" id="employeeref">
+                                <span>Employee ID</span>
+                            </div>
+                        </div>
+
+                        <div class="input-text">
+                            <div class="input-div">
+                                <input type="text" id="password" required require>
+                                <span>Password</span>
+                            </div>
+                        </div>
+
+                        <div class="input-text">
+                            <div class="input-div">
+                                <input type="text" id="comfirmpass" required require>
+                                <span>Confirm Password</span>
+                            </div>
+                        </div>
+                        <div class="buttons button_space">
+                            <button class="back_button">Back</button>
+                            <button class="submit_button">Submit</button>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
                 </div>
             </div>
         </div>
@@ -126,27 +741,156 @@
     <script src="main/dist/js/jquery.bvalidator-yc.js"></script>
     <script src="main/dist/js/select2.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        var next_click = document.querySelectorAll(".next_button");
+        var main_form = document.querySelectorAll(".main");
+        var step_list = document.querySelectorAll(".progress-bar li");
+        var num = document.querySelector(".step-number");
+        let formnumber = 0;
+
+        next_click.forEach(function(next_click_form) {
+            next_click_form.addEventListener('click', function() {
+                if (!validateform()) {
+                    return false
+                }
+                formnumber++;
+                updateform();
+                progress_forward();
+                contentchange();
+            });
+        });
+
+        var back_click = document.querySelectorAll(".back_button");
+        back_click.forEach(function(back_click_form) {
+            back_click_form.addEventListener('click', function() {
+                formnumber--;
+                updateform();
+                progress_backward();
+                contentchange();
+            });
+        });
+
+        var username = document.querySelector("#username");
+
+
+        var submit_click = document.querySelectorAll(".submit_button");
+        submit_click.forEach(function(submit_click_form) {
+
+            submit_click_form.addEventListener('click', function() {
+                if (!validateform()) {
+                    return false
+                }
+                formnumber++;
+                addoverlay()
+                $.post("main/insertuser.php", {
+                        username: $('#username').val(),
+                        email: $('#email').val(),
+                        mobileno: $('#mobileno').val(),
+                        address: $('#address').val(),
+                        dob: $('#dob').val(),
+                        adharno: $('#adharno').val(),
+                        panno: $('#panno').val(),
+                        bankname: $('#bankname').val(),
+                        accountno: $('#accountno').val(),
+                        ifsc: $('#ifsc').val(),
+                        employeeref: $('#employeeref').val(),
+                        password: $('#password').val(),
+                        policyread: $('#policyread').val(),
+                    },
+                    function(response) {
+                        if (response === 'Success') {
+                            removeoverlay()
+                            alertify.alert('result', 'Registration Successfull', function() {
+                                window.location.href = 'login'
+                            })
+                        } else {
+                            removeoverlay()
+                            alertify.alert('result', 'Sorry! Something went wrong', function() {
+                                // window.location.href = 'login'
+                            })
+                        }
+                    },
+                );
+                // updateform();
+            });
+        });
+
+        var heart = document.querySelector(".fa-heart");
+        heart.addEventListener('click', function() {
+            heart.classList.toggle('heart');
+        });
+
+
+        var share = document.querySelector(".fa-share-alt");
+        share.addEventListener('click', function() {
+            share.classList.toggle('share');
+        });
+
+
+
+        function updateform() {
+            main_form.forEach(function(mainform_number) {
+                mainform_number.classList.remove('active');
+            })
+            main_form[formnumber].classList.add('active');
+        }
+
+        function progress_forward() {
+            // step_list.forEach(list => {
+
+            //     list.classList.remove('active');
+
+            // }); 
+
+
+            num.innerHTML = formnumber + 1;
+            step_list[formnumber].classList.add('active');
+        }
+
+        function progress_backward() {
+            var form_num = formnumber + 1;
+            step_list[form_num].classList.remove('active');
+            num.innerHTML = form_num;
+        }
+
+        var step_num_content = document.querySelectorAll(".step-number-content");
+
+        function contentchange() {
+            step_num_content.forEach(function(content) {
+                content.classList.remove('active');
+                content.classList.add('d-none');
+            });
+            step_num_content[formnumber].classList.add('active');
+        }
+
+
+        function validateform() {
+            validate = true;
+            var validate_inputs = document.querySelectorAll(".main.active input");
+            validate_inputs.forEach(function(vaildate_input, index) {
+                vaildate_input.classList.remove('warning');
+                if (vaildate_input.hasAttribute('require')) {
+                    if (vaildate_input.value.length == 0) {
+                        validate = false;
+                        vaildate_input.classList.add('warning');
+                    }
+                }
+                if (vaildate_input.id === 'email' && !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(vaildate_input.value)) {
+                    validate = false
+                    vaildate_input.classList.add('warning');
+                }
+                let password = $("#password").val()
+                if (vaildate_input.id === 'comfirmpass' && vaildate_input.value !== password) {
+                    validate = false
+                    vaildate_input.classList.add('warning');
+
+                }
+                // console.log(vaildate_input.value)
+            });
+            return validate;
+
+        }
+    </script>
 </body>
-<script>
-    function dispatchchecking(n) {
-        // console.log(n+' something')
-        // console.log($(this).val())
-        if ($("#chekbox").prop('checked') == true) {
-            return true
-        }
-
-    }
-    $("#eye").click(() => {
-        iconname = $("#eye").attr("class");
-        if (iconname === 'fa fa-eye') {
-            $('#password').attr('type', 'text')
-            $("#eye").attr('class', 'fa fa-eye-slash')
-
-        } else {
-            $('#password').attr('type', 'password')
-            $("#eye").attr('class', 'fa fa-eye')
-        }
-    })
-</script>
 
 </html>
