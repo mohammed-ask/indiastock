@@ -1,7 +1,10 @@
 <?php
 include "./session.php";
+$limit = $obj->selectfieldwhere("userstocks", "count(id)", "userid=" . $employeeid . " and status = 1");
 $checkstock = $obj->selectfieldwhere("userstocks", "count(id)", "userid=" . $employeeid . " and Exch = '" . $_POST['exch'] . "' and Symbol='" . $_POST['stockname'] . "'");
-if ($checkstock > 0) {
+if ($limit === '5') {
+    echo "Limit Reached";
+} else if ($checkstock > 0) {
     echo "Present";
 } else {
     $xx['added_on'] = date("Y-m-d H:i:s");

@@ -24,7 +24,7 @@ if ($num) {
             } else {
                 $data = array();
 
-                $_SESSION['username'] = $row['username'];
+                $_SESSION['username'] = $row['name'];
                 $_SESSION['userid'] = $row['id'];
                 $_SESSION['useremail'] = $row['email'];
                 $_SESSION['role'] = $row['role'];

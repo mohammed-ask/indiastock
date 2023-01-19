@@ -2,6 +2,7 @@
 include "main/session.php";
 $symbol = $_GET['hakuna'];
 $exchange = $_GET['what'];
+$id = $obj->selectfieldwhere("userstocks", "id", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1");
 $rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1")->fetch_assoc();
 // print_r(array($rowfetch));
 // die;
@@ -32,6 +33,7 @@ $stockdata = $stockdata[0];
     <form class="row gy-2 gx-3 align-items-end" id="buystock">
         <input type="hidden" name="symbol" value="<?= $stockdata['Symbol'] ?>" id="">
         <input type="hidden" name="exchange" value="<?= $stockdata['Exch'] ?>" id="">
+        <input type="hidden" name="stockid" value="<?= $id ?>" id="">
         <input type="hidden" name="totalamount" id="totalamount" value="<?= $usermargin > 0 ? $stockdata['LastRate'] / $usermargin : $stockdata['LastRate'] ?>">
         <div class="col-auto">
             <label class="form-label" for="Quantity">Quantity</label>
@@ -88,7 +90,7 @@ $stockdata = $stockdata[0];
 </div><!--end modal-body-->
 <script>
     $("#modalfooterbtn").css('display', 'none')
-    setInterval(() => {
+    myinterval = setInterval(() => {
         console.log('counting buystock')
         $('#stockdetails').html()
         $.post("main/getlivemarketdatasingle.php", {
@@ -98,10 +100,10 @@ $stockdata = $stockdata[0];
             function(data) {
                 $('#stockdetails').html(data)
                 price = $("#closingprice").val();
-                $("#price").val(price)
+                $("#Price").val(price)
             },
         );
-    }, 1000000)
+    }, 10000)
 
     function sumfund() {
         var qty = $("#qty").val();

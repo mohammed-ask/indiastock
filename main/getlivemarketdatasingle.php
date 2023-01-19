@@ -21,5 +21,5 @@ $stockdata = $stockdata[0];
     </h6>
     <div class="d-inline-block font-10"><span <?= $stockdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $stockdata['Chg'] ?></span> <span <?= $stockdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($stockdata['ChgPcnt'], 2) ?>%)</span></div>
     <div class="text-success">Live <span><i class="fa-regular fa-circle-dot"></i></span></div>
-    <input type="hidden" value="<?= $stockdata['PClose'] ?>" id="closingprice">
+    <input type="hidden" value="<?= $stockdata['LastRate'] ?>" id="closingprice">
 </div>

@@ -10,7 +10,7 @@ if ($_POST['totalamount'] > $investmentamount) {
     $xx['added_on'] = date("Y-m-d H:i:s");
     $xx['updated_by'] = $employeeid;
     $xx['updated_on'] = date("Y-m-d H:i:s");
-    $xx['status'] = 1;
+    $xx['status'] = 0;
     $xx['qty'] = $_POST['qty'];
     $xx['price'] = $_POST['price'];
     $xx['totalamount'] = $_POST['totalamount'];
@@ -18,6 +18,7 @@ if ($_POST['totalamount'] > $investmentamount) {
     $xx['type'] = $trademode;
     $xx['symbol'] = $_POST['symbol'];
     $xx['exchange'] = $_POST['exchange'];
+    $xx['stockid'] = $_POST['stockid'];
     $xx['limit'] = $usermargin;
     $xx['trademethod'] = 'Buy';
     $xx['tradestatus'] = 'Open';
@@ -26,7 +27,6 @@ if ($_POST['totalamount'] > $investmentamount) {
     $remainfund = $investmentamount - $xx["totalamount"];
     $xy['investmentamount'] = $remainfund;
     $user = $obj->update("users", $xy, $employeeid);
-    die;
     if ($buy > 0) {
         echo "Redirect : " . $_POST['symbol'] . " has been bought successfully URLmarket";
     } else {

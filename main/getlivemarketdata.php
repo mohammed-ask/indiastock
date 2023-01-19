@@ -17,7 +17,7 @@ foreach ($stockdata as $data) { ?>
                                                                     echo  $exc  ?></p>
                         </div>
                         <div>
-                            <h6 class="m-0 text-uppercase font-11">₹<?= $data['PClose'] ?> <?php if ($data['ChgPcnt'] > 0) { ?>
+                            <h6 class="m-0 text-uppercase font-11">₹<?= $data['LastRate'] ?> <?php if ($data['ChgPcnt'] > 0) { ?>
                                     <i class="fa-solid fa-arrow-trend-up text-success"></i>
                                 <?php } else { ?>
                                     <i class="fa-solid fa-arrow-trend-down text-danger"></i>

@@ -1,11 +1,10 @@
 <?php
 include "main/session.php";
-$rowfund = $obj->selectfieldwhere("users", "investmentamount", "id=" . $employeeid . " and status = 1");
 $symbol = $_GET['hakuna'];
 $exchange = $_GET['what'];
+$id = $obj->selectfieldwhere("userstocks", "id", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1");
 $rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1")->fetch_assoc();
-// print_r(array($rowfetch));
-// die;
+
 $stockdata = $obj->fivepaisaapi(array($rowfetch));
 $stockdata = $stockdata[0];
 ?>
@@ -45,6 +44,7 @@ $stockdata = $stockdata[0];
     <form class="row gy-2 gx-3 align-items-end" id="sellstock">
         <input type="hidden" name="symbol" value="<?= $stockdata['Symbol'] ?>" id="">
         <input type="hidden" name="exchange" value="<?= $stockdata['Exch'] ?>" id="">
+        <input type="hidden" name="stockid" value="<?= $id ?>" id="">
         <input type="hidden" name="totalamount" id="totalamount" value="<?= $usermargin > 0 ? $stockdata['LastRate'] / $usermargin : $stockdata['LastRate'] ?>">
         <div class="col-auto">
             <label class="form-label" for="Quantity">Quantity</label>
@@ -93,7 +93,7 @@ $stockdata = $stockdata[0];
         </div><!--end col-->
         <div class="col-auto">
             <small class="text-muted d-block">Available Fund</small>
-            <small>₹<?= $rowfund ?>.00</small>
+            <small>₹<?= $investmentamount ?>.00</small>
         </div><!--end col-->
     </div><!--end row-->
 </div><!--end modal-body-->
@@ -109,8 +109,8 @@ $stockdata = $stockdata[0];
             function(data) {
                 $('#stockdetails').html(data)
                 price = $("#closingprice").val();
-                $("#price").val(price)
+                $("#Price").val(price)
             },
         );
-    }, 500000)
+    }, 10000)
 </script>

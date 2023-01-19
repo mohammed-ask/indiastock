@@ -883,7 +883,6 @@
                 if (vaildate_input.id === 'comfirmpass' && vaildate_input.value !== password) {
                     validate = false
                     vaildate_input.classList.add('warning');
-
                 }
                 // console.log(vaildate_input.value)
             });

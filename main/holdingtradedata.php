@@ -1,17 +1,17 @@
 <?php
 include 'session.php';
+/* @var $obj db */
 $id = $employeeid;
-$todayopentradeid = $obj->selectfieldwhere(
+$holdingtradeid = $obj->selectfieldwhere(
     "stocktransaction",
     "group_concat(distinct(stockid))",
-    "status = 0 and userid = $id and tradestatus='Open' and date(added_on) = curdate()"
+    "status = 0 and userid = $id and tradestatus='Open' and type='Holding'"
 );
-if (!empty($todayopentradeid)) {
-    $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1 and id in (" . $todayopentradeid . ")");
+if (!empty($holdingtradeid)) {
+    $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1 and id in (" . $holdingtradeid . ")");
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
     $stockdata = $obj->fivepaisaapi($rowfetch);
 }
-/* @var $obj db */
 $limit = $_GET['length'];
 $start = $_GET['start'];
 $i = 1;
@@ -44,13 +44,13 @@ if ((isset($_GET['columns'][0]["search"]["value"])) && (!empty($_GET['columns'][
 if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][1]["search"]["value"]))) {
     $search .= " and stocktransaction.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
-$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and userid = $id and date(added_on) = curdate()");
-$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and userid = $id and date(added_on) = curdate() $search ");
+$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and userid = $id and type='Holding'");
+$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and userid = $id and type='Holding' $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction",
     "*",
-    "status = 0 and userid = $id and tradestatus='Open' and date(added_on) = curdate() $search $order limit $start, $limit"
+    "status = 0 and userid = $id and tradestatus='Open' and type='Holding' $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();

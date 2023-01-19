@@ -119,29 +119,3 @@
     </nav>
     <!-- end navbar-->
 </div>
-<div class="national-data">
-    <div class="container-fluid">
-        <!-- Page-Title -->
-        <div class="row">
-            <div class="col-sm-12 mt-2 mb-2">
-                <div class="page-title-box d-inline-block d-md-flex justify-content-start justify-content-md-between align-items-center">
-                    <div class="my-3 my-md-0 ps-2">
-                        <div class="nifty-50 d-inline-block me-3">
-                            <div class="font-11 fw-semibold">Nifty 50</div>
-                            <div class="d-inline-block font-11">16,538.45 <span class="text-danger">-78.00</span>
-                                <span class="text-danger">(0.49%)</span>
-                            </div>
-                        </div>
-                        <div class="bse-sensex d-inline-block">
-                            <div class="font-11 fw-semibold">BSE Sensex</div>
-                            <div class="d-inline-block font-11">57,578.76 <span class="text-danger">-273.51</span>
-                                <span class="text-danger">(0.52%)</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
