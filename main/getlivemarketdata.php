@@ -29,19 +29,19 @@ foreach ($stockdata as $data) { ?>
                 </a> <!--end-->
                 <hr class="hr-dashed">
                 <div class="row mt-3 text-center">
-                    <div class="col-6 col-md-3 border-end">
+                    <!-- <div class="col-6 col-md-4 border-end">
                         <p class="mb-1 text-muted">Open</p>
                         <span>₹144.45</span>
-                    </div>
-                    <div class="col-6 col-md-3 border-end">
+                    </div> -->
+                    <div class="col-6 col-md-4 border-end">
                         <p class="mb-1 text-muted">High</p>
                         <span>₹<?= $data['High'] ?></span>
                     </div>
-                    <div class="col-6 col-md-3 border-end">
+                    <div class="col-6 col-md-4 border-end">
                         <p class="mb-1 text-muted">Low</p>
                         <span>₹<?= $data['Low'] ?></span>
                     </div>
-                    <div class="col-6 col-md-3">
+                    <div class="col-6 col-md-4">
                         <p class="mb-1 text-muted">Close</p>
                         <span>₹<?= $data['PClose'] ?></span>
                     </div>

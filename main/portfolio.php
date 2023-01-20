@@ -190,9 +190,9 @@ include "main/templete.php"; ?>
     })
     setInterval(function() {
         table.ajax.reload();
-    }, 50000000);
+    }, 10000);
 
-    var table = $('#example2').DataTable({
+    var table2 = $('#example2').DataTable({
         "ajax": "main/holdingtradedata.php",
         "processing": false,
         "serverSide": true,
@@ -208,7 +208,9 @@ include "main/templete.php"; ?>
             [0, "desc"]
         ],
     })
-
+    setInterval(function() {
+        table2.ajax.reload();
+    }, 10000);
     var table = $('#example3').DataTable({
         "ajax": "main/closetradedata.php",
         "processing": false,

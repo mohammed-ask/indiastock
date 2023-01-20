@@ -134,7 +134,7 @@ include "main/templete.php"; ?>
                 $('#userstock').html(data)
             },
         );
-    }, 500000)
+    }, 5000)
     $('#myModal').on('hidden.bs.modal', function() {
         // refresh current page
         clearInterval(myinterval)
