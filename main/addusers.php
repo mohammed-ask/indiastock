@@ -716,10 +716,21 @@
                         </div>
                         <div class="buttons button_space">
                             <button class="back_button">Back</button>
+                            <button class="next_button" id="otp_button">Submit</button>
+                        </div>
+                    </div>
+                    <div class="main">
+                        <div class="input-text">
+                            <div class="input-div">
+                                <input type="text" id="otp" required require>
+                                <span>Enter OTP (Sent on your Email)</span>
+                            </div>
+                        </div>
+                        <div class="buttons button_space">
+                            <button class="back_button">Back</button>
                             <button class="submit_button">Submit</button>
                         </div>
                     </div>
-
 
 
 
@@ -772,6 +783,31 @@
 
         var username = document.querySelector("#username");
 
+        var otpclick = document.querySelectorAll("#otp_button");
+        otpclick.forEach(function(otpclick_form) {
+
+            otpclick_form.addEventListener('click', function() {
+                var email = $("#email").val()
+                var username = $("#username").val()
+                if ($("#password").val() !== $("#comfirmpass").val()) {
+                    return false
+                }
+                formnumber++;
+                addoverlay()
+                $.post("main/otpforregister.php", {
+                        email: email,
+                        username: username
+                    },
+
+                    function(data) {
+                        if (data === "Success") {
+                            removeoverlay()
+                        }
+                    },
+                );
+
+            });
+        });
 
         var submit_click = document.querySelectorAll(".submit_button");
         submit_click.forEach(function(submit_click_form) {
@@ -796,12 +832,18 @@
                         employeeref: $('#employeeref').val(),
                         password: $('#password').val(),
                         policyread: $('#policyread').val(),
+                        otp: $('#otp').val(),
                     },
                     function(response) {
                         if (response === 'Success') {
                             removeoverlay()
                             alertify.alert('result', 'Registration Successfull', function() {
                                 window.location.href = 'login'
+                            })
+                        } else if (response === 'Failed') {
+                            removeoverlay()
+                            alertify.alert('result', 'Sorry! OTP does not match', function() {
+                                // window.location.href = 'login'
                             })
                         } else {
                             removeoverlay()

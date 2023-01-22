@@ -1,5 +1,15 @@
 <?php
 include "session.php";
+$watchlistsym = [];
+$sexchange = [];
+$wexch = $obj->selectfieldwhere("watchliststock", "group_concat(distinct(exchange))", "userid='" . $employeeid . "' and status = 1");
+if (!empty($wexch)) {
+    $sexchange = explode(",", $wexch);
+}
+$wsymbol = $obj->selectfieldwhere("watchliststock", "group_concat(distinct(symbol))", "userid='" . $employeeid . "' and status = 1");
+if (!empty($wsymbol)) {
+    $watchlistsym = explode(",", $wsymbol);
+}
 $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1");
 $rowfetch = mysqli_fetch_all($fetchshare, 1);
 // print_r($rowfetch);
@@ -16,29 +26,34 @@ $stockdata = array_filter($stockdata, function ($data) {
         return $data;
     }
 });
+$wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexchange) {
+    if (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange))
+        return $data;
+});
 ?>
-<div class="national-data">
-    <div class="container-fluid">
-        <!-- Page-Title -->
-        <div class="row">
-            <div class="col-sm-12 mt-2 mb-2">
-                <div class="page-title-box d-inline-block d-md-flex justify-content-start justify-content-md-between align-items-center">
-                    <div class="my-3 my-md-0 ps-2">
-                        <?php foreach ($marketdata as $mdata) {  ?>
-                            <div class="nifty-50 d-inline-block me-3">
-                                <div class="font-11 fw-semibold"><?= $mdata['Symbol'] ?></div>
-                                <div class="d-inline-block font-11"><?= $mdata['LastRate'] ?> <span class="text-danger"><?= $mdata['Chg'] ?> </span>
-                                    <span class="text-danger">(<?= round($mdata['ChgPcnt'], 2) ?>%)</span>
+<div class="row" id="userstock">
+
+    <div class="national-data">
+        <div class="container-fluid">
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12 mt-2 mb-2">
+                    <div class="page-title-box d-inline-block d-md-flex justify-content-start justify-content-md-between align-items-center">
+                        <div class="my-3 my-md-0 ps-2">
+                            <?php foreach ($marketdata as $mdata) {  ?>
+                                <div class="nifty-50 d-inline-block me-3">
+                                    <div class="font-11 fw-semibold"><?= $mdata['Symbol'] ?></div>
+                                    <div class="d-inline-block font-11"><?= $mdata['LastRate'] ?> <span class="text-danger"><?= $mdata['Chg'] ?> </span>
+                                        <span class="text-danger">(<?= round($mdata['ChgPcnt'], 2) ?>%)</span>
+                                    </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="row" id="userstock">
     <?php
     foreach ($stockdata as $data) { ?>
         <div class="col-lg-4">
@@ -61,7 +76,7 @@ $stockdata = array_filter($stockdata, function ($data) {
                                 </h6>
                                 <div class="d-inline-block font-10"><span <?= $data['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $data['Chg'] ?></span> <span <?= $data['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($data['ChgPcnt'], 2) ?>%)</span></div>
                             </div>
-                            <div><i class="fa fa-times" aria-hidden="true" onclick="removestock('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>')"></i></div>
+                            <div><i class="fa fa-times" style="color:grey" aria-hidden="true" onclick="removestock('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>')"></i></div>
                         </div><!-- end /div -->
                     </a> <!--end-->
                     <hr class="hr-dashed">
@@ -97,8 +112,8 @@ $stockdata = array_filter($stockdata, function ($data) {
                                                     font-weight: 500 !important; margin-right: 10px !important;">
                                     <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $data["Symbol"] ?>", "sellstock","<?= $data["Exch"] ?>", "Sell Stock")'>Sell</a>
                                 </li><!--end /li-->
-                                <li class="list-inline-item align-self-center mx-0">
-                                    <a href="#"><i class="fa-solid fa-plus email-action-icons-item"></i></a>
+                                <li <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='background-color:#0073cf;cursor:pointer'" : "style='cursor:pointer'" ?> class="list-inline-item align-self-center mx-0">
+                                    <i <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='color:white'" : "" ?> onclick="addtowatchlist('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>')" class="fa-solid fa-plus email-action-icons-item"></i>
                                 </li><!--end /li-->
                             </ul><!--end /ul-->
 
@@ -123,15 +138,22 @@ $pagemeta = "";
 $pagetitle = "Indiastock: Market";
 $contentheader = "";
 $pageheader = "";
+$watchliststocks = $wstocks;
 include "main/templete.php"; ?>
 <script>
     let myinterval = null;
     setInterval(() => {
         console.log('counting market')
         $('#userstock').html()
-        $.post("main/getlivemarketdata.php",
+        $.post("main/getlivemarketdata.php", {
+                wexcg: '<?= implode(",", $sexchange) ?>',
+                wsymbol: '<?= implode(",", $watchlistsym) ?>'
+            },
+
             function(data) {
                 $('#userstock').html(data)
+                let sidedata = $('#sidebarcolumn').html()
+                $("#watchlist_2").html(sidedata)
             },
         );
     }, 5000)
@@ -158,5 +180,41 @@ include "main/templete.php"; ?>
         } else {
             text = "You canceled!";
         }
+    }
+
+    function addtowatchlist(symbol, excg) {
+        $.post("main/addtowatchlist.php", {
+                symbol: symbol,
+                exchange: excg
+            },
+            function(data) {
+                if (data === 'Success') {
+                    window.location.reload()
+                } else if (data === 'Deleted') {
+                    window.location.reload()
+                } else {
+                    alertify.alert('result', 'Some Error Occured', function() {
+                        window.location.reload()
+                    })
+                }
+            },
+        );
+    }
+
+    function removewatchlist(symbol, excg) {
+        $.post("main/removefromwatchlist.php", {
+                symbol: symbol,
+                exchange: excg
+            },
+            function(data) {
+                if (data === 'Deleted') {
+                    window.location.reload()
+                } else {
+                    alertify.alert('result', 'Some Error Occured', function() {
+                        window.location.reload()
+                    })
+                }
+            },
+        );
     }
 </script>

@@ -1,7 +1,45 @@
 <?php
 include "main/session.php";
+
+
+$fetchshare = $obj->selectextrawhereupdate('userstocks inner join watchliststock on watchliststock.userstockid = userstocks.id', "Exch,ExchType,userstocks.Symbol,Expiry,StrikePrice,OptionType", "userstocks.userid='" . $employeeid . "' and userstocks.status = 1 and watchliststock.status = 1");
+$rowfetch = mysqli_fetch_all($fetchshare, 1);
+array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
+
+$stockdata = $obj->fivepaisaapi($rowfetch);
+$marketdata = array_filter($stockdata, function ($data) {
+    if ($data['Symbol'] === 'NIFTY' || $data['Symbol'] === 'SENSEX') {
+        return $data;
+    }
+});
+$wstocks = array_filter($stockdata, function ($data) {
+    if ($data['Symbol'] !== 'NIFTY' && $data['Symbol'] !== 'SENSEX') {
+        return $data;
+    }
+});
 /* @var $obj db */
 ?>
+<div class="national-data">
+    <div class="container-fluid">
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12 mt-2 mb-2">
+                <div class="page-title-box d-inline-block d-md-flex justify-content-start justify-content-md-between align-items-center">
+                    <div class="my-3 my-md-0 ps-2">
+                        <?php foreach ($marketdata as $mdata) {  ?>
+                            <div class="nifty-50 d-inline-block me-3">
+                                <div class="font-11 fw-semibold"><?= $mdata['Symbol'] ?></div>
+                                <div class="d-inline-block font-11"><?= $mdata['LastRate'] ?> <span class="text-danger"><?= $mdata['Chg'] ?> </span>
+                                    <span class="text-danger">(<?= round($mdata['ChgPcnt'], 2) ?>%)</span>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-lg-3">
         <div class="card">
@@ -249,4 +287,18 @@ $pagemeta = "";
 $pagetitle = "Indiastock: Dashboard";
 $contentheader = "";
 $pageheader = "";
+$watchliststocks = $wstocks;
 include "main/templete.php"; ?>
+<script>
+    setInterval(() => {
+        console.log('counting market')
+        $('.national-data').html()
+        $.post("main/getlivemarketdatadashboard.php",
+            function(data) {
+                $('.national-data').html(data)
+                let sidedata = $('#sidebarcolumn').html()
+                $("#watchlist_2").html(sidedata)
+            },
+        );
+    }, 5000)
+</script>

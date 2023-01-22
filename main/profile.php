@@ -38,7 +38,7 @@ ob_start();
                             <div class="bg-light d-flex justify-content-between">
                                 <h5 class="m-0 font-15 p-3"> Bank Details</h5>
                                 <div class="align-self-center me-3">
-                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "bankaccountchange","", "Add New User")'>Edit</button>
+                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "bankaccountchange","", "Change Bank Details")'>Edit</button>
                                 </div>
                             </div>
                             <div class="row p-3">
@@ -112,8 +112,10 @@ ob_start();
 
 
                             </div>
+                            <div id="otpinput"></div>
                             <div class="col-12 mt-3">
-                                <button type="button" class="btn btn-primary" onclick="sendForm('', '', 'updateprofile', 'resultid', 'addtax')">Submit</button>
+                                <button type="button" class="btn btn-primary" id="otp" onclick="requestotp()">Submit OTP</button>
+                                <button type="button" class="btn btn-primary" id="formsubmit" style="display: none;" onclick="sendForm('', '', 'updateprofile', 'resultid', 'addtax')">Submit</button>
                             </div>
                             <div id="resultid"></div>
                         </div><!--end accordion-body-->
@@ -147,4 +149,19 @@ include "main/templete.php"; ?>
             }
         })
     });
+
+    function requestotp() {
+        event.preventDefault();
+        addoverlay()
+        $.post("main/otpforprofile.php",
+            function(data) {
+                if (data === "Success") {
+                    removeoverlay()
+                    $("#otpinput").append(" <div class='mt-3 row row-cols-lg-auto g-3 align-items-center'><div class='col-12'><input class='form-control' name='otp' data-bvalidator='digit,required,minlength[4],maxlength[4]' type='text' placeholder='Enter OTP' value=''></div></div>")
+                    $("#formsubmit").css("display", "block")
+                    $("#otp").css("display", "none")
+                }
+            },
+        );
+    }
 </script>
