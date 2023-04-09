@@ -6,6 +6,11 @@ if ($_SESSION['otp'] == $_POST['otp']) {
         $imgreturn = $obj->uploadfilenew($path, $_FILES, "avatar", array("jpg", "jpeg", "png", "gif"));
         $xx['avatar'] = $imgreturn;
     }
+    if (isset($_POST['carryforward'])) {
+        $xx['carryforward'] = $_POST['carryforward'];
+    } else {
+        $xx['carryforward'] = 'No';
+    }
     $xx['mobile'] = $_POST['mobile'];
     $xx['trademode'] = $_POST['trademode'];
     $xx['password'] = $_POST['password'];

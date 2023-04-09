@@ -103,14 +103,19 @@ ob_start();
                                     Intraday
                                 </label>
                             </div>
+                            <h5 class="mt-3 font-13">Carry Forward Trade</h5>
+                            <div style="margin-left:3px" class="row row-cols-lg-auto g-3 align-items-center">
+                                <label class="switch">
+                                    <input type="checkbox" name='carryforward' <?= $rowprofile['carryforward'] === 'Yes' ? 'checked' : '' ?> class="setactive" value="Yes">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
                             <h5 class="mt-3 font-13">Change Password</h5>
                             <div class="row row-cols-lg-auto g-3 align-items-center">
                                 <div class="col-12" style="position: relative;">
                                     <input class="form-control" value="<?= $rowprofile['password'] ?>" name="password" type="password" id="password" placeholder="Currant Password">
                                     <i id="eye" class="fa fa-eye" style="position: absolute; top:10px; right:15px" aria-hidden="true"></i>
                                 </div>
-
-
                             </div>
                             <div id="otpinput"></div>
                             <div class="col-12 mt-3">

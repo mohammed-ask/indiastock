@@ -8,7 +8,7 @@ $stockdata = $stockdata[0];
 ?>
 <div>
     <h6 class="modal-title m-0 mb-n1" id="BuyStocksLabel"><?= $stockdata['Symbol'] ?></h6>
-    <span class="font-10 d-block mb-1"><?php $exc = $stockdata['Exch'] == 'B' ? ' BSEsss' : ' NSE';
+    <span class="font-10 d-block mb-1"><?php $exc = $stockdata['Exch'] == 'B' ? ' BSE' : ' NSE';
                                         echo  $exc  ?></span>
     <span class="border border-success px-1 rounded text-success">B</span>
 </div>

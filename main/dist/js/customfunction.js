@@ -1,20 +1,20 @@
 var current = "";
 $(document).ready(function () {
     $(function () {
-    var url = window.location;
-    // for single sidebar menu
-    $('ul.nav-sidebar a').filter(function () {
-       return this.href == url;
-    }).addClass('active');
+        var url = window.location;
+        // for single sidebar menu
+        $('ul.nav-sidebar a').filter(function () {
+            return this.href == url;
+        }).addClass('active');
 
-    // for sidebar menu and treeview
-    $('ul.nav-treeview a').filter(function () {
-        return this.href == url;
-    }).parentsUntil(".nav-sidebar > .nav-treeview")
-        .css({'display': 'block'})
-        .addClass('menu-open').prev('a')
-        .addClass('active');
-});
+        // for sidebar menu and treeview
+        $('ul.nav-treeview a').filter(function () {
+            return this.href == url;
+        }).parentsUntil(".nav-sidebar > .nav-treeview")
+            .css({ 'display': 'block' })
+            .addClass('menu-open').prev('a')
+            .addClass('active');
+    });
     $('form').on('focus', 'input[type=number]', function (e) {
         $(this).on('wheel.disableScroll', function (e) {
             e.preventDefault();
@@ -48,7 +48,7 @@ $(document).ready(function () {
     $('textarea').focus(function () {
         current = this;
     });
-//setTimeout('$("select").select2()',1000);
+    //setTimeout('$("select").select2()',1000);
     $("select").not('.notselect2').select2();
 });
 function onready() {
@@ -85,7 +85,7 @@ function onready() {
     $('textarea').focus(function () {
         current = this;
     });
-//setTimeout('$("select").select2()',1000);
+    //setTimeout('$("select").select2()',1000);
     $("select").not('.notselect2').select2();
 }
 function checkposition(qwerty) {
@@ -93,21 +93,19 @@ function checkposition(qwerty) {
     $(current).val($(current).val() + qwerty);
 }
 //check if pressed key is a number or not
-function isNumericKeyStroke()
-{
+function isNumericKeyStroke() {
     var returnValue = false;
     var keyCode = (window.event.which) ? window.event.which : window.event.keyCode;
     if (((keyCode >= 48) && (keyCode <= 57)) || // All numerics
-            (keyCode == 8) || // Backspace
-            (keyCode == 13))     // Carriage Return
+        (keyCode == 8) || // Backspace
+        (keyCode == 13))     // Carriage Return
         returnValue = true;
     if (window.event.returnValue)
         window.event.returnValue = returnValue;
     return returnValue;
 }
 function biddisplay(selIDS, selType) {
-    if (selType == "show")
-    {
+    if (selType == "show") {
         jQuery("#more_info_" + selIDS).show('10');
         jQuery("#showAll" + selIDS).hide();
         jQuery("#hideAll" + selIDS).show();
@@ -119,8 +117,7 @@ function biddisplay(selIDS, selType) {
 }
 function showfield(source, target) {
     var chkstatus = $("#" + source).is(':checked');
-    if (chkstatus)
-    {
+    if (chkstatus) {
         jQuery("#" + target).show();
     } else {
         jQuery("#" + target).hide();
@@ -131,8 +128,7 @@ function isEmpty(str) {
     return (!str || 0 === str.length);
 }
 //set a bassic calender
-function setcalender(dateid)
-{
+function setcalender(dateid) {
     if ($("#" + dateid).data("datepicker") !== null) {
         // datepicker initialized
         $("#" + dateid).attr("readonly", true);
@@ -148,8 +144,7 @@ function setcalender(dateid)
         $("#" + dateid).datepicker("show");
     }
 }
-function setcalenderfuturedate(dateid)
-{
+function setcalenderfuturedate(dateid) {
     if ($("#" + dateid).data("datepicker") !== null) {
         // datepicker initialized
         $("#" + dateid).attr("readonly", true);
@@ -164,8 +159,7 @@ function setcalenderfuturedate(dateid)
         $("#" + dateid).datepicker("show");
     }
 }
-function setbuttoncalender(dateid)
-{
+function setbuttoncalender(dateid) {
     if ($("#" + dateid).data("datepicker") !== null) {
         // datepicker initialized
         $("#" + dateid).datepicker({
@@ -182,8 +176,7 @@ function setbuttoncalender(dateid)
         $("#" + dateid).datepicker("show");
     }
 }
-function setcalendernolimit(dateid)
-{
+function setcalendernolimit(dateid) {
     if ($("#" + dateid).data("datepicker") !== null) {
         // datepicker initialized
         $("#" + dateid).attr("readonly", true);
@@ -197,8 +190,7 @@ function setcalendernolimit(dateid)
         $("#" + dateid).datepicker("show");
     }
 }
-function setcalendertimenolimit(dateid)
-{
+function setcalendertimenolimit(dateid) {
     if ($("#" + dateid).data("datepicker") !== null) {
         // datepicker initialized
         $("#" + dateid).attr("readonly", true);
@@ -213,8 +205,7 @@ function setcalendertimenolimit(dateid)
         $("#" + dateid).datepicker("show");
     }
 }
-function setcalenderlimit(dateid, start, end)
-{
+function setcalenderlimit(dateid, start, end) {
     if ($("#" + dateid).data("datepicker") !== null) {
         // datepicker initialized
         $("#" + dateid).attr("readonly", true);
@@ -231,8 +222,7 @@ function setcalenderlimit(dateid, start, end)
         $("#" + dateid).datepicker("show");
     }
 }
-function setcalendermin(dateid, start)
-{
+function setcalendermin(dateid, start) {
     if ($("#" + dateid).data("datepicker") !== null) {
         // datepicker initialized
         $("#" + dateid).attr("readonly", true);
@@ -247,8 +237,7 @@ function setcalendermin(dateid, start)
         $("#" + dateid).datepicker("show");
     }
 }
-function setcalendermax(dateid, end)
-{
+function setcalendermax(dateid, end) {
     if ($("#" + dateid).data("datepicker") !== null) {
         // datepicker initialized
         $("#" + dateid).attr("readonly", true);
@@ -354,7 +343,7 @@ function daterangelimit(from, to, mindate, maxdate) {
 function parseDate(input, format) {
     format = format || 'yyyy-mm-dd'; // default format
     var parts = input.match(/(\d+)/g),
-            i = 0, fmt = {};
+        i = 0, fmt = {};
     // extract date-part indexes from the format
     format.replace(/(yyyy|dd|mm)/g, function (part) {
         fmt[part] = i++;
@@ -411,7 +400,7 @@ function timepicker(id) {
     });
     $('#' + id).timepicker('show');
 }
-function  datetimepicker(id) {
+function datetimepicker(id) {
     $('#' + id).datetimepicker({
         showSecond: true,
         changeMonth: true,
@@ -470,19 +459,19 @@ function datetimepickerrange(from, to) {
             $("#" + from).datepicker("option", "maxDate", selectedDate);
         },
         onSelect: function (selectedDate, inst) {
-//            var input = $("#" + from).val();
-//            var parts = input.match(/(\d+)/g);
-//            var d1 = parseDate(input, 'dd/mm/yyyy')
-//
-//            // get date from other text field
-//            var d2 = new Date(parseDate(selectedDate, 'dd/mm/yyyy'));
+            //            var input = $("#" + from).val();
+            //            var parts = input.match(/(\d+)/g);
+            //            var d1 = parseDate(input, 'dd/mm/yyyy')
+            //
+            //            // get date from other text field
+            //            var d2 = new Date(parseDate(selectedDate, 'dd/mm/yyyy'));
             // d2 -d1 gives result in milliseconds
             // calculate number of days by Math.abs((d2-d1)/86400000, as 24*3600*1000 = 86400000
             // and populate it to some text field #textfield
-//            var daydifferece = (Math.abs((d2 - d1) / 86400000)) + 1;
-//            if (daydifferece >= 7) {
-//                $("#errordatediv").html("You Have Selected " + daydifferece + " Days.");
-//            }
+            //            var daydifferece = (Math.abs((d2 - d1) / 86400000)) + 1;
+            //            if (daydifferece >= 7) {
+            //                $("#errordatediv").html("You Have Selected " + daydifferece + " Days.");
+            //            }
         }
     });
     $("#" + from).datepicker('show');
@@ -513,18 +502,18 @@ function datetimepickerrangemaxfixed(from, to, maxdate) {
         timeFormat: 'HH:mm:ss',
         controlType: 'select',
         onSelect: function (selectedDate, inst) {
-//            var input = $("#" + from).val();
-//            var parts = input.match(/(\d+)/g);
-//            var d1 = parseDate(input, 'dd/mm/yyyy')
+            //            var input = $("#" + from).val();
+            //            var parts = input.match(/(\d+)/g);
+            //            var d1 = parseDate(input, 'dd/mm/yyyy')
             // get date from other text field
             var d2 = new Date(parseDate(selectedDate, 'dd/mm/yyyy'));
             // d2 -d1 gives result in milliseconds
             // calculate number of days by Math.abs((d2-d1)/86400000, as 24*3600*1000 = 86400000
             // and populate it to some text field #textfield
-//            var daydifferece = (Math.abs((d2 - d1) / 86400000)) + 1;
-//            if (daydifferece >= 7) {
-//                $("#errordatediv").html("You Have Selected " + daydifferece + " Days.");
-//            }
+            //            var daydifferece = (Math.abs((d2 - d1) / 86400000)) + 1;
+            //            if (daydifferece >= 7) {
+            //                $("#errordatediv").html("You Have Selected " + daydifferece + " Days.");
+            //            }
         }
     });
     $("#" + from).datepicker('show');
@@ -561,13 +550,12 @@ function sendForm(custom, value, target, rid, formid, tiny) {
 
         }
         $('#' + formid).bValidator(optionsWarning);
-//        var overlay = jQuery('<div id="overlay"> </div>');
-//        overlay.appendTo(document.body);
+        //        var overlay = jQuery('<div id="overlay"> </div>');
+        //        overlay.appendTo(document.body);
         if ($('#' + formid).data('bValidator').validate()) {
             var str = formid;
             var nau = str.search("for");
-            if (tiny > 0)
-            {
+            if (tiny > 0) {
                 tinymce.triggerSave();
             }
             var oOutput = document.getElementById(rid);
@@ -587,8 +575,8 @@ function sendForm(custom, value, target, rid, formid, tiny) {
                         var res = rs.split('sdata')
                         var url = res[1];
                         alertify.alert('Result', res[0], function () {
-                            oOutput.innerHTML =  res[1];
-                           
+                            oOutput.innerHTML = res[1];
+
                         });
                     }
                     var n = oReq.responseText.indexOf("Reload");
@@ -608,11 +596,13 @@ function sendForm(custom, value, target, rid, formid, tiny) {
                         });
                     } else if (oReq.responseText.indexOf("Redirect :") != -1) {
                         var rs = oReq.responseText.replace('Redirect :', 'Success :');
+                        const urlStartIndex = rs.indexOf("URL") + 3; // Add 3 to exclude "URL" itself
+                        const url2 = rs.substring(urlStartIndex);
                         var res = rs.split('URL')
                         var url = res[1];
 
                         oOutput.innerHTML = '<div  class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">' + res[0] + '</div>';
-//                        alert(res[0]);
+                        //                        alert(res[0]);
                         $(':text').focus(function () {
                             current = this;
                         });
@@ -621,7 +611,7 @@ function sendForm(custom, value, target, rid, formid, tiny) {
                         });
                         alertify.alert('Result', res[0], function () {
 
-                            window.location.href = url;
+                            window.location.href = url2;
                         });
 
                     } else if (oReq.responseText.indexOf("CALLBACK :") != -1) {
@@ -669,20 +659,19 @@ function calibcheck(source, minvaue, maxvalue) {
     var val = parseFloat(source.value);
     var max = maxvalue;
     var min = minvaue;
-    if ((val < min) || ((val > max)))
-    {
+    if ((val < min) || ((val > max))) {
         alertify.confirm("This is out of acceptable limit, Do you want to continue \n You Entered " + val + "\n minimum acceptable value is" + min + "\n maximum acceptable value is" + max,
-                function () {
-                    alertify.success('Ok');
-                },
-                function () {
-                    document.getElementById(source.id).value = "";
-                });
+            function () {
+                alertify.success('Ok');
+            },
+            function () {
+                document.getElementById(source.id).value = "";
+            });
     }
 }
 $(function () {
     $('body').on('click', '.input_date', function () {
-        $(this).datepicker('destroy').datepicker({showOn: 'focus'}).focus();
+        $(this).datepicker('destroy').datepicker({ showOn: 'focus' }).focus();
     });
 });
 function changeprice() {
@@ -744,7 +733,7 @@ function calculatesalary() {
     $('#oa').val(oa);
     var gross = Math.round(Math.round(parseFloat(basicda)) + Math.round(parseFloat(hra)) + Math.round(parseFloat(ta)) + Math.round(parseFloat(fa)) + Math.round(parseFloat(oa)) + Math.round(parseFloat(ot)));
     var elamount = Math.round((presentday / 20) * gross / totalworkingdays);
-//    alert(presentday+" -- "+gross);
+    //    alert(presentday+" -- "+gross);
     var pf = 0;
     if (defaultgross < 50000) {
         if ((basicda + elamount) > 15000) {
@@ -861,10 +850,10 @@ function dynamicmodal(tid, target, what, heading) {
     var overlay = jQuery('<div id="overlay"> </div>');
     overlay.appendTo(document.body);
     $("#modalheading").html(heading);
-    $.get(target, {hakuna: tid, what: what}, function (data) {
+    $.get(target, { hakuna: tid, what: what }, function (data) {
         $("#overlay").remove();
         $("#modaldata").html(data);
-        $('#myModal').modal({show: true, backdrop: 'static'});
+        $('#myModal').modal({ show: true, backdrop: 'static' });
     });
 }
 function abssubstractminus(from, to, resultid, lc) {
@@ -1140,7 +1129,7 @@ function averageavg(field, resultid, lc) {
     var reult = Number(total) / Number(fields.length);
     if (lc != "NA") {
         lc = Number(lc);
-//            reult=reult.toFixed(lc);
+        //            reult=reult.toFixed(lc);
         reult = Number(roundof(reult, lc)).toFixed(lc);
     }
     $("#" + resultid).val(reult);
@@ -1175,24 +1164,24 @@ function inleastcount(n, d) {
     if (d == "NA") {
         return true;
     }
-//    alert(typeof(d));
+    //    alert(typeof(d));
     d = d.toString();
-//   alert(typeof(n));
+    //   alert(typeof(n));
     var ndI = n.indexOf("."); //Index of the Number's Dot
     var ddI = d.indexOf("."); // Index of the Divisors Dot
-//    alert(ndI+"===="+ddI+"====="+n+"====="+d);
+    //    alert(ndI+"===="+ddI+"====="+n+"====="+d);
     if (ndI > 0 && ddI > 0) { // IF its a float
         var len = n.length - ndI;
         var le = (d + ' ').replace('.', '').length;
-//        alert(parseFloat(d.lenght)+"ghjksk"+parseFloat(ddI));
+        //        alert(parseFloat(d.lenght)+"ghjksk"+parseFloat(ddI));
         var len1 = parseFloat(le) - parseFloat(ddI);
-//         alert(len+"===="+len1+"====="+n+"====="+d);
+        //         alert(len+"===="+len1+"====="+n+"====="+d);
         if (len == len1) {
             return true;
         } else {
             return false;
         }
-//        return !~((len % len1)); //Substract one of the modulo result, apply a bitwise NOT and cast a boolean.
+        //        return !~((len % len1)); //Substract one of the modulo result, apply a bitwise NOT and cast a boolean.
     } else if (ndI > 0 || ddI > 0) {
         return false;
     } else {
@@ -1220,7 +1209,7 @@ function divisiblebyid(n, did) {
     var ndI = 1 + "".indexOf.call(n, "."); //Index of the Number's Dot
     var ddI = 1 + "".indexOf.call(d, "."); // Index of the Divisors Dot
     if (ndI || ddI) { // IF its a float
-//                    alert(ndI+" - - "+ddI);
+        //                    alert(ndI+" - - "+ddI);
         var l = Math.max(("" + n).length - ndI, ("" + d).length - ddI); //Longest Decimal Part
         var tmpN = (n * Math.pow(10, l)).toFixed(ndI * 3); //Get an Integer
         var tmpD = (d * Math.pow(10, l)).toFixed(ddI * 3);
@@ -1270,8 +1259,7 @@ function customfrequency(n) {
         return true;
     } else if (n.match("([2-9]|[1-5][0-9]) days")) {
         return true;
-    } else
-    {
+    } else {
         return false;
     }
 }
@@ -1298,32 +1286,32 @@ function checknumberorna(n) {
         return true;
     }
 }
-function checkgst(g){
+function checkgst(g) {
     let regTest = /\d{2}[A-Z]{5}\d{4}[A-Z]{1}[A-Z\d]{1}[Z]{1}[A-Z\d]{1}/.test(g)
     if (regTest) {
         return true;
-        let a=65,b=55,c=36;
-        return Array['from'](g).reduce((i,j,k,g)=>{
-           p=(p=(j.charCodeAt(0)<a?parseInt(j):j.charCodeAt(0)-b)*(k%2+1))>c?1+(p-c):p;
-           return k<14?i+p:j==((c=(c-(i%c)))<10?c:String.fromCharCode(c+b));
-        },0);
+        let a = 65, b = 55, c = 36;
+        return Array['from'](g).reduce((i, j, k, g) => {
+            p = (p = (j.charCodeAt(0) < a ? parseInt(j) : j.charCodeAt(0) - b) * (k % 2 + 1)) > c ? 1 + (p - c) : p;
+            return k < 14 ? i + p : j == ((c = (c - (i % c))) < 10 ? c : String.fromCharCode(c + b));
+        }, 0);
     }
     return false;
 }
-function checkpan(g){
+function checkpan(g) {
     let regTest = /[A-Z]{5}\d{4}[A-Z]{1}/.test(g)
     if (regTest) {
         return true;
-        let a=65,b=55,c=36;
-        return Array['from'](g).reduce((i,j,k,g)=>{
-           p=(p=(j.charCodeAt(0)<a?parseInt(j):j.charCodeAt(0)-b)*(k%2+1))>c?1+(p-c):p;
-           return k<14?i+p:j==((c=(c-(i%c)))<10?c:String.fromCharCode(c+b));
-        },0);
+        let a = 65, b = 55, c = 36;
+        return Array['from'](g).reduce((i, j, k, g) => {
+            p = (p = (j.charCodeAt(0) < a ? parseInt(j) : j.charCodeAt(0) - b) * (k % 2 + 1)) > c ? 1 + (p - c) : p;
+            return k < 14 ? i + p : j == ((c = (c - (i % c))) < 10 ? c : String.fromCharCode(c + b));
+        }, 0);
     }
     return false;
 }
 
-function chkacceptqty(n, total,reject) {
+function chkacceptqty(n, total, reject) {
     var t = parseInt($("#" + total).val());
     var a = parseInt($("#" + reject).val());
     n = parseInt(n);
@@ -1338,40 +1326,40 @@ function chkacceptqty(n, total,reject) {
     return true;
 }
 
-function chkrejectqty(n, total,accept) {
+function chkrejectqty(n, total, accept) {
     var t = parseInt($("#" + total).val());
     var a = $("#" + accept).val();
     remain = parseInt(t) - parseInt(a);
     total2 = parseInt(n) + parseInt(a);
-    if(n > remain){
+    if (n > remain) {
         return false;
     }
-    if(n > t){
+    if (n > t) {
         return false;
     }
     if (total2 != t) {
         return false;
     }
-        return true;
-}
-$num=1;
-function myValidationAction($num){
-  if($num > 0)
-{
-  console.log($num);
     return true;
 }
-else{
-return false;}
+$num = 1;
+function myValidationAction($num) {
+    if ($num > 0) {
+        console.log($num);
+        return true;
+    }
+    else {
+        return false;
+    }
 }
-function checknumber(n){
+function checknumber(n) {
     result = true;
     data = n.split(',');
     // console.log(data);
     for (let i in data) {
-      if(data[i].length != 10 || isNaN(data[i])){
-          result = false;
-      }
+        if (data[i].length != 10 || isNaN(data[i])) {
+            result = false;
+        }
     }
     return result;
 }
@@ -1396,12 +1384,12 @@ function gap18year(n) {
     return true;
 }
 
-function matchconfirmpassword(n,cp){
-    did = $('#'+cp).val()
+function matchconfirmpassword(n, cp) {
+    did = $('#' + cp).val()
     return n === did ? true : false
 }
 
-function redir(data,secdata,page,target) {
-    document.getElementById('redirect').innerHTML = '<form  target='+target+' style="display:none;" position="absolute" method="post" action='+page+'><input id="redirbtn" type="submit" name="hakuna" value=' + data + '><input id="redirbtn"  name="matata" value=' + secdata + '></form>';
+function redir(data, secdata, page, target) {
+    document.getElementById('redirect').innerHTML = '<form  target=' + target + ' style="display:none;" position="absolute" method="post" action=' + page + '><input id="redirbtn" type="submit" name="hakuna" value=' + data + '><input id="redirbtn"  name="matata" value=' + secdata + '></form>';
     document.getElementById('redirbtn').click();
-  }
+}

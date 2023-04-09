@@ -1487,6 +1487,166 @@ class db
         return $result;
     }
 
+    // function getrequesttoken()
+    // {
+    //     $url = 'https://dev-openapi.5paisa.com/WebVendorLogin/VLogin/Index?VendorKey=' . KEY . '&ResponseURL=https://google.com';
+
+    //     $ch = curl_init();
+    //     curl_setopt($ch, CURLOPT_URL, $url);
+    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    //     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    //     curl_setopt($ch, CURLOPT_VERBOSE, true);
+    //     curl_setopt($ch, CURLOPT_HEADER, true);
+
+    //     $response = curl_exec($ch);
+
+    //     if ($response === false) {
+    //         echo 'Error: ' . curl_error($ch);
+    //     } else {
+    //         $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+    //         $header = substr($response, 0, $header_size);
+    //         $body = substr($response, $header_size);
+
+    //         if (strpos($header, '200 OK') !== false) {
+    //             preg_match('/access_token=(.*?)&/', $body, $matches);
+    //             $access_token = isset($matches[1]) ? $matches[1] : '';
+    //             echo 'Access Token: ' . $access_token;
+    //         } else {
+    //             echo 'Error: ' . $header;
+    //         }
+    //     }
+
+    //     curl_close($ch);
+    // }
+
+    function getaccesstoken()
+    {
+
+        $url = 'https://Openapi.5paisa.com/VendorsAPI/Service1.svc/V1/GetAccessToken';
+        $vendorKey = KEY;
+        $requestToken = REQUEST_TOKEN;
+
+        $data = array(
+            'head' => array('key' => $vendorKey),
+            'body' => array('RequestToken' => $requestToken)
+        );
+
+        $data_string = json_encode($data);
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt(
+            $ch,
+            CURLOPT_HTTPHEADER,
+            array(
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($data_string),
+                'Cookie: 5paisacookie=fiuy51p0l4ttftse2o1oxt4t; NSC_JOh0em50e1pajl5b5jvyafempnkehc3=ffffffffaf103e0f45525d5f4f58455e445a4a423660'
+            )
+        );
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        $res =  json_decode($response);
+        // print_r($res);
+        $atoken = $res->body->AccessToken;
+        $pdate['accesstoken'] = $atoken;
+        $pdate['status'] = 1;
+        $pdate['added_on'] = date('Y-m-d H:i:s');
+        $pdate['added_by'] = $this->employeeid;
+        $pdate['updated_by'] = $this->employeeid;
+        $pdate['updated_on'] = date('Y-m-d H:i:s');
+        $pdate['userid'] = $this->employeeid;
+        $pradin = $this->updatewhere("token", ['status' => 0], "status=1 and userid =" . $this->employeeid . "");
+        if ($pradin) {
+            $pra = $this->insertnew("token", $pdate);
+            return $atoken;
+        }
+    }
+
+    function getfullmarketdepth($symboldata)
+    {
+        $accesstoken = $this->selectfieldwhere('token', 'accesstoken', 'status=1 and userid=' . $this->employeeid . '');
+        if (empty($accesstoken)) {
+            $accesstoken = $this->getaccesstoken();
+        }
+        $url = "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/V1/MarketDepth";
+        $authorization = "Bearer $accesstoken";
+        $contentType = "application/json";
+
+        $data = array(
+            "head" => array(
+                "key" => KEY
+            ),
+            "body" => array(
+                "ClientCode" => CLIENT_CODE,
+                "Count" => "1",
+                "Data" => $symboldata
+                // "Data" => array(
+                //     array(
+                //         "Exchange" => "N",
+                //         "ExchangeType" => "C",
+                //         "Symbol" => "RELIANCE"
+                //     ),
+                // )
+            )
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            "Authorization: " . $authorization,
+            "Content-Type: " . $contentType
+        ));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+        $res = curl_exec($ch);
+        curl_close($ch);
+        $response = json_decode($res, true);
+        return $response['body']['Data'];
+    }
+
+    function getcandledata($scriptcode, $exch, $type, $interval, $startdate, $enddate)
+    {
+        $accesstoken = $this->selectfieldwhere('token', 'accesstoken', 'status=1 and userid=' . $this->employeeid . '');
+        if (empty($accesstoken)) {
+            $accesstoken = $this->getaccesstoken();
+        }
+        $url = 'https://openapi.5paisa.com/historical/' . $exch . '/' . $type . '/' . $scriptcode . '/' . $interval . '';
+        $subscriptionKey = KEY;
+        $clientCode = CLIENT_CODE;
+        $accessToken = $accesstoken;
+        $from = $startdate;
+        $end = $enddate;
+
+        $queryString = http_build_query(array('from' => $from, 'end' => $end));
+        $url = $url . '?' . $queryString;
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt(
+            $ch,
+            CURLOPT_HTTPHEADER,
+            array(
+                'Ocp-Apim-Subscription-Key: ' . $subscriptionKey,
+                'x-clientcode: ' . $clientCode,
+                'x-auth-token: ' . $accessToken
+            )
+        );
+
+        $res = curl_exec($ch);
+        curl_close($ch);
+        $response = json_decode($res, true);
+        return $response['data'];
+    }
+
     function fivepaisaapi($userstock)
     {
 

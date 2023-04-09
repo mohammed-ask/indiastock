@@ -33,15 +33,15 @@ if (($_SERVER['HTTP_HOST'] == 'localhost')) {
     $siteurl = "https://" . $_SERVER['HTTP_HOST'] . "/";
     $port = 3306;
     $platform = "test";
-} elseif ($_SERVER['HTTP_HOST'] == 'indiastock.com') {
+} elseif ($_SERVER['HTTP_HOST'] == 'pmsequity.com') {
     if (!defined("BASE_URL")) {
-        define("BASE_URL", "https://indiastock.com/");
+        define("BASE_URL", "https://pmsequity.com/");
     }
     $host = "localhost";
-    $database_Username = "na";
-    $database_Password = "na";
-    $database_Name = "na";
-    $siteurl = "https://indiastock/";
+    $database_Username = "hc020wtvnu2k";
+    $database_Password = "PMSEquity@1998";
+    $database_Name = "pmsequity";
+    $siteurl = "https://pmsequity.com/";
     $port = 3306;
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
@@ -53,7 +53,7 @@ date_default_timezone_set('Asia/Kolkata');
 /* object for db class in function.php $obj */
 $obj = new db($host, $database_Username, $database_Password, $database_Name, $port);
 $sendmailfrom = "mohammedhusain559@gmail.com";
-$sendemailpassword = "grznigwfoititsbm";
+$sendemailpassword = "svcbitzquirlpwxk"; //"grznigwfoititsbm";
 $defaultpagetitle = "Indiastock";
 $defaultemail = $sendmailfrom;
 $defaultemailpassword = $sendemailpassword;
@@ -82,7 +82,13 @@ $companylogo = $obj->fetchattachment($compdata["uploadfile_id"]);
 $companyfavicon = $obj->fetchattachment($compdata["faviconicon"]);
 $qrimage = $obj->fetchattachment($compdata['paymentqr']);
 $upiid = $compdata['upiid'];
+$requesttoken = '';
+if (isset($_GET['RequestToken'])) {
+    $requesttoken = $_GET['RequestToken'];
+}
+define("REQUEST_TOKEN", $requesttoken); //right
 define("APP_NAME", "5P51842644"); //right
+define("CLIENT_CODE", "51842644"); //right
 define("APP_VERSION", "1.0"); //right
 define("KEY", "GN26BJxQ3LnyNJ5vCi8cJobynsIdMgSp"); //right
 define("OS_NAME", "WEB"); //right

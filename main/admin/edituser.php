@@ -47,6 +47,30 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
     <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Limit</span>
         <input type="number" name="limit" data-bvalidator="required" step="any" onfocus="this.select()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="<?= $rowuser['limit'] ?>" placeholder="Client's Limit on Investment" /></label>
+    <label class="block text-md" style="margin-bottom: 5px;">
+        <span class="text-gray-700 dark:text-gray-400">Withdrawel Request Start Time</span>
+        <select data-bvalidator="required" class="form-control select2" name="starttime" id="starttime">
+            <?php
+            for ($i = 0; $i <= 23; $i++) {
+            ?>
+                <option <?php echo ($i == $rowuser['starttime']) ? 'selected="selected"' : ""; ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+            <?php
+            }
+            ?>
+        </select>
+    </label><br>
+    <label class="block text-md" style="margin-bottom: 5px;">
+        <span class="text-gray-700 dark:text-gray-400">Withdrawel Request End Time</span>
+        <select data-bvalidator="required" class="form-control select2" name="endtime" id="endtime">
+            <?php
+            for ($i = 0; $i <= 23; $i++) {
+            ?>
+                <option <?php echo ($i == $rowuser['endtime']) ? 'selected="selected"' : ""; ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+            <?php
+            }
+            ?>
+        </select>
+    </label><br>
     <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Change Password</span>
         <input type="password" id="password" name="password" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Please Give Strong Password!" />
@@ -57,7 +81,7 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
     </label>
     <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Employee ID</span>
-        <input xdata-bvalidator="required" name="employeeref" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" disabled value="<?= $rowuser['employeeref'] ?>" placeholder="Employee ID For Furthur Reference" /></label>
+        <input xdata-bvalidator="required" name="employeeref" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" disabled value="<?= $rowuser['employeeref'] === '' ? 'NA' : $rowuser['employeeref'] ?>" placeholder="Employee ID For Furthur Reference" /></label>
     <div>
         <button type="submit" id="modalsubmit" class="w-full px-3 py-1 mt-6 text-sm font-medium hidden">
             Submit
@@ -65,3 +89,6 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
     </div>
     <div id="resultid"></div>
 </form>
+<script>
+    $('select').select2()
+</script>

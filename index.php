@@ -12,6 +12,12 @@ switch ($request['path']) {
     case "$head/admin":
         require __DIR__ . '/main/admin/index.php';
         break;
+    case "$head/admin/editstockprice":
+        require __DIR__ . '/main/admin/editstockprice.php';
+        break;
+    case "$head/admin/updatestockprice":
+        require __DIR__ . '/main/admin/updatestockprice.php';
+        break;
     case "$head/admin/adminlogin":
         require __DIR__ . '/main/admin/adminlogin.php';
         break;
@@ -299,6 +305,15 @@ switch ($request['path']) {
         break;
     case "$head/portfolio";
         require __DIR__ . '/main/portfolio.php';
+        break;
+    case "$head/viewchart";
+        require __DIR__ . '/main/viewchart.php';
+        break;
+    case "$head/test";
+        require __DIR__ . '/main/test.php';
+        break;
+    case "$head/cron/settleamount";
+        require __DIR__ . '/main/cron/tradesettlement.php';
         break;
     default:
         http_response_code(404);

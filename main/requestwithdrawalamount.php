@@ -28,3 +28,6 @@ include "main/session.php";
     </div>
     <div id="resultid"></div>
 </form>
+<script>
+    $("#modalfooterbtn").css('display', 'none')
+</script>

@@ -91,7 +91,7 @@ ob_start();
 
         <div class="w-full overflow-x-auto">
 
-            <table class="w-full whitespace-no-wrap">
+            <table id="example1" class="w-full whitespace-no-wrap">
                 <thead>
                     <tr class="text-sm font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-3 py-2">S.No.</th>
@@ -101,44 +101,10 @@ ob_start();
                         <th class="px-3 py-2">Date & Time</th>
                         <th class="px-3 py-2">User</th>
                         <th class="px-3 py-2">Status</th>
+                        <th class="px-3 py-2">Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                    <tr class="text-gray-700 dark:text-gray-400">
-                        <td class=" px-3 py-2">1</td>
-                        <td class=" px-3 py-2  font-semibold">
-                            BANK NIFTY
-                        </td>
-                        <td class="px-3 py-2 ">
-                            863.45
-                        </td>
-                        <td class="px-3 py-2 ">
-                            86
-                        </td>
-                        <td class="px-3 py-2 ">
-                            6/10/2020 5:05 PM
-                        </td>
-                        <td class="px-3 py-2 ">
-                            Suyash Thakur
-                        </td>
-
-                        <td class="px-3 py-2">
-                            <div class="flex items-center space-x-4 ">
-
-                                <button class="px-3 py-2 leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                                    Buy</button>
-
-                                <button class="flex items-center justify-between px-2 py-2  font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">
-                                    <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
-                                        </path>
-                                    </svg>
-                                </button>
-
-                            </div>
-                        </td>
-
-                    </tr>
                 </tbody>
             </table>
         </div>
@@ -150,7 +116,7 @@ ob_start();
 
         <div class="w-full overflow-x-auto">
 
-            <table class="w-full whitespace-no-wrap">
+            <table id="example2" class="w-full whitespace-no-wrap">
                 <thead>
                     <tr class="text-sm font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-3 py-2">S.No.</th>
@@ -160,10 +126,11 @@ ob_start();
                         <th class="px-3 py-2">Date & Time</th>
                         <th class="px-3 py-2">User</th>
                         <th class="px-3 py-2">Status</th>
+                        <th class="px-3 py-2">Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                    <tr class="text-gray-700 dark:text-gray-400">
+                    <!-- <tr class="text-gray-700 dark:text-gray-400">
                         <td class=" px-3 py-2">1</td>
                         <td class=" px-3 py-2  font-semibold">
                             BANK NIFTY
@@ -197,7 +164,7 @@ ob_start();
                             </div>
                         </td>
 
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -215,3 +182,37 @@ $contentheader = "";
 $pageheader = "";
 include "main/admin/templete.php";
 ?>
+<script>
+    var table = $('#example1').DataTable({
+        "ajax": "../main/admin/opentradedata.php",
+        "processing": false,
+        "serverSide": true,
+        "pageLength": 25,
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+        "order": [
+            [0, "desc"]
+        ],
+    })
+    var table = $('#example2').DataTable({
+        "ajax": "../main/admin/carryfortradedata.php",
+        "processing": false,
+        "serverSide": true,
+        "pageLength": 25,
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+        "order": [
+            [0, "desc"]
+        ],
+    })
+</script>

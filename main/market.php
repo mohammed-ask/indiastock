@@ -120,7 +120,7 @@ $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexcha
                         </div> <!--end action-icons-->
 
                         <div>
-                            <a href="#">
+                            <a href="viewchart?exchange=<?= $data['Exch'] ?>&symbol=<?= $data['Symbol'] ?>">
                                 <p class="mb-0 text-muted">View Chart <span><i class="fa-solid fa-arrow-right"></i></span></p>
                             </a>
                         </div>

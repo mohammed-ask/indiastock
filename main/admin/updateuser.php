@@ -32,6 +32,8 @@ else {
     $x['role'] = 2;
     // $x['investmentamount'] = $_POST['investmentamount'];
     $x['limit'] = $_POST['limit'];
+    $x['starttime'] = $_POST['starttime'];
+    $x['endtime'] = $_POST['endtime'];
     $pradin = $obj->update($tb_name, $x, $id);
 
     echo "Redirect : User Updated Successfully URLusers";

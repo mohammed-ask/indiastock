@@ -728,7 +728,7 @@
                         </div>
                         <div class="buttons button_space">
                             <button class="back_button">Back</button>
-                            <button class="submit_button">Submit</button>
+                            <button class="submit_button">Submit now</button>
                         </div>
                     </div>
 
@@ -789,7 +789,7 @@
             otpclick_form.addEventListener('click', function() {
                 var email = $("#email").val()
                 var username = $("#username").val()
-                if ($("#password").val() !== $("#comfirmpass").val()) {
+                if ($("#password").val() === '' || $("#password").val() !== $("#comfirmpass").val()) {
                     return false
                 }
                 formnumber++;
@@ -813,6 +813,7 @@
         submit_click.forEach(function(submit_click_form) {
 
             submit_click_form.addEventListener('click', function() {
+                console.log(validateform(),'validateform')
                 if (!validateform()) {
                     return false
                 }
@@ -922,6 +923,10 @@
                     vaildate_input.classList.add('warning');
                 }
                 let password = $("#password").val()
+                if (vaildate_input.id === 'password' && vaildate_input.value === '') {
+                    validate = false
+                    vaildate_input.classList.add('warning');
+                }
                 if (vaildate_input.id === 'comfirmpass' && vaildate_input.value !== password) {
                     validate = false
                     vaildate_input.classList.add('warning');
