@@ -41,32 +41,32 @@ include './main/conn.php';
                     <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="../main/dist/img/login-office.jpeg" alt="Office" />
                     <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="../main/dist/img/login-office-dark.jpeg" alt="Office" />
                 </div>
-                <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
+                <div class=" items-center justify-center p-6 sm:p-12 md:w-1/2">
                     <form action="checklogin.php" method="post" onsubmit="event.preventDefault();sendForm('', '', 'checkadminlogin', 'resultid', 'loginform');return 0;" id="loginform">
                         <div class="w-full">
-                            <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
+                            <h3 class="mb-4 text-l font-semibold text-gray-700 dark:text-gray-200">
                                 Admin Login
-                            </h1>
+                            </h3>
                             <label class="block text-sm">
                                 <span class="text-gray-700 dark:text-gray-400">Email</span>
-                                <input name="email" data-bvalidator='required' class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Jane Doe" />
+                                <input name="email" data-bvalidator='required' class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter your mail ID" />
                             </label>
                             <label class="block mt-4 mb-2 text-sm" style="position: relative;">
                                 <span class="text-gray-700 dark:text-gray-400">Password</span>
-                                <input name="password" id="password" data-bvalidator='required' class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="***************" type="password" />
+                                <input name="password" id="password" data-bvalidator='required' class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="*********" type="password" />
                                 <i id="eye" class="fa fa-eye" style="position: absolute;top:38px;right:10px" aria-hidden="true"></i>
                             </label>
                             <div id="resultid"></div>
                             <!-- You should use a button here, as the anchor is only used for the example  -->
                             <button type="submit" class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
                                 Log in
-                            </button>
+                            </button><br>
 
-                            <p class="mt-4">
+                            <!-- <p class="mt-4">
                                 <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="./forgotpassword">
                                     Forgot your password?
                                 </a>
-                            </p>
+                            </p> -->
                         </div>
                     </form>
                 </div>
