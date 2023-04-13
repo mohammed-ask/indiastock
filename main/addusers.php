@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create account - Windmill Dashboard</title>
+    <title>Create account - PMS Equity</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="main/dist/css/tailwind.output.css" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -566,7 +566,7 @@
             <div class="form">
                 <div class="left-side">
                     <div class="left-heading">
-                        <h3>PMS EQUITY</h3>
+                        <h3><b>WELCOME TO PMS EQUITY</b></h3>
                     </div>
                     <div class="steps-content">
                         <h3>Step <span class="step-number">1</span></h3>
@@ -587,7 +587,7 @@
                 </div>
                 <div class="right-side">
                     <div class="main active">
-                        <small><i class="fa fa-smile-o"></i></small>
+                        <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
                         <div class="text">
                             <h2>Your Personal Information</h2>
                             <p>Enter your personal information and click on next step</p>
@@ -618,7 +618,7 @@
                         </div>
                     </div>
                     <div class="main">
-                        <small><i class="fa fa-smile-o"></i></small>
+                    <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
                         <div class="text">
                             <h2>Required Documents Details</h2>
                             <p>Please enter your documents details for next step .</p>
@@ -655,7 +655,7 @@
                         </div>
                     </div>
                     <div class="main">
-                        <small><i class="fa fa-smile-o"></i></small>
+                    <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
                         <div class="text">
                             <h2>Bank Details</h2>
                             <p>Please enter your bank details & press next</p>
@@ -689,15 +689,15 @@
 
 
                     <div class="main">
-                        <small><i class="fa fa-smile-o"></i></small>
+                    <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
                         <div class="text">
                             <h2>Employee ID & Password</h2>
-                            <p>Please enter employee ID(if any) & password.</p>
+                            <p>Please enter employee ID(if available) & password.</p>
                         </div>
                         <div class="input-text">
                             <div class="input-div">
                                 <input type="text" id="employeeref">
-                                <span>Employee ID</span>
+                                <span>Employee ID (if available)</span>
                             </div>
                         </div>
 

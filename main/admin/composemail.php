@@ -28,13 +28,13 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
             <div class="card card-default">
                 <div class="card-header">
                     <h3 class="card-title">Email From :- <?= $email ?></h3>
-                    <div class="card-tools">
+                    <!-- <div class="card-tools">
                         <a href="viewrole" class="px-4 py-2  text-sm  bg-white  rounded-lg border border-gray" data-card-widget="">
                             << Back </a>
                                 <button type="button" class="btn btn-tool" data-card-widget="">
                                     <i class="fas fa-times"></i>
                                 </button>
-                    </div>
+                    </div> -->
                 </div>
                 <form id="addtax" enctype="multipart/form-data">
                     <div class="card-body">
@@ -59,7 +59,7 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
                             <input name="subject" data-bvalidator="required" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Subject" />
                         </label><br>
                         <label class="block text-md" style="margin-bottom: 5px;">
-                            <span class="text-gray-700 dark:text-gray-400">Remark</span>
+                            <span class="text-gray-700 dark:text-gray-400">Message</span>
                             <textarea data-bvalidator="" id="content" style="width: 100%;font-family:Century Gothic;font-size: 12px;" rows="10" name="message" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Message"></textarea>
                         </label><br>
                         <label class="block text-md" style="margin-bottom: 5px;">

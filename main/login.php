@@ -13,7 +13,7 @@ include './main/conn.php';
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - Windmill Dashboard</title>
+    <title>Login - PMS Equity</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="main/dist/css/tailwind.output.css" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -39,7 +39,7 @@ include './main/conn.php';
             <div class="flex flex-col overflow-y-auto md:flex-row">
                 <div class="h-32 md:h-auto md:w-1/2">
                     <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="main/dist/img/login-register-side-img.png" alt="Office" />
-                    <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="main/dist/img/login-office-dark.jpeg" alt="Office" />
+                    <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="main/dist/img/login-register-side-img.png" alt="Office" />
                 </div>
                 <div style="padding-left: 2rem; padding-right: 2rem;" class="items-center justify-center p-6 sm:p-12 md:w-1/2">
                     <form method="post" onsubmit="event.preventDefault();sendForm('', '', 'checklogin', 'resultid', 'loginform');return 0;" id="loginform">

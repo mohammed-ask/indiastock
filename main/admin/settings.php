@@ -218,8 +218,8 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                         <div class="form-group">
                             <label for="account_name" class="col-sm-12 col-form-label">Bank Name</label>
                             <div class="col-sm-12 input-group sinput-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                <div class="input-group-prepend"></i>
+                                    <span class="input-group-text"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></span>
                                 </div>
                                 <input name="bank_name" type="text" class="form-control" value="<?php
                                                                                                 if (isset($row["bank_name"])) {

@@ -27,7 +27,7 @@ h3{
 }
 
 p{
-  font-size: 14px !important;
+  font-size: 16px !important;
 }
 
 
@@ -346,3 +346,33 @@ input:checked+.slider:before {
   margin-left: 30px !important;
   display: inline-block !important;
 }
+
+.page-link {
+padding: 4px 10px !important;
+font-size: 14px !important;
+
+}
+
+.page-item.active .page-link {
+
+  color: #fff !important;
+  background-color: #00aaaa;
+  border-color: #00aaaa;
+  /* border: none; */
+}
+
+.card{
+  margin-bottom: 3rem !important;
+  margin-top: 1rem !important;
+
+}
+
+.card-title {
+  margin: 0px !important;}
+
+  .bg-blue {
+    background-color: #00aaaa!important;}
+
+    .bg-purple {
+      background-color: #057c7c!important;
+  }

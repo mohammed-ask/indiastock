@@ -11,14 +11,14 @@ ob_start();
                 <div class="card-tools">
                     <?php if (in_array(25, $permissions)) { ?>
                         <a href="addrole" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                            + Add
+                           <b> + Add Role</b>
                         </a>
                     <?php } ?>
 
-                    <a href="administrator" class="px-4 py-2 ml-2 text-sm font-medium leading-5 text-black text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
+                    <!-- <a href="administrator" class="px-4 py-2 ml-2 text-sm font-medium leading-5 text-black text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
                         << Back </a>
                             <button type="button" class="btn btn-tool" data-card-widget="">
-                                <i class="fas fa-times"></i>
+                                <i class="fas fa-times"></i> -->
                             </button>
                 </div>
             </div>
