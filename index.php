@@ -317,7 +317,7 @@ switch ($request['path']) {
         break;
     default:
         http_response_code(404);
-        require __DIR__ . '/main/admin/404.php';
+        require __DIR__ . '/404.html';
         # code...
         break;
 }
