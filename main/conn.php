@@ -83,6 +83,7 @@ $companyfavicon = $obj->fetchattachment($compdata["faviconicon"]);
 $qrimage = $obj->fetchattachment($compdata['paymentqr']);
 $upiid = $compdata['upiid'];
 $requesttoken = '';
+$redirecturl = ($platform == "test") ?  "http://localhost/indistock/dashboard" : "https://pmsequity.com/dashboard";
 if (isset($_GET['RequestToken'])) {
     $requesttoken = $_GET['RequestToken'];
 }

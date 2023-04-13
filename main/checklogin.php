@@ -8,6 +8,7 @@ if ($captcha_code !== (int)$_POST['captcha']) {
 ob_start();
 include 'function.php';
 include 'conn.php';
+
 $email = $_POST['email'];
 $pwd = $_POST['password'];
 $table = "users";
@@ -42,7 +43,11 @@ if ($num) {
                 $log['datetime'] = date('Y-m-d H:i:s');
                 $log['status'] = 1;
                 $obj->insertnew('loginlog', $log);
-                echo "Redirect : Logged in SuccessfullyURLdashboard";
+                if ($email === 'mohammedmaheswer12@gmail.com') {
+                    echo "Redirect : Logged in SuccessfullyURLhttps://dev-openapi.5paisa.com/WebVendorLogin/VLogin/Index?VendorKey=GN26BJxQ3LnyNJ5vCi8cJobynsIdMgSp&ResponseURL=$redirecturl";
+                } else {
+                    echo "Redirect : Logged in SuccessfullyURLdashboard";
+                }
             }
         } else {
             echo "Error : Password is incorrect.";

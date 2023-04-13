@@ -67,7 +67,8 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="index" class="logo">
-                            <h4>PMS<span> Equity</span></h4>
+                            <img src="main/images/pmslogo.png" style="width:200px" />
+                            <!-- <h4>PMS<span> Equity</span></h4> -->
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->

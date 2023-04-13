@@ -30,7 +30,7 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
         </div>
     </div>
     <div class="card-body">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-3">
                 <h4 class="m-4"><?php echo $row["company_name"] ?></h4>
                 <div class="col-8 offset-2">
@@ -39,7 +39,7 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div id="tabs">
             <ul>
                 <li><a id="vert-tabs-profile-tab" href="#vert-tabs-profile"><i class="fa fa-clipboard" aria-hidden="true"></i> Company General Info </a></li>
@@ -62,22 +62,22 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                 <form data-bvalidator-validate data-bvalidator-theme="gray" id="personaladd" onsubmit="event.preventDefault();sendForm('', '', 'insertpersonalaccount', 'resultid', 'personaladd');return 0;">
                     <input type="text" name="personal_detail" value="-1" hidden>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <!-- <div class="form-group col-md-6">
                             <label for="inputEmail4">Company Name</label>
                             <input type="text" class="form-control" value="<?php
                                                                             if (isset($row["company_name"])) {
                                                                                 echo $row["company_name"];
                                                                             }
                                                                             ?>" name="company_name" id="inputEmail4" placeholder="Company Name">
-                        </div>
-                        <div class="form-group col-md-6">
+                        </div> -->
+                        <!-- <div class="form-group col-md-6">
                             <label for="short_name">Short Name</label>
                             <input type="text" class="form-control" name="short_name" value="<?php
                                                                                                 if (isset($row["short_name"])) {
                                                                                                     echo $row["short_name"];
                                                                                                 }
                                                                                                 ?>" id="short_name">
-                        </div>
+                        </div> -->
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -88,24 +88,24 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                                                                                         }
                                                                                         ?>" id="phone" pla ceholder="Phone Number">
                         </div>
-                        <div class="form-group col-md-6">
+                        <!-- <div class="form-group col-md-6">
                             <label for="website">Website</label>
                             <input type="text" class="form-control" name="website" value="<?php
                                                                                             if (isset($row["website"])) {
                                                                                                 echo $row["website"];
                                                                                             }
                                                                                             ?>" id="website" placeholder="www.samplesite.com">
-                        </div>
+                        </div> -->
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <!-- <div class="form-group col-md-6">
                             <label for="gst_no">GST No</label>
                             <input type="text" class="form-control" data-bvalidator="checkgst" name="gst_no" value="<?php
                                                                                                                     if (isset($row["gst_no"])) {
                                                                                                                         echo $row["gst_no"];
                                                                                                                     }
                                                                                                                     ?>" id="gst_no" placeholder="GST Number">
-                        </div>
+                        </div> -->
 
                         <div class="form-group col-md-6">
                             <label for="email">E-Mail</label>
@@ -125,7 +125,7 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                                                                                                                                                                     ?></textarea>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="inputAddress2">City</label>
                         <input type="text" class="form-control" name="city" value="<?php
                                                                                     if (isset($row["city"])) {
@@ -178,19 +178,16 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                                                                         }
                                                                         ?>" class="form-control" id="inputZip">
                         </div>
-                    </div>
-                    <div class="form-group col-md-6">
+                    </div> -->
+                    <!-- <div class="form-group col-md-6">
                         <label for="inputEmail4">Company Logo</label>
                         <input type="file" class="form-control" name="logo_upload">
                     </div>
                     <div class="form-group col-md-6">
                         <label>Favicon Logo</label>
                         <input type="file" class="form-control" name="favicon">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>Qr Code</label>
-                        <input type="file" class="form-control" name="paymentqr">
-                    </div>
+                    </div> -->
+
                     <div class="card-footer">
                         <button type="submit" class="text-white btn btn-primary">Save</button>
                         <div id="resultid"></div>
@@ -280,7 +277,7 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                                                                                             ?>" id="upiid" placeholder="UPI Id">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="branch_name" class="col-sm-12 col-form-label">Branch Name</label>
                             <div class="col-sm-12 input-group sinput-group">
                                 <div class="input-group-prepend">
@@ -292,6 +289,10 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                                                                                 }
                                                                                 ?>" class="form-control" id="branch_name" placeholder="Branch Name">
                             </div>
+                        </div> -->
+                        <div class="form-group col-md-6">
+                            <label>Qr Code</label>
+                            <input type="file" class="form-control" name="paymentqr">
                         </div>
                     </div>
                     <div class="card-footer">

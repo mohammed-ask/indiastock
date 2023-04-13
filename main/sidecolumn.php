@@ -117,6 +117,47 @@ $watchlistcount = $obj->selectfieldwhere("watchliststock", "count(id)", "userid=
                     </div><!--end watchlist-body-->
                 </div><!--end card-body-->
             </div><!--end card-->
+        <?php } else { ?>
+            <div class="position-sticky" style="top: 120px">
+                <div class="card" style="width: 100% !important; height: 500px !important">
+
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        <div style="    background-color: white; position: absolute; right: 0; bottom: 1.5%; width: 37px; border-radius: 10px 0px 0px 10px; height: 24px;">
+                        </div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
+                            {
+                                "colorTheme": "light",
+                                "dateRange": "3M",
+                                "exchange": "BSE",
+                                "showChart": true,
+                                "locale": "in",
+                                "width": "100%",
+                                "height": "100%",
+                                "largeChartUrl": "",
+                                "isTransparent": false,
+                                "showSymbolLogo": false,
+                                "showFloatingTooltip": false,
+                                "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+                                "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+                                "gridLineColor": "rgba(240, 243, 250, 0)",
+                                "scaleFontColor": "rgba(106, 109, 120, 1)",
+                                "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+                                "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+                                "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+                                "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+                                "symbolActiveColor": "rgba(41, 98, 255, 0.12)"
+                            }
+                        </script>
+                    </div>
+                    <!-- TradingView Widget END -->
+
+
+
+                </div><!--end card-->
+
+            </div><!--end sticky-->
         <?php } ?>
     </div><!--end sticky-->
 </div>

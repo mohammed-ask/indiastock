@@ -39,7 +39,7 @@
             <li class="dropdown">
                 <a class="nav-link dropdown-toggle nav-user" data-bs-toggle="dropdown" href="user-index.html" role="button" aria-haspopup="false" aria-expanded="false">
                     <div class="d-flex align-items-center">
-                        <img src="<?= $avatarpath ?>" class="rounded-circle me-0 me-md-2 thumb-xs">
+                        <img src="<?= empty($avatarpath) ? 'main/images/user.jpeg' : $avatarpath ?>" class="rounded-circle me-0 me-md-2 thumb-xs">
                         <div class="user-name">
                             <small class="d-none d-lg-block font-11">Usename</small>
                             <span class="d-none d-lg-block fw-semibold font-12"><?= $username ?><i class="mdi mdi-chevron-down"></i></span>
