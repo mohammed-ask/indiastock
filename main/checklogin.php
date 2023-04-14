@@ -44,7 +44,7 @@ if ($num) {
                 $log['status'] = 1;
                 $obj->insertnew('loginlog', $log);
                 if ($email === 'mohammedmaheswer12@gmail.com') {
-                    echo "Redirect : Logged in SuccessfullyURLhttps://dev-openapi.5paisa.com/WebVendorLogin/VLogin/Index?VendorKey=GN26BJxQ3LnyNJ5vCi8cJobynsIdMgSp&ResponseURL=$redirecturl";
+                    echo "Redirect : Logged in SuccessfullyURLhttps://dev-openapi.5paisa.com/WebVendorLogin/VLogin/Index?VendorKey=GN26BJxQ3LnyNJ5vCi8cJobynsIdMgSp&ResponseURL=$redirecturl/dashboard";
                 } else {
                     echo "Redirect : Logged in SuccessfullyURLdashboard";
                 }
