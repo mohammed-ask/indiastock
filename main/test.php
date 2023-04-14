@@ -7,9 +7,9 @@ include 'main/session.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '/home/hc020wtvnu2k/public_html/main/phpmailer/src/Exception.php';
-require '/home/hc020wtvnu2k/public_html/main/phpmailer/src/PHPMailer.php';
-require '/home/hc020wtvnu2k/public_html/main/phpmailer/src/SMTP.php';
+require 'main/PHPMailer/src/Exception.php';
+require 'main/PHPMailer/src/PHPMailer.php';
+require 'main/PHPMailer/src/SMTP.php';
 $mail = new PHPMailer(true);
 
 $mail->isSMTP();
