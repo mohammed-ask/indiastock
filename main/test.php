@@ -17,6 +17,7 @@ $mail->Host = $host;
 $mail->SMTPAuth = $smtpauth;
 $mail->Username = "$sendmailfrom";
 $mail->Password = "$sendemailpassword";
+$mail->isSendmail();
 // if ($issmtp) {
 $mail->SMTPSecure = 'ssl';
 // }
