@@ -10,6 +10,8 @@ require 'main/PHPMailer/src/SMTP.php';
 
 include './function.php';
 include './conn.php';
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 if ($_SESSION['otp'] != $_POST['otp']) {
     echo "Failed";
 } else {
