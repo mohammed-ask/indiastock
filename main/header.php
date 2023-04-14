@@ -1,3 +1,6 @@
+<?php
+$unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $employeeid . " and readstatus = 0");
+?>
 <div class="topbar">
     <!-- LOGO -->
     <div class="brand">
@@ -25,13 +28,15 @@
             <li class="dropdown notification-list">
                 <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="user-index.html" role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="fa-regular fa-bell"></i>
-                    <span class="alert-badge"></span>
+                    <?php if ($unreadmail > 0) { ?>
+                        <span class="alert-badge"></span>
+                    <?php } ?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-sm pt-0">
 
-                    <a href="user-index.html">
+                    <a href="mail">
                         <h6 class="dropdown-item-text font-13 m-0 py-2 border-bottom d-flex justify-content-between align-items-center">
-                            Received Mail <span class="badge bg-soft-primary badge-pill">2</span>
+                            Received Mail <span class="badge bg-soft-primary badge-pill"><?= $unreadmail ?></span>
                         </h6>
                     </a>
             </li>
@@ -97,7 +102,8 @@
                     <li class="nav-item  parent-menu-item">
                         <a class="nav-link" href="mail" id="navbarMarket">
                             <span class="position-relative"><i class="fa-solid fa-envelope-open-text menu-icon"></i>Email
-                                <small class="order-badge pending"></small></span>
+                                <?php if ($unreadmail > 0) { ?>
+                                    <small class="order-badge pending"></small><?php } ?></span>
                         </a>
                     </li><!--end nav-item-->
 

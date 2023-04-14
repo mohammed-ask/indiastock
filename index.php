@@ -315,6 +315,9 @@ switch ($request['path']) {
     case "$head/cron/settleamount";
         require __DIR__ . '/main/cron/tradesettlement.php';
         break;
+    case "$head/gitpull";
+        require __DIR__ . '/main/guthubpull.php';
+        break;
     default:
         http_response_code(404);
         require __DIR__ . '/404.html';
