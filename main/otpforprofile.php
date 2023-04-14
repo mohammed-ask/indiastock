@@ -78,11 +78,10 @@ ob_start();
         /**
    * Remove extra space added to tables and cells in Outlook.
    */
-        table,
-        td {
+        /* table,td {
             mso-table-rspace: 0pt;
             mso-table-lspace: 0pt;
-        }
+        } */
 
         /**
    * Better fluid images in Internet Explorer.
@@ -167,7 +166,7 @@ ob_start();
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-                            <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;  word-spacing: 2px;">Account Confirmation Code</h1>
+                            <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;  word-spacing: 2px;">Setting Change Code</h1>
                         </td>
                     </tr>
                 </table>
@@ -193,10 +192,7 @@ ob_start();
                     <!-- start copy -->
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px 24px 5px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                            <p style="margin: 0;">Thank you for registering with <a href="https://pmsequity.com/">PMS Equity</a>. Please confirm your account.</p>
-                            <p>
-
-                                To complete your registration and start using your account, please enter the OTP / Confirmation code to the website:</p>
+                            To change you setting, please enter the OTP / Confirmation code to the website:</p>
                         </td>
                     </tr>
                     <!-- end copy -->
@@ -224,7 +220,7 @@ ob_start();
                     <!-- start copy -->
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                            <p style="margin: 0;">Please note that this code is only valid for a limited time, so we encourage you to activate your account as soon as possible.
+                            <p style="margin: 0;">Please note that this code is only valid for a limited time.
                             </p>
                             <p>
                                 If you have any questions or concerns, please do not hesitate to contact us at <a href="mailto:info@pmsequity.com" target="_blank">info@pmsequity.com</a>.
@@ -236,7 +232,7 @@ ob_start();
                     <!-- start copy -->
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">
-                            <p style="margin: 0;">Best regards,<br>PMS Equity Team</p><img width="145px" style=" margin-top: 20px;" src="https://pmsequity.com/main/dist/logo/PMS%20Equity%20SVG%20LOGO.svg">
+                            <p style="margin: 0;">Best regards,<br>PMS Equity Team</p><img width="145px" style=" margin-top: 20px;" src="https://pmsequity.com/main/images/pmslogo.png">
                         </td>
                     </tr>
                     <!-- end copy -->
