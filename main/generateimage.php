@@ -18,7 +18,7 @@ for ($i = 0; $i < 500; $i++) {
 }
 
 // Distort the text
-$font = $path;
+$font = '/home/hc020wtvnu2k/public_html/arial.ttf';
 imagettftext($image, 20, -5, 15, 25, $text_color, $font, $code);
 
 
