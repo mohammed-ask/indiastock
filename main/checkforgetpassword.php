@@ -5,12 +5,12 @@ error_reporting(E_ALL);
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require './PHPMailer/src/Exception.php';
-require './PHPMailer/src/PHPMailer.php';
-require './PHPMailer/src/SMTP.php';
+require './main/PHPMailer/src/Exception.php';
+require './main/PHPMailer/src/PHPMailer.php';
+require './main/PHPMailer/src/SMTP.php';
 
-include './function.php';
-include './conn.php';
+include './main/function.php';
+include './main/conn.php';
 $id = $obj->selectfieldwhere("users", "id", "email = '" . $_POST['email'] . "'");
 if (empty($id)) {
     echo "<div  class='bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md' role='alert'>Email Not Registered!</div>";
