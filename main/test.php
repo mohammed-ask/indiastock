@@ -17,9 +17,9 @@ $mail->Host = $host;
 $mail->SMTPAuth = $smtpauth;
 $mail->Username = "$sendmailfrom";
 $mail->Password = "$sendemailpassword";
-if ($issmtp) {
-    $mail->SMTPSecure = 'ssl';
-}
+// if ($issmtp) {
+$mail->SMTPSecure = 'ssl';
+// }
 $mail->Port = $port;
 $mail->setFrom("$sendmailfrom");
 $mail->addAddress('mohammedmaheswer12@gmail.com');
