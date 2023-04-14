@@ -9,7 +9,7 @@ ob_start();
             <div class="col-4 align-self-center">
                 <div class="media">
                     <div class="d-inline-block">
-                        <img src="<?= $avatarpath ?>" alt="" class="thumb-lg rounded-circle">
+                        <img src="<?= empty($avatarpath) ? 'main/images/user.jpeg' : $avatarpath ?>" alt="" class="thumb-lg rounded-circle">
                     </div>
                     <div class="media-body align-self-center ms-3">
                         <h5 class="fw-semibold mb-1 font-18"><?= $username ?></h5>
