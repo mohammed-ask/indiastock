@@ -1012,48 +1012,6 @@ class db
         }
     }
 
-    function getdrivertripdata($sclid = "", $startdate, $enddate)
-    {
-        error_reporting(E_ALL);
-        ini_set("display_errors", 1);
-        // echo $sclid . " " . $startdate . " " . $enddate;
-        $token = $this->gettoken();
-        try {
-            //get response
-            $ch = curl_init();
-
-            if (FALSE === $ch) {
-                throw new Exception('failed to initialize');
-            } else {
-                curl_setopt_array($ch, array(
-                    CURLOPT_URL => "https://api-aertrak-india.aeris.com/api/things/data/assets/trips?startDate=$startdate&endDate=$enddate&assetUid=$sclid",
-
-                    CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'token: ' . $token),
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_SSL_VERIFYHOST => 0,
-                    CURLOPT_SSL_VERIFYPEER => 0
-                ));
-                curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-
-                $output = curl_exec($ch);
-            }
-
-            return json_decode($output);
-            if (FALSE === $output) {
-                throw new Exception(curl_error($ch), curl_errno($ch));
-            }
-        } catch (Exception $e) {
-
-            trigger_error(
-                sprintf(
-                    'Curl failed with error #%d: %s',
-                    $e->getCode(),
-                    $e->getMessage()
-                ),
-                E_USER_ERROR
-            );
-        }
-    }
 
     function gettoken()
     {
