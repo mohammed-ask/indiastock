@@ -111,11 +111,17 @@
 
 
 	// Page loading animation
-	 $(window).on('load', function() {
+	//  $(window).on('load', function() {
 
-        $('#js-preloader').addClass('loaded');
+    //     $('#js-preloader').addClass('loaded');
 
-    });
+    // });
+
+	window.addEventListener('load', function() {
+		var loadingContainer = document.getElementById("loading-container");
+		loadingContainer.style.display = 'none';
+	  });
+	  
 
 	
 

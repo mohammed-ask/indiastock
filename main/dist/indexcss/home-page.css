@@ -321,12 +321,7 @@ header
 }
 
 .header-area .main-nav .logo {
-  line-height: 100px;
-  color: #fff;
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  line-height: 70px;
   float: left;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -805,7 +800,7 @@ header
 preloader
 --------------------------------------------- 
 */
-
+/* 
 .js-preloader {
     position: fixed;
     top: 0;
@@ -898,7 +893,85 @@ preloader
     margin-left: 16px;
     background: #083040;
     border-radius: 50%;
+} */
+
+
+/*............... second preloader................... */
+
+#loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fbfbfb;
+  z-index: 9999;
 }
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 120px;
+  width: 160px;
+  box-sizing: border-box;
+  padding: 10px;
+  border-left: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
+
+.loading-rect {
+  height: 10px;
+  width: 30px;
+  background-color: #fff;
+  display: inline-block;
+  margin-top: 90px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  animation: loading 2.5s infinite;
+}
+
+.loading-rect:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.loading-rect:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-rect:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.loading-rect:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loading {
+  0% {
+    background-color: #cd0a00;
+  }
+  30% {
+    background-color: #fa8a00;
+  }
+  50% {
+    height: 100px;
+    margin-top: 0;
+  }
+  80% {
+    background-color: #91d700;
+  }
+  100% {
+    background-color: 323;
+  }
+}
+
+ 
+    
+
+
+/*............... second preloader end................... */
 
 
 

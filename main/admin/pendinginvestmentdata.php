@@ -54,7 +54,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] =  $row['remark'];
     $n[] =  'Google Pay';
     $n[] = "<div class='tr'><div style='text-align:center;cursor:pointer'  class='showbox'>
-    <img class='object-cover w-5 h-5' style='height:30px;width:30px;;margin:auto' src='main/images/menu.png' alt='' aria-hidden='true' /></div>
+    <img class='object-cover w-5 h-5' style='height:30px;width:30px;;margin:auto' src='../main/images/menu.png' alt='' aria-hidden='true' /></div>
         <div class='showbtn' style='display:none'>
         <ul >
                 <li style='background-color:rgb(115, 214, 115) ; border-radius: 5px;margin-bottom:5px' class='flex'>

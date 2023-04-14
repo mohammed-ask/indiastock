@@ -34,6 +34,10 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
 
+<!-- ----------------favicoin-------------------->
+<link rel="icon" href="main/images/logo/favicon.svg" type="image/svg+xml">
+
+
 
 </head>
 <style>
@@ -47,16 +51,16 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
 <body>
 
     <!-- ***** Preloader Start ***** -->
-    <div id="js-preloader" class="js-preloader">
-        <div class="preloader-inner">
-            <span class="dot"></span>
-            <div class="dots">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div>
+
+    <div id="loading-container">
+  <div class="loading">
+    <div class="loading-rect"></div>
+    <div class="loading-rect"></div>
+    <div class="loading-rect"></div>
+    <div class="loading-rect"></div>
+  </div>
+</div>
+
     <!-- ***** Preloader End ***** -->
 
     <!-- ***** Header Area Start ***** -->
@@ -67,8 +71,8 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="index" class="logo">
-                            <img src="main/images/pmslogo.png" style="width:200px" />
-                            <!-- <h4>PMS<span> Equity</span></h4> -->
+                            <img src="main/images/logo/PMS Equity white logo svg.svg" style="width:200px" />
+                            
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
