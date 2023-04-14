@@ -3,9 +3,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'phpmailer/src/Exception.php';
-require 'phpmailer/src/PHPMailer.php';
-require 'phpmailer/src/SMTP.php';
+require './PHPM/src/Exception.php';
+require './PHPM/src/PHPMailer.php';
+require './PHPM/src/SMTP.php';
 
 include './main/function.php';
 include './main/conn.php';
@@ -17,12 +17,14 @@ if (empty($id)) {
 $mail = new PHPMailer(true);
 
 $mail->isSMTP();
-$mail->Host = 'smtp.gmail.com';
-$mail->SMTPAuth = true;
+$mail->Host = $host;
+$mail->SMTPAuth = $smtpauth;
 $mail->Username = "$sendmailfrom";
 $mail->Password = "$sendemailpassword";
+$mail->isSendmail();
+
 $mail->SMTPSecure = 'ssl';
-$mail->Port = 465;
+$mail->Port = $port;
 $mail->setFrom("$sendmailfrom");
 $mail->addAddress($_POST['email']);
 $mail->isHTML(true);
@@ -35,6 +37,6 @@ $mail->Body = "<div style='text-align:center'><img alt='PHPMailer' style='height
         <img src='cid:envelope' style='height:130px;width:130px' alt='logo'>
         <h3>Hii! 'Mohammed' </h3>
         <div style='font-weight: 600;'>Click below to reset your password. </div>
-        <div style='font-weight: 600;'><a href='http://localhost/indiastock/resetpassword?hakuna=$id'>Password Reset</a></div>
+        <div style='font-weight: 600;'><a href='$redirecturl/resetpassword?hakuna=$id'>Password Reset</a></div>
     </div>";
 $mail->send();

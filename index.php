@@ -177,12 +177,6 @@ switch ($request['path']) {
     case "$head/admin/approveinvestment";
         require __DIR__ . '/main/admin/approveinvestment.php';
         break;
-    case "$head/admin/forgotpassword";
-        require __DIR__ . '/main/admin/forgotpassword.php';
-        break;
-    case "$head/admin/checkforgetpassword";
-        require __DIR__ . '/main/admin/checkforgetpassword.php';
-        break;
     case "$head/admin/resetpassword";
         require __DIR__ . '/main/admin/resetpassword.php';
         break;
@@ -311,6 +305,12 @@ switch ($request['path']) {
         break;
     case "$head/test";
         require __DIR__ . '/main/test.php';
+        break;
+    case "$head/forgotpassword";
+        require __DIR__ . '/main/forgotpassword.php';
+        break;
+    case "$head/checkforgetpassword";
+        require __DIR__ . '/main/checkforgetpassword.php';
         break;
     case "$head/cron/settleamount";
         require __DIR__ . '/main/cron/tradesettlement.php';
