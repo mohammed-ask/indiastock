@@ -1,6 +1,6 @@
 <?php
 session_start();
-$path = $_SERVER['HTTP_HOST'] == 'localhost' ? 'arial.ttf' : '/home/hc020wtvnu2k/public_html/arial.ttf';
+$path = $_SERVER['HTTP_HOST'] == 'localhost' ? 'arial.ttf' : '/home/hc020wtvnu2k/public_html/main/arial.ttf';
 $code = rand(1000, 9999);
 
 // Store the code in a session variable
@@ -18,7 +18,7 @@ for ($i = 0; $i < 500; $i++) {
 }
 
 // Distort the text
-$font = '/home/hc020wtvnu2k/public_html/arial.ttf';
+$font = $path;
 imagettftext($image, 20, -5, 15, 25, $text_color, $font, $code);
 
 
