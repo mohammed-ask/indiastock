@@ -8,21 +8,22 @@ $email = $_POST['email'];
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require './phpmailer/src/Exception.php';
-require './phpmailer/src/PHPMailer.php';
-require './phpmailer/src/SMTP.php';
+require './PHPMailer/src/Exception.php';
+require './PHPMailer/src/PHPMailer.php';
+require './PHPMailer/src/SMTP.php';
 
 $code = rand(1000, 9999);
 $_SESSION['otp'] = $code;
 $mail = new PHPMailer(true);
 
 $mail->isSMTP();
-$mail->Host = 'smtp.gmail.com';
-$mail->SMTPAuth = true;
+$mail->Host = $host;
+$mail->SMTPAuth = $smtpauth;
 $mail->Username = "$sendmailfrom";
 $mail->Password = "$sendemailpassword";
+$mail->isSendmail();
 $mail->SMTPSecure = 'ssl';
-$mail->Port = 465;
+$mail->Port = $port;
 $mail->setFrom("$sendmailfrom");
 $mail->addAddress($email);
 $mail->isHTML(true);
