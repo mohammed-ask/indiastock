@@ -52,10 +52,15 @@ if (($_SERVER['HTTP_HOST'] == 'localhost')) {
 date_default_timezone_set('Asia/Kolkata');
 /* object for db class in function.php $obj */
 $obj = new db($host, $database_Username, $database_Password, $database_Name, $port);
-$sendmailfrom = "mohammedhusain559@gmail.com";
-$sendemailpassword = "svcbitzquirlpwxk"; //"grznigwfoititsbm";
-$defaultpagetitle = "Indiastock";
-$defaultemail = $sendmailfrom;
+
+// Main Settings
+$sendmailfrom = $platform === 'test'  ? "mohammedhusain559@gmail.com" : 'noreply@pmsequity.com';
+$sendemailpassword = $platform === 'test' ? "svcbitzquirlpwxk" : 'Yrmf@yrmd1';
+$port = $platform === 'test' ? 465 : 25;
+$host = $platform === 'test' ? 'smtp.gmail.com' : 'localhost';
+$smtpauth = $platform === 'test' ? true : false;
+$issmtp = $platform === 'test' ? true : false;
+
 $defaultemailpassword = $sendemailpassword;
 
 $compdata = $obj->selectextrawhere("personal_detail", "status=11")->fetch_assoc();
@@ -83,7 +88,7 @@ $companyfavicon = $obj->fetchattachment($compdata["faviconicon"]);
 $qrimage = $obj->fetchattachment($compdata['paymentqr']);
 $upiid = $compdata['upiid'];
 $requesttoken = '';
-$redirecturl = ($platform == "test") ?  "http://localhost/indistock/dashboard" : "https://pmsequity.com/dashboard";
+$redirecturl = ($platform == "test") ?  "http://localhost/indiastock/dashboard" : "https://pmsequity.com/dashboard";
 if (isset($_GET['RequestToken'])) {
     $requesttoken = $_GET['RequestToken'];
 }
