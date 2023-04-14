@@ -273,3 +273,4 @@ $mail->Body = $templatedata;
 //         <div style='font-weight: 600;'><a href='$redirecturl/resetpassword?hakuna=$id'>Password Reset</a></div>
 //     </div>";
 $mail->send();
+echo "Redirect : Mail sent successfully, Please check you inbox  URLindex";
