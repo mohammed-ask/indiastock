@@ -57,7 +57,7 @@ $mail->Password = "$sendemailpassword";
 $mail->isSendmail();
 $mail->SMTPSecure = 'ssl';
 $mail->Port = $port;
-$mail->setFrom("$sendmailfrom");
+$mail->setFrom("$supportmail");
 $mail->addAddress($receivermail);
 $mail->isHTML(true);
 $mail->Subject = $_POST['subject'];
