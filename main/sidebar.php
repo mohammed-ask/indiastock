@@ -2,7 +2,7 @@
 <aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
   <div class="py-4 text-gray-500 dark:text-gray-400">
     <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
-      <img src="main/images/indstock.png" style="margin-left: 25px; margin-top: -46px; margin-bottom: 10px;height:100px;width:200px" alt="logo">
+      <img src="main/images/indstock.png" style="margin-left: 25px; margin-top: -45px; margin-bottom: 10px; width:145px" alt="logo">
     </a>
 
     <ul>
@@ -77,7 +77,7 @@
 <aside class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white dark:bg-gray-800 md:hidden" x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150" x-transition:enter-start="opacity-0 transform -translate-x-20" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0 transform -translate-x-20" @click.away="closeSideMenu" @keydown.escape="closeSideMenu">
   <div class="py-4 text-gray-500 dark:text-gray-400">
     <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
-      <img src="main/images/indstock.png" style="margin-left: 25px; margin-top: -45px; margin-bottom: 10px;height:100px;width:200px" alt="logo">
+      <img src="main/images/indstock.png" style="margin-left: 25px; margin-top: -45px; margin-bottom: 10px; width:200px" alt="logo">
     </a>
 
     <ul>

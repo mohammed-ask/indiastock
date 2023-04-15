@@ -22,7 +22,7 @@ $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $empl
         </div>
         <ul class="flex items-center flex-shrink-0 space-x-6">
             <!-- Theme toggler -->
-            <li class="flex">
+            <!-- <li class="flex">
                 <button class="rounded-md focus:outline-none focus:shadow-outline-purple" @click="toggleTheme" aria-label="Toggle color mode">
                     <template x-if="!dark">
                         <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -35,7 +35,7 @@ $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $empl
                         </svg>
                     </template>
                 </button>
-            </li>
+            </li> -->
             <!-- Notifications menu -->
             <li class="relative">
                 <button class="relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple" @click="toggleNotificationsMenu" @keydown.escape="closeNotificationsMenu" aria-label="Notifications" aria-haspopup="true">

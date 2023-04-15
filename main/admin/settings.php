@@ -42,8 +42,8 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
         </div> -->
         <div id="tabs">
             <ul>
-                <li><a id="vert-tabs-profile-tab" href="#vert-tabs-profile"><i class="fa fa-clipboard" aria-hidden="true"></i> Company General Info </a></li>
-                <li> <a id="vert-tabs-home-tab" href="#vert-tabs-home"><i class="fa fa-phone" aria-hidden="true"></i> Bank Account Detail</a></li>
+                <li><a id="vert-tabs-profile-tab" href="#vert-tabs-profile">Company Info </a></li>
+                <li> <a id="vert-tabs-home-tab" href="#vert-tabs-home">Payments Details</a></li>
 
             </ul>
             <div class="" id="vert-tabs-profile">
@@ -210,7 +210,7 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                     </div> -->
                 <!-- <div class="card-body"> -->
                 <form data-bvalidator-validate data-bvalidator-theme="gray" id="personalbankadd" onsubmit="event.preventDefault();sendForm('', '', 'insertpersonalaccount', 'resultid1', 'personalbankadd');return 0;">
-                    <div class="pl-4 pr-5">
+                    <div>
                         <input type="text" name="bank_detail" value="-1" hidden>
                         <div class="form-group">
                             <label for="account_name" class="col-sm-12 col-form-label">Bank Name</label>
@@ -226,7 +226,7 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="account_name" class="col-sm-12 col-form-label">Account Name</label>
+                            <label for="account_name" class="col-sm-12 col-form-label">Account Holder Name</label>
                             <div class="col-sm-12 input-group sinput-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
@@ -235,14 +235,14 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                                                                                                     if (isset($row["account_name"])) {
                                                                                                         echo $row["account_name"];
                                                                                                     }
-                                                                                                    ?>" id="account_name" placeholder="Account Name">
+                                                                                                    ?>" id="account_name" placeholder="Account Holder Name">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="account_no" class="col-sm-12 col-form-label">Account No.</label>
                             <div class="col-sm-12 input-group sinput-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                                    <span class="input-group-text"><i class="fa-solid fa-file-invoice"></i></span>
                                 </div>
                                 <input name="account_no" type="number" class="form-control" value="<?php
                                                                                                     if (isset($row["account_number"])) {
@@ -255,7 +255,7 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                             <label for="ifsc_code" class="col-sm-12 col-form-label">IFSC Code</label>
                             <div class="col-sm-12 input-group sinput-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                    <span class="input-group-text"><i class="fa-solid fa-hashtag"></i></span>
                                 </div>
                                 <input name="ifsc_code" type="text" class="form-control" value="<?php
                                                                                                 if (isset($row["ifsc_code"])) {
@@ -268,7 +268,7 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                             <label for="upiid" class="col-sm-12 col-form-label">UPI Id</label>
                             <div class="col-sm-12 input-group sinput-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                    <span class="input-group-text"><i class="fa-solid fa-at"></i></span>
                                 </div>
                                 <input name="upiid" type="text" class="form-control" value="<?php
                                                                                             if (isset($row["upiid"])) {

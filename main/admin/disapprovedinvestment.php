@@ -7,7 +7,7 @@ ob_start();
 ?>
 <div class="container px-6 mx-auto grid">
     <div class="flex my-4 items-center justify-between">
-        <h4>All Investment</h4>
+        <h4>Disapproved Investment</h4>
 
 
     </div>
@@ -19,14 +19,14 @@ ob_start();
             <table id="example2" class="table w-full whitespace-no-wrap">
                 <thead>
                     <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                        <th class="px-4 py-3">S.No.</th>
-                        <th class="px-4 py-3">Client Name</th>
-                        <th class="px-4 py-3">Mobile No.</th>
-                        <th class="px-4 py-3">Date</th>
-                        <th class="px-4 py-3">Amount</th>
-                        <th class="px-4 py-3">Remark</th>
-                        <th class="px-4 py-3">Payment Method</th>
-                        <th class="px-4 py-3">Action</th>
+                        <th class="px-3 py-2">S.No.</th>
+                        <th class="px-3 py-2">Client Name</th>
+                        <th class="px-3 py-2">Mobile No.</th>
+                        <th class="px-3 py-2">Date</th>
+                        <th class="px-3 py-2">Amount</th>
+                        <th class="px-3 py-2">Remark</th>
+                        <th class="px-3 py-2">Payment Method</th>
+                        <th class="px-3 py-2">Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">

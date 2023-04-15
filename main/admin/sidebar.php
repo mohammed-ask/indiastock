@@ -1,15 +1,15 @@
 <!-- Desktop sidebar -->
 <aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
   <div class="py-4 text-gray-500 dark:text-gray-400">
-    <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
-      <img src="../main/images/logo/PMS Equity logo with black text svg.svg" style="margin-left: 25px; margin-top: -60px; margin-bottom: 10px;height:100px;width:195px;" alt="logo">
+    <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="https://pmsequity.com/dashboard">
+    <img src="../main/images/logo/PMS Equity logo with black text svg.svg" style="margin-left: 25px; margin-top: -30px; margin-bottom: 20px; width:175px" alt="logo">
     </a>
 
     <ul>
       <li class="relative px-6 py-3">
         <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="index">
           
-          <i class="fa-solid fa-house w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"></i>
+          <i style="color: #057c7c;" class="fa-solid fa-house w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"></i>
           
           <span class="ml-3">Dashboard</span>
         </a>
@@ -31,7 +31,7 @@
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleOverviewPagesMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <i class="fa-solid fa-user"></i>
+                <i style="color: #057c7c;" class="fa-solid fa-user"></i>
               </span>
               <span class="ml-3">Users Overview</span>
             </span>
@@ -64,7 +64,7 @@
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleRolePagesMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <i class="fa-solid fa-users-gear"></i>
+                <i style="color: #057c7c;" class="fa-solid fa-users-gear"></i>
               </span>
               <span class="ml-3">Role Management</span>
             </span>
@@ -94,7 +94,7 @@
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleTransectionMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <i class="fa-solid fa-money-bill-transfer"></i>
+                <i style="color: #057c7c;" class="fa-solid fa-money-bill-transfer"></i>
               </span>
               <span class="ml-3">Transactions</span>
             </span>
@@ -125,7 +125,7 @@
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="togglePagesMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <i class="fa-solid fa-envelope"></i>
+                <i style="color: #057c7c;" class="fa-solid fa-envelope"></i>
               </span>
               <span class="ml-3">EMail</span>
             </span>
@@ -162,7 +162,7 @@
         <ul>
           <li class="relative px-6 py-3">
             <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="pendingapproval">
-              <i class="fa-solid fa-user-clock"></i>
+              <i style="color: #057c7c;" class="fa-solid fa-user-clock"></i>
               <span class="ml-3">Pending Approvals</span>
             </a>
           </li>
@@ -173,7 +173,7 @@
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleInvestmentPageMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <i class="fa-solid fa-indian-rupee-sign"></i>
+                <i style="color: #057c7c;" class="fa-solid fa-indian-rupee-sign"></i>
               </span>
               <span class="ml-3">Investment</span>
             </span>
@@ -216,7 +216,7 @@
         <ul>
           <li class="relative px-6 py-3">
             <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="withdrawalrequest">
-              <i class="fa-solid fa-circle-info"></i>
+              <i style="color: #057c7c;" class="fa-solid fa-money-bill-transfer"></i>
               <span class="ml-3">Withdrawal Requests</span>
             </a>
           </li>
@@ -226,8 +226,8 @@
         <ul>
           <li class="relative px-6 py-3">
             <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="employeelist">
-              <i class="fa-solid fa-circle-info"></i>
-              <span class="ml-3">Employees Details</span>
+            <i style="color: #057c7c;" class="fa-solid fa-users"></i>
+              <span class="ml-3">Employee's Details</span>
             </a>
           </li>
         </ul>
@@ -248,14 +248,14 @@
 <div x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div>
 <aside class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white dark:bg-gray-800 md:hidden" x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150" x-transition:enter-start="opacity-0 transform -translate-x-20" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0 transform -translate-x-20" @click.away="closeSideMenu" @keydown.escape="closeSideMenu">
 <div class="py-4 text-gray-500 dark:text-gray-400">
-    <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
-      <img src="../main/images/logo/PMS Equity logo with black text svg.svg" style="margin-left: 25px; margin-top: -60px; margin-bottom: 10px;height:100px;width:195px;" alt="logo">
+    <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="https://pmsequity.com/dashboard">
+      <img src="../main/images/logo/PMS Equity logo with black text svg.svg" style="margin-left: 25px; margin-top: -45px; margin-bottom: 10px; width:145px" alt="logo">
     </a>
 
     <ul>
       <li class="relative px-6 py-3">
         <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="index">
-        <i class="fa-solid fa-house w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"></i>
+        <i class="fa-solid fa-house w-5 h-5" style="color: #057c7c;" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"></i>
           <span class="ml-3">Dashboard</span>
         </a>
       </li>
@@ -276,7 +276,7 @@
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleOverviewPagesMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <i class="fa-solid fa-user"></i>
+                <i style="color: #057c7c;" class="fa-solid fa-user"></i>
               </span>
               <span class="ml-3">Users Overview</span>
             </span>
@@ -309,7 +309,7 @@
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleRolePagesMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <i class="fa-solid fa-users-gear"></i>
+                <i style="color: #057c7c;" class="fa-solid fa-users-gear"></i>
               </span>
               <span class="ml-3">Role Management</span>
             </span>
@@ -339,7 +339,7 @@
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleTransectionMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <i class="fa-solid fa-money-bill-transfer"></i>
+                <i style="color: #057c7c;" class="fa-solid fa-money-bill-transfer"></i>
               </span>
               <span class="ml-3">Transactions</span>
             </span>
@@ -370,7 +370,7 @@
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="togglePagesMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <i class="fa-solid fa-envelope"></i>
+                <i style="color: #057c7c;" class="fa-solid fa-envelope"></i>
               </span>
               <span class="ml-3">EMail</span>
             </span>
@@ -407,7 +407,7 @@
         <ul>
           <li class="relative px-6 py-3">
             <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="pendingapproval">
-              <i class="fa-solid fa-user-clock"></i>
+              <i style="color: #057c7c;" class="fa-solid fa-user-clock"></i>
               <span class="ml-3">Pending Approvals</span>
             </a>
           </li>
@@ -418,7 +418,7 @@
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleInvestmentPageMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <i class="fa-solid fa-indian-rupee-sign"></i>
+                <i style="color: #057c7c;" class="fa-solid fa-indian-rupee-sign"></i>
               </span>
               <span class="ml-3">Investment</span>
             </span>
@@ -461,7 +461,7 @@
         <ul>
           <li class="relative px-6 py-3">
             <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="withdrawalrequest">
-              <i class="fa-solid fa-circle-info"></i>
+              <i style="color: #057c7c;" class="fa-solid fa-money-bill-transfer"></i>
               <span class="ml-3">Withdrawal Requests</span>
             </a>
           </li>
@@ -471,8 +471,8 @@
         <ul>
           <li class="relative px-6 py-3">
             <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="employeelist">
-              <i class="fa-solid fa-circle-info"></i>
-              <span class="ml-3">Employees Details</span>
+              <i style="color: #057c7c;" class="fa-solid fa-users"></i>
+              <span class="ml-3">Employee's Details</span>
             </a>
           </li>
         </ul>
