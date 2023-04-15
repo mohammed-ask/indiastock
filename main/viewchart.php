@@ -28,8 +28,10 @@ $data = $chartdata['candles'];
 $chart_data = array();
 
 foreach ($data as $row) {
-    $timestamp = strtotime($row[0]) * 1000; // convert to milliseconds
-    $chart_data[] = array($timestamp, $row[1], $row[2], $row[3], $row[4], $row[5]);
+    $dateString = $row[0];
+    $date = DateTime::createFromFormat('Y-m-d\TH:i:s', $dateString, new DateTimeZone('UTC'));
+    $utcTimestamp = $date->getTimestamp() * 1000;
+    $chart_data[] = array($utcTimestamp, $row[1], $row[2], $row[3], $row[4], $row[5]);
 }
 
 ?>
@@ -61,12 +63,12 @@ foreach ($data as $row) {
 <?php
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
-$extrajs = '<script src="https://code.highcharts.com/highcharts.js"></script>';
 $pagemeta = "";
 $pagetitle = "Indiastock: Market";
 $contentheader = "";
 $pageheader = "";
 include "main/templete.php"; ?>
+<script src="main/dist/js/highcharts.js?ver=<?php echo time(); ?>"></script>
 <script id="tradehighchart"></script>
 <script>
     var chartData = <?php echo json_encode($chart_data); ?>;

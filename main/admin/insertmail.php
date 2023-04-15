@@ -1,13 +1,15 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'main/phpmailer/src/Exception.php';
-require 'main/phpmailer/src/PHPMailer.php';
-require 'main/phpmailer/src/SMTP.php';
+require '../PHPMailer/src/Exception.php';
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/SMTP.php';
 
-include "main/session.php";
+include "../session.php";
 
 $adminemail = $obj->selectfieldwhere('users', "email", "id=" . $employeeid . "");
 $receivermail = $obj->selectfieldwhere('users', "email", "id=" . $_POST['userid'] . "");
@@ -48,12 +50,13 @@ if ($adminemail == $sendmailfrom) {
     $mail = new PHPMailer(true);
 
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
+    $mail->Host = $host;
     $mail->SMTPAuth = true;
-    $mail->Username = "$sendmailfrom";
+    $mail->Username = "$supportmail";
     $mail->Password = "$sendemailpassword";
+    $mail->isSendmail();
     $mail->SMTPSecure = 'ssl';
-    $mail->Port = 465;
+    $mail->Port = $port;
     $mail->setFrom("$sendmailfrom");
     $mail->addAddress($receivermail);
     $mail->isHTML(true);

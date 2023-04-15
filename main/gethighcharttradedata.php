@@ -13,14 +13,15 @@ $data = $chartdata['candles'];
 $chart_data = array();
 
 foreach ($data as $row) {
-    $timestamp = strtotime($row[0]) * 1000; // convert to milliseconds
-    $chart_data[] = array($timestamp, $row[1], $row[2], $row[3], $row[4], $row[5]);
+    $dateString = $row[0];
+    $date = DateTime::createFromFormat('Y-m-d\TH:i:s', $dateString, new DateTimeZone('UTC'));
+    $utcTimestamp = $date->getTimestamp() * 1000;
+    $chart_data[] = array($utcTimestamp, $row[1], $row[2], $row[3], $row[4], $row[5]);
 }
-?>
-<?php
+$title = $scriptcode === '999920000' ? 'Nifty Index' : 'Stock Prices';
 echo "Highcharts.chart('container', {
         title: {
-            text: 'Stock Prices'
+            text: '" . $title . "'
         },
         xAxis: {
             type: 'datetime',

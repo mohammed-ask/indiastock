@@ -6,8 +6,55 @@ include "main/session.php";
         <div class="col-sm-9">
             <input class="form-control" data-bvalidator='required' id="symbol" type="text" placeholder="Enter Any Stock Symbol">
         </div>
-
-        <div class="col-sm-3">
+        <div class="col-sm-9">
+            <h5 class=" font-13">Exchange</h5>
+            <div class="form-check d-inline-block me-2">
+                <input class="form-check-input" checked value="N" type="radio" name="exch" id="exch1">
+                <label class="form-check-label" for="exch1">
+                    NSE
+                </label>
+            </div>
+            <div class="form-check mb-2 d-inline-block ">
+                <input class="form-check-input" value="B" type="radio" name="exch" id="exch2">
+                <label class="form-check-label" for="exch2">
+                    BSE
+                </label>
+            </div>
+            <div class="form-check mb-2 d-inline-block">
+                <input class="form-check-input" value="M" type="radio" name="exch" id="exch3">
+                <label class="form-check-label" for="exch2">
+                    MCX
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <h5 class=" font-13">Trade Mode</h5>
+            <div class="form-check d-inline-block me-2">
+                <input class="form-check-input" checked value="C" type="radio" name="trademode" id="trademode1">
+                <label class="form-check-label" for="trademode1">
+                    Cash
+                </label>
+            </div>
+            <div class="form-check mb-2 d-inline-block ">
+                <input class="form-check-input" value="D" type="radio" name="trademode" id="trademode2">
+                <label class="form-check-label" for="trademode2">
+                    Derivative
+                </label>
+            </div>
+            <div class="form-check mb-2 d-inline-block">
+                <input class="form-check-input" value="U" type="radio" name="trademode" id="trademode3">
+                <label class="form-check-label" for="trademode2">
+                    Currency
+                </label>
+            </div>
+        </div>
+        <!-- <div class="col-sm-9">
+            <input id="expiry" data-bvalidator="required" onfocus="datetimepicker(this.id)" class="form-control" placeholder="Expiry" />
+        </div>
+        <div class="col-sm-9">
+            <input class="form-control" data-bvalidator='required' id="strikerate" value="0" type="text" placeholder="Enter Strike Rate">
+        </div> -->
+        <div class="col-sm-12">
             <button type="submit" onclick="searchsymbol()" class="btn btn-primary">Search</button>
         </div>
         <div id="returndata">
@@ -27,16 +74,25 @@ include "main/session.php";
         $('#returndata').html("")
         event.preventDefault();
         let sym = $("#symbol").val();
+        // let strikerate = $("#strikerate").val();
+        // let expiry = $("#expiry").val();
+        var exchtype = $('input[name="trademode"]:checked').val();
+        var exch = $('input[name="exch"]:checked').val();
         if (sym !== '') {
             sym = sym.toUpperCase()
             $.ajax({
                 type: "POST",
                 url: "main/getstocksymbol.php",
                 data: {
-                    symbol: sym
+                    symbol: sym,
+                    // strikerate: strikerate,
+                    // expiry: expiry,
+                    exchtype: exchtype,
+                    exch: exch
                 },
                 success: function(response) {
                     $("#returndata").html(response)
+                    $("#symbol").css("border", "1px solid")
                 }
             });
         } else {
@@ -44,14 +100,15 @@ include "main/session.php";
         }
     }
 
-    function addstock(exch, stockname) {
+    function addstock(exch, stockname, type) {
         event.preventDefault();
         $.ajax({
             type: "POST",
             url: "main/adduserstock.php",
             data: {
                 exch: exch,
-                stockname: stockname
+                stockname: stockname,
+                exchtype: type,
             },
             success: function(response) {
                 console.log(response)

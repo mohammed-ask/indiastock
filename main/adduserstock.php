@@ -2,7 +2,7 @@
 include "./session.php";
 $limit = $obj->selectfieldwhere("userstocks", "count(id)", "userid=" . $employeeid . " and status = 1");
 $checkstock = $obj->selectfieldwhere("userstocks", "count(id)", "userid=" . $employeeid . " and Exch = '" . $_POST['exch'] . "' and Symbol='" . $_POST['stockname'] . "'");
-if ($limit === '5') {
+if ($limit === '30') {
     echo "Limit Reached";
 } else if ($checkstock > 0) {
     echo "Present";
@@ -15,7 +15,7 @@ if ($limit === '5') {
     $xx['userid'] = $employeeid;
     $xx['Exch'] = $_POST['exch'];
     $xx['Symbol'] = $_POST['stockname'];
-    $xx['ExchType'] = 'C';
+    $xx['ExchType'] = $_POST['exchtype'];
     $stock = $obj->insertnew("userstocks", $xx);
     if ($stock > 0) {
         echo "Success";

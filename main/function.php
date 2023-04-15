@@ -1398,7 +1398,7 @@ class db
         return $exchange_rate;
     }
 
-    function searchstockapi($symbol)
+    function searchstockapi($symbol, $exchtype, $expiry, $strike)
     {
         $headArry = array(
             'appName' => APP_NAME,
@@ -1411,8 +1411,8 @@ class db
         );
 
         $subArray = array(
-            ["Exch" => "N", "ExchType" => "C", "Symbol" => "$symbol", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""],
-            ["Exch" => "B", "ExchType" => "C", "Symbol" => "$symbol", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""],
+            ["Exch" => "N", "ExchType" => $exchtype, "Symbol" => "$symbol", "Expiry" => $expiry, "StrikePrice" => $strike, "OptionType" => ""],
+            ["Exch" => "B", "ExchType" => $exchtype, "Symbol" => "$symbol", "Expiry" => $expiry, "StrikePrice" => $strike, "OptionType" => ""],
         );
 
         $bodyArry = array(
@@ -1444,6 +1444,47 @@ class db
         curl_close($ch);
         return $result;
     }
+
+    function searchstockapiwithtoken($symbol, $exchtype, $exch)
+    {
+        $accesstoken = $this->selectfieldwhere('token', 'accesstoken', 'status=1');
+        $url = "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/V1/MarketDepth";
+        $authorization = "Bearer $accesstoken";
+        $contentType = "application/json";
+
+        $subArray = array(
+            ["Exchange" => $exch, "ExchangeType" => $exchtype, "Symbol" => "$symbol"],
+        );
+        $data = array(
+            "head" => array(
+                "key" => KEY
+            ),
+            "body" => array(
+                "ClientCode" => CLIENT_CODE,
+                "Count" => "1",
+                "Data" => $subArray
+            )
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            "Authorization: " . $authorization,
+            "Content-Type: " . $contentType
+        ));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+        $res = curl_exec($ch);
+        curl_close($ch);
+        $response = json_decode($res, true);
+        // echo "<pre>";
+        // print_r($response);
+        // echo "</pre>";
+        return $response['body']['Data'];
+    }
+
 
     // function getrequesttoken()
     // {
@@ -1528,10 +1569,7 @@ class db
 
     function getfullmarketdepth($symboldata)
     {
-        $accesstoken = $this->selectfieldwhere('token', 'accesstoken', 'status=1 and userid=' . $this->employeeid . '');
-        if (empty($accesstoken)) {
-            $accesstoken = $this->getaccesstoken();
-        }
+        $accesstoken = $this->selectfieldwhere('token', 'accesstoken', 'status=1');
         $url = "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/V1/MarketDepth";
         $authorization = "Bearer $accesstoken";
         $contentType = "application/json";
@@ -1572,10 +1610,7 @@ class db
 
     function getcandledata($scriptcode, $exch, $type, $interval, $startdate, $enddate)
     {
-        $accesstoken = $this->selectfieldwhere('token', 'accesstoken', 'status=1 and userid=' . $this->employeeid . '');
-        if (empty($accesstoken)) {
-            $accesstoken = $this->getaccesstoken();
-        }
+        $accesstoken = $this->selectfieldwhere('token', 'accesstoken', 'status=1');
         $url = 'https://openapi.5paisa.com/historical/' . $exch . '/' . $type . '/' . $scriptcode . '/' . $interval . '';
         $subscriptionKey = KEY;
         $clientCode = CLIENT_CODE;
@@ -1650,6 +1685,43 @@ class db
         $result = json_decode($result, true);
         return $result['body']['Data'];
     }
+
+    // function getmarketdata()
+    // {
+    //     $url = 'https://openapi.5paisa.com/VendorsAPI/Service1.svc/MarketFeed'; // Replace with the actual URL of the API endpoint
+    //     $headArry = array(
+    //         'appName' => APP_NAME,
+    //         'appVer' => APP_VERSION,
+    //         'key' => KEY,
+    //         'osName' => OS_NAME,
+    //         'requestCode' => '5PMF',
+    //         'userId' => USER_ID,
+    //         'password' => PASSWORD,
+    //     );
+    //     $data = array("head" => $headArry, "body" => array(
+    //         "Method" => "MarketFeedV3",
+    //         "Operation" => "Subscribe",
+    //         "ClientCode" => CLIENT_CODE,
+    //         "MarketFeedData" => array(
+    //             ["Exch" => "M", "ExchType" => "D", "Symbol" => "SILVERM 19 Apr 2023 CE 57250.00", "Expiry" => "", "StrikePrice" => "57250", "OptionType" => ""]
+    //         )
+    //     ));
+    //     $data_string = json_encode($data);
+
+    //     $ch = curl_init($url);
+    //     curl_setopt($ch, CURLOPT_POST, true);
+    //     curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    //         'Content-Type: application/json',
+    //     ));
+
+    //     $response = curl_exec($ch);
+    //     curl_close($ch);
+    //     // Do something with the response, e.g. parse it as JSON
+    //     $json_response = json_decode($response);
+    //     print_r($json_response);
+    // }
 
     function getcftokenfp()
     {
