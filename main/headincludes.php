@@ -9,14 +9,14 @@
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
- <title>Admin &amp; Dashboard</title>
+ <title>PMS Equity- The Real Earning Start Here</title>
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  <meta content="Premium Multipurpose Admin &amp; Dashboard Template" name="description">
  <meta content="" name="author">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
  <!-- App favicon -->
- <link rel="shortcut icon" href="main/dist/userimages/favicon.ico">
+ <link rel="shortcut icon" href="main/images/logo/favicon.svg">
 
 
 

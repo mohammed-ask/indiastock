@@ -101,7 +101,7 @@ $rowfund = $obj->selectfieldwhere("users", "investmentamount", "id=" . $employee
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Fund";
+$pagetitle = "Fund- PMS Equity";
 $contentheader = "";
 $pageheader = "";
 include "main/templete.php";

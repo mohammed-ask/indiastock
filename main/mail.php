@@ -150,7 +150,7 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Dashboard";
+$pagetitle = "E-Mail Support- PMS Equity";
 $contentheader = "";
 $pageheader = "";
 include "main/templete.php"; ?>

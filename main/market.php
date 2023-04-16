@@ -139,7 +139,7 @@ $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexcha
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Market";
+$pagetitle = "Live Market - PMS Equity";
 $contentheader = "";
 $pageheader = "";
 $watchliststocks = $wstocks;

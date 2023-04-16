@@ -8,7 +8,7 @@ ob_start();
         color: white;
     }
 </style>
-<div class="container px-6 mx-auto grid" style="padding-bottom: 50px;">
+<div class="container px-6 mx-auto grid" style="margin-bottom: 50px;">
 
     <h2 class="my-6 font-semibold text-gray-700 dark:text-gray-200">
         Dashboard

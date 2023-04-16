@@ -166,7 +166,7 @@ $totalprofit = $obj->selectfieldwhere("closetradedetail", "sum(profitamount)", "
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Portfolio";
+$pagetitle = "Portfolio- PMS Equity";
 $contentheader = "";
 $pageheader = "";
 $extrajs = "<script src='//cdn.datatables.net/plug-ins/1.13.1/api/fnReloadAjax.js'></script>";

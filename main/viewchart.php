@@ -35,7 +35,8 @@ foreach ($data as $row) {
 }
 
 ?>
-<div class="row" id="userstock">
+<div class="row card" id="userstock">
+<div class="card-body">
     <div class="row">
         <div class="col-sm-3">
             <label>Start Date</label>
@@ -59,6 +60,7 @@ foreach ($data as $row) {
         </div>
     </div>
     <div id="container"></div>
+</div>
 </div>
 <?php
 $pagemaincontent = ob_get_contents();

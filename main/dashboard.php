@@ -116,9 +116,9 @@ foreach ($data as $row) {
 <?php
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
-// $extrajs = '<script src="https://code.highcharts.com/highcharts.js"></script>';
+
 $pagemeta = "";
-$pagetitle = "Indiastock: Dashboard";
+$pagetitle = "Your Dashboard- PMS Equity";
 $contentheader = "";
 $pageheader = "";
 $watchliststocks = $wstocks;

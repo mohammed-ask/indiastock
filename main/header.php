@@ -39,7 +39,7 @@ $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $empl
 
                     <a href="mail">
                         <h6 class="dropdown-item-text font-13 m-0 py-2 border-bottom d-flex justify-content-between align-items-center">
-                            Received Mail <span class="badge bg-soft-primary badge-pill"><?= $unreadmail ?></span>
+                            Unread Messages <span class="badge bg-soft-primary badge-pill"><?= $unreadmail ?></span>
                         </h6>
                     </a>
             </li>
@@ -47,7 +47,7 @@ $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $empl
             <li class="dropdown">
                 <a class="nav-link dropdown-toggle nav-user" data-bs-toggle="dropdown" href="user-index.html" role="button" aria-haspopup="false" aria-expanded="false">
                     <div class="d-flex align-items-center">
-                        <img src="<?= empty($avatarpath) ? 'main/images/user.jpeg' : $avatarpath ?>" class="rounded-circle me-0 me-md-2 thumb-xs">
+                        <img src="<?= empty($avatarpath) ? 'main/images/user.png' : $avatarpath ?>" class="rounded-circle me-0 me-md-2 thumb-xs">
                         <div class="user-name">
                             <small class="d-none d-lg-block font-11">Usename</small>
                             <span class="d-none d-lg-block fw-semibold font-12"><?= $username ?><i class="mdi mdi-chevron-down"></i></span>

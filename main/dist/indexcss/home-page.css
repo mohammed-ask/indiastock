@@ -710,7 +710,7 @@ header
     padding: 0px;
   }
   .header-area .logo {
-    margin-left: 7px;
+    margin-left: -3px;
   }
   .header-area .menu-trigger {
     display: block !important;
