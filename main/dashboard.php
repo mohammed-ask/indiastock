@@ -19,7 +19,7 @@ $wstocks = array_filter($stockdata, function ($data) {
     }
 });
 $chartdata = $obj->getcandledata(999920000, 'N',  'C', '5m', date('Y-m-d'), date('Y-m-d'));
-$data = $chartdata['candles'];
+$data = $chartdata === "Error fetching candle data: Error while processing" ? [] : $chartdata['candles'];
 $chart_data = array();
 
 foreach ($data as $row) {
@@ -58,7 +58,7 @@ foreach ($data as $row) {
                 <div class="row d-flex justify-content-center mb-2">
                     <div class="col">
                         <p class="text-dark mb-0 fw-semibold">Fund Available</p>
-                        <h3 class="my-1 font-20 fw-bold">₹<?= $investmentamount ?>.00</h3>
+                        <h3 class="my-1 font-20 fw-bold">₹<?= round($investmentamount) ?></h3>
                     </div><!--end col-->
                     <div class="col-auto align-self-center">
                         <img src="main/dist/userimages/money.png" class="thumb-lg" alt="...">
@@ -108,6 +108,9 @@ foreach ($data as $row) {
             </div><!--end card-header-->
             <div class="card-body">
                 <div id="container"></div>
+                <?php if ($chartdata === "Error fetching candle data: Error while processing") { ?>
+                    <div class='alert alert-danger'>Something Went Wrong in Chart.</div>
+                <?php } ?>
             </div><!--end card-body-->
         </div><!--end card-->
     </div><!--end col-->
@@ -220,15 +223,22 @@ include "main/templete.php"; ?>
             },
         );
     }
-    setInterval(() => {
-        console.log('counting market')
-        $('.national-data').html()
-        $.post("main/getlivemarketdatadashboard.php",
-            function(data) {
-                $('.national-data').html(data)
-                let sidedata = $('#sidebarcolumn').html()
-                $("#watchlist_2").html(sidedata)
-            },
-        );
-    }, 5000)
+
+    // check if current day is a weekday (Monday to Friday)
+    <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+        // check if current time is between 9 am to 4 pm
+        if ($hour >= 9 && $hour < 16) { ?>
+            setInterval(() => {
+                console.log('counting market')
+                $('.national-data').html()
+                $.post("main/getlivemarketdatadashboard.php",
+                    function(data) {
+                        $('.national-data').html(data)
+                        let sidedata = $('#sidebarcolumn').html()
+                        $("#watchlist_2").html(sidedata)
+                    },
+                );
+            }, 5000)
+    <?php }
+    } ?>
 </script>

@@ -146,21 +146,28 @@ $watchliststocks = $wstocks;
 include "main/templete.php"; ?>
 <script>
     let myinterval = null;
-    setInterval(() => {
-        console.log('counting market')
-        $('#userstock').html()
-        $.post("main/getlivemarketdata.php", {
-                wexcg: '<?= implode(",", $sexchange) ?>',
-                wsymbol: '<?= implode(",", $watchlistsym) ?>'
-            },
+    // check if current day is a weekday (Monday to Friday)
+    <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+        // check if current time is between 9 am to 4 pm
+        if ($hour >= 9 && $hour < 16) { ?>
+            setInterval(() => {
+                console.log('counting market')
+                $('#userstock').html()
+                $.post("main/getlivemarketdata.php", {
+                        wexcg: '<?= implode(",", $sexchange) ?>',
+                        wsymbol: '<?= implode(",", $watchlistsym) ?>'
+                    },
 
-            function(data) {
-                $('#userstock').html(data)
-                let sidedata = $('#sidebarcolumn').html()
-                $("#watchlist_2").html(sidedata)
-            },
-        );
-    }, 8000)
+                    function(data) {
+                        $('#userstock').html(data)
+                        let sidedata = $('#sidebarcolumn').html()
+                        $("#watchlist_2").html(sidedata)
+                    },
+                );
+            }, 8000)
+    <?php }
+    } ?>
+
     $('#myModal').on('hidden.bs.modal', function() {
         // refresh current page
         clearInterval(myinterval)

@@ -1560,7 +1560,7 @@ class db
         $pdate['updated_by'] = $this->employeeid;
         $pdate['updated_on'] = date('Y-m-d H:i:s');
         $pdate['userid'] = $this->employeeid;
-        $pradin = $this->updatewhere("token", ['status' => 0], "status=1 and userid =" . $this->employeeid . "");
+        $pradin = $this->updatewhere("token", ['status' => 0], "status=1");
         if ($pradin) {
             $pra = $this->insertnew("token", $pdate);
             return $atoken;
@@ -1569,75 +1569,93 @@ class db
 
     function getfullmarketdepth($symboldata)
     {
-        $accesstoken = $this->selectfieldwhere('token', 'accesstoken', 'status=1');
-        $url = "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/V1/MarketDepth";
-        $authorization = "Bearer $accesstoken";
-        $contentType = "application/json";
+        try {
+            $accesstoken = $this->selectfieldwhere('token', 'accesstoken', 'status=1');
+            $url = "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/V1/MarketDepth";
+            $authorization = "Bearer $accesstoken";
+            $contentType = "application/json";
 
-        $data = array(
-            "head" => array(
-                "key" => KEY
-            ),
-            "body" => array(
-                "ClientCode" => CLIENT_CODE,
-                "Count" => "1",
-                "Data" => $symboldata
-                // "Data" => array(
-                //     array(
-                //         "Exchange" => "N",
-                //         "ExchangeType" => "C",
-                //         "Symbol" => "RELIANCE"
-                //     ),
-                // )
-            )
-        );
+            $data = array(
+                "head" => array(
+                    "key" => KEY
+                ),
+                "body" => array(
+                    "ClientCode" => CLIENT_CODE,
+                    "Count" => "1",
+                    "Data" => $symboldata
+                    // "Data" => array(
+                    //     array(
+                    //         "Exchange" => "N",
+                    //         "ExchangeType" => "C",
+                    //         "Symbol" => "RELIANCE"
+                    //     ),
+                    // )
+                )
+            );
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            "Authorization: " . $authorization,
-            "Content-Type: " . $contentType
-        ));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                "Authorization: " . $authorization,
+                "Content-Type: " . $contentType
+            ));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 
-        $res = curl_exec($ch);
-        curl_close($ch);
-        $response = json_decode($res, true);
-        return $response['body']['Data'];
+            $res = curl_exec($ch);
+            curl_close($ch);
+            $response = json_decode($res, true);
+            if (isset($response['body']['Data'])) {
+                return $response['body']['Data'];
+            } else {
+                throw new Exception('Error fetching candle data: ' . $response['Message']);
+            }
+        } catch (Exception $e) {
+            // Log or handle the error as required
+            return $e->getMessage();
+        }
     }
 
     function getcandledata($scriptcode, $exch, $type, $interval, $startdate, $enddate)
     {
-        $accesstoken = $this->selectfieldwhere('token', 'accesstoken', 'status=1');
-        $url = 'https://openapi.5paisa.com/historical/' . $exch . '/' . $type . '/' . $scriptcode . '/' . $interval . '';
-        $subscriptionKey = KEY;
-        $clientCode = CLIENT_CODE;
-        $accessToken = $accesstoken;
-        $from = $startdate;
-        $end = $enddate;
+        try {
+            $accesstoken = $this->selectfieldwhere('token', 'accesstoken', 'status=1');
+            $url = 'https://openapi.5paisa.com/historical/' . $exch . '/' . $type . '/' . $scriptcode . '/' . $interval . '';
+            $subscriptionKey = KEY;
+            $clientCode = CLIENT_CODE;
+            $accessToken = $accesstoken;
+            $from = $startdate;
+            $end = $enddate;
 
-        $queryString = http_build_query(array('from' => $from, 'end' => $end));
-        $url = $url . '?' . $queryString;
+            $queryString = http_build_query(array('from' => $from, 'end' => $end));
+            $url = $url . '?' . $queryString;
 
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt(
-            $ch,
-            CURLOPT_HTTPHEADER,
-            array(
-                'Ocp-Apim-Subscription-Key: ' . $subscriptionKey,
-                'x-clientcode: ' . $clientCode,
-                'x-auth-token: ' . $accessToken
-            )
-        );
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt(
+                $ch,
+                CURLOPT_HTTPHEADER,
+                array(
+                    'Ocp-Apim-Subscription-Key: ' . $subscriptionKey,
+                    'x-clientcode: ' . $clientCode,
+                    'x-auth-token: ' . $accessToken
+                )
+            );
 
-        $res = curl_exec($ch);
-        curl_close($ch);
-        $response = json_decode($res, true);
-        return $response['data'];
+            $res = curl_exec($ch);
+            curl_close($ch);
+            $response = json_decode($res, true);
+            if (isset($response['data'])) {
+                return $response['data'];
+            } else {
+                throw new Exception('Error fetching candle data: ' . $response['Message']);
+            }
+        } catch (Exception $e) {
+            // Log or handle the error as required
+            return $e->getMessage();
+        }
     }
 
     function fivepaisaapi($userstock)

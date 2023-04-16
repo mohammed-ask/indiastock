@@ -24,7 +24,7 @@ ob_start();
                         <th class="px-3 py-2">Mobile No.</th>
                         <th class="px-3 py-2">Date</th>
                         <th class="px-3 py-2">Amount</th>
-                        <th class="px-3 py-2">Remark</th>
+                        <!-- <th class="px-3 py-2">Remark</th> -->
                         <th class="px-3 py-2">Payment Method</th>
                         <th class="px-3 py-2">Action</th>
                     </tr>

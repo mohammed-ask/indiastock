@@ -61,10 +61,28 @@ $stockdata = $stockdata[0];
         </div>
         <div class="col-auto">
             <small class="text-muted d-block">Available Fund</small>
-            <small>₹<?= $investmentamount ?></small>
+            <small>₹<?= round($investmentamount) ?></small>
         </div><!--end col-->
     </div><!--end row-->
 </div>
 <script>
     $("#modalfooterbtn").css('display', 'none')
+    <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+        // check if current time is between 9 am to 4 pm
+        if ($hour >= 9 && $hour < 16) { ?>
+            myinterval = setInterval(() => {
+                $('#stockdetails').html()
+                $.post("main/getlivemarketdatasingle.php", {
+                        symbol: '<?= $rowtran['symbol'] ?>',
+                        exchange: '<?= $rowtran['exchange'] ?>'
+                    },
+                    function(data) {
+                        $('#stockdetails').html(data)
+                        price = $("#closingprice").val();
+                        $("#Price").val(price)
+                    },
+                );
+            }, 10000)
+    <?php }
+    } ?>
 </script>

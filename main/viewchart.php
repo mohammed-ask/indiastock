@@ -20,10 +20,10 @@ foreach ($rowfetch as $item) {
 // die;
 
 $stockdata = $obj->getfullmarketdepth(array($chartsymbol));
-$stockdata = $stockdata[0];
+$stockdata = $stockdata === "Error fetching candle data: Error while processing, Please try to re-login" ? "" : $stockdata[0];
 // print_r($stockdata);
-$chartdata = $obj->getcandledata($stockdata['ScripCode'], $stockdata['Exchange'],  $stockdata['ExchangeType'], '5m', date('Y-m-d'), date('Y-m-d'));
-$data = $chartdata['candles'];
+$chartdata = empty($stockdata) ? [] : $obj->getcandledata($stockdata['ScripCode'], $stockdata['Exchange'],  $stockdata['ExchangeType'], '5m', date('Y-m-d'), date('Y-m-d'));
+$data = empty($chartdata) ? [] : $chartdata['candles'];
 
 $chart_data = array();
 
@@ -36,37 +36,40 @@ foreach ($data as $row) {
 
 ?>
 <div class="row card" id="userstock">
-<div class="card-body">
-    <div class="row">
-        <div class="col-sm-3">
-            <label>Start Date</label>
-            <input type="date" id="startdate" name="startdate" value="<?php echo date('Y-m-d'); ?>" class="form-control" placeholder="startdate" />
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-3">
+                <label>Start Date</label>
+                <input type="date" id="startdate" name="startdate" value="<?php echo date('Y-m-d'); ?>" class="form-control" placeholder="startdate" />
+            </div>
+            <div class="col-sm-3">
+                <label>End Date</label>
+                <input type="date" id="enddate" name="enddate" value="<?php echo date('Y-m-d'); ?>" class="form-control" placeholder="enddate" />
+            </div>
+            <div class="col-sm-3">
+                <label for="">Interval</label>
+                <select data-bvalidator="required" class="form-control select2" name="interval" id="interval">
+                    <option value="1m">1 Min</option>
+                    <option value="5m" selected>5 Min</option>
+                    <option value="10m">10 Min</option>
+                    <option value="15m">15 Min</option>
+                    <option value="30m">30 Min</option>
+                    <option value="60m">60 Min</option>
+                    <option value="1d">1 Day</option>
+                </select>
+            </div>
         </div>
-        <div class="col-sm-3">
-            <label>End Date</label>
-            <input type="date" id="enddate" name="enddate" value="<?php echo date('Y-m-d'); ?>" class="form-control" placeholder="enddate" />
-        </div>
-        <div class="col-sm-3">
-            <label for="">Interval</label>
-            <select data-bvalidator="required" class="form-control select2" name="interval" id="interval">
-                <option value="1m">1 Min</option>
-                <option value="5m" selected>5 Min</option>
-                <option value="10m">10 Min</option>
-                <option value="15m">15 Min</option>
-                <option value="30m">30 Min</option>
-                <option value="60m">60 Min</option>
-                <option value="1d">1 Day</option>
-            </select>
-        </div>
+        <div id="container"></div>
+        <?php if (empty($chartdata)) { ?>
+            <div class='alert alert-danger'>Something Went Wrong in Chart.</div>
+        <?php } ?>
     </div>
-    <div id="container"></div>
-</div>
 </div>
 <?php
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Market";
+$pagetitle = "Stock Chart: PMS-Equity";
 $contentheader = "";
 $pageheader = "";
 include "main/templete.php"; ?>

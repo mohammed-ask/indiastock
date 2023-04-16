@@ -75,12 +75,13 @@ if ($emailcount > 0) {
     $mail = new PHPMailer(true);
 
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
+    $mail->Host = $host;
+    $mail->SMTPAuth = $smtpauth;
     $mail->Username = "$sendmailfrom";
     $mail->Password = "$sendemailpassword";
+    $mail->isSendmail();
     $mail->SMTPSecure = 'ssl';
-    $mail->Port = 465;
+    $mail->Port = $port;
     $mail->setFrom("$sendmailfrom");
     $mail->addAddress($_POST['email']);
     $mail->isHTML(true);

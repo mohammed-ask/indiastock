@@ -33,14 +33,14 @@ if ((isset($_GET['columns'][0]["search"]["value"])) && (!empty($_GET['columns'][
 if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][1]["search"]["value"]))) {
     $search .= " and users.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
-$join = "inner join users on users.id = withdrawalrequests.userid";
-$return['recordsTotal'] = $obj->selectfieldwhere("withdrawalrequests $join ", "count(withdrawalrequests.id)", "withdrawalrequests.status in (0,1,91) ");
-$return['recordsFiltered'] = $obj->selectfieldwhere("withdrawalrequests $join", "count(withdrawalrequests.id)", "withdrawalrequests.status in (0,1,91) $search ");
+$join = "inner join users on users.id = fundrequest.userid";
+$return['recordsTotal'] = $obj->selectfieldwhere("fundrequest $join ", "count(fundrequest.id)", "fundrequest.status in (0,1,91) ");
+$return['recordsFiltered'] = $obj->selectfieldwhere("fundrequest $join", "count(fundrequest.id)", "fundrequest.status in (0,1,91) $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
-    "withdrawalrequests $join",
-    "name,userid,mobile,withdrawalrequests.added_on,remark,withdrawalrequests.status,amount",
-    "withdrawalrequests.status in (0,1,91) $search $order limit $start, $limit"
+    "fundrequest $join",
+    "name,userid,users.mobile,fundrequest.added_on,fundrequest.status,amount,paymentmethod",
+    "fundrequest.status in (0,1,91) $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
@@ -51,8 +51,8 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['mobile'];
     $n[] =  $row['added_on'];
     $n[] =  "<strong>" . $row['amount'] . "</strong>";
-    $n[] =  $row['remark'];
-    $n[] =  'Google Pay';
+    // $n[] =  $row['remark'];
+    $n[] =  $row['paymentmethod'];
     if ($row['status'] == 0) {
         $n[] =    "<button class='px-4 py-2 leading-tight text-red-700 bg-red-100 rounded-full dark:text-yellow-100 dark:bg-red-700' aria-label='view'>
     <span class='w-5 h-5' fill='currentColor'>Pending</span>
@@ -63,7 +63,7 @@ while ($row = $obj->fetch_assoc($result)) {
 </button>";
     } elseif ($row['status'] == 91) {
         $n[] =    "<button class='px-4 py-2 leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700' aria-label='view'>
-    <span class='w-5 h-5' fill='currentColor'>Approved</span>
+    <span class='w-5 h-5' fill='currentColor'>Rejected</span>
 </button>";
     }
     $data[] = $n;

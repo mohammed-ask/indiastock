@@ -93,24 +93,29 @@ $stockdata = $stockdata[0];
         </div><!--end col-->
         <div class="col-auto">
             <small class="text-muted d-block">Available Fund</small>
-            <small>₹<?= $investmentamount ?>.00</small>
+            <small>₹<?= round($investmentamount) ?>.00</small>
         </div><!--end col-->
     </div><!--end row-->
 </div><!--end modal-body-->
 <script>
     $("#modalfooterbtn").css('display', 'none')
-    myinterval = setInterval(() => {
-        console.log('counting buystock')
-        $('#stockdetails').html()
-        $.post("main/getlivemarketdatasingle.php", {
-                symbol: '<?= $symbol ?>',
-                exchange: '<?= $exchange ?>'
-            },
-            function(data) {
-                $('#stockdetails').html(data)
-                price = $("#closingprice").val();
-                $("#Price").val(price)
-            },
-        );
-    }, 10000)
+    // check if current day is a weekday (Monday to Friday)
+    <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+        // check if current time is between 9 am to 4 pm
+        if ($hour >= 9 && $hour < 16) { ?>
+            myinterval = setInterval(() => {
+                $('#stockdetails').html()
+                $.post("main/getlivemarketdatasingle.php", {
+                        symbol: '<?= $symbol ?>',
+                        exchange: '<?= $exchange ?>'
+                    },
+                    function(data) {
+                        $('#stockdetails').html(data)
+                        price = $("#closingprice").val();
+                        $("#Price").val(price)
+                    },
+                );
+            }, 10000)
+    <?php }
+    } ?>
 </script>

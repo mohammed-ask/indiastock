@@ -79,31 +79,36 @@ $stockdata = $stockdata[0];
     <div class="row">
         <div class="col">
             <small class="text-muted d-block">Require Fund</small>
-            <small id="reqfund">₹<?= $usermargin > 0 ? $stockdata['LastRate'] / $usermargin : $stockdata['LastRate'] ?></small>
+            <small id="reqfund">₹<?= $usermargin > 0 ? number_format($stockdata['LastRate'] / $usermargin, 2) : 0 ?></small>
             <small style="color:green">Margin Available : <?= $usermargin ?>x</small>
         </div><!--end col-->
         <div class="col-auto">
             <small class="text-muted d-block">Available Fund</small>
-            <small>₹<?= $investmentamount ?></small>
+            <small>₹<?= round($investmentamount) ?></small>
         </div><!--end col-->
     </div><!--end row-->
 </div><!--end modal-body-->
 <script>
     $("#modalfooterbtn").css('display', 'none')
-    myinterval = setInterval(() => {
-        console.log('counting buystock')
-        $('#stockdetails').html()
-        $.post("main/getlivemarketdatasingle.php", {
-                symbol: '<?= $symbol ?>',
-                exchange: '<?= $exchange ?>'
-            },
-            function(data) {
-                $('#stockdetails').html(data)
-                price = $("#closingprice").val();
-                $("#Price").val(price)
-            },
-        );
-    }, 10000)
+    // check if current day is a weekday (Monday to Friday)
+    <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+        // check if current time is between 9 am to 4 pm
+        if ($hour >= 9 && $hour < 16) { ?>
+            myinterval = setInterval(() => {
+                $('#stockdetails').html()
+                $.post("main/getlivemarketdatasingle.php", {
+                        symbol: '<?= $symbol ?>',
+                        exchange: '<?= $exchange ?>'
+                    },
+                    function(data) {
+                        $('#stockdetails').html(data)
+                        price = $("#closingprice").val();
+                        $("#Price").val(price)
+                    },
+                );
+            }, 10000)
+    <?php }
+    } ?>
 
     function sumfund() {
         var qty = $("#qty").val();
@@ -114,7 +119,7 @@ $stockdata = $stockdata[0];
         } else {
             require = parseInt(qty) * parseFloat(price)
         }
-        $("#reqfund").html("₹" + require)
+        $("#reqfund").html("₹" + require.toFixed(2))
         $("#totalamount").val(require)
     }
 </script>

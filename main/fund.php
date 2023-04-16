@@ -1,6 +1,5 @@
 <?php
 include "main/session.php";
-$rowfund = $obj->selectfieldwhere("users", "investmentamount", "id=" . $employeeid . "");
 ?>
 <div class="card">
     <div class="card-body">
@@ -8,7 +7,7 @@ $rowfund = $obj->selectfieldwhere("users", "investmentamount", "id=" . $employee
             <div class="col-md-6">
                 <div class="bg-light text-center p-2 d-flex justify-content-between align-items-center rounded border">
                     <div class="text-start">
-                        <h5 class="font-18 m-0">₹<?= $rowfund ?></h5>
+                        <h5 class="font-18 m-0">₹<?= round($investmentamount) ?></h5>
                         <p class="mb-0 fw-semibold">Total Funds</p>
                     </div>
                     <div>

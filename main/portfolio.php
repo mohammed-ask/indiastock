@@ -1,7 +1,44 @@
 <?php
 include "session.php";
 $todayprofit = $obj->selectfieldwhere("closetradedetail", "sum(profitamount)", "date(added_on) = curdate() and userid=$employeeid and status = 1");
-$totalprofit = $obj->selectfieldwhere("closetradedetail", "sum(profitamount)", "userid=$employeeid and status = 1");
+$completedtotalprofitloss = $obj->selectfieldwhere("closetradedetail", "sum(profitamount)", "userid=$employeeid and status = 1");
+$totalamount = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "userid=$employeeid and status = 0 and tradestatus = 'Open'");
+
+$totalstocktraded = $obj->selectfieldwhere(
+    "stocktransaction",
+    "group_concat(distinct(stockid))",
+    "status = 0 and userid = $employeeid and tradestatus='Open'"
+);
+
+if (!empty($totalstocktraded)) {
+    $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1 and id in (" . $totalstocktraded . ")");
+    $rowfetch = mysqli_fetch_all($fetchshare, 1);
+    $stockdata = $obj->fivepaisaapi($rowfetch);
+}
+
+$stockamount = 0;
+$totalprofit = $completedtotalprofitloss;
+$result = $obj->selectextrawhereupdate(
+    "stocktransaction",
+    "*",
+    "status = 0 and userid = $employeeid and tradestatus='Open'"
+);
+while ($row = $obj->fetch_assoc($result)) {
+    $symbol = $row['symbol'];
+    $excg = $row['exchange'];
+    $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg) {
+        if ($data['Symbol'] === $symbol && $data['Exch'] === $excg) {
+            return $data;
+        }
+    });
+    //Adding Invested Amount
+    $stockamount = $stockamount + $row['totalamount'];
+
+    // Adding Profit on Total Share
+    $profitloss = ($row['price'] - $pricedata[0]['LastRate']) * $row['qty'];
+    $stockamount = $stockamount + $profitloss;
+    $totalprofit = $totalprofit + $profitloss;
+}
 ?>
 <div class="row">
     <div class="col-md-6 col-lg-3">
@@ -9,7 +46,7 @@ $totalprofit = $obj->selectfieldwhere("closetradedetail", "sum(profitamount)", "
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col text-center">
-                        <span class="h5">₹<?= $investmentamount - $totalprofit ?></span>
+                        <span class="h5">₹<?= round($totalamount * $usermargin, 2) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Amount Invested</h6>
 
                         <h6 class="font-10 text-muted mt-2 m-0 portfolio-cbody">LIMIT-<span><?= $usermargin ?>x</span></h6>
@@ -23,8 +60,9 @@ $totalprofit = $obj->selectfieldwhere("closetradedetail", "sum(profitamount)", "
             <div class="card-body" style="padding-bottom: 42px;">
                 <div class="row align-items-center">
                     <div class="col text-center">
-                        <span class="h5">₹<?= $investmentamount ?></span>
+                        <span class="h5">₹<?= round($investmentamount + $stockamount) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Current Value</h6>
+                        <small class="font-10 text-muted mt-2 m-0 ">(Your all amount &plusmn; your P&L)</small>
                     </div><!--end col-->
                 </div> <!-- end row -->
             </div><!--end card-body-->
@@ -141,6 +179,8 @@ $totalprofit = $obj->selectfieldwhere("closetradedetail", "sum(profitamount)", "
                                         <th>Qty.</th>
                                         <th>Buy Price</th>
                                         <th>Sell Price</th>
+                                        <th>Total Share Value</th>
+                                        <th>Paid By User</th>
                                         <th>Buy/Sell</th>
                                         <th>%P/L</th>
                                         <th>P/L</th>
@@ -188,9 +228,6 @@ include "main/templete.php"; ?>
             [0, "desc"]
         ],
     })
-    setInterval(function() {
-        table.ajax.reload();
-    }, 10000);
 
     var table2 = $('#example2').DataTable({
         "ajax": "main/holdingtradedata.php",
@@ -208,9 +245,20 @@ include "main/templete.php"; ?>
             [0, "desc"]
         ],
     })
-    setInterval(function() {
-        table2.ajax.reload();
-    }, 10000);
+
+    // check if current day is a weekday (Monday to Friday)
+    <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+        // check if current time is between 9 am to 4 pm
+        if ($hour >= 9 && $hour < 16) { ?>
+            setInterval(function() {
+                table.ajax.reload();
+            }, 10000);
+            setInterval(function() {
+                table2.ajax.reload();
+            }, 10000);
+    <?php }
+    } ?>
+
     var table = $('#example3').DataTable({
         "ajax": "main/closetradedata.php",
         "processing": false,

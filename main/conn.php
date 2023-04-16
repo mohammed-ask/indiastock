@@ -93,6 +93,11 @@ $redirecturl = ($platform == "test") ?  "http://localhost/indiastock" : "https:/
 if (isset($_GET['RequestToken'])) {
     $requesttoken = $_GET['RequestToken'];
 }
+// get current date and time
+$now = new DateTime();
+$dayOfWeek = $now->format('N');
+$hour = $now->format('G');
+
 define("REQUEST_TOKEN", $requesttoken); //right
 define("APP_NAME", "5P51842644"); //right
 define("CLIENT_CODE", "51842644"); //right

@@ -33,14 +33,14 @@ if ((isset($_GET['columns'][0]["search"]["value"])) && (!empty($_GET['columns'][
 if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][1]["search"]["value"]))) {
     $search .= " and users.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
-$join = "inner join users on users.id = withdrawalrequests.userid";
-$return['recordsTotal'] = $obj->selectfieldwhere("withdrawalrequests $join ", "count(withdrawalrequests.id)", "withdrawalrequests.status in (0) ");
-$return['recordsFiltered'] = $obj->selectfieldwhere("withdrawalrequests $join", "count(withdrawalrequests.id)", "withdrawalrequests.status in (0) $search ");
+$join = "inner join users on users.id = fundrequest.userid";
+$return['recordsTotal'] = $obj->selectfieldwhere("fundrequest $join ", "count(fundrequest.id)", "fundrequest.status in (0) ");
+$return['recordsFiltered'] = $obj->selectfieldwhere("fundrequest $join", "count(fundrequest.id)", "fundrequest.status in (0) $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
-    "withdrawalrequests $join",
-    "withdrawalrequests.id,name,userid,mobile,withdrawalrequests.added_on,remark,withdrawalrequests.status,amount",
-    "withdrawalrequests.status in (0) $search $order limit $start, $limit"
+    "fundrequest $join",
+    "fundrequest.id,name,userid,users.mobile,fundrequest.added_on,fundrequest.status,amount,paymentmethod",
+    "fundrequest.status in (0) $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
@@ -51,8 +51,8 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['mobile'];
     $n[] =  $row['added_on'];
     $n[] =  "<strong>" . $row['amount'] . "</strong>";
-    $n[] =  $row['remark'];
-    $n[] =  'Google Pay';
+    // $n[] =  $row['remark'];
+    $n[] =  $row['paymentmethod'];;
     $n[] = "<div class='tr'><div style='text-align:center;cursor:pointer'  class='showbox'>
     <img class='object-cover w-5 h-5' style='height:30px;width:30px;;margin:auto' src='../main/images/menu.png' alt='' aria-hidden='true' /></div>
         <div class='showbtn' style='display:none'>

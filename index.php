@@ -198,6 +198,12 @@ switch ($request['path']) {
     case "$head/admin/approvewithdrawalreq";
         require __DIR__ . '/main/admin/approvewithdrawalreq.php';
         break;
+    case "$head/admin/addstock";
+        require __DIR__ . '/main/admin/addstock.php';
+        break;
+    case "$head/admin/insertaddstock";
+        require __DIR__ . '/main/admin/insertaddstock.php';
+        break;
     case "$head/admin/logout";
         require __DIR__ . '/main/logout.php';
         break;

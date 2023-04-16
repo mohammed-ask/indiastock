@@ -1,6 +1,34 @@
 <?php
 include "main/session.php";
 ?>
+<style>
+    .ui-autocomplete {
+        position: absolute;
+        z-index: 9999;
+        width: auto;
+        padding: 0.2em 0;
+        margin: 0;
+        list-style: none;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    .ui-menu-item {
+        padding: 0.2em 0.4em;
+        cursor: pointer;
+    }
+
+    .ui-menu-item:hover {
+        background-color: #f0f0f0;
+    }
+
+    .ui-state-focus {
+        background-color: #ddd;
+        color: #333;
+    }
+</style>
 <form class="row gy-2 gx-3 align-items-end" id="addtax2">
     <div class="row -auto g-3 align-items-center">
         <div class="col-sm-9">
@@ -99,6 +127,27 @@ include "main/session.php";
             $("#symbol").css("border", "1px solid red")
         }
     }
+
+    $("#symbol").autocomplete({
+        minLength: 3,
+        source: function(request, response) {
+            $.ajax({
+                type: "post",
+                url: "main/admin/fetchsymbolsearch.php",
+                data: {
+                    search: request.term
+                },
+                dataType: "json",
+                success: function(data) {
+                    response(data)
+                }
+            });
+        },
+        select: function(event, ui) {
+            event.preventDefault();
+            $("#symbol").val(ui.item.value);
+        },
+    })
 
     function addstock(exch, stockname, type) {
         event.preventDefault();

@@ -33,14 +33,14 @@ if ((isset($_GET['columns'][0]["search"]["value"])) && (!empty($_GET['columns'][
 if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][1]["search"]["value"]))) {
     $search .= " and users.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
-$join = "inner join users on users.id = withdrawalrequests.userid";
-$return['recordsTotal'] = $obj->selectfieldwhere("withdrawalrequests $join ", "count(withdrawalrequests.id)", "withdrawalrequests.status in (91) ");
-$return['recordsFiltered'] = $obj->selectfieldwhere("withdrawalrequests $join", "count(withdrawalrequests.id)", "withdrawalrequests.status in (91) $search ");
+$join = "inner join users on users.id = fundrequest.userid";
+$return['recordsTotal'] = $obj->selectfieldwhere("fundrequest $join ", "count(fundrequest.id)", "fundrequest.status in (91) ");
+$return['recordsFiltered'] = $obj->selectfieldwhere("fundrequest $join", "count(fundrequest.id)", "fundrequest.status in (91) $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
-    "withdrawalrequests $join",
-    "withdrawalrequests.id,name,userid,mobile,withdrawalrequests.added_on,remark,withdrawalrequests.status,amount",
-    "withdrawalrequests.status in (91) $search $order limit $start, $limit"
+    "fundrequest $join",
+    "fundrequest.id,name,userid,users.mobile,fundrequest.added_on,fundrequest.status,amount,paymentmethod",
+    "fundrequest.status in (91) $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
@@ -51,8 +51,8 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['mobile'];
     $n[] =  $row['added_on'];
     $n[] =  "<strong>" . $row['amount'] . "</strong>";
-    $n[] =  $row['remark'];
-    $n[] =  'Google Pay';
+    // $n[] =  $row['remark'];
+    $n[] =  $row['paymentmethod'];
 
     $n[] =    "<li style='background-color:rgb(115, 214, 115)  ; border-radius: 5px;' class='flex'>
     <a class='inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200' onclick='fun1(\"" . $row['id'] . " \", \"approveinvestment\", \"resultid\",\"Approve\")'>
