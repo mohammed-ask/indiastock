@@ -56,6 +56,7 @@ $obj = new db($host, $database_Username, $database_Password, $database_Name, $po
 // Main Settings
 $sendmailfrom = $platform === 'test'  ? "mohammedhusain559@gmail.com" : 'noreply@pmsequity.com';
 $sendemailpassword = $platform === 'test' ? "svcbitzquirlpwxk" : 'Yrmf@yrmd1';
+$supportmail = 'support@pmsequity.com';
 $port = $platform === 'test' ? 465 : 25;
 $host = $platform === 'test' ? 'smtp.gmail.com' : 'localhost';
 $smtpauth = $platform === 'test' ? true : false;

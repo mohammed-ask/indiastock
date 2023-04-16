@@ -1,15 +1,17 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'main/phpmailer/src/Exception.php';
-require 'main/phpmailer/src/PHPMailer.php';
-require 'main/phpmailer/src/SMTP.php';
+require 'main/PHPMailer/src/Exception.php';
+require 'main/PHPMailer/src/PHPMailer.php';
+require 'main/PHPMailer/src/SMTP.php';
 
 include "main/session.php";
 
-$adminemail = $obj->selectfieldwhere('users', "email", "id=" . $employeeid . "");
+// $adminemail = $obj->selectfieldwhere('users', "email", "id=" . $employeeid . "");
 $receivermail = $obj->selectfieldwhere('users', "email", "id=" . $_POST['userid'] . "");
 $path = "main/mailfiles";
 $vy['added_on'] = date('Y-m-d H:i:s');
@@ -44,27 +46,28 @@ if (!empty($_FILES['files']['name'])) {
         $pradin = $obj->insertnew($tb_name, $postdata);
     }
 }
-if ($adminemail == $sendmailfrom) {
-    $mail = new PHPMailer(true);
+// if ($adminemail == $sendmailfrom) {
+$mail = new PHPMailer(true);
 
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = "$sendmailfrom";
-    $mail->Password = "$sendemailpassword";
-    $mail->SMTPSecure = 'ssl';
-    $mail->Port = 465;
-    $mail->setFrom("$sendmailfrom");
-    $mail->addAddress($receivermail);
-    $mail->isHTML(true);
-    $mail->Subject = $_POST['subject'];
-    $attachfile = $obj->selectextrawhere('maildocuments', "mailid=$mailid");
-    while ($rowfile = $obj->fetch_assoc($attachfile)) {
-        $path = $obj->selectfieldwhere('uploadfile', "path", "id=" . $rowfile['path'] . "");
-        $orgname = $obj->selectfieldwhere('uploadfile', "orgname", "id=" . $rowfile['path'] . "");
-        $mail->addAttachment($path, $orgname);
-    }
-    $mail->Body = $_POST['message'];
-    $mail->send();
-    echo "Redirect :  Role has been Updated to your Catalogue URLcomposemail";
+$mail->isSMTP();
+$mail->Host = $host;
+$mail->SMTPAuth = true;
+$mail->Username = "$supportmail";
+$mail->Password = "$sendemailpassword";
+$mail->isSendmail();
+$mail->SMTPSecure = 'ssl';
+$mail->Port = $port;
+$mail->setFrom("$supportmail");
+$mail->addAddress($receivermail);
+$mail->isHTML(true);
+$mail->Subject = $_POST['subject'];
+$attachfile = $obj->selectextrawhere('maildocuments', "mailid=$mailid");
+while ($rowfile = $obj->fetch_assoc($attachfile)) {
+    $path = $obj->selectfieldwhere('uploadfile', "path", "id=" . $rowfile['path'] . "");
+    $orgname = $obj->selectfieldwhere('uploadfile', "orgname", "id=" . $rowfile['path'] . "");
+    $mail->addAttachment($path, $orgname);
 }
+$mail->Body = $_POST['message'];
+$mail->send();
+echo "Redirect :  Mail Sent Successfully Catalogue URLcomposemail";
+// }

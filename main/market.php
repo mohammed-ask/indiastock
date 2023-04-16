@@ -16,6 +16,10 @@ $rowfetch = mysqli_fetch_all($fetchshare, 1);
 array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
 
 $stockdata = $obj->fivepaisaapi($rowfetch);
+// echo "<pre>";
+// print_r($stockdata);
+// echo "</pre>";
+// die;
 $marketdata = array_filter($stockdata, function ($data) {
     if ($data['Symbol'] === 'NIFTY' || $data['Symbol'] === 'SENSEX') {
         return $data;
@@ -156,7 +160,7 @@ include "main/templete.php"; ?>
                 $("#watchlist_2").html(sidedata)
             },
         );
-    }, 5000)
+    }, 8000)
     $('#myModal').on('hidden.bs.modal', function() {
         // refresh current page
         clearInterval(myinterval)

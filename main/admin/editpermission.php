@@ -1,6 +1,6 @@
 <?php
 /* @var $obj db */
-include 'session.php';
+include 'main/session.php';
 $fid = $_GET['hakuna'];
 $ftable = "permissions";
 $where = "id=" . $fid;

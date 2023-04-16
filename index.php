@@ -192,6 +192,12 @@ switch ($request['path']) {
     case "$head/admin/updateprofile";
         require __DIR__ . '/main/admin/updateprofile.php';    //admin Route close
         break;
+    case "$head/admin/viewbankdetails";
+        require __DIR__ . '/main/admin/viewbankdetails.php';
+        break;
+    case "$head/admin/approvewithdrawalreq";
+        require __DIR__ . '/main/admin/approvewithdrawalreq.php';
+        break;
     case "$head/admin/logout";
         require __DIR__ . '/main/logout.php';
         break;
