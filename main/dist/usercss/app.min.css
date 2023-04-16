@@ -370,7 +370,7 @@
 .left-sidebar .navbar-vertical .navbar-nav .nav-item .nav .nav-item .nav-link.active:before {
     content: "";
     border: none;
-    background: #07baef
+    background: #00AAAA
 }
 
 .navbar-custom .responsive-logo {
@@ -636,10 +636,10 @@ body.dark-sidebar.enlarge-menu .left-sidebar:hover .brand .logo .logo-light {
 
 [data-layout=horizontal] .topbar .brand {
     padding-left: 16px;
-    height: calc($header-height + 1px);
-    width: 120px;
+    width: 200px;
     background-color: #fff;
-    border-bottom: none
+    border-bottom: none;
+    margin-right: 15px;
 }
 
 [data-layout=horizontal] .topbar .brand .logo {
@@ -742,15 +742,15 @@ body.dark-sidebar.enlarge-menu .left-sidebar:hover .brand .logo .logo-light {
 }
 
 .navbar-custom-menu .navigation-menu .nav-item.active a {
-    color: #07baef
+    color: #00AAAA
 }
 
 .navbar-custom-menu .navigation-menu .nav-item.active a i {
-    color: #07baef
+    color: #00AAAA
 }
 
 .navbar-custom-menu .navigation-menu .nav-item.active .dropdown-menu li.active>a {
-    color: #07baef
+    color: #00AAAA
 }
 
 .navbar-custom-menu .navigation-menu .nav-item .nav-link {
@@ -759,16 +759,16 @@ body.dark-sidebar.enlarge-menu .left-sidebar:hover .brand .logo .logo-light {
 }
 
 .navbar-custom-menu .navigation-menu .nav-item .nav-link:hover {
-    color: #07baef
+    color: #00AAAA
 }
 
 .navbar-custom-menu .navigation-menu .nav-item .nav-link:active {
-    color: #07baef;
-    border-bottom: 1px solid #07baef
+    color: #00AAAA;
+    border-bottom: 1px solid #00AAAA
 }
 
 .navbar-custom-menu .navigation-menu .nav-item .nav-link:active .menu-icon {
-    color: #07baef
+    color: #00AAAA
 }
 
 .navbar-custom-menu .dropdown {
@@ -815,7 +815,7 @@ body.dark-sidebar.enlarge-menu .left-sidebar:hover .brand .logo .logo-light {
 }
 
 .navbar-custom-menu .dropdown .dropdown-menu .dropdown-item.active {
-    color: #07baef;
+    color: #00AAAA;
     text-decoration: none;
     background-color: rgba(7, 186, 239, .04)
 }
@@ -826,37 +826,37 @@ body.dark-sidebar.enlarge-menu .left-sidebar:hover .brand .logo .logo-light {
 
 .navbar-custom-menu .dropdown .dropdown-menu .dropdown-item:focus {
     background-color: rgba(7, 186, 239, .04);
-    color: #07baef;
+    color: #00AAAA;
     border-radius: 0
 }
 
 .navbar-custom-menu .dropdown .dropdown-menu .dropdown-item:focus .dropdown-toggle:after {
-    color: #07baef
+    color: #00AAAA
 }
 
 .navbar-custom-menu .dropdown .dropdown-menu .dropdown-item:focus:hover {
-    color: #07baef;
+    color: #00AAAA;
     text-decoration: none;
     background-color: rgba(7, 186, 239, .04);
     border-radius: 0
 }
 
 .navbar-custom-menu .dropdown .dropdown-menu .dropdown-item:focus:active {
-    color: #07baef;
+    color: #00AAAA;
     text-decoration: none;
     background-color: rgba(7, 186, 239, .04);
     border-radius: .25rem
 }
 
 .navbar-custom-menu .dropdown .dropdown-menu .dropdown-item:hover {
-    color: #07baef;
+    color: #00AAAA;
     text-decoration: none;
     background-color: rgba(7, 186, 239, .04);
     border-radius: 0
 }
 
 .navbar-custom-menu .dropdown .dropdown-menu .dropdown-item:hover.dropdown-toggle:after {
-    color: #07baef
+    color: #00AAAA
 }
 
 .navbar-custom-menu .dropdown .dropdown-menu .dropdown-submenu a:after {
@@ -993,7 +993,7 @@ body.dark-sidebar.enlarge-menu .left-sidebar:hover .brand .logo .logo-light {
         padding: 5px 0
     }
     body[data-layout=horizontal] .topbar .brand {
-        width: 60px !important;
+        width: 145px !important;
         position: fixed;
         z-index: 1
     }
@@ -1038,13 +1038,13 @@ body.dark-sidebar.enlarge-menu .left-sidebar:hover .brand .logo .logo-light {
         font-size: 20px
     }
     .topbar .navigation-menu>li:hover a {
-        color: #07baef
+        color: #00AAAA
     }
     .topbar .navigation-menu>li:hover a i {
-        color: #07baef
+        color: #00AAAA
     }
     .topbar .navigation-menu>li.active {
-        border-bottom: 1px solid #07baef
+        border-bottom: 1px solid #00AAAA
     }
     .topbar .navbar-toggle {
         display: none
@@ -1087,7 +1087,7 @@ body.dark-sidebar.enlarge-menu .left-sidebar:hover .brand .logo .logo-light {
         right: 15px
     }
     .topbar .navigation-menu>li>a:hover {
-        color: #07baef
+        color: #00AAAA
     }
     .topbar .navbar-header {
         float: left
@@ -1494,15 +1494,15 @@ mark {
 
 .badge.badge-soft-primary {
     background-color: rgba(7, 186, 239, .15) !important;
-    color: #07baef;
+    color: #00AAAA;
     -webkit-box-shadow: 0 0 13px 0 rgba(7, 186, 239, .05);
     box-shadow: 0 0 13px 0 rgba(7, 186, 239, .05)
 }
 
 .badge.badge-outline-primary {
     background-color: transparent !important;
-    color: #07baef;
-    border: 1px solid #07baef
+    color: #00AAAA;
+    border: 1px solid #00AAAA
 }
 
 .badge.badge-soft-secondary {
@@ -1778,36 +1778,36 @@ mark {
 
 .btn-soft-primary {
     background-color: rgba(7, 186, 239, .08) !important;
-    color: #07baef !important
+    color: #00AAAA !important
 }
 
 .btn-soft-primary:hover {
-    background-color: #07baef !important;
+    background-color: #00AAAA !important;
     color: #fff !important
 }
 
 .btn-de-primary {
     background-color: transparent !important;
-    color: #07baef !important;
+    color: #00AAAA !important;
     border: 1px solid #e8ebf3
 }
 
 .btn-de-primary:hover {
-    background-color: #07baef !important;
+    background-color: #00AAAA !important;
     color: #fff !important;
-    border: 1px solid #07baef
+    border: 1px solid #00AAAA
 }
 
 .btn-de-dashed-primary {
     background-color: transparent !important;
-    color: #07baef !important;
+    color: #00AAAA !important;
     border: 1px dashed #e8ebf3
 }
 
 .btn-de-dashed-primary:hover {
-    background-color: #07baef !important;
+    background-color: #00AAAA !important;
     color: #fff !important;
-    border: 1px solid #07baef
+    border: 1px solid #00AAAA
 }
 
 .btn-soft-secondary {
@@ -2232,7 +2232,7 @@ mark {
 
 .table-rep-plugin .btn-default {
     border: none;
-    background: linear-gradient(14deg, #07baef 0, rgba(7, 186, 239, .6));
+    background: linear-gradient(14deg, #00AAAA 0, rgba(7, 186, 239, .6));
     color: #fff;
     margin-right: 5px;
     -webkit-box-shadow: 0 7px 14px 0 rgba(7, 186, 239, .5);
@@ -2252,7 +2252,7 @@ mark {
 .table-rep-plugin .btn-default.btn-primary:focus,
 .table-rep-plugin .btn-default.btn-primary:hover {
     border: none !important;
-    background: linear-gradient(14deg, #07baef 0, rgba(7, 186, 239, .6));
+    background: linear-gradient(14deg, #00AAAA 0, rgba(7, 186, 239, .6));
     color: #fff;
     -webkit-box-shadow: 0 0 0 2px rgba(7, 186, 239, .3);
     box-shadow: 0 0 0 2px rgba(7, 186, 239, .3)
@@ -2265,7 +2265,7 @@ mark {
 
 .table-rep-plugin table.focus-on tbody tr.focused td,
 .table-rep-plugin table.focus-on tbody tr.focused th {
-    background-color: #07baef;
+    background-color: #00AAAA;
     color: #fff
 }
 
@@ -2467,7 +2467,7 @@ a.badge:hover {
 }
 
 .alert.custom-alert.custom-alert-primary:after {
-    background-color: #07baef
+    background-color: #00AAAA
 }
 
 .alert.custom-alert.custom-alert-secondary:after {
@@ -2561,15 +2561,15 @@ a.badge:hover {
 }
 
 .alert.alert-outline-primary {
-    border: 1px solid #07baef;
+    border: 1px solid #00AAAA;
     background-color: transparent;
-    color: #07baef !important
+    color: #00AAAA !important
 }
 
 .alert.alert-soft-success {
     border: none;
     background-color: #ddf7fe;
-    color: #07baef
+    color: #00AAAA
 }
 
 .alert.alert-outline-secondary {
@@ -2721,7 +2721,7 @@ a.badge:hover {
 
 .selectr-option.active,
 .selectr-option.selected {
-    background-color: #07baef;
+    background-color: #00AAAA;
     color: #fff
 }
 
@@ -2855,8 +2855,8 @@ a.badge:hover {
 }
 
 .form-switch-primary .form-check-input:checked {
-    background-color: #07baef;
-    border-color: #07baef
+    background-color: #00AAAA;
+    border-color: #00AAAA
 }
 
 .form-switch-secondary .form-check-input:checked {
@@ -2918,14 +2918,14 @@ a.badge:hover {
 .nav.nav-tabs .nav-item.show:focus,
 .nav.nav-tabs .nav-link.active,
 .nav.nav-tabs .nav-link:focus {
-    color: #07baef;
+    color: #00AAAA;
     background-color: transparent;
-    border-color: transparent transparent #07baef
+    border-color: transparent transparent #00AAAA
 }
 
 .nav.nav-tabs .nav-item.show.active:hover,
 .nav.nav-tabs .nav-link.active:hover {
-    border-color: transparent transparent #07baef
+    border-color: transparent transparent #00AAAA
 }
 
 .nav.nav-tabs .nav-item.show:hover,
@@ -2934,7 +2934,7 @@ a.badge:hover {
 }
 
 .nav.nav-tabs .nav-item.show .nav-link {
-    color: #07baef;
+    color: #00AAAA;
     background-color: #fff
 }
 
@@ -2968,11 +2968,11 @@ a.badge:hover {
 .nav-tabs-custom .nav.nav-tabs .nav-link.active {
     background-color: #fafbfb;
     border-color: transparent;
-    color: #07baef
+    color: #00AAAA
 }
 
 .nav-tabs-custom .nav.nav-tabs .nav-link.active i {
-    color: #07baef
+    color: #00AAAA
 }
 
 .nav-tabs-custom .nav.nav-tabs .nav-link i {
@@ -2995,7 +2995,7 @@ a.badge:hover {
 
 .nav-pills .nav-item.show .nav-link,
 .nav-pills .nav-link.active {
-    background: #07baef;
+    background: #00AAAA;
     color: #fff
 }
 
@@ -3021,16 +3021,16 @@ a.badge:hover {
 .nav-border .nav-item.show .nav-link,
 .nav-border .nav-link.active {
     background: 0 0;
-    color: #07baef;
+    color: #00AAAA;
     -webkit-box-shadow: none;
     box-shadow: none;
     border-radius: 0;
-    border-bottom: 1px solid #07baef
+    border-bottom: 1px solid #00AAAA
 }
 
 .nav-pills .nav-item.show .nav-link,
 .nav-pills .nav-link.active {
-    background: #07baef;
+    background: #00AAAA;
     color: #fff;
     border-radius: 0
 }
@@ -3368,7 +3368,7 @@ a.badge:hover {
 }
 
 .morris-hover.morris-default-style .morris-hover-row-label {
-    background-color: #07baef;
+    background-color: #00AAAA;
     color: #fff;
     padding: 4px 20px;
     border-radius: 5px 5px 0 0;
@@ -3442,7 +3442,7 @@ a.badge:hover {
 .ct-chart .ct-series.ct-series-a .ct-line,
 .ct-chart .ct-series.ct-series-a .ct-point,
 .ct-chart .ct-series.ct-series-b .ct-slice-donut {
-    stroke: #07baef
+    stroke: #00AAAA
 }
 
 .ct-chart .ct-series.ct-series-c .ct-line,
@@ -3485,7 +3485,7 @@ a.badge:hover {
 
 .ct-series-a .ct-area,
 .ct-series-a .ct-slice-pie {
-    fill: #07baef
+    fill: #00AAAA
 }
 
 .ct-series-b .ct-area,
@@ -3849,7 +3849,7 @@ hr.hr-dashed {
     position: absolute;
     top: 20px;
     left: 0;
-    border: 1px dotted #07baef;
+    border: 1px dotted #00AAAA;
     border-radius: 63px
 }
 
@@ -3957,11 +3957,11 @@ pre[class*=language-] {
 }
 
 .icon-demo-content .col-sm-6:hover i {
-    color: #07baef
+    color: #00AAAA
 }
 
 .icon-demo-content .col-sm-6:hover path:nth-of-type(1) {
-    fill: #07baef
+    fill: #00AAAA
 }
 
 .icon-demo-content .col-sm-6:hover path:nth-of-type(2) {
@@ -4015,7 +4015,7 @@ pre[class*=language-] {
 .token.operator,
 .token.url {
     color: #fff;
-    background: #07baef
+    background: #00AAAA
 }
 
 .icon-demo-content.emoji-icons i {
@@ -4074,7 +4074,7 @@ pre[class*=language-] {
 .lightpick .lightpick__day.is-start-date:hover,
 .lightpick .lightpick__day.is-today,
 .lightpick .lightpick__day:not(.is-disabled):hover {
-    color: #07baef;
+    color: #00AAAA;
     background-color: #f1f5fa;
     background-image: none;
     font-weight: 500;
@@ -4234,7 +4234,7 @@ div.hopscotch-bubble h3 {
     width: 8px;
     height: 8px;
     margin-left: -8px;
-    background-color: #07baef;
+    background-color: #00AAAA;
     border-radius: 10px;
     content: ''
 }
@@ -4573,21 +4573,21 @@ ul.listree-submenu-items {
 
 .bg-soft-primary {
     background-color: rgba(7, 186, 239, .08) !important;
-    color: #07baef !important
+    color: #00AAAA !important
 }
 
 .bg-soft-primary:hover {
-    background-color: #07baef !important;
+    background-color: #00AAAA !important;
     color: #fff !important
 }
 
 .bg-soft-primary.not-hover:hover {
     background-color: rgba(7, 186, 239, .08) !important;
-    color: #07baef !important
+    color: #00AAAA !important
 }
 
 .icon-dual-primary {
-    color: #07baef;
+    color: #00AAAA;
     fill: rgba(7, 186, 239, .25)
 }
 

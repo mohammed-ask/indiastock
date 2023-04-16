@@ -4386,7 +4386,7 @@ fieldset:disabled .btn {
     z-index: 1000;
     display: none;
     min-width: 10rem;
-    padding: .5rem 0;
+    padding: 0;
     margin: 0;
     font-size: .8125rem;
     color: #000444;
@@ -4595,7 +4595,7 @@ fieldset:disabled .btn {
 
 .dropdown-divider {
     height: 0;
-    margin: .5rem 0;
+    margin: 0;
     overflow: hidden;
     border-top: 1px solid rgba(0, 0, 0, .05)
 }
@@ -4603,7 +4603,7 @@ fieldset:disabled .btn {
 .dropdown-item {
     display: block;
     width: 100%;
-    padding: .25rem 1rem;
+    padding: .45rem 1rem;
     clear: both;
     font-weight: 400;
     color: #000444;

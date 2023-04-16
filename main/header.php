@@ -4,14 +4,17 @@ $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $empl
 <div class="topbar">
     <!-- LOGO -->
     <div class="brand">
-        <a href="user-index.html" class="logo">
-            <span>
+        <a href="https://pmsequity.com/dashboard" class="logo">
+
+        <img src="main/images/logo/PMS Equity logo with black text svg.svg" width="100%" alt="logo-small" class="user-panel-logo">
+            </span>
+            <!-- <span>
                 <img src="main/dist/userimages/logo-sm.png" alt="logo-small" class="logo-sm">
             </span>
             <span>
                 <img src="main/dist/userimages/logo.png" alt="logo-large" class="logo-lg logo-light">
                 <img src="main/dist/userimages/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">
-            </span>
+            </span> -->
         </a>
     </div>
     <!--end logo-->
@@ -80,7 +83,7 @@ $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $empl
             <div id="navigation">
                 <!-- Navigation Menu-->
                 <ul class="navigation-menu">
-                    <li class="nav-item parent-menu-item active">
+                    <li class="nav-item parent-menu-item">
                         <a class="nav-link" href="dashboard" id="navbarDashboards">
                             <span><i class="fa-regular fa-envelope-open menu-icon"></i>Dashboards</span>
                         </a>
