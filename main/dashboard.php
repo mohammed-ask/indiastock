@@ -19,7 +19,7 @@ $wstocks = array_filter($stockdata, function ($data) {
     }
 });
 $chartdata = $obj->getcandledata(999920000, 'N',  'C', '5m', date('Y-m-d'), date('Y-m-d'));
-$data = $chartdata === "Error fetching candle data: Error while processing" ? [] : $chartdata['candles'];
+$data = $chartdata === "Error fetching candle data:" ? [] : $chartdata['candles'];
 $chart_data = array();
 
 foreach ($data as $row) {

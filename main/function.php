@@ -1650,7 +1650,7 @@ class db
             if (isset($response['data'])) {
                 return $response['data'];
             } else {
-                throw new Exception('Error fetching candle data: ' . $response['Message']);
+                throw new Exception('Error fetching candle data:');
             }
         } catch (Exception $e) {
             // Log or handle the error as required
