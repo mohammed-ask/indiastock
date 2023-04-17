@@ -90,11 +90,13 @@ include "main/session.php";
             <option value="Sell">Sell</option>
         </select>
     </div>
-    <label class="block text-sm" style="margin-bottom: 5px;">
-        <span class="text-gray-700 dark:text-gray-400">Buying/Selling
-            Price</span>
-        <input name="price" id="shareprice" onkeyup="gettotalamt()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Buying/Selling Price" data-bvalidator='required' />
-    </label>
+    <div id="stockvalue">
+        <label class="block text-sm" style="margin-bottom: 5px;">
+            <span class="text-gray-700 dark:text-gray-400">Buying/Selling
+                Price</span>
+            <input name="price" id="shareprice" onkeyup="gettotalamt()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Buying/Selling Price" data-bvalidator='required' />
+        </label>
+    </div>
     <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">No. of
             Shares</span>
@@ -140,11 +142,32 @@ include "main/session.php";
         },
     })
 
+    $('#symbol').on('change', function() {
+        $("#stockvalue").html()
+        var stockName = $(this).val();
+        var exch = $("#exch").val();
+        $.ajax({
+            url: '../main/admin/fetchsymbolprice.php',
+            data: {
+                stockName: stockName,
+                exch: exch,
+            },
+            type: 'POST',
+            success: function(response) {
+                $("#stockvalue").html(response)
+                // handle success response
+            },
+            error: function(xhr, status, error) {
+                // handle error response
+            }
+        });
+    });
+
     function gettotalamt() {
         qty = $('#qty').val()
         shareprice = $("#shareprice").val()
         margin = $("#margin").val()
         totalamt = parseFloat(qty) * parseFloat(shareprice) / margin
-        $("#totalamt").val(totalamt)
+        $("#totalamt").val(totalamt.toFixed(2))
     }
 </script>

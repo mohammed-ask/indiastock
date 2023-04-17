@@ -15,7 +15,6 @@ if (!empty($totalstocktraded)) {
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
     $stockdata = $obj->fivepaisaapi($rowfetch);
 }
-
 $stockamount = 0;
 $totalprofit = $completedtotalprofitloss;
 $result = $obj->selectextrawhereupdate(
@@ -31,14 +30,16 @@ while ($row = $obj->fetch_assoc($result)) {
             return $data;
         }
     });
+    $keys = array_keys($pricedata)[0];
     //Adding Invested Amount
     $stockamount = $stockamount + $row['totalamount'];
 
     // Adding Profit on Total Share
-    $profitloss = ($row['price'] - $pricedata[0]['LastRate']) * $row['qty'];
+    $profitloss = ($row['price'] - $pricedata[$keys]['LastRate']) * $row['qty'];
     $stockamount = $stockamount + $profitloss;
     $totalprofit = $totalprofit + $profitloss;
 }
+$totalprofit = empty($totalprofit) ? 0 : $totalprofit
 ?>
 <div class="row">
     <div class="col-md-6 col-lg-3">
@@ -86,7 +87,7 @@ while ($row = $obj->fetch_assoc($result)) {
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col text-center">
-                        <span class="h5 text-danger">₹<?= $totalprofit ?></span>
+                        <span class="h5 text-danger">₹<?= round($totalprofit) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Profit/Loss</h6>
                         <h6 class="text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger">0<span> % </span></h6>
                     </div><!--end col-->
@@ -130,7 +131,8 @@ while ($row = $obj->fetch_assoc($result)) {
                                         <th>Time</th>
                                         <th>Qty.</th>
                                         <th>Price</th>
-                                        <th>Total Cost</th>
+                                        <th>Total Share Value</th>
+                                        <th>Paid By User</th>
                                         <th>Buy/Sell</th>
                                         <th>% Day's P/L</th>
                                         <th>Day's P/L</th>
@@ -153,7 +155,8 @@ while ($row = $obj->fetch_assoc($result)) {
                                         <th>Time</th>
                                         <th>Qty.</th>
                                         <th>Price</th>
-                                        <th>Total Cost</th>
+                                        <th>Total Share Value</th>
+                                        <th>Paid By User</th>
                                         <th>Buy/Sell</th>
                                         <th>%P/L</th>
                                         <th>P/L</th>

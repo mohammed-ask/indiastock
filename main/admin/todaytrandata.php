@@ -44,13 +44,14 @@ if ((isset($_GET['columns'][0]["search"]["value"])) && (!empty($_GET['columns'][
 if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][1]["search"]["value"]))) {
     $search .= " and stocktransaction.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
-$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and date(added_on) = curdate()");
-$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and date(added_on) = curdate() $search ");
+$join = "left join closetradedetail on closetradedetail.tradeid = stocktransaction.id";
+$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status in (1,0) and date(stocktransaction.added_on) = curdate()");
+$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status in (1,0) and date(stocktransaction.added_on) = curdate() $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
-    "stocktransaction",
-    "*",
-    "status = 0 and tradestatus='Open' and date(added_on) = curdate() $search $order limit $start, $limit"
+    "stocktransaction $join",
+    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,stocktransaction.userid,stocktransaction.tradestatus",
+    "stocktransaction.status in (1,0) and date(stocktransaction.added_on) = curdate() $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
@@ -68,20 +69,21 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $obj->selectfieldwhere("users", "name", "id=" . $row['userid'] . "");
     $n[] = $row['symbol'];
     // $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i A");
-    $n[] = $row['trademethod'] === 'Buy' ? $row['price'] : null;
-    $n[] = $row['trademethod'] === 'Sell' ? $row['price'] : null;
+    $row['cprice'] = $row['cprice'] === 0 ? '' : $row['cprice'];
+    $n[] = $row['trademethod'] === 'Buy' ? $row['price'] : $row['cprice'];
+    $n[] = $row['trademethod'] === 'Sell' ? $row['price'] : $row['cprice'];
     $n[] = $row['qty'];
     $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d/m/Y H:i A");
     $n[] = $row['tradestatus'];
     // $n[] = $row['trademethod'];
     // $n[] = round(($currentrate - $row['price']) * 100 / $row['price'], 2);
     // $n[] = round($currentrate - $row['price'], 2);
-    $n[] =  " <button class='flex items-center justify-between px-2 py-2  font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"editstockprice\", \"\", \"Edit Stock Price\")'>
+    $n[] = $row['tradestatus'] === 'Open' ? " <button class='flex items-center justify-between px-2 py-2  font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"editstockprice\", \"\", \"Edit Stock Price\")'>
     <svg class='w-5 h-5' aria-hidden='true' fill='currentColor' viewBox='0 0 20 20'>
         <path d='M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z'>
         </path>
     </svg>
-</button>";
+</button>" : null;
     $data[] = $n;
     $i++;
 }

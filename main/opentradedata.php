@@ -63,13 +63,15 @@ while ($row = $obj->fetch_assoc($result)) {
             return $data;
         }
     });
-    $currentrate = $pricedata[0]['LastRate'];
+    $keys = array_keys($pricedata)[0];
+    $currentrate = $pricedata[$keys]['LastRate'];
     $n[] = $row['symbol'];
     $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "dM,Y");
     $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i A");
     $n[] = $row['qty'];
     $n[] = $row['price'];
-    $n[] = $row['qty'] * $row['price'];
+    $n[] = round($row['qty'] * $row['price'], 2);
+    $n[] = round($row['totalamount'], 2);
     $n[] = $row['trademethod'];
     $n[] = round(($currentrate - $row['price']) * 100 / $row['price'], 2);
     $n[] = round($currentrate - $row['price'], 2);

@@ -1,6 +1,5 @@
 <?php
 include "main/session.php";
-print_r($_POST);
 $xx['added_on'] = date("Y-m-d H:i:s");
 $xx['added_by'] = $employeeid;
 $xx['updated_on'] = date("Y-m-d H:i:s");

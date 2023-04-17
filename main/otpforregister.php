@@ -3,7 +3,7 @@ session_start();
 include './function.php';
 include './conn.php';
 $username = $_POST['username'];
-$email = $_POST['email'];
+$email = trim($_POST['email']);
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

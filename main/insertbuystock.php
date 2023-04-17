@@ -13,7 +13,7 @@ if ($_POST['totalamount'] > $investmentamount) {
     $xx['status'] = 0;
     $xx['qty'] = $_POST['qty'];
     $xx['price'] = $_POST['price'];
-    $xx['totalamount'] = $_POST['totalamount'];
+    $xx['totalamount'] = round($_POST['totalamount'], 2);
     $xx['userid'] = $employeeid;
     $xx['type'] = $trademode;
     $xx['symbol'] = $_POST['symbol'];

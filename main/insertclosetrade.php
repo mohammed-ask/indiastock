@@ -19,11 +19,11 @@ $xx['tradeid'] = $_POST['tradeid'];
 $close = $obj->insertnew("closetradedetail", $xx);
 if ($close > 0) {
     $yy["tradestatus"] = 'Close';
+    $yy['status'] = 1;
     $trade = $obj->update("stocktransaction", $yy, $xx['tradeid']);
     if ($trade > 0) {
         $useramount = $_POST['amountpaid'] + $xx['profitamount'];
         $kk['investmentamount'] = $investmentamount + $useramount;
-        $kk['status'] = 1;
         $user = $obj->update("users", $kk, $employeeid);
         if ($user > 0) {
             echo "Redirect : Trade Closed Succesfully  URLportfolio";
