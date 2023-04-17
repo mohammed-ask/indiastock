@@ -54,11 +54,11 @@ date_default_timezone_set('Asia/Kolkata');
 $obj = new db($host, $database_Username, $database_Password, $database_Name, $port);
 
 // Main Settings
-$sendmailfrom = $platform === 'test'  ? "mohammedhusain559@gmail.com" : 'noreply.pmsequity@gmail.com';
-$sendemailpassword = $platform === 'test' ? "svcbitzquirlpwxk" : 'curwhokpyytrubll';
+$sendmailfrom = $platform === 'test'  ? "mohammedhusain559@gmail.com" : 'info@pmsequity.com';
+$sendemailpassword = $platform === 'test' ? "svcbitzquirlpwxk" : 'PMSEquity@1998';
 $supportmail = 'support@pmsequity.com';
-$port = $platform === 'test' ? 465 : 25;
-$host = $platform === 'test' ? 'smtp.gmail.com' : 'localhost';
+$port = $platform === 'test' ? 465 : 465;
+$host = $platform === 'test' ? 'smtp.gmail.com' : 'smptout.secureserver.net';
 $smtpauth = $platform === 'test' ? true : false;
 $issmtp = $platform === 'test' ? true : false;
 
