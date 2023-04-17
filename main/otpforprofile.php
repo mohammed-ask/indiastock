@@ -1,5 +1,7 @@
 <?php
 include "./session.php";
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 $username = $obj->selectfieldwhere("users", "name", "id=" . $employeeid . "");
 $email = $obj->selectfieldwhere("users", "email", "id=" . $employeeid . "");
 
