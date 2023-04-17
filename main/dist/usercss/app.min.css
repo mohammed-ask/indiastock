@@ -4926,3 +4926,61 @@ ul.listree-submenu-items {
 }
 
 /*# sourceMappingURL=app.min.css.map */
+
+
+@media screen and (max-width: 767px) {
+
+
+.mb-mt-4-mob{
+
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+}
+
+
+/* ................tooltip.............................. */
+
+.profile-tooltip {
+    position: relative;
+    display: flex;
+    margin-left: 8px;
+    align-items: center;
+    vertical-align: middle;
+    margin-top: 2px;
+  }
+  
+  .profile-tooltip .profile-tooltiptext {
+  visibility: hidden;
+      width: 85vw;
+      
+      background-color: #057c7c;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      padding: 4px 8px;
+      position: absolute;
+      z-index: 1;
+      bottom: 50%;
+      margin-left: -130px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 12px;
+
+  }
+  
+  .profile-tooltip:hover .profile-tooltiptext {
+    visibility: visible;
+    opacity: 1;
+
+  }
+  
+  @media (min-width: 650px) and (max-width: 2560px) {
+  .profile-tooltip .profile-tooltiptext{
+width: 50vw;
+    left: 600%;
+    margin-left: -60px;
+    bottom: -15%;
+  }
+}

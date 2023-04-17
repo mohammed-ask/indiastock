@@ -17,7 +17,7 @@ ob_start();
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 ms-auto align-self-center">
+            <div class="col-lg-4 ms-auto align-self-center mt-3">
                 <ul class="list-unstyled personal-detail mb-0">
                     <li class=""><i style="margin-right: 5px !important;" class="fa-solid fa-phone mr-3 text-secondary font-16 align-middle"></i> <b> Phone </b> : +91 <?= $rowprofile['mobile'] ?></li>
                     <li class="mt-2"><i style="margin-right: 5px !important;" class="fa-solid fa-envelope text-secondary font-16 align-middle mr-3"></i> <b> Email </b> : <?= $rowprofile['email'] ?></li>
@@ -103,7 +103,15 @@ ob_start();
                                     Intraday
                                 </label>
                             </div>
-                            <h5 class="mt-3 font-13">Carry Forward Trade</h5>
+
+                            <div style="display: flex;" id="profile-tooltip-id">
+                                <span>
+                                    <h5 class="mt-3 font-13">Carry Forward Trade</h5>
+                                </span>
+                                <div class="profile-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
+                                    <p class="profile-tooltiptext">If you keep it turned on, your stocks bought today will be converted to holdings. However, if you turn it off, your today's stocks will be sold at the market close time.</p>
+</div>
+                            </div>
                             <div style="margin-left:3px" class="row row-cols-lg-auto g-3 align-items-center">
                                 <label class="switch">
                                     <input type="checkbox" name='carryforward' <?= $rowprofile['carryforward'] === 'Yes' ? 'checked' : '' ?> class="setactive" value="Yes">
