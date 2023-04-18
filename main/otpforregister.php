@@ -265,5 +265,5 @@ $mail->Body = $templatedata;
 //     <h3>Hii! " . $username . " </h3>
 //     <div style='font-weight: 600;'>Your OTP is $code </div>
 // </div>";
-// $mail->send();
+$mail->send();
 echo "Success";
