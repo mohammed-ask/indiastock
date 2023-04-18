@@ -1,6 +1,7 @@
 <?php
 include "main/session.php";
 if (isset($_GET['RequestToken']) && !empty($_GET['RequestToken'])) {
+    die;
     $obj->getaccesstoken();
 }
 $fetchshare = $obj->selectextrawhereupdate('userstocks inner join watchliststock on watchliststock.userstockid = userstocks.id', "Exch,ExchType,userstocks.Symbol,Expiry,StrikePrice,OptionType", "userstocks.userid='" . $employeeid . "' and userstocks.status = 1 and watchliststock.status = 1");
@@ -79,7 +80,8 @@ foreach ($data as $row) {
                 </div> <!--end row-->
             </div><!--end card-header-->
             <!-- <div class="card-body"> -->
-            <rssapp-carousel id="t9SQT8ey9rdv7r9h"></rssapp-carousel><script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
+            <rssapp-carousel id="t9SQT8ey9rdv7r9h"></rssapp-carousel>
+            <script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
 
         </div><!--end card-->
     </div><!--end col-->
@@ -108,7 +110,7 @@ foreach ($data as $row) {
             </div><!--end card-header-->
             <div class="card-body pb-0">
                 <div id="container"></div>
-                <?php if ($chartdata === "Error fetching candle data: Error while processing") { ?>
+                <?php if ($chartdata === "Error fetching candle data:") { ?>
                     <div class='alert alert-danger'>Something Went Wrong in Chart.</div>
                 <?php } ?>
             </div><!--end card-body-->

@@ -57,5 +57,6 @@ while ($row = $obj->fetch_assoc($result)) {
 
     $i++;
 }
+$obj->updatewhere("mail", ["readstatus" => 1], "receiverid=" . $employeeid . "");
 $return['data'] = $data;
 echo json_encode($return);

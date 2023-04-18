@@ -9,7 +9,7 @@ if (isset($_GET["hakuna"])) {
 ?>
 <!-- <div class="row"> -->
 <!-- <div class="col-sm-12"> -->
-<div class="card">
+<div class="container px-6 mx-auto grid">
     <form action="">
         <?php
         if ($responsive == "true") { ?>
@@ -29,37 +29,40 @@ if (isset($_GET["hakuna"])) {
             <?php } ?>
             <!-- <a href="administrator" class="px-4 py-2 ml-2 text-sm font-medium leading-5 text-black text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
                 << Back </a> -->
-                    <!-- <button type="button" class="btn btn-tool" data-card-widget="">
+            <!-- <button type="button" class="btn btn-tool" data-card-widget="">
                         <i class="fas fa-times"></i>
                     </button> -->
         </div>
     </div>
-    <div class="card-body" id="catid">
-        <table id="example1" class="table w-full whitespace-no-wrap">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Module</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Module</th>
-                    <th>Actions</th>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-    <!-- /.card-body -->
+    <div class="w-full overflow-hidden rounded-lg shadow-xs">
 
+        <div class="w-full overflow-x-auto">
+
+            <table id="example1" class="table w-full whitespace-no-wrap">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Module</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Module</th>
+                        <th>Actions</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
 </div>
 <!-- </div> -->
 <!-- </div> -->

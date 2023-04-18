@@ -7,7 +7,7 @@ $totalamount = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "u
 $totalstocktraded = $obj->selectfieldwhere(
     "stocktransaction",
     "group_concat(distinct(stockid))",
-    "status = 0 and userid = $employeeid and tradestatus='Open'"
+    "status = 0 and userid = $employeeid and tradestatus='Open' and stockid != '' and stockid is not null"
 );
 
 if (!empty($totalstocktraded)) {
@@ -15,13 +15,18 @@ if (!empty($totalstocktraded)) {
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
     $stockdata = $obj->fivepaisaapi($rowfetch);
 }
+// echo "<pre>";
+// print_r($stockdata);
+// die;
 $stockamount = 0;
 $totalprofit = $completedtotalprofitloss;
 $result = $obj->selectextrawhereupdate(
     "stocktransaction",
     "*",
-    "status = 0 and userid = $employeeid and tradestatus='Open'"
+    "status = 0 and userid = $employeeid and tradestatus='Open' and stockid != '' and stockid is not null"
 );
+// print_r(mysqli_fetch_all($result, MYSQLI_ASSOC));
+// die;
 while ($row = $obj->fetch_assoc($result)) {
     $symbol = $row['symbol'];
     $excg = $row['exchange'];
@@ -115,6 +120,9 @@ $totalprofit = empty($totalprofit) ? 0 : $totalprofit
                             <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="tab" href="#Close" role="tab" aria-selected="false">Close</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#brokerstock" role="tab" aria-selected="false">brokerstock</a>
+                            </li>
                         </ul>
                     </div><!--end col-->
                 </div> <!--end row-->
@@ -131,8 +139,8 @@ $totalprofit = empty($totalprofit) ? 0 : $totalprofit
                                         <th>Time</th>
                                         <th>Qty.</th>
                                         <th>Price</th>
-                                        <th>Total Share Value</th>
-                                        <th>Paid By User</th>
+                                        <th>Total Amount</th>
+                                        <!-- <th>Paid By User</th> -->
                                         <th>Buy/Sell</th>
                                         <th>% Day's P/L</th>
                                         <th>Day's P/L</th>
@@ -155,8 +163,8 @@ $totalprofit = empty($totalprofit) ? 0 : $totalprofit
                                         <th>Time</th>
                                         <th>Qty.</th>
                                         <th>Price</th>
-                                        <th>Total Share Value</th>
-                                        <th>Paid By User</th>
+                                        <th>Total Amount</th>
+                                        <!-- <th>Paid By User</th> -->
                                         <th>Buy/Sell</th>
                                         <th>%P/L</th>
                                         <th>P/L</th>
@@ -182,8 +190,8 @@ $totalprofit = empty($totalprofit) ? 0 : $totalprofit
                                         <th>Qty.</th>
                                         <th>Buy Price</th>
                                         <th>Sell Price</th>
-                                        <th>Total Share Value</th>
-                                        <th>Paid By User</th>
+                                        <th>Total Amount</th>
+                                        <!-- <th>Paid By User</th> -->
                                         <th>Buy/Sell</th>
                                         <th>%P/L</th>
                                         <th>P/L</th>
@@ -195,7 +203,31 @@ $totalprofit = empty($totalprofit) ? 0 : $totalprofit
                                 </tbody>
                             </table>
                         </div>
-                    </div><!--end tab-pane-->
+                    </div>
+                    <div class="tab-pane fade" id="brokerstock" role="tabpanel" aria-labelledby="Close-tab">
+                        <div class="table-responsive dash-social">
+                            <table id="example4" class="table table-bordered">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Stocks</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Qty.</th>
+                                        <th>Buy Price</th>
+                                        <th>Sell Price</th>
+                                        <th>Total Amount</th>
+                                        <!-- <th>Paid By User</th> -->
+                                        <th>Buy/Sell</th>
+                                        <th>Type</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--end tab-pane-->
 
 
 
@@ -264,6 +296,22 @@ include "main/templete.php"; ?>
 
     var table = $('#example3').DataTable({
         "ajax": "main/closetradedata.php",
+        "processing": false,
+        "serverSide": true,
+        "pageLength": 25,
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+        "order": [
+            [0, "desc"]
+        ],
+    })
+    var table = $('#example4').DataTable({
+        "ajax": "main/brokertradedata.php",
         "processing": false,
         "serverSide": true,
         "pageLength": 25,

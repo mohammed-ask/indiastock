@@ -618,7 +618,7 @@
                         </div>
                     </div>
                     <div class="main">
-                    <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
+                        <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
                         <div class="text">
                             <h2>Required Documents Details</h2>
                             <p>Please enter your documents details for next step .</p>
@@ -655,7 +655,7 @@
                         </div>
                     </div>
                     <div class="main">
-                    <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
+                        <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
                         <div class="text">
                             <h2>Bank Details</h2>
                             <p>Please enter your bank details & press next</p>
@@ -689,7 +689,7 @@
 
 
                     <div class="main">
-                    <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
+                        <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
                         <div class="text">
                             <h2>Employee ID & Password</h2>
                             <p>Please enter employee ID(if available) & password.</p>
@@ -813,7 +813,7 @@
         submit_click.forEach(function(submit_click_form) {
 
             submit_click_form.addEventListener('click', function() {
-                console.log(validateform(),'validateform')
+                console.log(validateform(), 'validateform')
                 if (!validateform()) {
                     return false
                 }
@@ -838,7 +838,7 @@
                     function(response) {
                         if (response === 'Success') {
                             removeoverlay()
-                            alertify.alert('result', 'Registration Successfull', function() {
+                            alertify.alert('result', 'Registration successfull! Please wait for approval', function() {
                                 window.location.href = 'login'
                             })
                         } else if (response === 'Failed') {

@@ -6,7 +6,7 @@ $sid = "";
 if (isset($_POST['hakuna'])) {
     $sid = $_POST['hakuna'];
 }
-$email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
+// $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
 
 ?>
 <div class="container px-6 mx-auto grid">
@@ -27,7 +27,7 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
         <div class="col-12">
             <div class="card card-default">
                 <div class="card-header">
-                    <h3 class="card-title">Email From :- <?= $email ?></h3>
+                    <h3 class="card-title">Email From :- <?= $sendmailfrom ?></h3>
                     <!-- <div class="card-tools">
                         <a href="viewrole" class="px-4 py-2  text-sm  bg-white  rounded-lg border border-gray" data-card-widget="">
                             << Back </a>

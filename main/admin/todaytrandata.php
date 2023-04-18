@@ -68,7 +68,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $i;
     $n[] = $obj->selectfieldwhere("users", "name", "id=" . $row['userid'] . "");
     $n[] = $row['symbol'];
-    // $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i A");
+    // $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i");
     $row['cprice'] = $row['cprice'] === 0 ? '' : $row['cprice'];
     $n[] = $row['trademethod'] === 'Buy' ? $row['price'] : $row['cprice'];
     $n[] = $row['trademethod'] === 'Sell' ? $row['price'] : $row['cprice'];

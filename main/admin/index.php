@@ -2,6 +2,11 @@
 include "main/session.php";
 /* @var $obj db */
 ob_start();
+$activeclient = $obj->selectfieldwhere("users", "count(id)", "status =1 and activate='Yes' and type=2");
+$pendinguser = $obj->selectfieldwhere("users", "count(id)", "status =0");
+$totalinv = $obj->selectfieldwhere("users", "sum(investmentamount)", "status =1");
+$opentradeamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "status =0 and tradestatus='Open'");
+$openposition = $obj->selectfieldwhere("stocktransaction", "count(id)", "status =0 and tradestatus='Open'");
 ?>
 <style>
     #datacards a {
@@ -29,7 +34,7 @@ ob_start();
                     Active clients
                 </p>
                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                    6389
+                    <?= $activeclient ?>
                 </p>
             </div>
         </div>
@@ -46,7 +51,7 @@ ob_start();
                     Total investment
                 </p>
                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                    <span>₹</span> 46,760.89
+                    <span>₹</span> <?= round($totalinv + $opentradeamt, 2) ?>
                 </p>
             </div>
         </div>
@@ -60,21 +65,21 @@ ob_start();
                     Pending approval
                 </p>
                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                    376
+                    <?= $pendinguser ?>
                 </p>
             </div>
         </div>
         <!-- Card -->
         <div class="flex items-center p-3 bg-white rounded-lg shadow-xs dark:bg-gray-800">
             <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
-               <i class="fa-solid fa-handshake-angle w-5 h-5" fill="currentColor" viewBox="0 0 20 20"></i>
+                <i class="fa-solid fa-handshake-angle w-5 h-5" fill="currentColor" viewBox="0 0 20 20"></i>
             </div>
             <div>
                 <p class="mb-2  font-medium text-gray-600 dark:text-gray-400">
                     Open positions
                 </p>
                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                    35
+                    <?= $openposition ?>
                 </p>
             </div>
         </div>
@@ -86,7 +91,7 @@ ob_start();
 
         <div class="w-full overflow-x-auto">
 
-            <table id="example1" class="w-full whitespace-no-wrap">
+            <table id="example1" class="table w-full whitespace-no-wrap">
                 <thead>
                     <tr class="text-sm font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-3 py-2">S.No.</th>
@@ -111,7 +116,7 @@ ob_start();
 
         <div class="w-full overflow-x-auto">
 
-            <table id="example2" class="w-full whitespace-no-wrap">
+            <table id="example2" class="table w-full whitespace-no-wrap">
                 <thead>
                     <tr class="text-sm font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-3 py-2">S.No.</th>

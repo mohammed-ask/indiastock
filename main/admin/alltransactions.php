@@ -15,26 +15,29 @@ ob_start();
 
         <div class="w-full overflow-x-auto">
 
-            <table class="w-full whitespace-no-wrap">
+            <table id="example2" class="table w-full whitespace-no-wrap">
                 <thead>
                     <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-4 py-3">S.No.</th>
+                        <th class="px-4 py-3">User Name</th>
                         <th class="px-4 py-3">Stock Name</th>
-                        <th class="px-4 py-3">Price</th>
-                        <th class="px-4 py-3">No. of Share</th>
-                        <th class="px-4 py-3">Buy/Sell</th>
+                        <th class="px-4 py-3">Buy Price</th>
+                        <th class="px-4 py-3">Sell Price</th>
+                        <th class="px-4 py-3">No. Of Share</th>
                         <th class="px-4 py-3">Date & Time</th>
+                        <th class="px-4 py-3">Status</th>
+                        <th class="px-4 py-3">Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                    <tr class="text-gray-700 dark:text-gray-400">
+                    <!-- <tr class="text-gray-700 dark:text-gray-400">
                         <td class=" px-4 py-3">1</td>
                         <td class=" px-4 py-3">Yes Bank</td>
                         <td class=" px-4 py-3">54700</td>
                         <td class=" px-4 py-3">450</td>
                         <td class=" px-4 py-3">Buy</td>
                         <td class=" px-4 py-3">19/12/2022 01:31:00 pm</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -54,7 +57,7 @@ include "main/admin/templete.php";
 <script>
     $(function() {
         $('#example2').DataTable({
-            "ajax": "../main/admin/employeelistdata.php",
+            "ajax": "../main/admin/alltransactiondata.php",
             "processing": true,
             "serverSide": true,
             "pageLength": 25,

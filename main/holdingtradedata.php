@@ -5,7 +5,7 @@ $id = $employeeid;
 $holdingtradeid = $obj->selectfieldwhere(
     "stocktransaction",
     "group_concat(distinct(stockid))",
-    "status = 0 and userid = $id and tradestatus='Open' and type='Holding'"
+    "status = 0 and userid = $id and tradestatus='Open' and type='Holding' and stockid != '' and stockid is not null"
 );
 if (!empty($holdingtradeid)) {
     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1 and id in (" . $holdingtradeid . ")");
@@ -50,7 +50,7 @@ $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction",
     "*",
-    "status = 0 and userid = $id and tradestatus='Open' and type='Holding' $search $order limit $start, $limit"
+    "status = 0 and userid = $id and tradestatus='Open' and type='Holding' and stockid != '' and stockid is not null $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
@@ -66,15 +66,15 @@ while ($row = $obj->fetch_assoc($result)) {
     $keys = array_keys($pricedata)[0];
     $currentrate = $pricedata[$keys]['LastRate'];
     $n[] = $row['symbol'];
-    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "dM,Y");
-    $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i A");
+    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y");
+    $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i");
     $n[] = $row['qty'];
     $n[] = $row['price'];
     $n[] = round($row['qty'] * $row['price'], 2);
-    $n[] = round($row['totalamount'], 2);
+    // $n[] = round($row['totalamount'], 2);
     $n[] = $row['trademethod'];
-    $n[] = round(($currentrate - $row['price']) * 100 / $row['price'], 2);
-    $n[] = round($currentrate - $row['price'], 2);
+    $n[] = round((($currentrate  - $row['price']) * $row['qty']) / ($row['price'] * $row['qty']) * 100, 2);
+    $n[] = round(($currentrate - $row['price']) * $row['qty'], 2);
     if ($row['trademethod'] === 'Buy') {
         $n[] =  "<button class='btn btn-sm btn-danger' data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal(\"" . $row['id'] . "\", \"closetrade\", \"Buy\", \"Close Trade\")'>S</button>";
     } else if ($row['trademethod'] === 'Sell') {

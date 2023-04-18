@@ -204,6 +204,9 @@ switch ($request['path']) {
     case "$head/admin/insertaddstock";
         require __DIR__ . '/main/admin/insertaddstock.php';
         break;
+    case "$head/admin/closebrockertrade";
+        require __DIR__ . '/main/admin/closebrockertrade.php';
+        break;
     case "$head/admin/logout";
         require __DIR__ . '/main/logout.php';
         break;

@@ -55,7 +55,7 @@ include "templete.php";
 <script>
     $(function() {
         $('#example2').DataTable({
-            "ajax": "../main/admin/inboxdata.php",
+            "ajax": "main/inboxdata.php",
             "processing": true,
             "serverSide": true,
             "pageLength": 25,

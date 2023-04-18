@@ -34,31 +34,31 @@ if ((isset($_GET['columns'][0]["search"]["value"])) && (!empty($_GET['columns'][
 if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][1]["search"]["value"]))) {
     $search .= " and stocktransaction.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
-$join = "inner join closetradedetail on closetradedetail.tradeid =stocktransaction.id ";
-$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 1 and stocktransaction.userid = $id and tradestatus='Close'");
-$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 1 and stocktransaction.userid = $id and tradestatus='Close' $search ");
+$join = "left join closetradedetail on closetradedetail.tradeid =stocktransaction.id ";
+$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status in (1,0) and stocktransaction.userid = $id and (stocktransaction.stockid = '' || stocktransaction.stockid is null) ");
+$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status in (1,0) and stocktransaction.userid = $id and (stocktransaction.stockid = '' || stocktransaction.stockid is null)  $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction $join",
-    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on",
-    "stocktransaction.status = 1 and stocktransaction.userid = $id and tradestatus='Close' $search $order limit $start, $limit"
+    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,tradestatus",
+    "stocktransaction.status in (1,0) and stocktransaction.userid = $id and (stocktransaction.stockid = '' || stocktransaction.stockid is null) $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
 while ($row = $obj->fetch_assoc($result)) {
     $n = array();
     $n[] = $row['symbol'];
-    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "dM,Y");
+    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M,Y");
     $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i");
     $n[] = $row['qty'];
     $n[] = $row['trademethod'] === 'Buy' ? $row['price'] : $row['cprice'];
     $n[] = $row['trademethod'] === 'Sell' ? $row['price'] : $row['cprice'];
-    $n[] = $row['qty'] * $row['price'];
+    $n[] = round($row['qty'] * $row['price'], 2);
     // $n[] = round($row['totalamount'], 2);
     $n[] = $row['trademethod'];
-    $n[] =  round((($row['cprice']  - $row['price']) * $row['qty']) / ($row['price'] * $row['qty']) * 100, 2);
-    $n[] = round(($row['cprice'] - $row['price']) * $row['qty'], 2);
-    $n[] = '<strong class="text-warning">Closed<strong>';
+    // $n[] = round(($row['cprice'] - $row['price']) * 100 / $row['price'], 2);
+    // $n[] = round($row['cprice'] - $row['price'], 2);
+    $n[] = $row['tradestatus'] === 'Close' ? '<strong class="text-warning">Closed<strong>' : '<strong class="text-success">Open<strong>';
     $data[] = $n;
     $i++;
 }
