@@ -448,7 +448,7 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
             <div class="col-lg-3">
                 <div class="counter">
                     <i class="fa-solid fa-building-user fa-2x"></i>
-                    <h2 class="count-title">22+</h2>
+                    <h2 class="count-title">15+</h2>
                     <p class="count-text ">Years of Experience</p>
                 </div>
             </div>

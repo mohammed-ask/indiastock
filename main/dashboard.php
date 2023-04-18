@@ -79,7 +79,7 @@ foreach ($data as $row) {
                 </div> <!--end row-->
             </div><!--end card-header-->
             <!-- <div class="card-body"> -->
-            <iframe id="moneywiz_widget" name="moneywiz_widget" src="//money.rediff.com/widget/moneywizwidget" scrolling="no" frameborder="0" marginHeight="0" marginWidth="0" style="width:auto; height:150px"></iframe>
+            <rssapp-carousel id="t9SQT8ey9rdv7r9h"></rssapp-carousel><script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
 
         </div><!--end card-->
     </div><!--end col-->
@@ -106,7 +106,7 @@ foreach ($data as $row) {
                     </div><!--end col-->
                 </div> <!--end row-->
             </div><!--end card-header-->
-            <div class="card-body">
+            <div class="card-body pb-0">
                 <div id="container"></div>
                 <?php if ($chartdata === "Error fetching candle data: Error while processing") { ?>
                     <div class='alert alert-danger'>Something Went Wrong in Chart.</div>
