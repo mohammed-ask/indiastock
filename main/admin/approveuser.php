@@ -26,13 +26,13 @@ if ($_GET['what'] === 'Approve') {
     $mail->isSMTP();
     $mail->Host = $host;
     $mail->SMTPAuth = true;
-    $mail->Username = "$supportmail";
+    $mail->Username = "$sendmailfrom";
     $mail->Password = "$sendemailpassword";
     $mail->isSendmail();
     $mail->SMTPSecure = 'ssl';
     $mail->Port = $port;
-    $mail->setFrom("$supportmail");
-    $mail->addAddress($receivermail);
+    $mail->setFrom("$sendmailfrom");
+    $mail->addAddress($email);
     $mail->isHTML(true);
     $mail->Subject = 'Welcome to PMSEquity';
 ?>
