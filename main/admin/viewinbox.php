@@ -27,7 +27,7 @@ ob_start();
                     <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-4 py-3">S.No.</th>
                         <th class="px-4 py-3">Date & Time</th>
-                        <th class="px-4 py-3">Sender Email</th>
+                        <th class="px-4 py-3">Sender</th>
                         <th class="px-4 py-3">Subject</th>
                         <th class="px-4 py-3">View Message</th>
                         <th class="px-4 py-3">Read Status</th>

@@ -28,7 +28,7 @@ $cust = $obj->selectextrawhere('users', "employeeref = '" . $empcode . "'");
                             <?= $rowcust['name'] ?>
                         </td>
                         <td class=" px-3 py-2 text-sm">
-                            <?= $rowcust['phone'] ?>
+                            <?= $rowcust['mobile'] ?>
                         </td>
                         <td class=" px-3 py-2 text-sm">
                             <?= $rowcust['email'] ?> </td>
@@ -40,3 +40,6 @@ $cust = $obj->selectextrawhere('users', "employeeref = '" . $empcode . "'");
         </table>
     </div>
 </div>
+<script>
+    $("#modalfooterbtn").css('display', 'none')
+</script>

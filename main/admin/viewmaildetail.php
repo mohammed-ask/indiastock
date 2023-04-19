@@ -9,17 +9,17 @@ $type = $what == 'sentmail' ? 'senderid' : 'receiverid';
 <label class="block text-sm" style="margin-bottom: 5px;">
     <span class="text-gray-700 dark:text-gray-400">Email
         <?= $what == 'sentmail' ? 'Send From :' : 'Received in :' ?></span>
-    <input class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="<?= $obj->selectfieldwhere("users", "email", "id=" . $rowmail[$type] . "") ?>" placeholder="abc@domain.com" />
+    <input disabled class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="<?= $obj->selectfieldwhere("users", "email", "id=" . $rowmail[$type] . "") ?>" placeholder="abc@domain.com" />
 </label>
 <label class="block text-sm" style="margin-bottom: 5px;">
     <span class="text-gray-700 dark:text-gray-400">Subject:</span>
-    <input class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="<?= $rowmail['subject'] ?>" placeholder="Message Subject" />
+    <input disabled class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="<?= $rowmail['subject'] ?>" placeholder="Message Subject" />
 </label>
 <div> <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Message</span>
 
     </label>
-    <div contenteditable="true" class="block w-full dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" style="height:200px"><?= $rowmail['message'] ?></div>
+    <div class="block w-full dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" style="height:200px"><?= $rowmail['message'] ?></div>
     <!-- <textarea class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Client's Name" id="" name="w3review" rows="8" cols="50"></textarea> -->
 
 </div>

@@ -47,7 +47,7 @@ $data = array();
 while ($row = $obj->fetch_assoc($result)) {
     $n = array();
     // $n[] = $i;
-    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d/m/Y H:i:s");
+    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y H:i");
     $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i:s");
     $n[] = $obj->selectfieldwhere("users", "email", "id=" . $row['senderid'] . "");
     $n[] =  $row['subject'];

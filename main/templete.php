@@ -107,7 +107,6 @@
                 <div class="row">
                     <div class="col-lg-9">
                         <!--end row-->
-                        <?= $_SERVER['REQUEST_URI'] ?>
                         <?php echo $pagemaincontent ?>
                     </div><!--end col-->
 

@@ -13,7 +13,7 @@ ob_start();
 
         <div class="w-full ">
 
-            <table id="example2" class="w-full whitespace-no-wrap">
+            <table id="example2" class="table w-full whitespace-no-wrap">
                 <thead>
                     <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-3 py-2">S.No.</th>

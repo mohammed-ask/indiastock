@@ -1,5 +1,5 @@
 <?php
-include './session.php';
+include '../session.php';
 /* @var $obj db */
 $id = $_GET['hakuna'];
 $limit = $_GET['length'];

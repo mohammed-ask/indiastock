@@ -47,7 +47,7 @@ $data = array();
 while ($row = $obj->fetch_assoc($result)) {
     $n = array();
     $n[] = $i;
-    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d/m/Y H:i:s");
+    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y H:i");
     $n[] = $obj->selectfieldwhere("users", "email", "id=" . $row['senderid'] . "");
     $n[] =  $row['subject'];
     $n[] =  "<button class='px-4 py-2 leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100' aria-label='view' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"viewmaildetail\", \"\", \"View Mail\")'>
