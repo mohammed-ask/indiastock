@@ -83,6 +83,13 @@
     .slider.round:before {
         border-radius: 50%;
     }
+
+    <?php
+    if ($_SERVER['REQUEST_URI'] === '/portfolio' || $_SERVER['REQUEST_URI'] === '/mail' || $_SERVER['REQUEST_URI'] === '/fund' || $_SERVER['REQUEST_URI'] === '/profile') { ?>.nopad {
+        padding-top: 70 !important;
+    }
+
+    <?php } ?>
 </style>
 
 <body id="body" data-layout="horizontal" class="" data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="">
@@ -90,7 +97,7 @@
     <!-- Top Bar Start -->
     <?php include "header.php"; ?>
     <!-- Top Bar End -->
-    <div class="page-wrapper">
+    <div class="page-wrapper nopad">
 
         <!-- Page Content-->
         <div class="page-content-tab">
