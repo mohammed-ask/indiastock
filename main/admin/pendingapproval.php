@@ -22,7 +22,7 @@ ob_start();
 
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
 
-        <div class="w-full overflow-x-auto">
+        <div class="w-full ">
 
             <table id="example2" class="table w-full whitespace-no-wrap">
                 <thead>
@@ -49,7 +49,7 @@ ob_start();
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Pending Approval";
+$pagetitle = "PMS-Equity: Pending Approval";
 $contentheader = "";
 $pageheader = "";
 include "templete.php";

@@ -91,7 +91,7 @@ ob_start();
   </h3>
   <div class="w-full overflow-hidden rounded-lg shadow-xs">
 
-    <div class="w-full overflow-x-auto">
+    <div class="w-full ">
 
       <table class="w-full whitespace-no-wrap">
         <thead>
@@ -150,7 +150,7 @@ ob_start();
   </h3>
   <div class="w-full overflow-hidden rounded-lg shadow-xs">
 
-    <div class="w-full overflow-x-auto">
+    <div class="w-full ">
 
       <table class="w-full whitespace-no-wrap">
         <thead>

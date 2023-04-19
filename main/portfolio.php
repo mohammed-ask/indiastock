@@ -63,12 +63,16 @@ $totalprofit = empty($totalprofit) ? 0 : $totalprofit
     </div><!--end col-->
     <div class="col-md-6 col-lg-3">
         <div class="card">
-            <div class="card-body" style="padding-bottom: 42px;">
+            <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col text-center">
                         <span class="h5">₹<?= round($investmentamount + $stockamount) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Current Value</h6>
-                        <small class="font-10 text-muted mt-2 m-0 ">(Your all amount &plusmn; your P&L)</small>
+                        <h6 class="text-uppercase font-10 text-muted mt-2 m-0 portfolio-cbody"><span style="display: inline-flex;"><span>Net Amount</span> <span><span class="profile-tooltip mt-0"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
+                                    <p class="text-capitalize profile-tooltiptext">The net amount, including your profit & loss, available for withdrawal at any time.</p>
+</span></span></span></h6>
+                        
+
                     </div><!--end col-->
                 </div> <!-- end row -->
             </div><!--end card-body-->
@@ -121,7 +125,7 @@ $totalprofit = empty($totalprofit) ? 0 : $totalprofit
                                 <a class="nav-link" data-bs-toggle="tab" href="#Close" role="tab" aria-selected="false">Close</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#brokerstock" role="tab" aria-selected="false">brokerstock</a>
+                                <a class="nav-link" data-bs-toggle="tab" href="#brokerstock" role="tab" aria-selected="false">By Broker</a>
                             </li>
                         </ul>
                     </div><!--end col-->
