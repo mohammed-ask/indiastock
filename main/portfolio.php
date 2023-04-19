@@ -66,6 +66,8 @@ $totalprofit = empty($totalprofit) ? 0 : $totalprofit
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col text-center">
+                        <?php //Current Value 
+                        ?>
                         <span class="h5">₹<?= round($investmentamount + $stockamount) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Current Value</h6>
                         <h6 class="text-uppercase font-10 text-muted mt-2 m-0 portfolio-cbody"><span style="display: inline-flex;"><span>Net Amount</span> <span><span class="profile-tooltip mt-0"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
