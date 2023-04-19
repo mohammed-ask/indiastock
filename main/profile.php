@@ -125,9 +125,11 @@ ob_start();
                                     <i id="eye" class="fa fa-eye" style="position: absolute; top:10px; right:15px" aria-hidden="true"></i>
                                 </div>
                             </div>
+                            <h5 class="mt-3 font-13" style="color:red;">Important*</h5>
+                            <p class="mt-1 font-13">To make changes in any setting, whether it's a specific setting or all the general settings, <br>you will need to provide an OTP that will be sent to your registered email address for verification purposes.</p>
                             <div id="otpinput"></div>
                             <div class="col-12 mt-3">
-                                <button type="button" class="btn btn-primary" id="otp" onclick="requestotp()">Submit OTP</button>
+                                <button type="button" class="btn btn-primary" id="otp" onclick="requestotp()">Send OTP</button>
                                 <button type="button" class="btn btn-primary" id="formsubmit" style="display: none;" onclick="sendForm('', '', 'updateprofile', 'resultid', 'addtax')">Submit</button>
                             </div>
                             <div id="resultid"></div>

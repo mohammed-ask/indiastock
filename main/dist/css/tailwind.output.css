@@ -1996,7 +1996,7 @@ print and (-ms-high-contrast:none) {
 }
 
 .focus\:shadow-outline-purple:focus {
-    box-shadow: 0 0 0 3px rgba(202, 191, 253, .45)
+    box-shadow: 0 0 0 3px #00aaaa45;
 }
 
 .theme-dark .dark\:focus\:shadow-outline-gray:focus {

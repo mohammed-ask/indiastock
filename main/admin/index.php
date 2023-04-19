@@ -89,7 +89,7 @@ $openposition = $obj->selectfieldwhere("stocktransaction", "count(id)", "status 
     </h3>
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
 
-        <div class="w-full overflow-x-auto">
+        <div class="w-full ">
 
             <table id="example1" class="table w-full whitespace-no-wrap">
                 <thead>
@@ -114,7 +114,7 @@ $openposition = $obj->selectfieldwhere("stocktransaction", "count(id)", "status 
     </h3>
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
 
-        <div class="w-full overflow-x-auto">
+        <div class="w-full ">
 
             <table id="example2" class="table w-full whitespace-no-wrap">
                 <thead>

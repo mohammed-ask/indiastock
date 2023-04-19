@@ -4919,8 +4919,8 @@ ul.listree-submenu-items {
 .portfolio-cbody{
         border: 1px dotted lightgray;
         border-radius: 5px;
-        margin-left: 30% !important;
-        margin-right: 30% !important;
+        margin-left: 25% !important;
+        margin-right: 25% !important;
         padding: 2px;
 
 }
@@ -4978,7 +4978,7 @@ ul.listree-submenu-items {
   
   @media (min-width: 650px) and (max-width: 2560px) {
   .profile-tooltip .profile-tooltiptext{
-width: 50vw;
+width: 40vw;
     left: 600%;
     margin-left: -60px;
     bottom: -15%;
