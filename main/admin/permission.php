@@ -43,7 +43,7 @@ if (isset($_GET["hakuna"])) {
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Description</th>
+                        <!-- <th>Description</th> -->
                         <th>Module</th>
                         <th>Actions</th>
                     </tr>
@@ -54,7 +54,7 @@ if (isset($_GET["hakuna"])) {
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Description</th>
+                        <!-- <th>Description</th> -->
                         <th>Module</th>
                         <th>Actions</th>
                     </tr>

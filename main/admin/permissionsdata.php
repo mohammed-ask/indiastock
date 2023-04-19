@@ -47,7 +47,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n = array();
     $n[] = $row['id'];
     $n[] = $row['name'];
-    $n[] = $row['description'];
+    // $n[] = $row['description'];
     // $n[] = $row['department'];
     $n[] = $obj->selectfieldwhere("modules", "name", "id='" . $row['module'] . "'");
     $a = "";

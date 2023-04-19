@@ -85,9 +85,6 @@
     }
 
     <?php
-    print_r('ddassdasdd');
-    print_r($_SERVER['REQUEST_URI']);
-    die;
     if ($_SERVER['REQUEST_URI'] === '/portfolio' || $_SERVER['REQUEST_URI'] === '/mail' || $_SERVER['REQUEST_URI'] === '/fund' || $_SERVER['REQUEST_URI'] === '/profile') { ?>.nopad {
         padding-top: 70 !important;
     }
@@ -110,6 +107,7 @@
                 <div class="row">
                     <div class="col-lg-9">
                         <!--end row-->
+                        <?= $_SERVER['REQUEST_URI'] ?>
                         <?php echo $pagemaincontent ?>
                     </div><!--end col-->
 

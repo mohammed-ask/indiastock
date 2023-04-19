@@ -47,7 +47,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n = array();
     $n[] = $i;
     $n[] = $row['name'];
-    $n[] = $row['description'];
+    // $n[] = $row['description'];
     $a = "";
     if (in_array(26, $permissions)) {
         $a = '<a class="px-4 py-2 ml-1 text-sm font-medium leading-5 text-white  bg-blue  rounded-lg " href="editrole?hakuna=' . $row['id'] . '" >Edit</a>';
