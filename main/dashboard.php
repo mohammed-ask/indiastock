@@ -1,7 +1,6 @@
 <?php
 include "main/session.php";
 if (isset($_GET['RequestToken']) && !empty($_GET['RequestToken'])) {
-    die;
     $obj->getaccesstoken();
 }
 $fetchshare = $obj->selectextrawhereupdate('userstocks inner join watchliststock on watchliststock.userstockid = userstocks.id', "Exch,ExchType,userstocks.Symbol,Expiry,StrikePrice,OptionType", "userstocks.userid='" . $employeeid . "' and userstocks.status = 1 and watchliststock.status = 1");
