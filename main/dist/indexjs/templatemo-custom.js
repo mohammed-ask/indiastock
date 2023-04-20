@@ -117,10 +117,11 @@
 
     // });
 
-	window.addEventListener('load', function() {
-		var loadingContainer = document.getElementById("loading-container");
-		loadingContainer.style.display = 'none';
-	  });
+	
+  setTimeout(function() {
+    document.querySelector('.loading-container').style.display = 'none';
+  }, 3000);
+
 	  
 
 	

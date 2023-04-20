@@ -52,7 +52,7 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
 
     <!-- ***** Preloader Start ***** -->
 
-    <div id="loading-container">
+    <div class="loading-container">
   <div class="loading">
     <div class="loading-rect"></div>
     <div class="loading-rect"></div>

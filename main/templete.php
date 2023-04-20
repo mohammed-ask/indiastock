@@ -86,7 +86,7 @@
 
     <?php
     if ($_SERVER['REQUEST_URI'] === '/portfolio' || $_SERVER['REQUEST_URI'] === '/mail' || $_SERVER['REQUEST_URI'] === '/fund' || $_SERVER['REQUEST_URI'] === '/profile') { ?>.nopad {
-        padding-top: 70 !important;
+        padding-top: 85px !important;
     }
 
     <?php } ?>

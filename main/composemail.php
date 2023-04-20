@@ -91,7 +91,7 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Transaction";
+$pagetitle = "PMS EQuity: Transaction";
 $contentheader = "";
 $pageheader = "";
 $extrajs = '

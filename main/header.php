@@ -115,11 +115,11 @@ $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $empl
                             <span><i class="fa-solid fa-money-bill menu-icon"></i>Funds</span>
                         </a><i class=""></i>
                     </li>
-                    <li class="nav-item  parent-menu-item">
+                    <!-- <li class="nav-item  parent-menu-item">
                         <a class="nav-link" href="search" id="navbarMarket" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "searchstock","", "Search Stock by Symbol")'>
                             <span><i class="fa fa-search"></i> Search</span>
                         </a><i class=""></i>
-                    </li>
+                    </li> -->
                     <!--end nav-item-->
                 </ul><!-- End navigation menu -->
             </div> <!-- end navigation -->
