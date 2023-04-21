@@ -10,7 +10,7 @@ ob_start();
         <!-- Card -->
 
         <h3 class="my-6 text-1xl font-bold text-gray-700 dark:text-gray-200">
-            Inbox
+            Sent Mails
         </h3>
         <div>
 

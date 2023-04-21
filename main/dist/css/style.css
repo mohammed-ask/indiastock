@@ -234,6 +234,11 @@ p {
     left: 40px;
   }
 
+  .mobile-bottom-margin{
+
+    margin-bottom: 15% !important;
+  }
+
   ul.timeline>li>.timeline-panel {
     width: calc(100% - 90px);
     width: -moz-calc(100% - 90px);
@@ -424,4 +429,17 @@ input:checked+.slider:before {
 height: auto;
 
 }
+
+.bg-theme-color{
+background-color: #057c7c;
+color: #fff !important;
+}
+
+
+
+.select2-container--default .select2-results__option--highlighted[aria-selected], .select2-container--default .select2-results__option--highlighted[aria-selected]:hover {
+  background-color: #00aaaa !important;
+  color: #fff;
+}
+
 

@@ -57,8 +57,8 @@ while ($row = $obj->fetch_assoc($result)) {
         '1' => 'Approved',
         default => 'Rejected',
     };
-    $n[] = "<div class='flex items-center space-x-4 text-sm'><button class='flex items-center justify-between px-2 py-2 bg-green text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['userid'] . "\", \"viewbankdetails\", \"\", \"Client Bank Details\")'  aria-label='Go'>
-    <span ><strong>View Bank Detail</strong></span>
+    $n[] = "<div class='flex items-center space-x-4 text-sm'><button  class='flex items-center justify-between px-2 py-2 bg-theme-color text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['userid'] . "\", \"viewbankdetails\", \"\", \"Client Bank Details\")'  aria-label='Go'>
+    <span >Bank Detail</span>
 </button></div>";
     $n[] = $row['status'] === '0' ? "<div class='tr'><div style='text-align:center;cursor:pointer'  class='showbox'>
     <img class='object-cover w-5 h-5' style='height:30px;width:30px;;margin:auto' src='../main/images/menu.png' alt='' aria-hidden='true' /></div>

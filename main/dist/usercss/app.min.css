@@ -5054,14 +5054,14 @@ input:checked+.slider {
 .dashboard-danger {
 
     position: absolute;
-    top: 45%;
+    top: 70%;
     left: 18%;
     margin-right: 65px;
 }
 
 @media screen and (max-width: 559px) {
     .dashboard-danger {
-        top: 50%;
+        top: 70%;
         left: 16%;
         margin-right: 20px;
     }

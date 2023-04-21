@@ -112,7 +112,7 @@ $openposition = $obj->selectfieldwhere("stocktransaction", "count(id)", "status 
     <h3 class="my-6 text-1xl font-semibold text-gray-700 dark:text-gray-200" style="margin-top: 4%;">
         Carry Forword Transactions
     </h3>
-    <div class="w-full overflow-hidden rounded-lg shadow-xs">
+    <div class="w-full overflow-hidden rounded-lg shadow-xs mobile-bottom-margin">
 
         <div class="w-full ">
 
