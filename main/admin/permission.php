@@ -9,7 +9,7 @@ if (isset($_GET["hakuna"])) {
 ?>
 <!-- <div class="row"> -->
 <!-- <div class="col-sm-12"> -->
-<div class="container px-6 mx-auto grid">
+<div class="container px-6 mx-auto grid mobile-bottom-margin">
     <form action="">
         <?php
         if ($responsive == "true") { ?>

@@ -13,7 +13,7 @@ $openposition = $obj->selectfieldwhere("stocktransaction", "count(id)", "status 
         color: white;
     }
 </style>
-<div class="container px-6 mx-auto grid" style="margin-bottom: 50px;">
+<div class="container px-6 mx-auto grid mobile-bottom-margin">
 
     <h2 class="my-6 font-semibold text-gray-700 dark:text-gray-200">
         Dashboard
@@ -112,7 +112,7 @@ $openposition = $obj->selectfieldwhere("stocktransaction", "count(id)", "status 
     <h3 class="my-6 text-1xl font-semibold text-gray-700 dark:text-gray-200" style="margin-top: 4%;">
         Carry Forword Transactions
     </h3>
-    <div class="w-full overflow-hidden rounded-lg shadow-xs mobile-bottom-margin">
+    <div class="w-full overflow-hidden rounded-lg shadow-xs">
 
         <div class="w-full ">
 

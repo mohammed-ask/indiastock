@@ -3,7 +3,7 @@ include "main/session.php";
 /* @var $obj db */
 ob_start();
 ?>
-<div class="container px-6 mx-auto grid">
+<div class="container px-6 mx-auto grid mobile-bottom-margin">
     <div class="flex my-4 items-center justify-between">
         <h4>Withdrawal Requests</h4>
 

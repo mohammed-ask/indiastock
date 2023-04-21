@@ -10,7 +10,7 @@ ob_start();
     color: white;
   }
 </style>
-<div class="container px-6 mx-auto grid">
+<div class="container px-6 mx-auto grid mobile-bottom-margin">
 
   <h2 class="my-6 font-semibold text-gray-700 dark:text-gray-200">
     Dashboard

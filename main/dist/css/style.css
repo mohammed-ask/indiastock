@@ -234,11 +234,6 @@ p {
     left: 40px;
   }
 
-  .mobile-bottom-margin{
-
-    margin-bottom: 15% !important;
-  }
-
   ul.timeline>li>.timeline-panel {
     width: calc(100% - 90px);
     width: -moz-calc(100% - 90px);
@@ -442,4 +437,15 @@ color: #fff !important;
   color: #fff;
 }
 
+@media (max-width: 600px) {
+ 
+  .mobile-bottom-margin{
 
+    margin-bottom: 20% !important;
+  }
+}
+
+.mobile-bottom-margin{
+
+  margin-bottom: 5%;
+}

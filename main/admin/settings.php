@@ -23,7 +23,7 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
         resize: none;
     }
 </style>
-<div class="card">
+<div class="card mobile-bottom-margin">
     <div class="card-header with-border">
         <h3 class="card-title with-border">Settings</h3>
         <div class="card-tools pull-right">

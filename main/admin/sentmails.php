@@ -5,7 +5,7 @@ ob_start();
 
 
 ?>
-<div class="container px-6 mx-auto grid">
+<div class="container px-6 mx-auto grid mobile-bottom-margin">
     <div class="grid gap-6 mt-8 md:grid-cols-2 xl:grid-cols-2">
         <!-- Card -->
 
