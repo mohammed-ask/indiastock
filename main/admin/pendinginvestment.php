@@ -22,6 +22,7 @@ ob_start();
                         <th class="px-3 py-2">S.No.</th>
                         <th class="px-3 py-2">Client Name</th>
                         <th class="px-3 py-2">Mobile No.</th>
+                        <th class="px-3 py-2">Transaction Id</th>
                         <th class="px-3 py-2">Date</th>
                         <th class="px-3 py-2">Amount</th>
                         <th class="px-3 py-2">Payment Method</th>

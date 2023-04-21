@@ -76,47 +76,15 @@
 
 
                 </div>
-                <!-- Main modal -->
-                <!-- <div class="modal fade" id="myModal">
-                    <div class="modal-dialog " role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <div class="container px-3 mx-auto grid">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h5 style="text-align: center;" class=" mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300" id="modalheading">Add Service Code</h5>
-                                </div>
-                            </div>
-                            <div class="container px-3 mx-auto grid">
-
-                                <div class="modal-body px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800" id="modaldata">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" id="modalfooterbtn" onclick="$('#modalsubmit').click();">Save changes</button>
-                                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button> -->
-                <!-- <button data-dismiss="modal" class="px-4 py-2 text-sm font-medium leading-5 text-black text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
-                                        Cancel
-                                    </button>
-                                    <button onclick="$('#modalsubmit').click();" id="modalfooterbtn" type="button" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"> Accept
-                                    </button> -->
-                <!-- </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>  -->
-
-
             </main>
         </div>
     </div>
+    <?php include 'footer.php';
+    ?>
     <br>
 
 
     <!-- /.content-wrapper -->
-    <?php //include 'main/footer.php'; 
-    ?>
     <!-- Control Sidebar -->
     <!-- /.control-sidebar -->
     </div>

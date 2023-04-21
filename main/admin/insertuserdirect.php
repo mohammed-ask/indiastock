@@ -51,7 +51,7 @@ if ($emailcount > 0) {
     $x['updated_on'] = date('Y-m-d H:i:s');
     // $x['updated_by'] = $employeeid;
     $x['status'] = 0;
-    $x['name'] = $_POST['username'];
+    $x['name'] = ucwords($_POST['username']);
     $x['email'] = $_POST['email'];
     $x['mobile'] = $_POST['mobileno'];
     $x['address'] = $_POST['address'];

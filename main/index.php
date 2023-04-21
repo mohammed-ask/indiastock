@@ -34,8 +34,8 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
 
-<!-- ----------------favicoin-------------------->
-<link rel="icon" href="main/images/logo/favicon.svg" type="image/svg+xml">
+    <!-- ----------------favicoin-------------------->
+    <link rel="icon" href="main/images/logo/favicon.svg" type="image/svg+xml">
 
 
 
@@ -53,13 +53,13 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
     <!-- ***** Preloader Start ***** -->
 
     <div class="loading-container">
-  <div class="loading">
-    <div class="loading-rect"></div>
-    <div class="loading-rect"></div>
-    <div class="loading-rect"></div>
-    <div class="loading-rect"></div>
-  </div>
-</div>
+        <div class="loading">
+            <div class="loading-rect"></div>
+            <div class="loading-rect"></div>
+            <div class="loading-rect"></div>
+            <div class="loading-rect"></div>
+        </div>
+    </div>
 
     <!-- ***** Preloader End ***** -->
 
@@ -72,7 +72,7 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
                         <!-- ***** Logo Start ***** -->
                         <a href="index" class="logo">
                             <img src="main/images/logo/PMS Equity white logo svg.svg" style="width:200px" />
-                            
+
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
@@ -540,7 +540,7 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
                             <i class="fa-solid fa-location-dot flex-shrink-0"></i>
                             <div>
                                 <h4>Location:</h4>
-                                <p><?= $rowinfo['address_1'] . " " . $rowinfo['address_2'] . " " . $rowinfo['city'] . " Pincode:-" . $rowinfo['pincode'] . " M.P INDIA" ?></p>
+                                <p><?= $rowinfo['address_1'] ?></p>
                             </div>
                         </div><!-- End Info Item -->
 
@@ -557,7 +557,7 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
 
                             <div>
                                 <h4>Call:</h4>
-                                <p><?= "PH. " . $rowinfo['phone'] ?></p>
+                                <p><?= $rowinfo['phone'] ?></p>
                             </div>
                         </div><!-- End Info Item -->
 
