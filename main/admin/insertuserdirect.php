@@ -1,5 +1,6 @@
 <?php
 
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -66,12 +67,13 @@ if ($emailcount > 0) {
     // $x['policyread'] = $_POST['policyread'];
     $x['type'] = 2;
     $x['role'] = 2;
+    $x['startdatetime'] = changedateformatespecito($_POST['starttime'], "d/m/Y H:i:s", "Y-m-d H:i:s");
+    $x['enddatetime'] = changedateformatespecito($_POST['endtime'], "d/m/Y H:i:s", "Y-m-d H:i:s");
     $x['investmentamount'] = $_POST['investmentamount'];
     $x['limit'] = $_POST['limit'];
 
     $pradin = $obj->insertnew($tb_name, $x);
     $obj->saveactivity("Add Customer", "", $pradin, $pradin, "User", "Add Customer");
-
     $mail = new PHPMailer(true);
 
     $mail->isSMTP();

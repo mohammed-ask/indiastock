@@ -97,7 +97,7 @@ if (isset($_GET['RequestToken'])) {
 $now = new DateTime();
 $dayOfWeek = $now->format('N');
 $hour = $now->format('G');
-
+$apiinterval = 18000;
 define("REQUEST_TOKEN", $requesttoken); //right
 define("APP_NAME", "5P51842644"); //right
 define("CLIENT_CODE", "51842644"); //right
@@ -106,3 +106,10 @@ define("KEY", "GN26BJxQ3LnyNJ5vCi8cJobynsIdMgSp"); //right
 define("OS_NAME", "WEB"); //right
 define("USER_ID", "E1k4ZqoZzfz"); //right
 define("PASSWORD", "BYcnrCZnKPV"); //right
+
+// Market API Details
+define("APP_NAME2", "5P50439284"); //right
+define("CLIENT_CODE2", "50439284"); //right
+define("KEY2", "51uZHJivBrXpGMo3t8ECLW11GbyOlEsK"); //right
+define("USER_ID2", "AZQ6KXRzw5A"); //right
+define("PASSWORD2", "UNfA3hnLH4u"); //right

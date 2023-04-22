@@ -1,10 +1,15 @@
 <?php
 include "main/session.php";
 $oldrequest = $obj->selectfieldwhere("withdrawalrequests", "count(id)", "status = 0 and userid = " . $employeeid . "");
-$starttime = $obj->selectfieldwhere("users", "starttime", "id = " . $employeeid . "");
-$endtime = $obj->selectfieldwhere("users", "endtime", "id = " . $employeeid . "");
+$starttime = $obj->selectfieldwhere("users", "startdatetime", "id = " . $employeeid . "");
+$endtime = $obj->selectfieldwhere("users", "enddatetime", "id = " . $employeeid . "");
+$start = empty($starttime) ? '' : strtotime($starttime);
+$end = empty($endtime) ? '' : strtotime($endtime);
+$current = time();
 $hour = date("H");
-if ((($hour <= $endtime) && ($hour >= $starttime))) {
+if (!empty($start) && !empty($end) && $current >= $start && $current <= $end) {
+    echo "<div  class='alert alert-danger'>Sorry! Can't Request Withdrawl at this time</div>";
+} else {
     $amount = $obj->selectfieldwhere("users", "investmentamount", "id=" . $employeeid . "");
     if ($_POST['amount'] > $amount) {
         echo "<div  class='alert alert-danger'>Your dont have requested fund in your wallet</div>";
@@ -28,6 +33,4 @@ if ((($hour <= $endtime) && ($hour >= $starttime))) {
     } else {
         echo "Some Error Occured";
     }
-} else {
-    echo "<div  class='alert alert-danger'>Sorry! Can't Request Withdrawl at this time</div>";
 }

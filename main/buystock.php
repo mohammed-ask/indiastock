@@ -3,6 +3,7 @@ include "main/session.php";
 $symbol = $_GET['hakuna'];
 $exchange = $_GET['what'];
 $id = $obj->selectfieldwhere("userstocks", "id", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1");
+$lot = $obj->selectfieldwhere("userstocks", "mktlot", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1");
 $rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1")->fetch_assoc();
 // print_r(array($rowfetch));
 // die;
@@ -35,6 +36,10 @@ $stockdata = $stockdata[0];
         <input type="hidden" name="exchange" value="<?= $stockdata['Exch'] ?>" id="">
         <input type="hidden" name="stockid" value="<?= $id ?>" id="">
         <input type="hidden" name="totalamount" id="totalamount" value="<?= $usermargin > 0 ? $stockdata['LastRate'] / $usermargin : $stockdata['LastRate'] ?>">
+        <div class="col-2">
+            <label class="form-label" for="Quantity">Lot Size</label>
+            <input data-bvalidator='required' readonly name="lot" type="number" id="lot" onkeyup="sumfund()" onclick="this.select();" value="<?= $lot ?>" class="form-control form-control-sm">
+        </div>
         <div class="col-auto">
             <label class="form-label" for="Quantity">Quantity</label>
             <input data-bvalidator='required' name="qty" type="number" id="qty" onkeyup="sumfund()" onclick="this.select();" value="1" class="form-control form-control-sm">
@@ -51,7 +56,7 @@ $stockdata = $stockdata[0];
                 </label>
             </div>
         </div> -->
-        <button class="btn btn-success w-100 my-3" onclick="event.preventDefault();sendForm('', '', 'insertbuystock', 'resultid', 'buystock')">BUY</button>
+        <button <?php echo $investmentamount <= 0 ? 'disabled' : null; ?> class="btn btn-success w-100 my-3" onclick="<?php echo $investmentamount > 0 ? 'event.preventDefault();sendForm(\'\', \'\', \'insertbuystock\', \'resultid\', \'buystock\')' : ''; ?>">BUY</button>
         <div id="resultid"></div>
     </form>
     <div class="mt-3">
@@ -79,13 +84,19 @@ $stockdata = $stockdata[0];
     <div class="row">
         <div class="col">
             <small class="text-muted d-block">Require Fund</small>
-            <small id="reqfund">₹<?= $usermargin > 0 ? number_format($stockdata['LastRate'] / $usermargin, 2) : 0 ?></small>
-            <small style="color:green">Margin Available : <?= $usermargin ?>x</small>
+            <small id="reqfund">₹<?= $usermargin > 0 ? number_format($stockdata['LastRate'], 2) : 0 ?></small>
+            <!-- <small style="color:green">Margin Available : <?= $usermargin ?>x</small> -->
         </div><!--end col-->
         <div class="col-auto">
-            <small class="text-muted d-block">Available Fund</small>
+            <div style="display: flex;flex-direction:row" id="profile-tooltip-id">
+                <small class="text-muted d-block">Available Fund</small>
+                <div class="profile-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
+                    <p class="profile-tooltiptext text-white">You can purchase <?= $usermargin ?>x worth of share from your available fund</p>
+                </div>
+            </div>
             <small>₹<?= round($investmentamount) ?></small>
         </div><!--end col-->
+
     </div><!--end row-->
 </div><!--end modal-body-->
 <script>
@@ -106,19 +117,16 @@ $stockdata = $stockdata[0];
                         $("#Price").val(price)
                     },
                 );
-            }, 10000)
+            }, <?= $apiinterval ?>)
     <?php }
     } ?>
 
     function sumfund() {
         var qty = $("#qty").val();
         var price = $("#Price").val()
+        var lot = $("#lot").val()
         limit = <?= $usermargin; ?>;
-        if (limit > 0) {
-            require = parseInt(qty) * parseFloat(price) / limit
-        } else {
-            require = parseInt(qty) * parseFloat(price)
-        }
+        require = parseInt(lot) * parseInt(qty) * parseFloat(price)
         $("#reqfund").html("₹" + require.toFixed(2))
         $("#totalamount").val(require)
     }

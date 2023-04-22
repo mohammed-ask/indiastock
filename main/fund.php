@@ -1,5 +1,9 @@
 <?php
 include "main/session.php";
+$fundadded = $obj->selectfieldwhere("fundrequest", 'sum(amount)', "userid=" . $employeeid . " and status = 1");
+$fundadded = empty($fundadded) ? 0 : $fundadded;
+$fundwithdraw = $obj->selectfieldwhere("withdrawalrequests", 'sum(amount)', "userid=" . $employeeid . " and status = 1");
+$fundwithdraw = empty($fundwithdraw) ? 0 : $fundwithdraw;
 ?>
 <div class="card">
     <div class="card-body">
@@ -14,40 +18,52 @@ include "main/session.php";
                         <button type="button" class="btn btn-sm btn-outline-success" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "addfund","", "")'>Add Funds</button>
                         <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "requestwithdrawalamount", "", "Request Amount Withdrawal")'>Withdraw Funds</button>
                     </div>
-                    
+
                 </div>
             </div><!--end col-->
 
             <div class="col-md-6">
                 <div class="row">
-                <div class="col-md-6 mb-mt-4-mob">
-            <div class="bg-light text-center p-2 d-flex justify-content-between align-items-center rounded border">
-                    <div class="flex text-start">
+                    <div class="col-md-6 mb-mt-4-mob">
+                        <div class="bg-light text-center p-2 d-flex justify-content-between align-items-center rounded border">
+                            <div class="flex text-start">
 
-                    <span>   <h6 class="m-0 fw-semibold">Total Funds Added</h6></span>
-                      <span>  <h5 class="font-18 m-0 mt-1">₹<?= round($investmentamount) ?></h5></span>
-                    
-                    </div></div></div>
+                                <span>
+                                    <h6 class="m-0 fw-semibold">Total Funds Added</h6>
+                                </span>
+                                <span>
+                                    <h5 class="font-18 m-0 mt-1">₹<?= round($fundadded) ?></h5>
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-md-6">
-                    <div class="bg-light text-center p-2 d-flex justify-content-between align-items-center rounded border">
-                    <div class="flex text-start">
+                        <div class="bg-light text-center p-2 d-flex justify-content-between align-items-center rounded border">
+                            <div class="flex text-start">
 
-                    <span>   <h6 class="m-0 fw-semibold">Total Funds Withdrawal</h6></span>
-                      <span>  <h5 class="font-18 m-0 mt-1">₹<?= round($investmentamount) ?></h5></span>
-                    
-                    </div>
+                                <span>
+                                    <h6 class="m-0 fw-semibold">Total Funds Withdrawal</h6>
+                                </span>
+                                <span>
+                                    <h5 class="font-18 m-0 mt-1">₹<?= round($fundwithdraw) ?></h5>
+                                </span>
 
-                    <div>
-                        
+                            </div>
+
+                            <div>
+
+                            </div>
+                        </div>
                     </div>
-                </div></div>
-            </div><!--end col--></div>
+                </div><!--end col-->
+            </div>
 
 
         </div><!--end row-->
 
 
-        
+
     </div><!--end card-body-->
 </div><!--end card-->
 
@@ -83,6 +99,7 @@ include "main/session.php";
                                 <th>Transaction ID</th>
                                 <th>Peyment Method</th>
                                 <th>Amount</th>
+                                <th>Status</th>
                             </tr><!--end tr-->
                         </thead>
 
@@ -108,8 +125,8 @@ include "main/session.php";
                                 <th>Date</th>
                                 <th>Time</th>
                                 <th>Transaction ID</th>
-
                                 <th>Amount</th>
+                                <th>Status</th>
                             </tr><!--end tr-->
                         </thead>
 

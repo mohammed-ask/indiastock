@@ -115,7 +115,7 @@ $stockdata = $stockdata[0];
                         $("#Price").val(price)
                     },
                 );
-            }, 10000)
+            }, <?= $apiinterval ?>)
     <?php }
     } ?>
 </script>

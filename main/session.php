@@ -16,6 +16,7 @@ $role = $_SESSION['role'];
 $aid = $obj->selectfieldwhere("users", "avatar", "id=" . $employeeid . "");
 $avatarpath = $obj->fetchattachment($aid);
 $investmentamount = $obj->selectfieldwhere("users", "investmentamount", "id='" . $employeeid . "'");
+$investmentamount = empty($investmentamount) ? 0 : $investmentamount;
 $trademode = $obj->selectfieldwhere("users", "trademode", "id='" . $employeeid . "'");
 $usermargin = $obj->selectfieldwhere("users", "`limit`", "id='" . $employeeid . "'");
 $username = $obj->selectfieldwhere("users", "`name`", "id='" . $employeeid . "'");

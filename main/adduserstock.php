@@ -16,6 +16,11 @@ if ($limit === '30') {
     $xx['Exch'] = $_POST['exch'];
     $xx['Symbol'] = $_POST['stockname'];
     $xx['ExchType'] = $_POST['exchtype'];
+    $xx['Expiry'] = $_POST['expiry'];
+    $xx['OptionType'] = $_POST['optiontype'];
+    $xx['StrikePrice'] = $_POST['strikerate'];
+    $xx['mktlot'] = $_POST['lotsize'];
+    $xx['symboltoken'] = $_POST['token'];
     $stock = $obj->insertnew("userstocks", $xx);
     if ($stock > 0) {
         echo "Success";

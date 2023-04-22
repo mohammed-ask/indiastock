@@ -90,7 +90,7 @@ foreach ($data as $row) {
 
             <!-- Primary free rss feed end -->
 
-<!-- .
+            <!-- .
 .
 .
 .
@@ -98,10 +98,10 @@ foreach ($data as $row) {
  -->
 
 
-<!-- secondary free rss feed start (sw-rss-feed code) -->
+            <!-- secondary free rss feed start (sw-rss-feed code) -->
 
 
-<!-- <script type="text/javascript"> 
+            <!-- <script type="text/javascript"> 
 
 rssfeed_url = new Array(); 
 rssfeed_url[0]="https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms";  
@@ -143,9 +143,9 @@ rssfeed_cache = "361ffc5774c186b7006b0d7072465c21";
 </script> 
 <script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script>  -->
 
-<!-- secondary free rss feed end (sw-rss-feed code) -->
+            <!-- secondary free rss feed end (sw-rss-feed code) -->
 
-      
+
         </div><!--end card-->
     </div><!--end col-->
     <div class="col-lg-9">
@@ -303,7 +303,7 @@ include "main/templete.php"; ?>
                         $("#watchlist_2").html(sidedata)
                     },
                 );
-            }, 5000)
+            }, <?= $apiinterval ?>)
     <?php }
     } ?>
 </script>

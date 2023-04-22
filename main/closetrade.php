@@ -2,9 +2,7 @@
 include "main/session.php";
 $id = $_GET['hakuna'];
 $rowtran = $obj->selectextrawhere("stocktransaction", "id=" . $id . "")->fetch_assoc();
-// $qty = $obj->selectfieldwhere("stocktransaction", "qty", "id=" . $id . "");
-// $symbol = $obj->selectfieldwhere("stocktransaction", "symbol", "id=" . $id . "");
-// $exchange = $obj->selectfieldwhere("stocktransaction", "exchange", "id=" . $id . "");
+
 $rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "Exch='" . $rowtran['exchange'] . "' and Symbol = '" . $rowtran['symbol'] . "'")->fetch_assoc();
 $stockdata = $obj->fivepaisaapi(array($rowfetch));
 $stockdata = $stockdata[0];
@@ -57,12 +55,13 @@ $stockdata = $stockdata[0];
     <div class="row">
         <div class="col">
             <small class="text-muted d-block">Profit/Loss</small>
-            <small id="reqfund">₹<?= $stockdata['LastRate'] - $rowtran['price'] ?></small>
+            <small id="reqfund">₹<?= ($stockdata['LastRate'] - $rowtran['price']) * $rowtran['qty'] ?></small>
         </div>
-        <div class="col-auto">
+        <!-- <div class="col-auto">
             <small class="text-muted d-block">Available Fund</small>
             <small>₹<?= round($investmentamount) ?></small>
-        </div><!--end col-->
+        </div> -->
+        <!--end col-->
     </div><!--end row-->
 </div>
 <script>
@@ -82,7 +81,7 @@ $stockdata = $stockdata[0];
                         $("#Price").val(price)
                     },
                 );
-            }, 10000)
+            }, <?= $apiinterval ?>)
     <?php }
     } ?>
 </script>

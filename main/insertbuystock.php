@@ -3,7 +3,7 @@ include 'main/session.php';
 // echo "<pre>";
 // print_r($_POST);
 // die;
-if ($_POST['totalamount'] > $investmentamount) {
+if ($_POST['totalamount'] > $investmentamount * $usermargin) {
     echo "<div class='alert alert-warning'>You dont have enough fund</div>";
 } else {
     $xx['added_by'] = $employeeid;
@@ -14,18 +14,23 @@ if ($_POST['totalamount'] > $investmentamount) {
     $xx['qty'] = $_POST['qty'];
     $xx['price'] = $_POST['price'];
     $xx['totalamount'] = round($_POST['totalamount'], 2);
+    if ($xx['totalamount'] > $investmentamount) {
+        $xx['borrowedamt'] = round($_POST['totalamount'] - $investmentamount, 2);
+        $xx['borrowedprcnt'] = round($xx['borrowedamt'] / $_POST['totalamount'] * 100, 2);
+    }
     $xx['userid'] = $employeeid;
     $xx['type'] = $trademode;
     $xx['symbol'] = $_POST['symbol'];
     $xx['exchange'] = $_POST['exchange'];
     $xx['stockid'] = $_POST['stockid'];
     $xx['limit'] = $usermargin;
+    $xx['mktlot'] = $_POST['lot'];
     $xx['trademethod'] = 'Buy';
     $xx['tradestatus'] = 'Open';
     $buy = $obj->insertnew("stocktransaction", $xx);
 
     $remainfund = $investmentamount - $xx["totalamount"];
-    $xy['investmentamount'] = $remainfund;
+    $xy['investmentamount'] = $remainfund < 0 ? 0 : $remainfund;
     $user = $obj->update("users", $xy, $employeeid);
     if ($buy > 0) {
         echo "Redirect : " . $_POST['symbol'] . " has been bought successfully URLmarket";

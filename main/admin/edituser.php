@@ -49,13 +49,22 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
         <input type="number" name="limit" data-bvalidator="required" step="any" onfocus="this.select()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="<?= $rowuser['limit'] ?>" placeholder="Client's Limit on Investment" /></label>
     <label class="block text-md" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Withdrawel Request Start Time</span>
+        <input name="starttime" id="starttime" value="<?= changedateformatespecito($rowuser['starttime'], "Y-m-d H:i:s", "d/m/Y H:i:s") ?>" data-bvalidator="required" onfocus="datetimepicker(this.id)" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Select Start Time" />
+    </label><br>
+    <label class="block text-md" style="margin-bottom: 5px;">
+        <span class="text-gray-700 dark:text-gray-400">Withdrawel Request End Time</span>
+        <input name="endtime" id="endtime" value="<?= changedateformatespecito($rowuser['endtime'], "Y-m-d H:i:s", "d/m/Y H:i:s") ?>" data-bvalidator="required" onfocus="datetimepicker(this.id)" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Select End Time" />
+    </label><br>
+    <!-- <label class="block text-md" style="margin-bottom: 5px;">
+        <span class="text-gray-700 dark:text-gray-400">Withdrawel Request Start Time</span>
         <select data-bvalidator="required" class="form-control select2" name="starttime" id="starttime">
             <?php
-            for ($i = 0; $i <= 23; $i++) {
+            //for ($i = 0; $i <= 23; $i++) {
             ?>
-                <option <?php echo ($i == $rowuser['starttime']) ? 'selected="selected"' : ""; ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <option <?php //echo ($i == $rowuser['starttime']) ? 'selected="selected"' : ""; 
+                        ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
             <?php
-            }
+            //}
             ?>
         </select>
     </label><br>
@@ -63,14 +72,15 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
         <span class="text-gray-700 dark:text-gray-400">Withdrawel Request End Time</span>
         <select data-bvalidator="required" class="form-control select2" name="endtime" id="endtime">
             <?php
-            for ($i = 0; $i <= 23; $i++) {
+            //for ($i = 0; $i <= 23; $i++) {
             ?>
-                <option <?php echo ($i == $rowuser['endtime']) ? 'selected="selected"' : ""; ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <option <?php //echo ($i == $rowuser['endtime']) ? 'selected="selected"' : ""; 
+                        ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
             <?php
-            }
+            //}
             ?>
         </select>
-    </label><br>
+    </label><br> -->
     <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Change Password</span>
         <input type="password" id="password" name="password" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Please Give Strong Password!" />
