@@ -6,10 +6,10 @@ ob_start();
 
 ?>
 <div class="container px-6 mx-auto grid mobile-bottom-margin">
-    <div class="grid gap-6 mt-8 md:grid-cols-2 xl:grid-cols-2">
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-2">
         <!-- Card -->
 
-        <h3 class="my-6 text-1xl font-bold text-gray-700 dark:text-gray-200">
+        <h3 class="my-6 font-semibold text-gray-700 dark:text-gray-200">
             Sent Mails
         </h3>
         <div>

@@ -7,7 +7,7 @@ ob_start();
 ?>
 <div class="container px-6 mx-auto grid mobile-bottom-margin">
     <div class="flex my-4 items-center justify-between">
-        <h4>All Investment</h4>
+        <h3 class="my-0 font-semibold text-gray-700 dark:text-gray-200">All Investment</h3>
 
 
     </div>

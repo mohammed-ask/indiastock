@@ -8,7 +8,7 @@ ob_start();
 <div class="container px-6 mx-auto grid mobile-bottom-margin">
 
     <div class="flex" style="align-items: center;justify-content:space-between">
-        <h3>Users List</h3>
+        <h3 class="my-6 font-semibold text-gray-700 dark:text-gray-200">Users List</h3>
         <button @click="openModal" onclick='dynamicmodal("none", "adduser", "Unlink", "Add New User")' class="my-6 px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
             + Add User
         </button>

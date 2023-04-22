@@ -6,7 +6,7 @@ ob_start();
 <div class="container px-6 mx-auto grid">
     <div class="card card-default">
         <div class="card-header">
-            <h3 class="card-title">Roles</h3>
+            <h3 class="my-0 text-1xl font-semibold text-gray-700 dark:text-gray-200">Roles</h3>
             <div class="card-tools">
                 <?php if (in_array(25, $permissions)) { ?>
                     <a href="addrole" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">

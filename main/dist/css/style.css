@@ -460,3 +460,13 @@ color: #fff !important;
 
   border: none;
 }
+
+/* .text-sm {
+
+  font-size: .9rem !important;
+} */
+
+.form-input {
+font-size: 1rem !important;
+
+}

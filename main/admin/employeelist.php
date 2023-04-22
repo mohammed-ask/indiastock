@@ -7,7 +7,7 @@ ob_start();
 ?>
 <div class="container px-6 mx-auto grid mobile-bottom-margin">
     <div class="flex items-center justify-between">
-        <h5>Employee Details</h5>
+        <h3 class="my-6 font-semibold text-gray-700 dark:text-gray-200">Employee Details</h3>
         <button @click="openModal" onclick='dynamicmodal("none", "addemployee", "", "Add Employee")' class="my-6 px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
             + Add Employee
         </button>

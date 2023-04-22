@@ -23,12 +23,14 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
         resize: none;
     }
 </style>
+<div class="container px-6 mx-auto grid">
+<h3 class="my-6 font-semibold text-gray-700 dark:text-gray-200">Settings</h3>
 <div class="card mobile-bottom-margin">
-    <div class="card-header with-border">
-        <h3 class="card-title with-border">Settings</h3>
+    <!-- <div class="card-header with-border">
+        
         <div class="card-tools pull-right">
         </div>
-    </div>
+    </div> -->
     <div class="card-body">
         <!-- <div class="row">
             <div class="col-md-3">
@@ -188,7 +190,7 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                         <input type="file" class="form-control" name="favicon">
                     </div> -->
 
-                    <div class="card-footer">
+                    <div class="card-footer pl-0" >
                         <button type="submit" class="text-white btn btn-primary">Save</button>
                         <div id="resultid"></div>
                     </div>
@@ -311,7 +313,7 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
 
 
 </div>
-
+</div>
 
 
 

@@ -3,11 +3,11 @@ include "main/session.php";
 $rowemployee = $obj->selectextrawhere("users", "id=" . $employeeid . "")->fetch_assoc();
 ?>
 <form id="adduser" onsubmit="event.preventDefault();sendForm('', '', 'updateprofile', 'resultid', 'adduser');return 0;">
-    <label class="block text-sm  mb-3" style="margin-bottom: 5px;">
+    <label class="block text-sm  mb-3" style="margin-bottom: 5px; display: none;">
         <span class="text-gray-700 dark:text-gray-400">Name</span>
         <input disabled name="name" disabled data-bvalidator="required" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="<?= $rowemployee['name'] ?>" placeholder="Employee's Name" />
     </label>
-    <label class="block text-sm  mb-3" style="margin-bottom: 5px;">
+    <label class="block text-sm  mb-3" style="margin-bottom: 5px; display: none;">
         <span class="text-gray-700 dark:text-gray-400">Mob No.</span>
         <input type="number" name="phone" data-bvalidator="minlength[10],maxlength[10]" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="<?= $rowemployee['mobile'] ?>" placeholder="Employee Mobile No." />
     </label>
@@ -28,6 +28,7 @@ $rowemployee = $obj->selectextrawhere("users", "id=" . $employeeid . "")->fetch_
     </div>
     <div id="resultid"></div>
 </form>
+<p class="mb-0" style="font-size: .87rem !important;">To update your password, enter your new password and click on the "<b>submit</b>" button.</p>
 <script>
     $("#eye").click(() => {
         iconname = $("#eye").attr("class");
