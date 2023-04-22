@@ -56,7 +56,7 @@ include "main/admin/templete.php";
             "ajax": "../main/admin/todaytrandata.php",
             "processing": true,
             "serverSide": true,
-            "pageLength": 25,
+            "pageLength": 15,
             "paging": true,
             "lengthChange": false,
             "searching": false,

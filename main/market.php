@@ -42,7 +42,7 @@ $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexcha
            
             <li class="nav-item  parent-menu-item" style="list-style: none; display: inline-flex; align-items: center;"><div>
                         <a class="nav-link" href="search" style="    border: 1px solid lightblue; border-radius: 5px; padding: 5px 10px; font-weight: 500;" id="navbarMarket" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "searchstock","", "Search Stock by Symbol")'>
-                            <span><i class="fa fa-search"></i> Search</span>
+                            <span><i class="fa fa-search"></i> Search & Add</span>
                         </a><i class=""></i></div><div style=" margin-left: 16px;"> (Add Upto 30 Stocks)</div> <div class="profile-tooltip-market mt-0"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
                                     <p class="text-capitalize profile-tooltiptext-market">You can add up to 30 stocks. If you want to add one or more stocks after reaching the limit, you will need to remove an existing stock from the list before adding the new one(s)</p></div>
 </span>

@@ -96,7 +96,7 @@ include "templete.php";
             "ajax": "../main/admin/permissionsdata.php",
             "processing": true,
             "serverSide": true,
-            "pageLength": 25,
+            "pageLength": 15,
             "bJQueryUI": true,
             "order": [
                 [0, "desc"]

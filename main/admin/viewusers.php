@@ -5,7 +5,7 @@ ob_start();
 
 
 ?>
-<div class="container px-6 mx-auto grid">
+<div class="container px-6 mx-auto grid mobile-bottom-margin">
 
     <div class="flex" style="align-items: center;justify-content:space-between">
         <h3>Users List</h3>
@@ -69,7 +69,7 @@ include "templete.php";
             "ajax": "../main/admin/usersdata.php",
             "processing": true,
             "serverSide": true,
-            "pageLength": 25,
+            "pageLength": 15,
             "paging": true,
             "lengthChange": false,
             "searching": false,

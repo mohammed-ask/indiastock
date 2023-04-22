@@ -19,8 +19,8 @@ ob_start();
             </div>
             <div class="col-lg-4 ms-auto align-self-center mt-3">
                 <ul class="list-unstyled personal-detail mb-0">
-                    <li class=""><i style="margin-right: 5px !important;" class="fa-solid fa-phone mr-3 text-secondary font-16 align-middle"></i> <b> Phone </b> : +91 <?= $rowprofile['mobile'] ?></li>
-                    <li class="mt-2"><i style="margin-right: 5px !important;" class="fa-solid fa-envelope text-secondary font-16 align-middle mr-3"></i> <b> Email </b> : <?= $rowprofile['email'] ?></li>
+                    <li class=""><i style="margin-right: 5px !important; color: #00aaaa !important;" class="fa-solid fa-phone mr-3 text-secondary font-16 align-middle"></i> <b> Phone </b> : +91 <?= $rowprofile['mobile'] ?></li>
+                    <li class="mt-2"><i style="margin-right: 5px !important; color: #00aaaa !important;" class="fa-solid fa-envelope text-secondary font-16 align-middle mr-3"></i> <b> Email </b> : <?= $rowprofile['email'] ?></li>
                 </ul>
             </div><!--end col-->
 

@@ -68,7 +68,7 @@ include "templete.php";
             "ajax": "../main/admin/rolesdata.php",
             "processing": true,
             "serverSide": true,
-            "pageLength": 25,
+            "pageLength": 10,
             "paging": true,
             "lengthChange": false,
             "searching": false,

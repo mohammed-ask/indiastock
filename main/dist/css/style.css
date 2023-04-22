@@ -449,3 +449,14 @@ color: #fff !important;
 
   margin-bottom: 5%;
 }
+
+
+.no-border{
+
+  border: none !important;
+}
+
+.modal-footer {
+
+  border: none;
+}

@@ -24,7 +24,7 @@ include "main/session.php";
 
     </ul>
     <div class="modal-body">
-        <button style="background-color: #0b51b7; color: #fff;" class="btn w-100 ">Send Withdrawal Request</button>
+        <button style="background-color: #057c7c; color: #fff;" class="btn w-100 ">Send Withdrawal Request</button>
     </div>
     <div id="resultid"></div>
 </form>

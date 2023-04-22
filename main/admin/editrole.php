@@ -15,9 +15,7 @@ $perm = explode(",", $row['permissions']);
                 <div class="card-tools">
                     <a href="viewrole" class="px-4 py-2  text-sm  bg-white  rounded-lg border border-gray" data-card-widget="">
                         << Back </a>
-                            <button type="button" class="btn btn-tool" data-card-widget="">
-                                <i class="fas fa-times"></i>
-                            </button>
+                           
                 </div>
             </div>
             <form id="addrole" onsubmit="event.preventDefault();sendForm('id', '<?php echo $role_id; ?>', 'updaterole', 'resultid', 'addrole');return 0;">

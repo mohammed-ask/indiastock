@@ -54,7 +54,7 @@ include "templete.php";
             "ajax": "../main/admin/allinvestmentdata.php",
             "processing": true,
             "serverSide": true,
-            "pageLength": 25,
+            "pageLength": 15,
             "paging": true,
             "lengthChange": false,
             "searching": false,

@@ -6,7 +6,7 @@ ob_start();
 
 ?>
 
-<div class="container px-6 mx-auto grid">
+<div class="container px-6 mx-auto grid mobile-bottom-margin">
 
     <!-- New Table -->
 
@@ -56,7 +56,7 @@ include "main/admin/templete.php";
             "ajax": "../main/admin/logindata.php",
             "processing": true,
             "serverSide": true,
-            "pageLength": 25,
+            "pageLength": 15,
             "paging": true,
             "lengthChange": false,
             "searching": false,

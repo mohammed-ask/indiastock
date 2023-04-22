@@ -355,7 +355,7 @@ video {
     border-color: #00aaaa;
     border-width: 1px;
     border-radius: .25rem;
-    padding: .5rem .75rem;
+    padding: .35rem .75rem;
     font-size: 1rem;
     line-height: 1.5
 }
@@ -751,7 +751,7 @@ print and (-ms-high-contrast:none) {
 .theme-dark .dark\:bg-gray-800 {
     --bg-opacity: 1;
     background-color: #1a1c23;
-    background-color: rgba(26, 28, 35, var(--bg-opacity))
+    background-color: rgba(26, 28, 35, var(--bg-opacity)) !important;
 }
 
 .theme-dark .dark\:bg-gray-900 {
@@ -1753,7 +1753,7 @@ print and (-ms-high-contrast:none) {
 .theme-dark .dark\:text-gray-200 {
     --text-opacity: 1;
     color: #e5e7eb;
-    color: rgba(229, 231, 235, var(--text-opacity))
+    color: rgba(229, 231, 235, var(--text-opacity)) !important;
 }
 
 .theme-dark .dark\:text-gray-300 {
@@ -2045,7 +2045,7 @@ print and (-ms-high-contrast:none) {
     }
 
     .sm\:max-w-xl {
-        max-width: 36rem
+        max-width: 24rem
     }
 
     .sm\:p-12 {
