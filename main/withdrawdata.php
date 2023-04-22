@@ -34,23 +34,24 @@ if ((isset($_GET['columns'][0]["search"]["value"])) && (!empty($_GET['columns'][
 if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][1]["search"]["value"]))) {
     $search .= " and withdrawalrequests.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
-$return['recordsTotal'] = $obj->selectfieldwhere("withdrawalrequests", "count(withdrawalrequests.id)", "status = 1 and userid = $employeeid");
-$return['recordsFiltered'] = $obj->selectfieldwhere("withdrawalrequests", "count(withdrawalrequests.id)", "status = 1 and userid = $employeeid $search ");
+$return['recordsTotal'] = $obj->selectfieldwhere("withdrawalrequests", "count(withdrawalrequests.id)", "status in (0,1) and userid = $employeeid");
+$return['recordsFiltered'] = $obj->selectfieldwhere("withdrawalrequests", "count(withdrawalrequests.id)", "status in (0,1) and userid = $employeeid $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "withdrawalrequests",
     "*",
-    "status = 1 and userid = $employeeid $search $order limit $start, $limit"
+    "status in (0,1) and userid = $employeeid $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
 while ($row = $obj->fetch_assoc($result)) {
     $n = array();
     $n[] = $i;
-    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d/m/Y");
-    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i:s");
+    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y");
+    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i");
     $n[] = 'TR ID';
     $n[] = $row['amount'];
+    $n[] = $row['status'] === '0' ? '<strong class="text-warning">Pending</strong>' : '<strong class="text-success">Completed</strong>';
     $data[] = $n;
 
     $i++;

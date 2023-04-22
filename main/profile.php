@@ -110,7 +110,7 @@ ob_start();
                                 </span>
                                 <div class="profile-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
                                     <p class="profile-tooltiptext">If you keep it turned on, your stocks bought today will be converted to holdings. However, if you turn it off, your today's stocks will be sold at the market close time.</p>
-</div>
+                                </div>
                             </div>
                             <div style="margin-left:3px" class="row row-cols-lg-auto g-3 align-items-center">
                                 <label class="switch">

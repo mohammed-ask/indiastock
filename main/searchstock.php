@@ -149,7 +149,7 @@ include "main/session.php";
         },
     })
 
-    function addstock(exch, stockname, type) {
+    function addstock(exch, stockname, type, expiry, optiontype, strikerate, lotsize, token) {
         event.preventDefault();
         $.ajax({
             type: "POST",
@@ -158,6 +158,11 @@ include "main/session.php";
                 exch: exch,
                 stockname: stockname,
                 exchtype: type,
+                expiry: expiry,
+                optiontype: optiontype,
+                strikerate: strikerate,
+                lotsize: lotsize,
+                token: token,
             },
             success: function(response) {
                 console.log(response)

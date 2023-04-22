@@ -68,12 +68,12 @@ $totalprofit = empty($totalprofit) ? 0 : $totalprofit
                     <div class="col text-center">
                         <?php //Current Value 
                         ?>
-                        <span class="h5">₹<?= round($investmentamount + $stockamount) ?></span>
+                        <span class="h5">₹<?= round($investmentamount) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Current Value</h6>
-                        <h6 class="text-uppercase font-10 text-muted mt-2 m-0 portfolio-cbody"><span style="display: inline-flex;"><span>Net Amount</span> <span><span class="profile-tooltip mt-0"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
-                                    <p class="text-capitalize profile-tooltiptext">The net amount, including your profit & loss, available for withdrawal at any time.</p>
-</span></span></span></h6>
-                        
+                        <h6 class="text-uppercase font-10 text-muted mt-2 m-0 portfolio-cbody"><span style="display: inline-flex;justify-content:center;align-items:center"><span>Net Amount</span> <span><span class="profile-tooltip mt-0"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
+                                        <p class="text-capitalize profile-tooltiptext">The net amount, including your profit & loss, available for withdrawal at any time.</p>
+                                    </span></span></span></h6>
+
 
                     </div><!--end col-->
                 </div> <!-- end row -->
@@ -293,10 +293,10 @@ include "main/templete.php"; ?>
         if ($hour >= 9 && $hour < 16) { ?>
             setInterval(function() {
                 table.ajax.reload();
-            }, 10000);
+            }, <?= $apiinterval ?>);
             setInterval(function() {
                 table2.ajax.reload();
-            }, 10000);
+            }, <?= $apiinterval ?>);
     <?php }
     } ?>
 

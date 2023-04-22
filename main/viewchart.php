@@ -61,7 +61,7 @@ foreach ($data as $row) {
         </div>
         <div id="container"></div>
         <?php if (empty($chartdata)) { ?>
-            <div class='alert alert-danger'>Something Went Wrong in Chart.</div>
+            <div class='alert alert-danger'>Due to a technical issue with the NSE server, the chart is currently unavailable</div>
         <?php } ?>
     </div>
 </div>
@@ -73,10 +73,14 @@ $pagetitle = "Stock Chart: PMS-Equity";
 $contentheader = "";
 $pageheader = "";
 include "main/templete.php"; ?>
+<script>
+    console.log('dadad')
+</script>
 <script src="main/dist/js/highcharts.js?ver=<?php echo time(); ?>"></script>
 <script id="tradehighchart"></script>
 <script>
     var chartData = <?php echo json_encode($chart_data); ?>;
+    console.log(chartData, 'cd')
     Highcharts.chart('container', {
         title: {
             text: 'Stock Prices'
@@ -115,9 +119,9 @@ include "main/templete.php"; ?>
                 startdate: startdate,
                 enddate: enddate,
                 interval: interval,
-                scriptcode: <?= $stockdata['ScripCode'] ?>,
-                exch: '<?= $stockdata['Exchange'] ?>',
-                type: '<?= $stockdata['ExchangeType'] ?>',
+                scriptcode: '<?= isset($stockdata['ScripCode']) ? $stockdata['ScripCode'] : null ?>',
+                exch: '<?= isset($stockdata['Exchange']) ? $stockdata['Exchange'] : null ?>',
+                type: '<?= isset($stockdata['ExchangeType']) ? $stockdata['ExchangeType'] : null ?>',
             },
             function(data) {
                 $("#tradehighchart").text(data)
@@ -136,9 +140,9 @@ include "main/templete.php"; ?>
                 startdate: startdate,
                 enddate: enddate,
                 interval: interval,
-                scriptcode: <?= $stockdata['ScripCode'] ?>,
-                exch: '<?= $stockdata['Exchange'] ?>',
-                type: '<?= $stockdata['ExchangeType'] ?>',
+                scriptcode: '<?= isset($stockdata['ScripCode']) ? $stockdata['ScripCode'] : null ?>',
+                exch: '<?= isset($stockdata['Exchange']) ? $stockdata['Exchange'] : null ?>',
+                type: '<?= isset($stockdata['ExchangeType']) ? $stockdata['ExchangeType'] : null ?>',
             },
             function(data) {
                 $("#tradehighchart").text(data)
@@ -157,9 +161,9 @@ include "main/templete.php"; ?>
                 startdate: startdate,
                 enddate: enddate,
                 interval: interval,
-                scriptcode: <?= $stockdata['ScripCode'] ?>,
-                exch: '<?= $stockdata['Exchange'] ?>',
-                type: '<?= $stockdata['ExchangeType'] ?>',
+                scriptcode: '<?= isset($stockdata['ScripCode']) ? $stockdata['ScripCode'] : null ?>',
+                exch: '<?= isset($stockdata['Exchange']) ? $stockdata['Exchange'] : null ?>',
+                type: '<?= isset($stockdata['ExchangeType']) ? $stockdata['ExchangeType'] : null ?>',
             },
             function(data) {
                 $("#tradehighchart").text(data)

@@ -1447,77 +1447,49 @@ class db
 
     function searchstockapiwithtoken($symbol, $exchtype, $exch)
     {
-        $accesstoken = $this->selectfieldwhere('token', 'accesstoken', 'status=1');
-        $url = "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/V1/MarketDepth";
-        $authorization = "Bearer $accesstoken";
-        $contentType = "application/json";
+        try {
+            $accesstoken = $this->selectfieldwhere('token', 'accesstoken', 'status=1');
+            $url = "https://Openapi.5paisa.com/VendorsAPI/Service1.svc/V1/MarketDepth";
+            $authorization = "Bearer $accesstoken";
+            $contentType = "application/json";
 
-        $subArray = array(
-            ["Exchange" => $exch, "ExchangeType" => $exchtype, "Symbol" => "$symbol"],
-        );
-        $data = array(
-            "head" => array(
-                "key" => KEY
-            ),
-            "body" => array(
-                "ClientCode" => CLIENT_CODE,
-                "Count" => "1",
-                "Data" => $subArray
-            )
-        );
+            $subArray = array(
+                ["Exchange" => $exch, "ExchangeType" => $exchtype, "Symbol" => "$symbol"],
+            );
+            $data = array(
+                "head" => array(
+                    "key" => KEY
+                ),
+                "body" => array(
+                    "ClientCode" => CLIENT_CODE,
+                    "Count" => "1",
+                    "Data" => $subArray
+                )
+            );
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            "Authorization: " . $authorization,
-            "Content-Type: " . $contentType
-        ));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                "Authorization: " . $authorization,
+                "Content-Type: " . $contentType
+            ));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 
-        $res = curl_exec($ch);
-        curl_close($ch);
-        $response = json_decode($res, true);
-        // echo "<pre>";
-        // print_r($response);
-        // echo "</pre>";
-        return $response['body']['Data'];
+            $res = curl_exec($ch);
+            curl_close($ch);
+            $response = json_decode($res, true);
+            if (isset($response['body']['Data'])) {
+                return $response['body']['Data'];
+            } else {
+                throw new Exception('Error fetching candle data:');
+            }
+        } catch (Exception $e) {
+            // Log or handle the error as required
+            return $e->getMessage();
+        }
     }
-
-
-    // function getrequesttoken()
-    // {
-    //     $url = 'https://dev-openapi.5paisa.com/WebVendorLogin/VLogin/Index?VendorKey=' . KEY . '&ResponseURL=https://google.com';
-
-    //     $ch = curl_init();
-    //     curl_setopt($ch, CURLOPT_URL, $url);
-    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    //     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    //     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-    //     curl_setopt($ch, CURLOPT_VERBOSE, true);
-    //     curl_setopt($ch, CURLOPT_HEADER, true);
-
-    //     $response = curl_exec($ch);
-
-    //     if ($response === false) {
-    //         echo 'Error: ' . curl_error($ch);
-    //     } else {
-    //         $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
-    //         $header = substr($response, 0, $header_size);
-    //         $body = substr($response, $header_size);
-
-    //         if (strpos($header, '200 OK') !== false) {
-    //             preg_match('/access_token=(.*?)&/', $body, $matches);
-    //             $access_token = isset($matches[1]) ? $matches[1] : '';
-    //             echo 'Access Token: ' . $access_token;
-    //         } else {
-    //             echo 'Error: ' . $header;
-    //         }
-    //     }
-
-    //     curl_close($ch);
-    // }
 
     function getaccesstoken()
     {
@@ -1662,13 +1634,13 @@ class db
     {
 
         $headArry = array(
-            'appName' => APP_NAME,
+            'appName' => APP_NAME2,
             'appVer' => APP_VERSION,
-            'key' => KEY,
+            'key' => KEY2,
             'osName' => OS_NAME,
             'requestCode' => '5PMF',
-            'userId' => USER_ID,
-            'password' => PASSWORD,
+            'userId' => USER_ID2,
+            'password' => PASSWORD2,
         );
 
         $subArray = $userstock;
@@ -1704,43 +1676,6 @@ class db
         $result = json_decode($result, true);
         return $result['body']['Data'];
     }
-
-    // function getmarketdata()
-    // {
-    //     $url = 'https://openapi.5paisa.com/VendorsAPI/Service1.svc/MarketFeed'; // Replace with the actual URL of the API endpoint
-    //     $headArry = array(
-    //         'appName' => APP_NAME,
-    //         'appVer' => APP_VERSION,
-    //         'key' => KEY,
-    //         'osName' => OS_NAME,
-    //         'requestCode' => '5PMF',
-    //         'userId' => USER_ID,
-    //         'password' => PASSWORD,
-    //     );
-    //     $data = array("head" => $headArry, "body" => array(
-    //         "Method" => "MarketFeedV3",
-    //         "Operation" => "Subscribe",
-    //         "ClientCode" => CLIENT_CODE,
-    //         "MarketFeedData" => array(
-    //             ["Exch" => "M", "ExchType" => "D", "Symbol" => "SILVERM 19 Apr 2023 CE 57250.00", "Expiry" => "", "StrikePrice" => "57250", "OptionType" => ""]
-    //         )
-    //     ));
-    //     $data_string = json_encode($data);
-
-    //     $ch = curl_init($url);
-    //     curl_setopt($ch, CURLOPT_POST, true);
-    //     curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    //     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    //         'Content-Type: application/json',
-    //     ));
-
-    //     $response = curl_exec($ch);
-    //     curl_close($ch);
-    //     // Do something with the response, e.g. parse it as JSON
-    //     $json_response = json_decode($response);
-    //     print_r($json_response);
-    // }
 
     function getcftokenfp()
     {
