@@ -249,7 +249,7 @@ class db
         );
 
         $result = curl_exec($ch);
-        print_r($result);
+        // print_r($result);
         $result = json_decode($result, true);
         return $result['body']['Data'];
     }
@@ -278,9 +278,7 @@ $todayopentradeid = $obj->selectfieldwhere(
 if (!empty($todayopentradeid)) {
     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "status = 1 and id in (" . $todayopentradeid . ")");
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
-    print_r($rowfetch);
     $stockdata = $obj->fivepaisaapi($rowfetch);
-    var_dump($stockdata)
 }
 $result = $obj->selectextrawhereupdate(
     "stocktransaction inner join users on users.id = stocktransaction.userid",
