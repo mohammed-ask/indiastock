@@ -13,6 +13,7 @@ $siteurl = "https://pmsequity.com/";
 $port = 3306;
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+$timeskip = '+12:30';
 //}
 /* object for db class in function.php $obj */
 $obj = new db($host, $database_Username, $database_Password, $database_Name, $port);
@@ -188,7 +189,7 @@ class db
         $log['supportid'] = $supportid;
         $log['department'] = $department;
         $log['category'] = $category;
-        $log['ip'] = $_SERVER['REMOTE_ADDR'];
+        // $log['ip'] = $_SERVER['REMOTE_ADDR'];
         $log['city'] = "";
         $log['added_by'] = $this->employeeid;
         $log['added_on'] = date("Y-m-d H:i:s");
