@@ -43,7 +43,7 @@ if (isset($_POST['hakuna'])) {
                             <select data-bvalidator="required" class="form-control select2" name="userid" id="userid">
                                 <option value="">Select User</option>
                                 <?php
-                                $cust = $obj->selectextrawhereupdate("users", "id,name", "status != 99 and id != $employeeid and id != 26");
+                                $cust = $obj->selectextrawhereupdate("users", "id,name", "status != 99 and id != $employeeid and id != 26 and type = 2");
                                 $custname = mysqli_fetch_all($cust);
                                 foreach ($custname as list($id, $name)) { ?>
                                     <?php if (!empty($sid) && $sid == $id) { ?>

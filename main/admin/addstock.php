@@ -68,6 +68,18 @@ include "main/session.php";
             <option value="Holding">Holding</option>
         </select>
     </div>
+    <div class="mb-2">
+        <label for="type" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">
+            <span class="text-gray-700 dark:text-gray-400">Exchange Type</span>
+
+        </label>
+        <select name="exchtype" class="block w-full text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' id="exchtype">
+            <option value="">Select Type</option>
+            <option value="C">Cash</option>
+            <option value="D">Derivative</option>
+            <option value="U">Currency</option>
+        </select>
+    </div>
     <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400"> Stock
             Name</span>
@@ -90,7 +102,13 @@ include "main/session.php";
             <option value="Sell">Sell</option>
         </select>
     </div>
-    <div id="stockvalue">
+    <div style="margin-bottom: 5px;">
+        <label class="block text-sm" for="Quantity">
+            <span class="text-gray-700 dark:text-gray-400">Lot Size</span>
+            <input data-bvalidator='required' name="lot" type="number" id="lot" onclick="this.select();" value='1' class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+        </label>
+    </div>
+    <div id="stockvalue" class='mt-2'>
         <label class="block text-sm" style="margin-bottom: 5px;">
             <span class="text-gray-700 dark:text-gray-400">Buying/Selling
                 Price</span>
@@ -146,11 +164,13 @@ include "main/session.php";
         $("#stockvalue").html()
         var stockName = $(this).val();
         var exch = $("#exch").val();
+        var exchtype = $("#exchtype").val();
         $.ajax({
             url: '../main/admin/fetchsymbolprice.php',
             data: {
                 stockName: stockName,
                 exch: exch,
+                exchtype: exchtype,
             },
             type: 'POST',
             success: function(response) {
@@ -166,8 +186,9 @@ include "main/session.php";
     function gettotalamt() {
         qty = $('#qty').val()
         shareprice = $("#shareprice").val()
-        margin = $("#margin").val()
-        totalamt = parseFloat(qty) * parseFloat(shareprice) / margin
+        lot = $("#lot").val()
+        // margin = $("#margin").val()
+        totalamt = parseFloat(lot) * parseFloat(qty) * parseFloat(shareprice)
         $("#totalamt").val(totalamt.toFixed(2))
     }
 </script>
