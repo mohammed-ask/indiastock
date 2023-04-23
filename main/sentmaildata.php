@@ -34,8 +34,8 @@ if ((isset($_GET['columns'][0]["search"]["value"])) && (!empty($_GET['columns'][
 if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][1]["search"]["value"]))) {
     $search .= " and mail.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
-$return['recordsTotal'] = $obj->selectfieldwhere("mail", "count(mail.id)", "status = 1 and receiverid = $id");
-$return['recordsFiltered'] = $obj->selectfieldwhere("mail", "count(mail.id)", "status = 1 and receiverid = $id $search ");
+$return['recordsTotal'] = $obj->selectfieldwhere("mail", "count(mail.id)", "status = 1 and senderid = $id");
+$return['recordsFiltered'] = $obj->selectfieldwhere("mail", "count(mail.id)", "status = 1 and senderid = $id $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "mail",
