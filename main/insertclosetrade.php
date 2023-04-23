@@ -54,7 +54,7 @@ if ($close > 0) {
         if ($xx['profitamount'] >= 0) {
             $useramt = $_POST['amountpaid'] - $borrowedamt;
         } else {
-            $useramt = $_POST['totalamount'] - $borrowedamt - $xx['profitamount'];
+            $useramt = $_POST['amountpaid'] - $borrowedamt - $xx['profitamount'];
         }
         $useramount = $useramt + $xx['profitamount'];
         $kk['investmentamount'] = $investmentamount + $useramount;
