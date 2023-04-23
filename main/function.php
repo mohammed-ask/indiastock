@@ -1493,23 +1493,43 @@ class db
 
     function marketstatus()
     {
-        $url = 'https://www.nseindia.com/api/marketStatus';
+        try {
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        // curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
-        $response = curl_exec($ch);
-        var_dump($response);
-        $result = json_decode($response, true);
-        // var_dump($result);
-        if ($result['marketState'][0]['marketStatus'] == 'Open') {
-            return 'Market is open';
-        } else {
-            return 'Market is closed';
+            $accesstoken = $this->selectfieldwhere('token', 'accesstoken', 'status=1');
+            $url = 'https://Openapi.5paisa.com/VendorsAPI/Service1.svc/MarketStatus';
+
+            $headers = array(
+                "Authorization: bearer $accesstoken",
+                'Content-Type: application/json'
+            );
+
+            $data = array(
+                'head' => array(
+                    'key' => KEY
+                ),
+                'body' => array(
+                    'ClientCode' => CLIENT_CODE
+                )
+            );
+
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+            $res = curl_exec($ch);
+            curl_close($ch);
+            $response = json_decode($res, true);
+            if (isset($response['body']['Data'])) {
+                return $response['body']['Data'][0]['MarketStatus'];
+            } else {
+                throw new Exception('Error fetching:');
+            }
+        } catch (Exception $e) {
+            // Log or handle the error as required
+            return $e->getMessage();
         }
-
-        curl_close($ch);
     }
 
     function getaccesstoken()

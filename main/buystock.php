@@ -1,7 +1,7 @@
 <?php
 include "main/session.php";
 $mrkt = $obj->marketstatus();
-$mrkt = 'Market is open';
+// $mrkt = 'Open';
 $symbol = $_GET['hakuna'];
 $exchange = $_GET['what'];
 $id = $obj->selectfieldwhere("userstocks", "id", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1");
@@ -58,7 +58,7 @@ $stockdata = $stockdata[0];
                 </label>
             </div>
         </div> -->
-        <button <?php echo $investmentamount > 0 && $mrkt === 'Market is open' ? null : 'disabled'; ?> class="btn btn-success w-100 my-3" onclick="<?php echo $investmentamount > 0 && $mrkt === 'Market is open' ? 'event.preventDefault();sendForm(\'\', \'\', \'insertbuystock\', \'resultid\', \'buystock\')' : ''; ?>">BUY</button>
+        <button <?php echo $investmentamount > 0 && $mrkt === 'Open' ? null : 'disabled'; ?> class="btn btn-success w-100 my-3" onclick="<?php echo $investmentamount > 0 && $mrkt === 'Open' ? 'event.preventDefault();sendForm(\'\', \'\', \'insertbuystock\', \'resultid\', \'buystock\')' : ''; ?>">BUY</button>
         <div id="resultid"></div>
     </form>
     <div class="mt-3">
