@@ -1,10 +1,6 @@
 <?php
 include 'main/session.php';
-// $result = $obj->selectextrawhereupdate(
-//     "stocktransaction inner join users on users.id = stocktransaction.userid",
-//     "*",
-//     "stocktransaction.status = 0 and tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = curdate() and users.carryforward='Yes'"
-// );
+$obj->saveactivity("Cron Run", "", 0, 0, "User", "Cron Run");
 
 // Carry forward Share
 $xx['type'] = 'Holding';
