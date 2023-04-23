@@ -5,6 +5,12 @@ include 'main/session.php';
 // echo $obj->getcandledata();
 $timezone = date_default_timezone_get();
 echo "Server timezone: $timezone";
+$result = $obj->selectextrawhereupdate(
+    "stocktransaction",
+    "*",
+    "status = 0 and userid = $id and tradestatus='Open' and date(added_on) = curdate() and stockid != '' and stockid is not null $search $order limit $start, $limit"
+);
+print_r(mysqli_fetch_all());
 die;
 $rowfetch = array(
     array(
