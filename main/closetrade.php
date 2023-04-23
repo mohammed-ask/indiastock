@@ -55,7 +55,17 @@ $stockdata = $stockdata[0];
     <div class="row">
         <div class="col">
             <small class="text-muted d-block">Profit/Loss</small>
-            <small id="reqfund">₹<?= ($stockdata['LastRate'] - $rowtran['price']) * $rowtran['qty'] ?></small>
+            <?php
+            $profitloss = ($stockdata['LastRate'] - $rowtran['price']) * $rowtran['qty'];
+            if ($rowtran['trademethod'] === 'Sell') {
+                if ($profitloss <= 0) {
+                    $profitloss = abs($profitloss);
+                } else {
+                    $profitloss = -$profitloss;
+                }
+            }
+            ?>
+            <small id="reqfund">₹<?= round($profitloss, 2) ?></small>
         </div>
         <!-- <div class="col-auto">
             <small class="text-muted d-block">Available Fund</small>

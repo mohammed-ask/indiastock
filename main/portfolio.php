@@ -1,8 +1,12 @@
 <?php
 include "session.php";
 $todayprofit = $obj->selectfieldwhere("closetradedetail", "sum(profitamount)", "date(added_on) = curdate() and userid=$employeeid and status = 1");
+$todayprofit = empty($todayprofit) ? 0 : $todayprofit;
 $completedtotalprofitloss = $obj->selectfieldwhere("closetradedetail", "sum(profitamount)", "userid=$employeeid and status = 1");
-$totalamount = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "userid=$employeeid and status = 0 and tradestatus = 'Open'");
+
+// Invested Amount
+$investamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "userid=$employeeid and status = 0 and tradestatus = 'Open'");
+$investamt = empty($investamt) ? 0 : $investamt;
 
 $totalstocktraded = $obj->selectfieldwhere(
     "stocktransaction",
@@ -41,10 +45,18 @@ while ($row = $obj->fetch_assoc($result)) {
 
     // Adding Profit on Total Share
     $profitloss = ($row['price'] - $pricedata[$keys]['LastRate']) * $row['qty'];
+    if ($row['trademethod'] === 'Sell') {
+        if ($profitloss <= 0) {
+            $profitloss = abs($profitloss);
+        } else {
+            $profitloss = -$profitloss;
+        }
+    }
     $stockamount = $stockamount + $profitloss;
     $totalprofit = $totalprofit + $profitloss;
 }
-$totalprofit = empty($totalprofit) ? 0 : $totalprofit
+$totalprofit = empty($totalprofit) ? 0 : $totalprofit;
+$totalprofitprcnt = $totalprofit * 100 / ($investmentamount - $totalprofit);
 ?>
 <div class="row">
     <div class="col-md-6 col-lg-3">
@@ -52,7 +64,7 @@ $totalprofit = empty($totalprofit) ? 0 : $totalprofit
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col text-center">
-                        <span class="h5">₹<?= round($totalamount * $usermargin, 2) ?></span>
+                        <span class="h5">₹<?= round($investamt, 2) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Amount Invested</h6>
 
                         <h6 class="font-10 text-muted mt-2 m-0 portfolio-cbody">LIMIT-<span><?= $usermargin ?>x</span></h6>
@@ -85,7 +97,7 @@ $totalprofit = empty($totalprofit) ? 0 : $totalprofit
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col text-center">
-                        <span class="h5 text-success">₹<?= $todayprofit ?></span>
+                        <span <?= $todayprofit > 0 ? "class='h5 text-success'" : "class='h5 text-danger'" ?>>₹<?= round($todayprofit, 2) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Day's Profit/Loss</h6>
                         <h6 class="text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success">0<span> % </span></h6>
                     </div><!--end col-->
@@ -98,9 +110,9 @@ $totalprofit = empty($totalprofit) ? 0 : $totalprofit
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col text-center">
-                        <span class="h5 text-danger">₹<?= round($totalprofit) ?></span>
+                        <span <?= $totalprofit > 0 ? "class='h5 text-success'" : "class='h5 text-danger'" ?>>₹<?= round($totalprofit) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Profit/Loss</h6>
-                        <h6 class="text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger">0<span> % </span></h6>
+                        <h6 <?= $totalprofit > 0 ? "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'" : "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger'" ?>><?= round($totalprofitprcnt, 2) ?><span> % </span></h6>
                     </div><!--end col-->
                 </div> <!-- end row -->
             </div><!--end card-body-->
@@ -148,6 +160,7 @@ $totalprofit = empty($totalprofit) ? 0 : $totalprofit
                                         <th>Total Amount</th>
                                         <!-- <th>Paid By User</th> -->
                                         <th>Buy/Sell</th>
+                                        <th>Current Rate</th>
                                         <th>% Day's P/L</th>
                                         <th>Day's P/L</th>
                                         <th>Action</th>
@@ -170,6 +183,7 @@ $totalprofit = empty($totalprofit) ? 0 : $totalprofit
                                         <th>Qty.</th>
                                         <th>Price</th>
                                         <th>Total Amount</th>
+                                        <th>Current Rate</th>
                                         <!-- <th>Paid By User</th> -->
                                         <th>Buy/Sell</th>
                                         <th>%P/L</th>

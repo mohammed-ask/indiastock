@@ -75,15 +75,15 @@ foreach ($stockdata as $data) { ?>
                     </div> -->
                     <div class="col-6 col-md-4 border-end">
                         <p class="mb-1 text-muted">High</p>
-                        <span>₹<?= $data['High'] ?></span>
+                        <span><?= $currencysymbol ?><?= $data['High'] ?></span>
                     </div>
                     <div class="col-6 col-md-4 border-end">
                         <p class="mb-1 text-muted">Low</p>
-                        <span>₹<?= $data['Low'] ?></span>
+                        <span><?= $currencysymbol ?><?= $data['Low'] ?></span>
                     </div>
                     <div class="col-6 col-md-4">
                         <p class="mb-1 text-muted">Close</p>
-                        <span>₹<?= $data['PClose'] ?></span>
+                        <span><?= $currencysymbol ?><?= $data['PClose'] ?></span>
                     </div>
                 </div>
 

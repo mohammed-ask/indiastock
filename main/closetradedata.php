@@ -56,8 +56,25 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['qty'] * $row['price'];
     // $n[] = round($row['totalamount'], 2);
     $n[] = $row['trademethod'];
-    $n[] =  round((($row['cprice']  - $row['price']) * $row['qty']) / ($row['price'] * $row['qty']) * 100, 2);
-    $n[] = round(($row['cprice'] - $row['price']) * $row['qty'], 2);
+    $profitprcnt = round((($row['cprice']  - $row['price']) * $row['qty']) / ($row['price'] * $row['qty']) * 100, 2);
+    if ($row['trademethod'] === 'Sell') {
+        if ($profitprcnt <= 0) {
+            $profitprcnt = abs($profitprcnt);
+        } else {
+            $profitprcnt = -$profitprcnt;
+        }
+    }
+    $color = $profitprcnt >= 0 ? "text-success" : 'text-danger';
+    $n[] = "<strong class='$color'>" . $profitprcnt . "</strong>";
+    $profitloss =  round(($row['cprice'] - $row['price']) * $row['qty'], 2);
+    if ($row['trademethod'] === 'Sell') {
+        if ($profitloss <= 0) {
+            $profitloss = abs($profitloss);
+        } else {
+            $profitloss = -$profitloss;
+        }
+    }
+    $n[] = "<strong class='$color'>" . $currencysymbol . $profitloss . "</strong>";
     $n[] = '<strong class="text-warning">Closed<strong>';
     $data[] = $n;
     $i++;

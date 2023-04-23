@@ -30,7 +30,7 @@ if (!empty($todayopentradeid)) {
 }
 $result = $obj->selectextrawhereupdate(
     "stocktransaction inner join users on users.id = stocktransaction.userid",
-    "stockid,symbol,exchange,qty,price,userid,stocktransaction.id,stocktransaction.type,stocktransaction.limit,totalamount,users.investmentamount",
+    "stockid,symbol,exchange,qty,price,userid,stocktransaction.id,stocktransaction.type,stocktransaction.limit,totalamount,users.investmentamount,borrowedamt,borrowedprcnt",
     "stocktransaction.status = 0 and  tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = curdate() and users.carryforward='No'"
 );
 while ($row = $obj->fetch_assoc($result)) {
@@ -46,24 +46,55 @@ while ($row = $obj->fetch_assoc($result)) {
     $xc['added_on'] = date("Y-m-d H:i:s");
     $xc['updated_on'] = date("Y-m-d H:i:s");
     $xc['status'] = 1;
-    $xc['stockid'] = $row['stockid'];
-    $xc['symbol'] = $symbol;
-    $xc['exchange'] = $excg;
+    // $xc['symbol'] = $symbol;
+    // $xc['exchange'] = $excg;
     $xc['qty'] = $row['qty'];
-    $xc['closeprice'] = $currentrate;
-    $xc['totalamount'] = ($currentrate / $row['limit']) * $row['qty'];
-    $xc['profitamount'] = $row['qty'] * ($currentrate - $row['price']);
+    $xc['price'] = $currentrate;
+    if ($row['borrowedamt'] > 0) {
+        $profitAndLoss = $row['qty'] * ($currentrate - $row['price']);
+        if ($row['trademethod'] === 'Sell') {
+            if ($profitAndLoss <= 0) {
+                $profitAndLoss = abs($profitAndLoss);
+            } else {
+                $profitAndLoss = -$profitAndLoss;
+            }
+        }
+        if ($profitAndLoss >= 0) {
+            $custshare = 100 - $borrowedprcnt;
+            $xc['profitamount'] = round($profitAndLoss * $custshare / 100, 2);
+        } else {
+            $xc['profitamount'] = $profitAndLoss;
+        }
+    } else {
+        $xc['profitamount'] = $row['qty'] * ($currentrate - $row['price']);
+        if ($row['trademethod'] === 'Sell') {
+            if ($xc['profitamount'] <= 0) {
+                $xc['profitamount'] = abs($xc['profitamount']);
+            } else {
+                $xc['profitamount'] = -$xc['profitamount'];
+            }
+        }
+    }
+    // $xc['totalamount'] = ($currentrate / $row['limit']) * $row['qty'];
+    // $xc['profitamount'] = $row['qty'] * ($currentrate - $row['price']);
     $xc['userid'] = $row['userid'];
     $xc['tradeid'] = $row['id'];
-    $xc['type'] = $row['type'];
-    $xc['limit'] = $row['limit'];
-    $xc['tradestatus'] = '';
-    $close = $obj->insertnew("stocktransaction", $xc);
+    $xc['profitsettled'] = $xc['profitamount'] < 0 ? 1 : 0;
+    // $xc['type'] = $row['type'];
+    // $xc['limit'] = $row['limit'];
+    // $xc['tradestatus'] = '';
+    $close = $obj->insertnew("closetradedetail", $xc);
     if ($close > 0) {
         $yy["tradestatus"] = 'Close';
+        $yy['status'] = 1;
         $trade = $obj->update("stocktransaction", $yy, $xc['tradeid']);
         if ($trade > 0) {
-            $useramount = $row['totalamount'] + $xc['profitamount'];
+            if ($xc['profitamount'] >= 0) {
+                $useramt = $row['totalamount'] - $row['borrowedamt'];
+            } else {
+                $useramt = $row['totalamount'] - $borrowedamt - $xc['profitamount'];
+            }
+            $useramount = $useramt + $xc['profitamount'];
             $kk['investmentamount'] = $row['investmentamount'] + $useramount;
             $user = $obj->update("users", $kk, $row['userid']);
             if ($user > 0) {

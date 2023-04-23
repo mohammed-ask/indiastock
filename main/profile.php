@@ -9,7 +9,7 @@ ob_start();
             <div class="col-4 align-self-center">
                 <div class="media">
                     <div class="d-inline-block">
-                        <img src="<?= empty($avatarpath) ? 'main/images/user.jpeg' : $avatarpath ?>" alt="" class="thumb-lg rounded-circle">
+                        <img src="<?= empty($avatarpath) ? 'main/images/user.png' : $avatarpath ?>" alt="" class="thumb-lg rounded-circle">
                     </div>
                     <div class="media-body align-self-center ms-3">
                         <h5 class="fw-semibold mb-1 font-18"><?= $username ?></h5>
@@ -90,13 +90,13 @@ ob_start();
                                 </div> -->
 
                             </div>
-                            <h5 class="mt-3 font-13">Trade Mode</h5>
+                            <!-- <h5 class="mt-3 font-13">Trade Mode</h5>
                             <div class="form-check d-inline-block me-2">
                                 <input class="form-check-input" value="Holding" type="radio" name="trademode" id="trademode1" <?= $rowprofile['trademode'] == 'Holding' ? "checked" : "" ?>>
                                 <label class="form-check-label" for="trademode1">
                                     Holding
                                 </label>
-                            </div>
+                            </div> -->
                             <div class="form-check mb-2 d-inline-block">
                                 <input class="form-check-input" value="Intraday" type="radio" name="trademode" id="trademode2" <?= $rowprofile['trademode'] == 'Intraday' ? "checked" : "" ?>>
                                 <label class="form-check-label" for="trademode2">

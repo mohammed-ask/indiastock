@@ -1,5 +1,7 @@
 <?php
 include "main/session.php";
+$mrkt = $obj->marketstatus();
+$mrkt = 'Market is open';
 $symbol = $_GET['hakuna'];
 $exchange = $_GET['what'];
 $id = $obj->selectfieldwhere("userstocks", "id", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1");
@@ -38,7 +40,7 @@ $stockdata = $stockdata[0];
         <input type="hidden" name="totalamount" id="totalamount" value="<?= $usermargin > 0 ? $stockdata['LastRate'] / $usermargin : $stockdata['LastRate'] ?>">
         <div class="col-2">
             <label class="form-label" for="Quantity">Lot Size</label>
-            <input data-bvalidator='required' readonly name="lot" type="number" id="lot" onkeyup="sumfund()" onclick="this.select();" value="<?= $lot ?>" class="form-control form-control-sm">
+            <input data-bvalidator='required' readonly name="lot" type="number" id="lot" onclick="this.select();" value="<?= $lot ?>" class="form-control form-control-sm">
         </div>
         <div class="col-auto">
             <label class="form-label" for="Quantity">Quantity</label>
@@ -56,7 +58,7 @@ $stockdata = $stockdata[0];
                 </label>
             </div>
         </div> -->
-        <button <?php echo $investmentamount <= 0 ? 'disabled' : null; ?> class="btn btn-success w-100 my-3" onclick="<?php echo $investmentamount > 0 ? 'event.preventDefault();sendForm(\'\', \'\', \'insertbuystock\', \'resultid\', \'buystock\')' : ''; ?>">BUY</button>
+        <button <?php echo $investmentamount > 0 && $mrkt === 'Market is open' ? null : 'disabled'; ?> class="btn btn-success w-100 my-3" onclick="<?php echo $investmentamount > 0 && $mrkt === 'Market is open' ? 'event.preventDefault();sendForm(\'\', \'\', \'insertbuystock\', \'resultid\', \'buystock\')' : ''; ?>">BUY</button>
         <div id="resultid"></div>
     </form>
     <div class="mt-3">

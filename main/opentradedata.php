@@ -64,17 +64,35 @@ while ($row = $obj->fetch_assoc($result)) {
         }
     });
     $keys = array_keys($pricedata)[0];
-    $currentrate = $pricedata[$keys]['LastRate'];
+    $currentrate = 400; //$pricedata[$keys]['LastRate'];
     $n[] = $row['symbol'];
     $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y");
     $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i");
     $n[] = $row['qty'];
-    $n[] = $row['price'];
-    $n[] = round($row['qty'] * $row['price'], 2);
+    $n[] = $currencysymbol . $row['price'];
+    $n[] = $currencysymbol . round($row['qty'] * $row['price'], 2);
     // $n[] = round($row['totalamount'], 2);
     $n[] = $row['trademethod'];
-    $n[] = round((($currentrate  - $row['price']) * $row['qty']) / ($row['price'] * $row['qty']) * 100, 2);
-    $n[] = round(($currentrate - $row['price']) * $row['qty'], 2);
+    $n[] = $currencysymbol . $currentrate;
+    $profitprcnt = round((($currentrate  - $row['price']) * $row['qty']) / ($row['price'] * $row['qty']) * 100, 2);
+    if ($row['trademethod'] === 'Sell') {
+        if ($profitprcnt <= 0) {
+            $profitprcnt = abs($profitprcnt);
+        } else {
+            $profitprcnt = -$profitprcnt;
+        }
+    }
+    $color = $profitprcnt >= 0 ? "text-success" : 'text-danger';
+    $n[] = "<strong class='$color'>" . $profitprcnt . "</strong>";
+    $profitloss =  round(($currentrate - $row['price']) * $row['qty'], 2);
+    if ($row['trademethod'] === 'Sell') {
+        if ($profitloss <= 0) {
+            $profitloss = abs($profitloss);
+        } else {
+            $profitloss = -$profitloss;
+        }
+    }
+    $n[] = "<strong class='$color'>" . $currencysymbol . $profitloss . "</strong>";
     if ($row['trademethod'] === 'Buy') {
         $n[] =  "<button class='btn btn-sm btn-danger' data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal(\"" . $row['id'] . "\", \"closetrade\", \"Buy\", \"Close Trade\")'>S</button>";
     } else if ($row['trademethod'] === 'Sell') {

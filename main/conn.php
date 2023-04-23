@@ -93,10 +93,17 @@ $redirecturl = ($platform == "test") ?  "http://localhost/indiastock" : "https:/
 if (isset($_GET['RequestToken'])) {
     $requesttoken = $_GET['RequestToken'];
 }
+$marketopen = false;
+$currencysymbol = '₹';
 // get current date and time
 $now = new DateTime();
 $dayOfWeek = $now->format('N');
 $hour = $now->format('G');
+if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+    if ($hour >= 9 && $hour < 16) {
+        $marketopen = true;
+    }
+}
 $apiinterval = 18000;
 define("REQUEST_TOKEN", $requesttoken); //right
 define("APP_NAME", "5P51842644"); //right
