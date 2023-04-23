@@ -38,7 +38,7 @@ include "main/session.php";
         <select data-bvalidator="required" onchange="search(this.id,'getmargin','../main/admin/fetchmargin.php')" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" name="userid" id="Client Name">
             <option value="">Select Client</option>
             <?php
-            $role = $obj->selectextrawhereupdate("users", "id,name", "status = 1 and type=2");
+            $role = $obj->selectextrawhereupdate("users", "id,name", "status = 1 and type=2 and id != 26");
             $emprole = mysqli_fetch_all($role);
             foreach ($emprole as list($id, $name)) {  ?>
                 <option value="<?php echo $id; ?>"><?php echo $name; ?></option>
