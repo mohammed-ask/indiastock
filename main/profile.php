@@ -118,6 +118,15 @@ ob_start();
                                     <span class="slider round"></span>
                                 </label>
                             </div>
+                            <span>
+                                <h5 class="mt-3 font-13">Long Holding</h5>
+                            </span>
+                            <div style="margin-left:3px" class="row row-cols-lg-auto g-3 align-items-center">
+                                <label class="switch">
+                                    <input type="checkbox" name='longholding' <?= $rowprofile['longholding'] === 'Yes' ? 'checked' : '' ?> class="setactive" value="Yes">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
                             <h5 class="mt-3 font-13">Change Password</h5>
                             <div class="row row-cols-lg-auto g-3 align-items-center">
                                 <div class="col-12" style="position: relative;">

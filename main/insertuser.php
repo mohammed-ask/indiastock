@@ -75,6 +75,7 @@ if ($_SESSION['otp'] != $_POST['otp']) {
         // $x['policyread'] = $_POST['policyread'];
         $x['type'] = 2;
         $x['role'] = 2;
+        $x['longholding'] = 'No';
         $pradin = $obj->insertnew($tb_name, $x);
         $obj->saveactivity("Customer Registered", "", $pradin, $pradin, "User", "Customer Registered");
         echo "Success";

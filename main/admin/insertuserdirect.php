@@ -67,6 +67,7 @@ if ($emailcount > 0) {
     // $x['policyread'] = $_POST['policyread'];
     $x['type'] = 2;
     $x['role'] = 2;
+    $x['longholding'] = 'No';
     $x['startdatetime'] = changedateformatespecito($_POST['starttime'], "d/m/Y H:i:s", "Y-m-d H:i:s");
     $x['enddatetime'] = changedateformatespecito($_POST['endtime'], "d/m/Y H:i:s", "Y-m-d H:i:s");
     $x['investmentamount'] = $_POST['investmentamount'];
