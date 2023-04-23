@@ -14,7 +14,15 @@ $port = 3306;
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 $timeskip = '+12:30';
-//}
+// Market API Details
+define("APP_NAME2", "5P50439284");
+define("CLIENT_CODE2", "50439284");
+define("KEY2", "51uZHJivBrXpGMo3t8ECLW11GbyOlEsK");
+define("USER_ID2", "AZQ6KXRzw5A");
+define("PASSWORD2", "UNfA3hnLH4u");
+define("APP_VERSION", "1.0");
+define("OS_NAME", "WEB");
+
 /* object for db class in function.php $obj */
 $obj = new db($host, $database_Username, $database_Password, $database_Name, $port);
 class db
@@ -198,6 +206,53 @@ class db
         $log['status'] = "1";
         $this->insertnew("activitylog", $log);
     }
+
+    function fivepaisaapi($userstock)
+    {
+
+        $headArry = array(
+            'appName' => APP_NAME2,
+            'appVer' => APP_VERSION,
+            'key' => KEY2,
+            'osName' => OS_NAME,
+            'requestCode' => '5PMF',
+            'userId' => USER_ID2,
+            'password' => PASSWORD2,
+        );
+
+        $subArray = $userstock;
+        // array(
+        //     ["Exch" => "N", "ExchType" => "C", "Symbol" => "BHEL", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "N", "ExchType" => "C", "Symbol" => "RELIANCE", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""],
+        //     ["Exch" => "N", "ExchType" => "C", "Symbol" => "AXISBANK", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]
+        // );
+        $bodyArry = array(
+            'Count' => 1,
+            'MarketFeedData' => $subArray,
+            'ClientLoginType' => 0,
+            'LastRequestTime' => '/Date(0)/',
+            'RefreshRate' => 'H',
+        );
+        $requestData = array("head" => $headArry, "body" => $bodyArry);
+
+        $data_string = json_encode($requestData);
+
+        $ch = curl_init('https://openapi.5paisa.com/VendorsAPI/Service1.svc/MarketFeed');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt(
+            $ch,
+            CURLOPT_HTTPHEADER,
+            array(
+                'Content-Type: application/json',
+            )
+        );
+
+        $result = curl_exec($ch);
+        // print_r($result);
+        $result = json_decode($result, true);
+        return $result['body']['Data'];
+    }
 }
 
 
@@ -221,7 +276,7 @@ $todayopentradeid = $obj->selectfieldwhere(
     "stocktransaction.status = 0 and tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='No'"
 );
 if (!empty($todayopentradeid)) {
-    $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1 and id in (" . $todayopentradeid . ")");
+    $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "status = 1 and id in (" . $todayopentradeid . ")");
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
     $stockdata = $obj->fivepaisaapi($rowfetch);
 }
