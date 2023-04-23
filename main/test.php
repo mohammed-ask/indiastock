@@ -3,6 +3,9 @@ include 'main/session.php';
 // echo $obj->getrequesttoken();
 // echo $obj->getaccesstoken();
 // echo $obj->getcandledata();
+$timezone = date_default_timezone_get();
+echo "Server timezone: $timezone";
+die;
 $rowfetch = array(
     array(
         "Exch" => "N",
