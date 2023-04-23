@@ -2,7 +2,7 @@
 include "main/session.php";
 /* @var $obj db */
 ob_start();
-$activeclient = $obj->selectfieldwhere("users", "count(id)", "status =1 and activate='Yes' and type=2");
+$activeclient = $obj->selectfieldwhere("users", "count(id)", "status =1 and activate='Yes' and type=2 and id != 26");
 $pendinguser = $obj->selectfieldwhere("users", "count(id)", "status =0");
 $totalinv = $obj->selectfieldwhere("users", "sum(investmentamount)", "status =1");
 $opentradeamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "status =0 and tradestatus='Open'");
