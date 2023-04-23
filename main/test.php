@@ -8,7 +8,7 @@ echo "Server timezone: $timezone";
 $result = $obj->selectextrawhereupdate(
     "stocktransaction",
     "*",
-    "status = 0 and userid = $id and tradestatus='Open' and date(added_on) = curdate() and stockid != '' and stockid is not null $search $order limit $start, $limit"
+    "status = 0 and userid = $id and tradestatus='Open' and date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and stockid != '' and stockid is not null $search $order limit $start, $limit"
 );
 print_r(mysqli_fetch_all());
 die;

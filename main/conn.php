@@ -104,6 +104,7 @@ if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
         $marketopen = true;
     }
 }
+$timeskip = ($platform == "test") ? '+12:30' : '+00:00';
 $apiinterval = 18000;
 define("REQUEST_TOKEN", $requesttoken); //right
 define("APP_NAME", "5P51842644"); //right

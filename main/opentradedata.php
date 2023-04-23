@@ -4,7 +4,7 @@ $id = $employeeid;
 $todayopentradeid = $obj->selectfieldwhere(
     "stocktransaction",
     "group_concat(distinct(stockid))",
-    "status = 0 and userid = $id and tradestatus='Open' and date(added_on) = curdate() and stockid != '' and stockid is not null"
+    "status = 0 and userid = $id and tradestatus='Open' and date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and stockid != '' and stockid is not null"
 );
 if (!empty($todayopentradeid)) {
     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1 and id in (" . $todayopentradeid . ")");
@@ -44,13 +44,13 @@ if ((isset($_GET['columns'][0]["search"]["value"])) && (!empty($_GET['columns'][
 if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][1]["search"]["value"]))) {
     $search .= " and stocktransaction.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
-$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and userid = $id and date(added_on) = curdate()");
-$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and userid = $id and date(added_on) = curdate() $search ");
+$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and userid = $id and date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))");
+$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and userid = $id and date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction",
     "*",
-    "status = 0 and userid = $id and tradestatus='Open' and date(added_on) = curdate() and stockid != '' and stockid is not null $search $order limit $start, $limit"
+    "status = 0 and userid = $id and tradestatus='Open' and date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and stockid != '' and stockid is not null $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();

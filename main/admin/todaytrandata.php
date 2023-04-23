@@ -4,7 +4,7 @@ include '../session.php';
 // $todayopentradeid = $obj->selectfieldwhere(
 //     "stocktransaction",
 //     "group_concat(distinct(stockid))",
-//     "status = 0 and tradestatus='Open' and date(added_on) = curdate()"
+//     "status = 0 and tradestatus='Open' and date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))"
 // );
 // if (!empty($todayopentradeid)) {
 //     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1 and id in (" . $todayopentradeid . ")");
@@ -45,13 +45,13 @@ if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][
     $search .= " and stocktransaction.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
 $join = "left join closetradedetail on closetradedetail.tradeid = stocktransaction.id";
-$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status in (1,0) and date(stocktransaction.added_on) = curdate()");
-$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status in (1,0) and date(stocktransaction.added_on) = curdate() $search ");
+$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status in (1,0) and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))");
+$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status in (1,0) and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction $join",
     "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,stocktransaction.userid,stocktransaction.tradestatus",
-    "stocktransaction.status in (1,0) and date(stocktransaction.added_on) = curdate() $search $order limit $start, $limit"
+    "stocktransaction.status in (1,0) and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();

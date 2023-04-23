@@ -1501,7 +1501,7 @@ class db
         // curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
         $response = curl_exec($ch);
         $result = json_decode($response, true);
-        // var_dump($result['marketState']);
+        var_dump($result);
         if ($result['marketState'][0]['marketStatus'] == 'Open') {
             return 'Market is open';
         } else {

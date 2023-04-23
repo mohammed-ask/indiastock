@@ -4,7 +4,7 @@ include '../session.php';
 // $todayopentradeid = $obj->selectfieldwhere(
 //     "stocktransaction",
 //     "group_concat(distinct(stockid))",
-//     "status = 0 and tradestatus='Open' and date(added_on) = curdate()"
+//     "status = 0 and tradestatus='Open' and date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))"
 // );
 // if (!empty($todayopentradeid)) {
 //     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1 and id in (" . $todayopentradeid . ")");
