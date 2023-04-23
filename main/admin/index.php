@@ -4,9 +4,9 @@ include "main/session.php";
 ob_start();
 $activeclient = $obj->selectfieldwhere("users", "count(id)", "status =1 and activate='Yes' and type=2 and id != 26");
 $pendinguser = $obj->selectfieldwhere("users", "count(id)", "status =0");
-$totalinv = $obj->selectfieldwhere("users", "sum(investmentamount)", "status =1");
-$opentradeamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "status =0 and tradestatus='Open'");
-$openposition = $obj->selectfieldwhere("stocktransaction", "count(id)", "status =0 and tradestatus='Open'");
+$totalinv = $obj->selectfieldwhere("users", "sum(investmentamount)", "status =1 and id != 26");
+$opentradeamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "status =0 and tradestatus='Open' and userid != 26");
+$openposition = $obj->selectfieldwhere("stocktransaction", "count(id)", "status =0 and tradestatus='Open' and userid != 26");
 ?>
 <style>
     #datacards a {
