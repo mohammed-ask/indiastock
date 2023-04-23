@@ -68,7 +68,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['symbol'];
     $n[] = $row['price'];
     $n[] = $row['qty'];
-    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d/m/Y H:i");
+    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y H:i");
     $n[] = $obj->selectfieldwhere("users", "name", "id=" . $row['userid'] . "");
     // $n[] = $row['qty'] * $row['price'];
     $n[] = $row['trademethod'];

@@ -64,7 +64,7 @@ while ($row = $obj->fetch_assoc($result)) {
         }
     });
     $keys = array_keys($pricedata)[0];
-    $currentrate = 400; //$pricedata[$keys]['LastRate'];
+    $currentrate = $pricedata[$keys]['LastRate'];
     $n[] = $row['symbol'];
     $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y");
     $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i");

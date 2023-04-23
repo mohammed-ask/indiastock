@@ -314,6 +314,32 @@ include "main/templete.php"; ?>
     <?php }
     } ?>
 
+    function recalculateDataTableResponsiveSize() {
+        $($.fn.dataTable.tables(true)).DataTable().responsive.recalc();
+    }
+
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+        alert("ttt")
+        recalculateDataTableResponsiveSize();
+    });
+
+
+    $('#myTab a').click(function(e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+
+    // store the currently selected tab in the hash value
+    $("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
+        recalculateDataTableResponsiveSize();
+        var id = $(e.target).attr("href").substr(1);
+        window.location.hash = id;
+    });
+
+    // on load of the page: switch to the currently selected tab
+    var hash = window.location.hash;
+    $('a[href="' + hash + '"]').tab('show');
+
     var table = $('#example3').DataTable({
         "ajax": "main/closetradedata.php",
         "processing": false,
