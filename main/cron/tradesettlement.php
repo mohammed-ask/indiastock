@@ -44,25 +44,6 @@ class db
         $sql11 = $sql;
         $sql . "<br><br><br>";
         $da = date("Ymd");
-        mysqli_query($this->con, "CREATE TABLE IF NOT EXISTS `zquerylogs$da`  (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
-  `query` text  NULL,
-  `url` text  NULL,
-  `added_by` int(255)  NULL,
-  `added_on` datetime  NULL,
-  `updated_by` int(255)  NULL,
-  `updated_on` datetime  NULL,
-  `status` int(11)  NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-");
-        $sql1 = $this->escape($sql);
-        $url = $_SERVER['REQUEST_URI'];
-        $datetimenow = date("Y-m-d H:i:s");
-        $sql2 = "insert into `zquerylogs$da`(query,url,added_by,added_on,updated_by,updated_on,status) values('$sql1','$url','$employeeid','$datetimenow','$employeeid','$datetimenow',1)";
-
-        mysqli_query($this->con, $sql2) or die($sql2 . mysqli_error($this->con));
-
         if ($print) {
             echo $sql;
         }
@@ -195,6 +176,26 @@ class db
             $return = "";
         }
         return $return;
+    }
+
+    function saveactivity($activity, $reason, $activityid, $supportid, $department, $category, $how = "By Software")
+    {
+        /* activity Log */
+        $log['activity'] = $activity;
+        $log['remark'] = $reason;
+        $log['how'] = $how;
+        $log['activityid'] = $activityid;
+        $log['supportid'] = $supportid;
+        $log['department'] = $department;
+        $log['category'] = $category;
+        $log['ip'] = $_SERVER['REMOTE_ADDR'];
+        $log['city'] = "";
+        $log['added_by'] = $this->employeeid;
+        $log['added_on'] = date("Y-m-d H:i:s");
+        $log['updated_by'] = $this->employeeid;
+        $log['updated_on'] = date("Y-m-d H:i:s");
+        $log['status'] = "1";
+        $this->insertnew("activitylog", $log);
     }
 }
 
