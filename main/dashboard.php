@@ -171,7 +171,7 @@ rssfeed_cache = "361ffc5774c186b7006b0d7072465c21";
                     </div><!--end col-->
                 </div> <!--end row-->
             </div><!--end card-header-->
-            <div class="card-body pb-0">
+            <div class="card-body pb-0" style="padding-left: 0px !important; padding-right: 0px !important;">
                 <div id="container"></div>
                 <?php if ($chartdata === "Error fetching candle data:") { ?>
                     <div class='alert alert-danger dashboard-danger'>Due to a technical issue with the NSE server, the chart is currently unavailable</div>

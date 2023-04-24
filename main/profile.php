@@ -12,7 +12,7 @@ ob_start();
                         <img src="<?= empty($avatarpath) ? 'main/images/user.png' : $avatarpath ?>" alt="" class="thumb-lg rounded-circle">
                     </div>
                     <div class="media-body align-self-center ms-3">
-                        <h5 class="fw-semibold mb-1 font-18"><?= $username ?></h5>
+                        <h5 class="fw-semibold mb-1 font-18 text-capitalize"><?= $username ?></h5>
                         <p class="mb-0 font-13">India</p>
                     </div>
                 </div>
@@ -33,26 +33,26 @@ ob_start();
                     </button>
                 </h2>
                 <div id="settingOne" class="accordion-collapse collapse show" aria-labelledby="bankAC" data-bs-parent="#accordionSettings">
-                    <div class="accordion-body">
+                    <div class="accordion-body px-0">
                         <div class="border rounded">
                             <div class="bg-light d-flex justify-content-between">
-                                <h5 class="m-0 font-15 p-3"> Bank Details</h5>
+                                <h5 class="m-0 font-15 p-2 py-3"> Bank Details</h5>
                                 <div class="align-self-center me-3">
                                     <button type="button" class="btn btn-sm btn-primary" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "bankaccountchange","", "Change Bank Details")'>Edit</button>
                                 </div>
                             </div>
-                            <div class="row p-3">
+                            <div class="row p-2">
 
                                 <div class="col-4">
                                     <h6 class="m-0">Bank Name</h6>
                                     <p class="mb-0"><?= $rowprofile['bankname'] ?></p>
                                 </div><!--end col-->
-                                <div class="col-4">
-                                    <h6 class="m-0">Account Number</h6>
+                                <div class="col-4" style="padding-left: 0;">
+                                    <h6 class="m-0">A/c no.</h6>
                                     <p class="mb-0"><?= $rowprofile['accountno'] ?></p>
                                 </div><!--end col-->
-                                <div class="col-4">
-                                    <h6 class="m-0">IFSC Code</h6>
+                                <div class="col-4" style="padding-left: 0; padding-right: 0;">
+                                    <h6 class="m-0">IFSC</h6>
                                     <p class="mb-0"><?= $rowprofile['ifsc'] ?></p>
                                 </div><!--end col-->
 
@@ -118,9 +118,15 @@ ob_start();
                                     <span class="slider round"></span>
                                 </label>
                             </div>
+                            <div style="display: flex;">
                             <span>
-                                <h5 class="mt-3 font-13">Long Holding</h5>
+                                <h5 class="mt-4 font-13">Long-Term Holding</h5>
                             </span>
+
+                            <div class="profile-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
+                                    <p class="profile-tooltiptext">By turning on this option, you can hold this asset for as long as you want without being automatically sold or bought, whether it's for weeks, months, or whenever you choose.</p>
+                                </div></div>
+
                             <div style="margin-left:3px" class="row row-cols-lg-auto g-3 align-items-center">
                                 <label class="switch">
                                     <input type="checkbox" name='longholding' <?= $rowprofile['longholding'] === 'Yes' ? 'checked' : '' ?> class="setactive" value="Yes">

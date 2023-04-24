@@ -102,8 +102,8 @@ $stockdata = $stockdata[0];
         <div class="col-auto">
             <div style="display: flex;flex-direction:row" id="profile-tooltip-id">
                 <small class="text-muted d-block">Available Fund</small>
-                <div class="profile-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
-                    <p class="profile-tooltiptext text-white">You can sell <?= $usermargin ?>x worth of share from your available fund</p>
+                <div class="buystock-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
+                    <p class="buystock-tooltiptext text-white">You can sell <?= $usermargin ?>x worth of share from your available fund</p>
                 </div>
             </div>
             <small>₹<?= round($investmentamount) ?>.00</small>

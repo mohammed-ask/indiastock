@@ -32,7 +32,7 @@ include "main/session.php";
 <form class="row gy-2 gx-3 align-items-end" id="addtax2">
     <div class="row -auto g-3 align-items-center">
         <div class="col-sm-9">
-            <input class="form-control" data-bvalidator='required' id="symbol" type="text" placeholder="Enter Any Stock Symbol">
+            <input class="form-control" style="text-transform: uppercase !important;" data-bvalidator='required' id="symbol" type="text" placeholder="Enter Any Stock Symbol">
         </div>
         <div class="col-sm-9">
             <h5 class=" font-13">Exchange</h5>

@@ -38,15 +38,15 @@ $stockdata = $stockdata[0];
         <input type="hidden" name="exchange" value="<?= $stockdata['Exch'] ?>" id="">
         <input type="hidden" name="stockid" value="<?= $id ?>" id="">
         <input type="hidden" name="totalamount" id="totalamount" value="<?= $usermargin > 0 ? $stockdata['LastRate'] / $usermargin : $stockdata['LastRate'] ?>">
-        <div class="col-2">
+        <div class="col-3">
             <label class="form-label" for="Quantity">Lot Size</label>
             <input data-bvalidator='required' readonly name="lot" type="number" id="lot" onclick="this.select();" value="<?= $lot ?>" class="form-control form-control-sm">
         </div>
-        <div class="col-auto">
+        <div class="col-4">
             <label class="form-label" for="Quantity">Quantity</label>
             <input data-bvalidator='required' name="qty" type="number" id="qty" onkeyup="sumfund()" onclick="this.select();" value="1" class="form-control form-control-sm">
         </div>
-        <div class="col-auto">
+        <div class="col-5">
             <label class="form-label" for="Price">Price</label>
             <input type="text" readonly name="price" value="<?= $stockdata['LastRate'] ?>" class="form-control form-control-sm" id="Price">
         </div>
@@ -92,8 +92,8 @@ $stockdata = $stockdata[0];
         <div class="col-auto">
             <div style="display: flex;flex-direction:row" id="profile-tooltip-id">
                 <small class="text-muted d-block">Available Fund</small>
-                <div class="profile-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
-                    <p class="profile-tooltiptext text-white">You can purchase <?= $usermargin ?>x worth of share from your available fund</p>
+                <div class="buystock-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
+                    <p class="buystock-tooltiptext text-white">You can purchase <?= $usermargin ?>x worth of share from your available fund</p>
                 </div>
             </div>
             <small>₹<?= round($investmentamount) ?></small>

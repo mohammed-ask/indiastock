@@ -5111,3 +5111,48 @@ input:checked+.slider {
     opacity: 1;
 
 }
+
+/* -------------tooltip for buystock-page--------------- */
+
+.profile-tooltip {
+    position: relative;
+    display: flex;
+    margin-left: 8px;
+    align-items: center;
+    vertical-align: middle;
+    margin-top: 2px;
+}
+
+.buystock-tooltip .buystock-tooltiptext {
+    visibility: hidden;
+    width: 70vw;
+
+    background-color: #057c7c;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 4px 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 50%;
+    margin-left: -235px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+
+}
+
+.buystock-tooltip:hover .buystock-tooltiptext {
+    visibility: visible;
+    opacity: 1;
+
+}
+
+@media (min-width: 650px) and (max-width: 2560px) {
+    .buystock-tooltip .buystock-tooltiptext {
+        width: 20vw;
+        left: -530%;
+        margin-left: -190px;
+        bottom: 20%;
+    }
+}

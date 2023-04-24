@@ -49,8 +49,8 @@ $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $empl
                     <div class="d-flex align-items-center">
                         <img src="<?= empty($avatarpath) ? 'main/images/user.png' : $avatarpath ?>" class="rounded-circle me-0 me-md-2 thumb-xs">
                         <div class="user-name">
-                            <small class="d-none d-lg-block font-11">Usename</small>
-                            <span class="d-none d-lg-block fw-semibold font-12"><?= $username ?><i class="mdi mdi-chevron-down"></i></span>
+                            <small class="d-none d-lg-block font-11">Username</small>
+                            <span class="d-none d-lg-block fw-semibold font-12 text-capitalize"><?= $username ?><i class="mdi mdi-chevron-down"></i></span>
                         </div>
                     </div>
                 </a>
