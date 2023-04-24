@@ -38,8 +38,8 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
                             <table id="example1" class="table table-bordered">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th>Date</th>
-                                        <th>Time</th>
+                                        <th>Date Time</th>
+                                        <!-- <th>Time</th> -->
                                         <th>Sender</th>
                                         <th>Subject</th>
                                         <th>View Msg</th>
