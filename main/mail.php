@@ -59,7 +59,7 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
                                     <tr>
                                         <th>Date</th>
                                         <th>Time</th>
-                                        <th>Sender</th>
+                                        <th>To</th>
                                         <th>Subject</th>
                                         <th>View Msg</th>
 
