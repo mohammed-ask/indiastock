@@ -62,7 +62,9 @@ $mail->setFrom("$sendmailfrom");
 $mail->addAddress($receivermail);
 $mail->isHTML(true);
 $mail->Subject = $_POST['subject'];
-$attachfile = $obj->selectextrawhere('maildocuments', "mailid=$mailid");
+$attachfile = $obj->selectextrawhere('maildocuments', "mailid=$mailid", 1);
+print_r($attachfile);
+die;
 while ($rowfile = $obj->fetch_assoc($attachfile)) {
     $path = $obj->selectfieldwhere('uploadfile', "path", "id=" . $rowfile['path'] . "");
     $orgname = $obj->selectfieldwhere('uploadfile', "orgname", "id=" . $rowfile['path'] . "");
