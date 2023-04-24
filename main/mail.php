@@ -175,12 +175,12 @@ include "main/templete.php"; ?>
                 render: function(data, type, full, meta) {
                     return "<div class='text-wrap width-200 bg-red'>" + data + "</div>";
                 },
-                targets: 5,
+                targets: 4,
                 visible: false,
             }],
             "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
                 // console.log(aData)
-                if (aData[5] == 1) {
+                if (aData[4] == 1) {
 
                 } else {
                     $('td', nRow).attr('style', 'background-color: hsl(138, 39%, 56%) !important');
