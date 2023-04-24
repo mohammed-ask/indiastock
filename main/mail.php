@@ -38,6 +38,8 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
                             <table id="example1" class="table table-bordered">
                                 <thead class="thead-light">
                                     <tr>
+
+                                        <th>Serial No</th>
                                         <th>Date Time</th>
                                         <!-- <th>Time</th> -->
                                         <th>Sender</th>
@@ -57,6 +59,7 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
                             <table id="example2" class="table table-bordered">
                                 <thead class="thead-light">
                                     <tr>
+                                        <th>Serial No</th>
                                         <th>Date</th>
                                         <!-- <th>Time</th> -->
                                         <th>To</th>
@@ -175,15 +178,12 @@ include "main/templete.php"; ?>
                 render: function(data, type, full, meta) {
                     return "<div class='text-wrap width-200 bg-red'>" + data + "</div>";
                 },
-                targets: 4,
+                targets: 5,
                 visible: false,
-            }, {
-                width: 200,
-                targets: 0
             }],
             "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
                 // console.log(aData)
-                if (aData[4] == 1) {
+                if (aData[5] == 1) {
 
                 } else {
                     $('td', nRow).attr('style', 'background-color: rgb(199, 255, 255) !important');
