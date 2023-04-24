@@ -119,7 +119,7 @@ $watchlistcount = $obj->selectfieldwhere("watchliststock", "count(id)", "userid=
             </div><!--end card-->
         <?php } else { ?>
             <div class="position-sticky" style="top: 85px !important">
-                <div class="card" style="width: 100% !important; height: 500px !important">
+                <div  class="card top-margin-for-sidebar" style="width: 100% !important; height: 500px !important">
 
                     <!-- TradingView Widget BEGIN -->
                     <div class="tradingview-widget-container">
