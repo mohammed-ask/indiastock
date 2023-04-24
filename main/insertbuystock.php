@@ -28,7 +28,7 @@ if ($_POST['totalamount'] > $investmentamount * $usermargin) {
     $xx['trademethod'] = 'Buy';
     $xx['tradestatus'] = 'Open';
     $buy = $obj->insertnew("stocktransaction", $xx);
-
+    $obj->saveactivity("Stock Buy by User", "", $buy, $employeeid, "User", "Stock Buy by User");
     $remainfund = $investmentamount - $xx["totalamount"];
     $xy['investmentamount'] = $remainfund < 0 ? 0 : $remainfund;
     $user = $obj->update("users", $xy, $employeeid);

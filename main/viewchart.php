@@ -1,26 +1,30 @@
 <?php
 include "session.php";
-$symbol = $_GET['symbol'];
-$exchange = $_GET['exchange'];
-$id = $obj->selectfieldwhere("userstocks", "id", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1");
-$rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1")->fetch_assoc();
-$rowfetch = array($rowfetch);
+// $symbol = $_GET['symbol'];
+// $exchange = $_GET['exchange'];
+$stockname = $obj->selectfieldwhere("userstocks", "Symbol", "symboltoken=" . $_GET['token'] . "");
+$stockdata['ScripCode'] = $_GET['token'];
+$stockdata['Exchange'] = $_GET['exchange'];
+$stockdata['ExchangeType'] = $_GET['exchangetype'];
+// $id = $obj->selectfieldwhere("userstocks", "id", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1");
+// $rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1")->fetch_assoc();
+// $rowfetch = array($rowfetch);
 
-$chartsymbol = [];
-foreach ($rowfetch as $item) {
-    $item["Exchange"] = $item["Exch"];
-    unset($item["Exch"]);
+// $chartsymbol = [];
+// foreach ($rowfetch as $item) {
+//     $item["Exchange"] = $item["Exch"];
+//     unset($item["Exch"]);
 
-    $item["ExchangeType"] = $item["ExchType"];
-    unset($item["ExchType"]);
-    $chartsymbol = $item;
-}
+//     $item["ExchangeType"] = $item["ExchType"];
+//     unset($item["ExchType"]);
+//     $chartsymbol = $item;
+// }
 
 // print_r($chartsymbol);
 // die;
 
-$stockdata = $obj->getfullmarketdepth(array($chartsymbol));
-$stockdata = $stockdata === "Error fetching candle data: Error while processing, Please try to re-login" ? "" : $stockdata[0];
+// $stockdata = $obj->getfullmarketdepth(array($chartsymbol));
+// $stockdata = $stockdata === "Error fetching candle data: Error while processing, Please try to re-login" ? "" : $stockdata[0];
 // print_r($stockdata);
 $chartdata = empty($stockdata) ? [] : $obj->getcandledata($stockdata['ScripCode'], $stockdata['Exchange'],  $stockdata['ExchangeType'], '5m', date('Y-m-d'), date('Y-m-d'));
 $data = empty($chartdata) ? [] : $chartdata['candles'];
@@ -73,17 +77,13 @@ $pagetitle = "Stock Chart: PMS-Equity";
 $contentheader = "";
 $pageheader = "";
 include "main/templete.php"; ?>
-<script>
-    console.log('dadad')
-</script>
 <script src="main/dist/js/highcharts.js?ver=<?php echo time(); ?>"></script>
 <script id="tradehighchart"></script>
 <script>
     var chartData = <?php echo json_encode($chart_data); ?>;
-    console.log(chartData, 'cd')
     Highcharts.chart('container', {
         title: {
-            text: 'Stock Prices'
+            text: '<?= $stockname ?>'
         },
         xAxis: {
             type: 'datetime',
@@ -122,6 +122,7 @@ include "main/templete.php"; ?>
                 scriptcode: '<?= isset($stockdata['ScripCode']) ? $stockdata['ScripCode'] : null ?>',
                 exch: '<?= isset($stockdata['Exchange']) ? $stockdata['Exchange'] : null ?>',
                 type: '<?= isset($stockdata['ExchangeType']) ? $stockdata['ExchangeType'] : null ?>',
+                symbol: '<?= $stockname ?>'
             },
             function(data) {
                 $("#tradehighchart").text(data)
@@ -143,6 +144,7 @@ include "main/templete.php"; ?>
                 scriptcode: '<?= isset($stockdata['ScripCode']) ? $stockdata['ScripCode'] : null ?>',
                 exch: '<?= isset($stockdata['Exchange']) ? $stockdata['Exchange'] : null ?>',
                 type: '<?= isset($stockdata['ExchangeType']) ? $stockdata['ExchangeType'] : null ?>',
+                symbol: '<?= $stockname ?>'
             },
             function(data) {
                 $("#tradehighchart").text(data)
@@ -164,6 +166,7 @@ include "main/templete.php"; ?>
                 scriptcode: '<?= isset($stockdata['ScripCode']) ? $stockdata['ScripCode'] : null ?>',
                 exch: '<?= isset($stockdata['Exchange']) ? $stockdata['Exchange'] : null ?>',
                 type: '<?= isset($stockdata['ExchangeType']) ? $stockdata['ExchangeType'] : null ?>',
+                symbol: '<?= $stockname ?>'
             },
             function(data) {
                 $("#tradehighchart").text(data)

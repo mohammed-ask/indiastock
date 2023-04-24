@@ -12,6 +12,7 @@ require 'main/PHPMailer/src/SMTP.php';
 include "main/session.php";
 
 // $adminemail = $obj->selectfieldwhere('users', "email", "id=" . $employeeid . "");
+$obj->saveactivity("Send Mail to User", "", $_POST['userid'], $_POST['userid'], "User", "Send Mail to User");
 $receivermail = $obj->selectfieldwhere('users', "email", "id=" . $_POST['userid'] . "");
 $path = "main/mailfiles";
 $vy['added_on'] = date('Y-m-d H:i:s');

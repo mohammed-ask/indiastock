@@ -108,7 +108,7 @@ foreach ($stockdata as $data) { ?>
                     </div> <!--end action-icons-->
 
                     <div>
-                        <a href="viewchart?exchange=<?= $data['Exch'] ?>&symbol=<?= $data['Symbol'] ?>">
+                        <a href="viewchart?token=<?= $data['Token'] ?>&exchangetype=<?= $data['ExchType'] ?>&exchange=<?= $data['Exch'] ?>">
                             <p class="mb-0 text-muted">View Chart <span><i class="fa-solid fa-arrow-right"></i></span></p>
                         </a>
                     </div>

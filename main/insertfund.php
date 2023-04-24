@@ -14,6 +14,7 @@ $xx['transactionid'] = $_POST['transactionid'];
 $xx['paymentmethod'] = $_POST['paymentmethod'];
 $xx['amount'] = $_POST['amount'];
 $fund = $obj->insertnew("fundrequest", $xx);
+$obj->saveactivity("Fund Added by User", "", $fund, $employeeid, "User", "Fund Added by User");
 if ($fund > 0) {
     echo "Redirect : Add Fund Request successfully submitted  URLfund";
 } else {
