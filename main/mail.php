@@ -177,13 +177,16 @@ include "main/templete.php"; ?>
                 },
                 targets: 4,
                 visible: false,
+            }, {
+                width: 200,
+                targets: 0
             }],
             "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
                 // console.log(aData)
                 if (aData[4] == 1) {
 
                 } else {
-                    $('td', nRow).attr('style', 'background-color: hsl(138, 39%, 56%) !important');
+                    $('td', nRow).attr('style', 'background-color: rgb(199, 255, 255) !important');
                 }
             },
         });
