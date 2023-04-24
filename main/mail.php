@@ -58,7 +58,7 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
                                 <thead class="thead-light">
                                     <tr>
                                         <th>Date</th>
-                                        <th>Time</th>
+                                        <!-- <th>Time</th> -->
                                         <th>To</th>
                                         <th>Subject</th>
                                         <th>View Msg</th>

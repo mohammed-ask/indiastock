@@ -46,8 +46,8 @@ $num = $obj->total_rows($result);
 $data = array();
 while ($row = $obj->fetch_assoc($result)) {
     $n = array();
-    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y");;
-    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y H:i");
+    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y H:i");;
+    // $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y H:i");
     $n[] = $sendmailfrom;
     $n[] =  $row['subject'];
     $n[] =  "<button class='btn btn-sm btn-success' data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal(\"" . $row['id'] . "\", \"viewmaildetail\", \"\", \"Add New User\")' style='background-color: #00aaaa;'>View</button>";
