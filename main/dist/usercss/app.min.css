@@ -5163,9 +5163,9 @@ input:checked+.slider {
 
 }
 
-@media screen and (max-width: 559px) {
+@media screen and (max-width: 991px) {
     .top-margin-for-sidebar{
-        top: 15px !important;
+        top: 5px !important;
        
        }
 }
