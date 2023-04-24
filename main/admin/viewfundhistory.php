@@ -44,7 +44,7 @@ $id = $_GET['hakuna'];
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Investment Log";
+$pagetitle = "PMS Equity: Investment Log";
 $contentheader = "";
 $pageheader = "";
 include "main/admin/templete.php";

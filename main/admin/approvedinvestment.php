@@ -63,7 +63,7 @@ ob_start();
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Approved Investment";
+$pagetitle = "PMS Equity: Approved Investment";
 $contentheader = "";
 $pageheader = "";
 include "templete.php";

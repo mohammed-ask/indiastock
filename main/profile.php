@@ -97,12 +97,7 @@ ob_start();
                                     Holding
                                 </label>
                             </div> -->
-                            <div class="form-check mb-2 d-inline-block">
-                                <input class="form-check-input" value="Intraday" type="radio" name="trademode" id="trademode2" <?= $rowprofile['trademode'] == 'Intraday' ? "checked" : "" ?>>
-                                <label class="form-check-label" for="trademode2">
-                                    Intraday
-                                </label>
-                            </div>
+                            
 
                             <div style="display: flex;" id="profile-tooltip-id">
                                 <span>

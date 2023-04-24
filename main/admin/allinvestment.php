@@ -43,7 +43,7 @@ ob_start();
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: All Investment";
+$pagetitle = "PMS Equity: All Investment";
 $contentheader = "";
 $pageheader = "";
 include "templete.php";

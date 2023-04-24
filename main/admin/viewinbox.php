@@ -47,7 +47,7 @@ ob_start();
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Pending Approval";
+$pagetitle = "PMS Equity";
 $contentheader = "";
 $pageheader = "";
 include "templete.php";

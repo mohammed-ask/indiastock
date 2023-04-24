@@ -84,7 +84,7 @@ if (isset($_POST['hakuna'])) {
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Transaction";
+$pagetitle = "PMS Equity:";
 $contentheader = "";
 $pageheader = "";
 $extrajs = '

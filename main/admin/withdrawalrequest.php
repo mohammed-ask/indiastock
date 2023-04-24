@@ -39,7 +39,7 @@ ob_start();
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Withdrawal Request";
+$pagetitle = "PMS Equity: Withdrawal Request";
 $contentheader = "";
 $pageheader = "";
 include "main/admin/templete.php";

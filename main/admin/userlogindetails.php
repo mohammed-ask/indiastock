@@ -45,7 +45,7 @@ ob_start();
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: User Login Detail";
+$pagetitle = "PMS Equity: User Login Detail";
 $contentheader = "";
 $pageheader = "";
 include "main/admin/templete.php";

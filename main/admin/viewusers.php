@@ -58,7 +58,7 @@ ob_start();
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Transaction";
+$pagetitle = "PMS Equity: Users List";
 $contentheader = "";
 $pageheader = "";
 include "templete.php";

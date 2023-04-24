@@ -177,7 +177,7 @@ $openposition = $obj->selectfieldwhere("stocktransaction", "count(id)", "status 
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: Dashboard";
+$pagetitle = "PMS Equity: Admin Dashboard";
 $contentheader = "";
 $pageheader = "";
 include "main/admin/templete.php";

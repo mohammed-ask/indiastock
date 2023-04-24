@@ -49,7 +49,7 @@ ob_start();
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "Indiastock: All Transaction";
+$pagetitle = "PMS Equity: All Transaction";
 $contentheader = "";
 $pageheader = "";
 include "main/admin/templete.php";
