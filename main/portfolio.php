@@ -56,6 +56,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $totalprofit = $totalprofit + $profitloss;
 }
 $totalprofit = empty($totalprofit) ? 0 : $totalprofit;
+$totalprofitprcnt = 0;
 if ($investmentamount != 0 || $todayprofit != 0) {
     $totalprofitprcnt = $totalprofit * 100 / ($investmentamount - $totalprofit);
 }
