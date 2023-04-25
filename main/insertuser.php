@@ -117,7 +117,7 @@ if ($_SESSION['otp'] != $_POST['otp']) {
             $jk['Exch'] = 'N';
             $obj->insertnew('userstocks', $jk);
         }
-        $obj->saveactivity("Customer Registered", "", $pradin, $pradin, "User", "Customer Registered");
+        $obj->saveactivity("Customer Registered", "", $userid, $userid, "User", "Customer Registered");
         echo "Success";
     }
 }
