@@ -6,7 +6,10 @@ $scriptcode = $_POST['scriptcode'];
 $startdate = $_POST['startdate'];
 $enddate = $_POST['enddate'];
 $interval = $_POST['interval'];
-$symbol = $_POST['symbol'];
+$symbol = '';
+if (isset($_POST['symbol'])) {
+    $symbol = $_POST['symbol'];
+}
 
 $chartdata = $obj->getcandledata($scriptcode, $exch, $type, $interval, $startdate, $enddate);
 $data = $chartdata['candles'];
