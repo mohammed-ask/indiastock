@@ -45,6 +45,7 @@ if ($emailcount > 0) {
     $xx['password'] = $_POST['password'];
     $xx['activate'] = $_POST['activate'];
     $pradin = $obj->insertnew("users", $xx);
+    $obj->saveactivity("Add New Employee", "", $pradin, $pradin, "Admin", "Add New Employee");
     if (is_numeric($pradin) && $pradin > 0) {
         echo "Redirect : Employee Added Successfully URLemployeelist";
     }

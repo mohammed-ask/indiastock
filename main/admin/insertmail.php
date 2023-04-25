@@ -12,7 +12,6 @@ require 'main/PHPMailer/src/SMTP.php';
 include "main/session.php";
 
 // $adminemail = $obj->selectfieldwhere('users', "email", "id=" . $employeeid . "");
-$obj->saveactivity("Send Mail to User", "", $_POST['userid'], $_POST['userid'], "User", "Send Mail to User");
 $receivermail = $obj->selectfieldwhere('users', "email", "id=" . $_POST['userid'] . "");
 $path = "main/mailfiles";
 $vy['added_on'] = date('Y-m-d H:i:s');
@@ -25,6 +24,7 @@ $vy['receiverid'] = $_POST['userid'];
 $vy['subject'] = $_POST['subject'];
 $vy['message'] = $_POST['message'];
 $mailid = $obj->insertnew('mail', $vy);
+$obj->saveactivity("Send Mail to User", "", $mailid, $_POST['userid'], "User", "Send Mail to User");
 if (!empty($_FILES['files']['name'])) {
     foreach ($_FILES['files']["name"] as $key => $value) {
         $name = 'path' . $key;

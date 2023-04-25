@@ -27,6 +27,7 @@ if (!empty($start) && !empty($end) && $current >= $start && $current <= $end) {
         $xx['amount'] = $_POST['amount'];
         $xx['remark'] = $_POST['remark'];
         $wr = $obj->insertnew("withdrawalrequests", $xx);
+        $obj->saveactivity("Added Withdrawal Request", "", $wr, $xx['userid'], "User", "Added Withdrawal Request");
     }
     if (is_integer($wr) && $wr > 0) {
         echo "Redirect : Withdrawal request submitted! Amount will reflect in registered bank account after verification. URLfund";

@@ -149,6 +149,7 @@ if ($id == "Not Applicable") {
     // }
     $tb_name = "personal_detail";
     $pradin = $obj->update($tb_name, $personal, $id);
+    $obj->saveactivity("Personal Details Change", "", $id, $id, "Admin", "Personal Details Change");
     if ($pradin == 1) {
         echo "Redirect : Personal Details has been Updated! URLsettings";
     }

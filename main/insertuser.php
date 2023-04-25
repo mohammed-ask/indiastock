@@ -70,6 +70,7 @@ if ($_SESSION['otp'] != $_POST['otp']) {
         $x['ifsc'] = $_POST['ifsc'];
         $x['employeeref'] = $_POST['employeeref'];
         $x['password'] = $_POST['password'];
+        $x['limit'] = 1;
         $x['starttime'] = 10;
         $x['endtime'] = 22;
         // $x['policyread'] = $_POST['policyread'];

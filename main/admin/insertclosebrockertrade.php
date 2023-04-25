@@ -60,6 +60,7 @@ if ($close > 0) {
         $useramount = $useramt + $xx['profitamount'];
         $kk['investmentamount'] = $investmentamount + $useramount;
         $user = $obj->update("users", $kk, $_POST['userid']);
+        $obj->saveactivity("Position Closed by Admin", "", $close, $xx['userid'], "User", "Position Closed by Admin");
         if ($user > 0) {
             echo "Redirect : Trade Closed Succesfully  URLindex";
         } else {

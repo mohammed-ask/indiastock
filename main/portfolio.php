@@ -56,10 +56,9 @@ while ($row = $obj->fetch_assoc($result)) {
     $totalprofit = $totalprofit + $profitloss;
 }
 $totalprofit = empty($totalprofit) ? 0 : $totalprofit;
-echo $totalprofit, ' ', $investmentamount;
-// if ($investmentamount - $todayprofit != 0) {
-$totalprofitprcnt = $totalprofit * 100 / ($investmentamount - $totalprofit);
-// }
+if ($investmentamount != 0 || $todayprofit != 0) {
+    $totalprofitprcnt = $totalprofit * 100 / ($investmentamount - $totalprofit);
+}
 ?>
 <div class="row">
     <div class="col-md-6 col-lg-3">

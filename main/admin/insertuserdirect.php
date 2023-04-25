@@ -74,7 +74,7 @@ if ($emailcount > 0) {
     $x['limit'] = $_POST['limit'];
 
     $pradin = $obj->insertnew($tb_name, $x);
-    $obj->saveactivity("Add Customer", "", $pradin, $pradin, "User", "Add Customer");
+    $obj->saveactivity("Added Customer by Admin", "", $pradin, $employeeid, "Admin", "Added Customer by Admin");
     $mail = new PHPMailer(true);
 
     $mail->isSMTP();

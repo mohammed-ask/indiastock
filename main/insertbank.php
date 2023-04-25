@@ -15,6 +15,7 @@ if ($pendingreq > 0) {
     $xx['accountno'] = $_POST['accountno'];
     $xx['userid'] = $employeeid;
     $bank = $obj->insertnew("bankaccountchange", $xx);
+    $obj->saveactivity("Add Bank Account Change Request", "", $bank, $bank, "User", "Add Bank Account Change Request");
     if ($bank > 0) {
         echo "Redirect : Your account update request has been received and is currently under review by our team. URLprofile";
     } else {

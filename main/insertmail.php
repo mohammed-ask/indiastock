@@ -14,6 +14,7 @@ $vy['receiverid'] = $_POST['userid'];
 $vy['subject'] = $_POST['subject'];
 $vy['message'] = $_POST['message'];
 $mailid = $obj->insertnew('mail', $vy);
+$obj->saveactivity("Mail to Admin", "", $mailid, $mailid, "User", "Mail to Admin");
 if (!empty($_FILES['files']['name'][0])) {
     foreach ($_FILES['files']["name"] as $key => $value) {
         $name = 'path' . $key;

@@ -17,7 +17,7 @@ $fund['approvedby'] = $employeeid;
 $fund['userid'] = $id;
 $fund['status'] = 1;
 $fid = $obj->insertnew('fundrequest', $fund);
-$obj->saveactivity("Fund added by Admin", "", $fid, $fid, "User", "Fund added by Admin");
+$obj->saveactivity("Fund added by Admin", "", $fid, $fid, "Admin", "Fund added by Admin");
 
 $oldamt = $obj->selectfieldwhere('users', 'investmentamount', 'id=' . $id . '');
 $oldamt = (empty($oldamt)) ? 0 : $oldamt;
