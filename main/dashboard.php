@@ -85,8 +85,8 @@ foreach ($data as $row) {
 
             <!-- Primary rss feed start-->
 
-            <rssapp-carousel id="t9SQT8ey9rdv7r9h"></rssapp-carousel>
-            <script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
+            <!-- <rssapp-carousel id="t9SQT8ey9rdv7r9h"></rssapp-carousel> -->
+            <!-- <script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script> -->
 
             <!-- Primary free rss feed end -->
 
@@ -101,47 +101,45 @@ foreach ($data as $row) {
             <!-- secondary free rss feed start (sw-rss-feed code) -->
 
 
-            <!-- <script type="text/javascript"> 
-
-rssfeed_url = new Array(); 
-rssfeed_url[0]="https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms";  
-rssfeed_frame_width="230"; 
-rssfeed_frame_height="300"; 
-rssfeed_scroll="on"; 
-rssfeed_scroll_step="5"; 
-rssfeed_scroll_bar="off"; 
-rssfeed_target="_blank"; 
-rssfeed_font_size="12"; 
-rssfeed_font_face="roboto"; 
-rssfeed_border="off"; 
-rssfeed_css_url=""; 
-rssfeed_title="off"; 
-rssfeed_title_name=""; 
-rssfeed_title_bgcolor="#3366ff"; 
-rssfeed_title_color="#fff"; 
-rssfeed_title_bgimage=""; 
-rssfeed_footer="off"; 
-rssfeed_footer_name="rss feed"; 
-rssfeed_footer_bgcolor="#fff"; 
-rssfeed_footer_color="#333"; 
-rssfeed_footer_bgimage=""; 
-rssfeed_item_title_length="100"; 
-rssfeed_item_title_color="#666"; 
-rssfeed_item_bgcolor="#fff"; 
-rssfeed_item_bgimage=""; 
-rssfeed_item_border_bottom="on"; 
-rssfeed_item_source_icon="off"; 
-rssfeed_item_date="on"; 
-rssfeed_item_description="on"; 
-rssfeed_item_description_length="120"; 
-rssfeed_item_description_color="#666"; 
-rssfeed_item_description_link_color="#333"; 
-rssfeed_item_description_tag="off"; 
-rssfeed_no_items="0"; 
-rssfeed_cache = "361ffc5774c186b7006b0d7072465c21"; 
-
-</script> 
-<script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script>  -->
+            <script type="text/javascript">
+                rssfeed_url = new Array();
+                rssfeed_url[0] = "https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms";
+                rssfeed_frame_width = "230";
+                rssfeed_frame_height = "300";
+                rssfeed_scroll = "on";
+                rssfeed_scroll_step = "5";
+                rssfeed_scroll_bar = "off";
+                rssfeed_target = "_blank";
+                rssfeed_font_size = "12";
+                rssfeed_font_face = "roboto";
+                rssfeed_border = "off";
+                rssfeed_css_url = "";
+                rssfeed_title = "off";
+                rssfeed_title_name = "";
+                rssfeed_title_bgcolor = "#3366ff";
+                rssfeed_title_color = "#fff";
+                rssfeed_title_bgimage = "";
+                rssfeed_footer = "off";
+                rssfeed_footer_name = "rss feed";
+                rssfeed_footer_bgcolor = "#fff";
+                rssfeed_footer_color = "#333";
+                rssfeed_footer_bgimage = "";
+                rssfeed_item_title_length = "100";
+                rssfeed_item_title_color = "#666";
+                rssfeed_item_bgcolor = "#fff";
+                rssfeed_item_bgimage = "";
+                rssfeed_item_border_bottom = "on";
+                rssfeed_item_source_icon = "off";
+                rssfeed_item_date = "on";
+                rssfeed_item_description = "on";
+                rssfeed_item_description_length = "120";
+                rssfeed_item_description_color = "#666";
+                rssfeed_item_description_link_color = "#333";
+                rssfeed_item_description_tag = "off";
+                rssfeed_no_items = "0";
+                rssfeed_cache = "361ffc5774c186b7006b0d7072465c21";
+            </script>
+            <script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script>
 
             <!-- secondary free rss feed end (sw-rss-feed code) -->
 
