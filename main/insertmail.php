@@ -36,4 +36,4 @@ if (!empty($_FILES['files']['name'][0])) {
         $pradin = $obj->insertnew($tb_name, $postdata);
     }
 }
-echo "Redirect :  Mail has sent successfully URLmail";
+echo "Redirect :  Message sent! URLmail";

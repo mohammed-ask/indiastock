@@ -63,11 +63,11 @@ if ($close > 0) {
         if ($user > 0) {
             echo "Redirect : Trade Closed Succesfully  URLindex";
         } else {
-            echo "<div class='alert alert-danger'>Some Error Occured Please Contact Admin</div>";
+            echo "<div class='alert alert-danger'>Some Error Occured Please Retry after some time.</div>";
         }
     } else {
-        echo "<div class='alert alert-danger'>Some Error Occured Please Contact Admin</div>";
+        echo "<div class='alert alert-danger'>Some Error Occured Please Retry after some time.</div>";
     }
 } else {
-    echo "<div class='alert alert-danger'>Some Error Occured Please Contact Admin</div>";
+    echo "<div class='alert alert-danger'>Some Error Occured Please Retry after some time.</div>";
 }

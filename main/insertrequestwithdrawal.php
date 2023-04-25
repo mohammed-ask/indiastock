@@ -29,7 +29,7 @@ if (!empty($start) && !empty($end) && $current >= $start && $current <= $end) {
         $wr = $obj->insertnew("withdrawalrequests", $xx);
     }
     if (is_integer($wr) && $wr > 0) {
-        echo "Redirect : Withdrawal Request Sent URLfund";
+        echo "Redirect : Withdrawal request submitted! Amount will reflect in registered bank account after verification. URLfund";
     } else {
         echo "Some Error Occured";
     }

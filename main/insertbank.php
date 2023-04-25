@@ -16,7 +16,7 @@ if ($pendingreq > 0) {
     $xx['userid'] = $employeeid;
     $bank = $obj->insertnew("bankaccountchange", $xx);
     if ($bank > 0) {
-        echo "Redirect : New Bank Request has sent to Admin for Approval URLprofile";
+        echo "Redirect : Your account update request has been received and is currently under review by our team. URLprofile";
     } else {
         echo "Something Went Wrong";
     }

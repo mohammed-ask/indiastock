@@ -25,5 +25,5 @@ $newamt = $oldamt + $fund['amount'];
 $xx['investmentamount'] = $newamt;
 $ures = $obj->update('users', $xx, $id);
 if ($ures == 1) {
-    echo "Redirect : Fund has been added to user URLusers";
+    echo "Redirect : Fund has been added! URLusers";
 }

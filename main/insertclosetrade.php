@@ -63,11 +63,11 @@ if ($close > 0) {
             $obj->saveactivity("Customer Closed Trade", "", $close, $xx['tradeid'], "User", "Customer Closed Trade");
             echo "Redirect : Trade Closed Succesfully  URLportfolio";
         } else {
-            echo "<div class='alert alert-danger'>Some Error Occured Please Contact Admin</div>";
+            echo "<div class='alert alert-danger'>Some Error Occured Please please try after sometime!</div>";
         }
     } else {
-        echo "<div class='alert alert-danger'>Some Error Occured Please Contact Admin</div>";
+        echo "<div class='alert alert-danger'>Some Error Occured Please please try after sometime</div>";
     }
 } else {
-    echo "<div class='alert alert-danger'>Some Error Occured Please Contact Admin</div>";
+    echo "<div class='alert alert-danger'>Some Error Occured please try after sometime</div>";
 }

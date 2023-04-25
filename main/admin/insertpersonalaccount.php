@@ -150,6 +150,6 @@ if ($id == "Not Applicable") {
     $tb_name = "personal_detail";
     $pradin = $obj->update($tb_name, $personal, $id);
     if ($pradin == 1) {
-        echo "Redirect : Personal Detail has been Updated URLsettings";
+        echo "Redirect : Personal Details has been Updated! URLsettings";
     }
 }
