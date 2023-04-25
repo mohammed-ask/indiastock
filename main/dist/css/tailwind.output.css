@@ -1280,6 +1280,14 @@ print and (-ms-high-contrast:none) {
     max-width: 56rem
 }
 
+.max-w-3xl {
+    max-width: 45rem;
+}
+
+.max-w-4l {
+    max-width: 50rem;
+}
+
 .min-h-screen {
     min-height: 100vh
 }

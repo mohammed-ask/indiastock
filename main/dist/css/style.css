@@ -470,3 +470,39 @@ color: #fff !important;
 font-size: 1rem !important;
 
 }
+
+
+/* --------------------alertify---------------- */
+
+.alertify .ajs-header {
+display: none;
+
+}
+
+
+.alertify .ajs-footer {
+  /* padding: 4px; */
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  min-height: 35px !important;
+}
+
+.alertify .ajs-dialog {
+  
+  padding: 15px 0px 0 0px !important;
+  max-width: 400px !important;
+}
+
+.alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
+  margin: 0px !important;
+}
+
+
+.alertify .ajs-footer {
+padding: 0px !important;
+
+}
+
+.alertify .ajs-commands {
+  margin:-12px 10px 0 0 !important; 
+}

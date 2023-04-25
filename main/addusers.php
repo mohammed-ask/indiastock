@@ -838,17 +838,17 @@
                     function(response) {
                         if (response === 'Success') {
                             removeoverlay()
-                            alertify.alert('result', 'Registration successfull! Please wait for approval', function() {
+                            alertify.alert('result', 'Thank you for registering your account! Our team will review your request and notify you through email once your account has been approved.', function() {
                                 window.location.href = 'login'
                             })
                         } else if (response === 'Failed') {
                             removeoverlay()
-                            alertify.alert('result', 'Sorry! OTP does not match', function() {
+                            alertify.alert('result', 'Sorry! OTP did not match', function() {
                                 // window.location.href = 'login'
                             })
                         } else {
                             removeoverlay()
-                            alertify.alert('result', 'Sorry! Something went wrong', function() {
+                            alertify.alert('result', 'Sorry! Something went wrongOops! Something went wrong. Please try again later.', function() {
                                 // window.location.href = 'login'
                             })
                         }
