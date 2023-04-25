@@ -1726,6 +1726,61 @@ class db
         }
     }
 
+    function fivepaisaapi2($userstock)
+    {
+        try {
+            $headArry = array(
+                'appName' => APP_NAME,
+                'appVer' => APP_VERSION,
+                'key' => KEY,
+                'osName' => OS_NAME,
+                'requestCode' => '5PMF',
+                'userId' => USER_ID,
+                'password' => PASSWORD,
+            );
+
+            $subArray = $userstock;
+            // array(
+            //     ["Exch" => "N", "ExchType" => "C", "Symbol" => "BHEL", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "N", "ExchType" => "C", "Symbol" => "RELIANCE", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""],
+            //     ["Exch" => "N", "ExchType" => "C", "Symbol" => "AXISBANK", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]
+            // );
+            $bodyArry = array(
+                'Count' => 1,
+                'MarketFeedData' => $subArray,
+                'ClientLoginType' => 0,
+                'LastRequestTime' => '/Date(0)/',
+                'RefreshRate' => 'H',
+            );
+            $requestData = array("head" => $headArry, "body" => $bodyArry);
+
+            $data_string = json_encode($requestData);
+
+            $ch = curl_init('https://openapi.5paisa.com/VendorsAPI/Service1.svc/MarketFeed');
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt(
+                $ch,
+                CURLOPT_HTTPHEADER,
+                array(
+                    'Content-Type: application/json',
+                )
+            );
+
+            $result = curl_exec($ch);
+            // print_r($result);
+            $result = json_decode($result, true);
+            if (isset($result['body']['Data'])) {
+                return $result['body']['Data'];
+            } else {
+                throw new Exception('Error fetching candle data:');
+            }
+        } catch (Exception $e) {
+            // Log or handle the error as required
+            return $e->getMessage();
+        }
+    }
+
     function getcftokenfp()
     {
 

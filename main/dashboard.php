@@ -7,7 +7,7 @@ $fetchshare = $obj->selectextrawhereupdate('userstocks inner join watchliststock
 $rowfetch = mysqli_fetch_all($fetchshare, 1);
 array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
 
-$stockdata = $obj->fivepaisaapi($rowfetch);
+$stockdata = $obj->fivepaisaapi2($rowfetch);
 $marketdata = array_filter($stockdata, function ($data) {
     if ($data['Symbol'] === 'NIFTY' || $data['Symbol'] === 'SENSEX') {
         return $data;
@@ -40,8 +40,8 @@ foreach ($data as $row) {
                         <?php foreach ($marketdata as $mdata) {  ?>
                             <div class="nifty-50 d-inline-block me-3">
                                 <div class="font-11 fw-semibold"><?= $mdata['Symbol'] ?></div>
-                                <div class="d-inline-block font-11"><?= $mdata['LastRate'] ?> <span class="text-danger"><?= $mdata['Chg'] ?> </span>
-                                    <span class="text-danger">(<?= round($mdata['ChgPcnt'], 2) ?>%)</span>
+                                <div class="d-inline-block font-11"><?= $mdata['LastRate'] ?> <span <?= $mdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $mdata['Chg'] ?> </span>
+                                    <span <?= $mdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($mdata['ChgPcnt'], 2) ?>%)</span>
                                 </div>
                             </div>
                         <?php } ?>
