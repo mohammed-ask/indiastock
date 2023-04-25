@@ -1883,6 +1883,10 @@ print and (-ms-high-contrast:none) {
     width: 3rem
 }
 
+.w-45{
+width: 11rem;
+}
+
 .w-56 {
     width: 14rem
 }

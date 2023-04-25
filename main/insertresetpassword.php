@@ -4,4 +4,4 @@ include './main/conn.php';
 $id = $_POST['id'];
 $xx['password'] = $_POST['password'];
 $obj->update("users", $xx, $id);
-echo "Redirect : Password Change Successfully  URLindex";
+echo "Redirect : Password updated successfully.  URLindex";

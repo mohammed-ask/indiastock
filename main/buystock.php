@@ -18,7 +18,7 @@ $stockdata = $stockdata[0];
         <span class="border border-success px-1 rounded text-success">B</span>
     </div>
     <div>
-        <h6 class="m-0 text-uppercase font-16 fw-bold">₹<?= $stockdata['LastRate'] ?> <?php if ($stockdata['ChgPcnt'] > 0) { ?>
+        <h6 class="m-0 font-16 fw-bold">₹<?= $stockdata['LastRate'] ?> <?php if ($stockdata['ChgPcnt'] > 0) { ?>
                 <i class="fa-solid fa-arrow-trend-up text-success"></i>
             <?php } else { ?>
                 <i class="fa-solid fa-arrow-trend-down text-danger"></i>

@@ -22,10 +22,12 @@ $rowemployee = $obj->selectextrawhere("users", "id=" . $employeeid . "")->fetch_
         <i id="eye" class="fa fa-eye" style="position: absolute;top:33px;right:10px" aria-hidden="true"></i>
     </label>
     <div>
+        <span class="text-sm">To modify your password, enter your new password and Click on <b>"Submit"</b></span>
         <button type="submit" id="modalsubmit" class="w-full px-3 py-1 mt-6 text-sm font-medium hidden">
             Submit
         </button>
     </div>
+
     <div id="resultid"></div>
 </form>
 <script>

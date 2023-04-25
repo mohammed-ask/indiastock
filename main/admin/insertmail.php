@@ -70,5 +70,5 @@ while ($rowfile = $obj->fetch_assoc($attachfile)) {
 }
 $mail->Body = $_POST['message'];
 $mail->send();
-echo "Redirect :  Mail Sent Successfully URLcomposemail";
+echo "Redirect :  Mail Sent! URLcomposemail";
 // }

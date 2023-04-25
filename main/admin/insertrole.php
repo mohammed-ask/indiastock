@@ -11,7 +11,7 @@ $tb_name = "roles";
 $postdata = $_POST;
 $pradin = $obj->insertnew($tb_name, $postdata);
 if (is_integer($pradin) && $pradin > 0) {
-    echo "Redirect : New Role has been Added URLeditrole?hakuna=$pradin";
+    echo "Redirect : New Role has been Added! URLeditrole?hakuna=$pradin";
 } else {
     echo "Some Error Occured";
 }
