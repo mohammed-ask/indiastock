@@ -2,11 +2,11 @@
 include "main/session.php";
 $id = $_GET['hakuna'];
 $rowtran = $obj->selectextrawhere("stocktransaction", "id=" . $id . "")->fetch_assoc();
-
-$rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "Exch='" . $rowtran['exchange'] . "' and Symbol = '" . $rowtran['symbol'] . "'")->fetch_assoc();
+$token = $obj->selectfieldwhere("userstocks", 'symboltoken', "id=" . $rowtran['stockid'] . "");
+$rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "id=" . $rowtran['stockid'] . "")->fetch_assoc();
 $stockdata = $obj->fivepaisaapi(array($rowfetch));
 if ($stockdata === 'Error fetching candle data:') {
-    echo "<div class='alert alert-danger'>Something went wrong! Please try again or check if token is valid</div>";
+    echo "<div class='alert alert-danger'>Something went wrong! Please try again or check if token is validddd</div>";
     die;
 }
 $stockdata = $stockdata[0];
@@ -86,8 +86,7 @@ $stockdata = $stockdata[0];
             myinterval = setInterval(() => {
                 $('#stockdetails').html()
                 $.post("main/getlivemarketdatasingle.php", {
-                        symbol: '<?= $rowtran['symbol'] ?>',
-                        exchange: '<?= $rowtran['exchange'] ?>'
+                        token: '<?= $token ?>',
                     },
                     function(data) {
                         $('#stockdetails').html(data)
