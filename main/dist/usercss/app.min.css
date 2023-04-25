@@ -5170,8 +5170,8 @@ input:checked+.slider {
        }
 }
 
+.highcharts-title{
 
-.highcharts-axis-title{
-font-size: 12px !important;
-color: #057c7c !important;
+    font-size: 14px !important;
+    
 }
