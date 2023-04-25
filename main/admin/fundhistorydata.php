@@ -52,15 +52,6 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['mobile'];
     $n[] = $row['transactionid'];
     $n[] = $row['paymentmethod'];
-    // $n[] = changedateformatespecito($row['date'], "Y-m-d", "d/m/Y");
-    // $a = "";
-    // if (in_array(83, $fundrequest)) {
-    //     $a = '<a class="px-4 py-2  text-sm  bg-blue  rounded-lg " href="editpermission?hakuna=' . $row['id'] . '" class="btn btn-blue">Edit</a>';
-    // }
-    // if (in_array(84, $fundrequest)) {
-    //     $a .= "<a style='cursor: pointer;' class='px-4 py-2 ml-1 text-sm font-medium leading-5 text-white  bg-red  rounded-lg '  onclick='del(\"" . $row['id'] . "\", \"deletepermission\", \"Delete Role \")' >Delete</a>";
-    // }
-    // $n[] = $a;
     $data[] = $n;
     $i++;
 }
