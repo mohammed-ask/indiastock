@@ -5169,3 +5169,9 @@ input:checked+.slider {
        
        }
 }
+
+
+.highcharts-axis-title{
+font-size: 12px !important;
+color: #057c7c !important;
+}
