@@ -59,7 +59,7 @@ foreach ($data as $row) {
                 </select>
             </div>
         </div>
-        <div id="container"></div>
+        <div id="container" style="overflow-y:hidden;font-size: 1rem;"></div>
         <?php if (empty($chartdata)) { ?>
             <div class='alert alert-danger'>Due to a technical issue with the NSE server, the chart is currently unavailable</div>
         <?php } ?>
