@@ -190,5 +190,15 @@ include "main/templete.php";
                 [0, "desc"]
             ],
         })
+
+        function recalculateDataTableResponsiveSize() {
+            $($.fn.dataTable.tables(true)).DataTable().responsive.recalc();
+        }
+
+        $("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
+            recalculateDataTableResponsiveSize();
+            // var id = $(e.target).attr("href").substr(1);
+            // window.location.hash = id;
+        });
     });
 </script>

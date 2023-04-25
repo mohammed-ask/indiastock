@@ -6,6 +6,7 @@ $scriptcode = $_POST['scriptcode'];
 $startdate = $_POST['startdate'];
 $enddate = $_POST['enddate'];
 $interval = $_POST['interval'];
+$symbol = $_POST['symbol'];
 
 $chartdata = $obj->getcandledata($scriptcode, $exch, $type, $interval, $startdate, $enddate);
 $data = $chartdata['candles'];
@@ -18,7 +19,7 @@ foreach ($data as $row) {
     $utcTimestamp = $date->getTimestamp() * 1000;
     $chart_data[] = array($utcTimestamp, $row[1], $row[2], $row[3], $row[4], $row[5]);
 }
-$title = $scriptcode === '999920000' ? 'Nifty Index' : 'Stock Prices';
+$title = $scriptcode === '999920000' ? 'Nifty Index' : $symbol;
 echo "Highcharts.chart('container', {
         title: {
             text: '" . $title . "'

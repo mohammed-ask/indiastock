@@ -75,14 +75,14 @@ $watchlistcount = $obj->selectfieldwhere("watchliststock", "count(id)", "userid=
                                                                     <div class="action-icons">
                                                                         <ul class="list-inline">
                                                                             <li class="list-inline-item align-self-center mx-0 bg-success">
-                                                                                <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $wdata["Symbol"] ?>", "buystock","<?= $wdata["Exch"] ?>", "Buy Stock")'><i class="fa-solid fa-b text-white email-action-icons-item"></i></a>
+                                                                                <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $wdata["Token"] ?>", "buystock","<?= $wdata["Exch"] ?>", "Buy Stock")'><i class="fa-solid fa-b text-white email-action-icons-item"></i></a>
                                                                             </li><!--end /li-->
                                                                             <li class="list-inline-item align-self-center mx-0 bg-danger">
-                                                                                <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $wdata["Symbol"] ?>", "sellstock","<?= $wdata["Exch"] ?>", "Sell Stock")'><i class="fa-solid fa-s text-white email-action-icons-item"></i></a>
-                                                                            </li><!--end /li-->
-                                                                            <li class="list-inline-item align-self-center mx-0">
+                                                                                <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $wdata["Token"] ?>", "sellstock","<?= $wdata["Exch"] ?>", "Sell Stock")'><i class="fa-solid fa-s text-white email-action-icons-item"></i></a>
+                                                                            </li>
+                                                                            <!-- <li class="list-inline-item align-self-center mx-0">
                                                                                 <a href="details.html"><i class="fa-solid fa-sliders email-action-icons-item"></i></a>
-                                                                            </li><!--end /li-->
+                                                                            </li> -->
                                                                             <li class="list-inline-item align-self-center mx-0">
                                                                                 <a onclick="removewatchlist('<?= $wdata['Symbol'] ?>','<?= $wdata['Exch']  ?>')"><i class="fa-regular fa-trash-can email-action-icons-item"></i></a>
                                                                             </li><!--end /li-->

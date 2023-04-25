@@ -1,8 +1,7 @@
 <?php
 include "./session.php";
-$symbol = $_POST['symbol'];
-$exchange = $_POST['exchange'];
-$rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1")->fetch_assoc();
+$token = $_POST['token'];
+$rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "symboltoken = '" . $token . "'  and status = 1")->fetch_assoc();
 $stockdata = $obj->fivepaisaapi(array($rowfetch));
 $stockdata = $stockdata[0];
 ?>

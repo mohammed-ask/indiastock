@@ -26,7 +26,9 @@ $id = $_GET['hakuna'];
                         <th class="px-4 py-3">S.No.</th>
                         <th class="px-4 py-3">User Name</th>
                         <th class="px-4 py-3">Amount</th>
-                        <th class="px-4 py-3">Remark</th>
+                        <th class="px-4 py-3">Mobile</th>
+                        <th class="px-4 py-3">Transaction ID</th>
+                        <th class="px-4 py-3">Payment Method</th>
                         <th class="px-4 py-3">Date & Time</th>
                         <!-- <th class="px-4 py-3">Action</th> -->
                     </tr>

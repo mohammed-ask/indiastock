@@ -2,13 +2,11 @@
 include "main/session.php";
 $mrkt = $obj->marketstatus();
 // $mrkt = 'Open';
-$symbol = $_GET['hakuna'];
+$token = $_GET['hakuna'];
 $exchange = $_GET['what'];
-$id = $obj->selectfieldwhere("userstocks", "id", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1");
-$lot = $obj->selectfieldwhere("userstocks", "mktlot", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1");
-$rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "Exch='" . $exchange . "' and Symbol = '" . $symbol . "' and status = 1")->fetch_assoc();
-// print_r(array($rowfetch));
-// die;
+$id = $obj->selectfieldwhere("userstocks", "id", "symboltoken = '" . $token . "' and status = 1");
+$lot = $obj->selectfieldwhere("userstocks", "mktlot", "symboltoken = '" . $token . "'  and status = 1");
+$rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "symboltoken = '" . $token . "'  and status = 1")->fetch_assoc();
 $stockdata = $obj->fivepaisaapi(array($rowfetch));
 $stockdata = $stockdata[0];
 ?>
@@ -86,7 +84,7 @@ $stockdata = $stockdata[0];
     <div class="row">
         <div class="col">
             <small class="text-muted d-block">Require Fund</small>
-            <small id="reqfund">₹<?= $usermargin > 0 ? number_format($stockdata['LastRate'], 2) : 0 ?></small>
+            <small id="reqfund">₹<?= number_format($lot * $stockdata['LastRate'], 2)  ?></small>
             <!-- <small style="color:green">Margin Available : <?= $usermargin ?>x</small> -->
         </div><!--end col-->
         <div class="col-auto">
@@ -110,7 +108,7 @@ $stockdata = $stockdata[0];
             myinterval = setInterval(() => {
                 $('#stockdetails').html()
                 $.post("main/getlivemarketdatasingle.php", {
-                        symbol: '<?= $symbol ?>',
+                        token: '<?= $token ?>',
                         exchange: '<?= $exchange ?>'
                     },
                     function(data) {

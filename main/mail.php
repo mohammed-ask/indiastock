@@ -38,8 +38,10 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
                             <table id="example1" class="table table-bordered">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th>Date</th>
-                                        <th>Time</th>
+
+                                        <th>Serial No</th>
+                                        <th>Date Time</th>
+                                        <!-- <th>Time</th> -->
                                         <th>Sender</th>
                                         <th>Subject</th>
                                         <th>View Msg</th>
@@ -57,9 +59,10 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
                             <table id="example2" class="table table-bordered">
                                 <thead class="thead-light">
                                     <tr>
+                                        <th>Serial No</th>
                                         <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Sender</th>
+                                        <!-- <th>Time</th> -->
+                                        <th>To</th>
                                         <th>Subject</th>
                                         <th>View Msg</th>
 
@@ -183,7 +186,7 @@ include "main/templete.php"; ?>
                 if (aData[5] == 1) {
 
                 } else {
-                    $('td', nRow).attr('style', 'background-color: hsl(138, 39%, 56%) !important');
+                    $('td', nRow).attr('style', 'background-color: rgb(199, 255, 255) !important');
                 }
             },
         });
