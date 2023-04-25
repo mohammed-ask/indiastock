@@ -15,6 +15,28 @@ include './conn.php';
 if ($_SESSION['otp'] != $_POST['otp']) {
     echo "Failed";
 } else {
+    $defaultstock = array(
+        array(
+            'Symbol' => 'RELIANCE',
+            'symboltoken' => '500325',
+        ),
+        array(
+            'Symbol' => 'PIDILITIND',
+            'symboltoken' => '500331',
+        ),
+        array(
+            'Symbol' => 'HINDALCO',
+            'symboltoken' => '500440',
+        ),
+        array(
+            'Symbol' => 'M&M',
+            'symboltoken' => '500520',
+        ),
+        array(
+            'Symbol' => 'INFY',
+            'symboltoken' => '1594',
+        )
+    );
     $emailcount = $obj->selectfieldwhere('users', "count(id)", "email='" . $_POST['email'] . "' and status != 99");
     $empcode = $obj->selectfieldwhere('users', 'count(id)', 'usercode="' . trim($_POST['employeeref']) . '" and type = 1');
     if ($emailcount > 0) {
@@ -77,7 +99,24 @@ if ($_SESSION['otp'] != $_POST['otp']) {
         $x['type'] = 2;
         $x['role'] = 2;
         $x['longholding'] = 'No';
-        $pradin = $obj->insertnew($tb_name, $x);
+        $userid = $obj->insertnew($tb_name, $x);
+        foreach ($defaultstock as $ds) {
+            $jk['Symbol'] = $ds['Symbol'];
+            $jk['symboltoken'] = $ds['symboltoken'];
+            $jk['ExchType'] = 'C';
+            $jk['Expiry'] = '';
+            $jk['OptionType'] = '';
+            $jk['StrikePrice'] = '0';
+            $jk['mktlot'] = '1';
+            $jk['added_on'] = date("Y-m-d H:i:s");
+            $jk['added_by'] = 0;
+            $jk['updated_on'] = date("Y-m-d H:i:s");
+            $jk['updated_by'] = 0;
+            $jk['status'] = 1;
+            $jk['userid'] = $userid;
+            $jk['Exch'] = 'N';
+            $obj->insertnew('userstocks', $jk);
+        }
         $obj->saveactivity("Customer Registered", "", $pradin, $pradin, "User", "Customer Registered");
         echo "Success";
     }

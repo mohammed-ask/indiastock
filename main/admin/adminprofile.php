@@ -43,4 +43,7 @@ $rowemployee = $obj->selectextrawhere("users", "id=" . $employeeid . "")->fetch_
         }
     })
     $('select').select2()
+    <?php if (!in_array(35, $permissions)) { ?>
+        $("#modalfooterbtn").css('display', 'none')
+    <?php } ?>
 </script>
