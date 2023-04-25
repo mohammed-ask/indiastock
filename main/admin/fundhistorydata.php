@@ -52,7 +52,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['mobile'];
     $n[] = $row['transactionid'];
     $n[] = $row['paymentmethod'];
-    $n[] = changedateformatespecito($row['added_on'], "Y-m-d", "d M Y H:i");
+    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i", "d M Y H:i");
     $data[] = $n;
     $i++;
 }
