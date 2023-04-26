@@ -17,20 +17,24 @@ if ($_SESSION['otp'] != $_POST['otp']) {
 } else {
     $defaultstock = array(
         array(
-            'Symbol' => 'RELIANCE',
-            'symboltoken' => '500325',
+            'Symbol' => 'NIFTY',
+            'symboltoken' => '999920000',
         ),
         array(
-            'Symbol' => 'PIDILITIND',
-            'symboltoken' => '500331',
+            'Symbol' => 'SENSEX',
+            'symboltoken' => '999901',
+        ),
+        array(
+            'Symbol' => 'RELIANCE',
+            'symboltoken' => '2885',
         ),
         array(
             'Symbol' => 'HINDALCO',
-            'symboltoken' => '500440',
+            'symboltoken' => '1363',
         ),
         array(
             'Symbol' => 'M&M',
-            'symboltoken' => '500520',
+            'symboltoken' => '2031',
         ),
         array(
             'Symbol' => 'INFY',
@@ -114,7 +118,11 @@ if ($_SESSION['otp'] != $_POST['otp']) {
             $jk['updated_by'] = 0;
             $jk['status'] = 1;
             $jk['userid'] = $userid;
-            $jk['Exch'] = 'N';
+            if ($jk['Symbol'] === 'SENSEX') {
+                $jk['Exch'] = 'B';
+            } else {
+                $jk['Exch'] = 'N';
+            }
             $obj->insertnew('userstocks', $jk);
         }
         $obj->saveactivity("Customer Registered", "", $userid, $userid, "User", "Customer Registered");

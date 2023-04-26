@@ -73,8 +73,55 @@ if ($emailcount > 0) {
     $x['investmentamount'] = $_POST['investmentamount'];
     $x['limit'] = $_POST['limit'];
 
-    $pradin = $obj->insertnew($tb_name, $x);
-    $obj->saveactivity("Added Customer by Admin", "", $pradin, $employeeid, "Admin", "Added Customer by Admin");
+    $userid = $obj->insertnew($tb_name, $x);
+    $defaultstock = array(
+        array(
+            'Symbol' => 'NIFTY',
+            'symboltoken' => '999920000',
+        ),
+        array(
+            'Symbol' => 'SENSEX',
+            'symboltoken' => '999901',
+        ),
+        array(
+            'Symbol' => 'RELIANCE',
+            'symboltoken' => '2885',
+        ),
+        array(
+            'Symbol' => 'HINDALCO',
+            'symboltoken' => '1363',
+        ),
+        array(
+            'Symbol' => 'M&M',
+            'symboltoken' => '2031',
+        ),
+        array(
+            'Symbol' => 'INFY',
+            'symboltoken' => '1594',
+        )
+    );
+    foreach ($defaultstock as $ds) {
+        $jk['Symbol'] = $ds['Symbol'];
+        $jk['symboltoken'] = $ds['symboltoken'];
+        $jk['ExchType'] = 'C';
+        $jk['Expiry'] = '';
+        $jk['OptionType'] = '';
+        $jk['StrikePrice'] = '0';
+        $jk['mktlot'] = '1';
+        $jk['added_on'] = date("Y-m-d H:i:s");
+        $jk['added_by'] = 0;
+        $jk['updated_on'] = date("Y-m-d H:i:s");
+        $jk['updated_by'] = 0;
+        $jk['status'] = 1;
+        $jk['userid'] = $userid;
+        if ($jk['Symbol'] === 'SENSEX') {
+            $jk['Exch'] = 'B';
+        } else {
+            $jk['Exch'] = 'N';
+        }
+        $obj->insertnew('userstocks', $jk);
+    }
+    $obj->saveactivity("Added Customer by Admin", "", $userid, $employeeid, "Admin", "Added Customer by Admin");
     $mail = new PHPMailer(true);
 
     $mail->isSMTP();
