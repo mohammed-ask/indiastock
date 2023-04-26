@@ -19,6 +19,7 @@ if (!empty($totalstocktraded)) {
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
     $stockdata = $obj->fivepaisaapi($rowfetch);
 }
+$stockdata = 'Error fetching candle data:' ? [] : $stockdata;
 // echo "<pre>";
 // print_r($stockdata);
 // die;
@@ -31,29 +32,32 @@ $result = $obj->selectextrawhereupdate(
 );
 // print_r(mysqli_fetch_all($result, MYSQLI_ASSOC));
 // die;
-while ($row = $obj->fetch_assoc($result)) {
-    $symbol = $row['symbol'];
-    $excg = $row['exchange'];
-    $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg) {
-        if ($data['Symbol'] === $symbol && $data['Exch'] === $excg) {
-            return $data;
-        }
-    });
-    $keys = array_keys($pricedata)[0];
-    //Adding Invested Amount
-    $stockamount = $stockamount + $row['totalamount'];
 
-    // Adding Profit on Total Share
-    $profitloss = ($row['price'] - $pricedata[$keys]['LastRate']) * $row['qty'];
-    if ($row['trademethod'] === 'Sell') {
-        if ($profitloss <= 0) {
-            $profitloss = abs($profitloss);
-        } else {
-            $profitloss = -$profitloss;
+if (!empty($stockdata)) {
+    while ($row = $obj->fetch_assoc($result)) {
+        $symbol = $row['symbol'];
+        $excg = $row['exchange'];
+        $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg) {
+            if ($data['Symbol'] === $symbol && $data['Exch'] === $excg) {
+                return $data;
+            }
+        });
+        $keys = array_keys($pricedata)[0];
+        //Adding Invested Amount
+        $stockamount = $stockamount + $row['totalamount'];
+
+        // Adding Profit on Total Share
+        $profitloss = ($row['price'] - $pricedata[$keys]['LastRate']) * $row['qty'];
+        if ($row['trademethod'] === 'Sell') {
+            if ($profitloss <= 0) {
+                $profitloss = abs($profitloss);
+            } else {
+                $profitloss = -$profitloss;
+            }
         }
+        $stockamount = $stockamount + $profitloss;
+        $totalprofit = $totalprofit + $profitloss;
     }
-    $stockamount = $stockamount + $profitloss;
-    $totalprofit = $totalprofit + $profitloss;
 }
 $totalprofit = empty($totalprofit) ? 0 : $totalprofit;
 $totalprofitprcnt = 0;

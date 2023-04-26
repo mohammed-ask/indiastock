@@ -2,9 +2,9 @@
 include "./session.php";
 $watchlistsym = explode(",", $_POST['wsymbol']);
 $sexchange = explode(",", $_POST['wexcg']);
-$fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and (status = 1 || status = 11)");
+$fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "(userid='" . $employeeid . "' and status = 1) || status = 11");
 $rowfetch = mysqli_fetch_all($fetchshare, 1);
-array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
+// array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
 
 $stockdata = $obj->fivepaisaapi($rowfetch);
 $marketdata = array_filter($stockdata, function ($data) {
@@ -12,11 +12,11 @@ $marketdata = array_filter($stockdata, function ($data) {
         return $data;
     }
 });
-$stockdata = array_filter($stockdata, function ($data) {
-    if ($data['Symbol'] !== 'NIFTY' && $data['Symbol'] !== 'SENSEX') {
-        return $data;
-    }
-});
+// $stockdata = array_filter($stockdata, function ($data) {
+//     if ($data['Symbol'] !== 'NIFTY' && $data['Symbol'] !== 'SENSEX') {
+//         return $data;
+//     }
+// });
 $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexchange) {
     if (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange))
         return $data;
@@ -32,8 +32,8 @@ $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexcha
                         <?php foreach ($marketdata as $mdata) {  ?>
                             <div class="nifty-50 d-inline-block me-3">
                                 <div class="font-11 fw-semibold"><?= $mdata['Symbol'] ?></div>
-                                <div class="d-inline-block font-11"><?= $mdata['LastRate'] ?> <span class="text-danger"><?= $mdata['Chg'] ?> </span>
-                                    <span class="text-danger">(<?= round($mdata['ChgPcnt'], 2) ?>%)</span>
+                                <div class="d-inline-block font-11"><?= $mdata['LastRate'] ?> <span <?= $mdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $mdata['Chg'] ?> </span>
+                                    <span <?= $mdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($mdata['ChgPcnt'], 2) ?>%)</span>
                                 </div>
                             </div>
                         <?php } ?>
@@ -64,7 +64,12 @@ foreach ($stockdata as $data) { ?>
                             </h6>
                             <div class="d-inline-block font-10"><span <?= $data['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $data['Chg'] ?></span> <span <?= $data['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($data['ChgPcnt'], 2) ?>%)</span></div>
                         </div>
-                        <div><i class="fa fa-times" style="color:grey" aria-hidden="true" onclick="removestock('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>')"></i></div>
+                        <div>
+                            <?php
+                            if ($data['Token'] != '999920000' && $data['Token'] != '999901') { ?>
+                                <i class="fa fa-times" style="color:grey" aria-hidden="true" onclick="removestock('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>')"></i>
+                            <?php } ?>
+                        </div>
                     </div><!-- end /div -->
                 </a> <!--end-->
                 <hr class="hr-dashed">
@@ -100,9 +105,13 @@ foreach ($stockdata as $data) { ?>
                                                     font-weight: 500 !important; margin-right: 10px !important;">
                                 <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $data["Token"] ?>", "sellstock","<?= $data["Exch"] ?>", "Sell Stock")'>Sell</a>
                             </li><!--end /li-->
-                            <li <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='background-color:#0073cf;cursor:pointer'" : "style='cursor:pointer'" ?> class="list-inline-item align-self-center mx-0">
-                                <i <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='color:white'" : "" ?> onclick="addtowatchlist('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>')" class="fa-solid fa-plus email-action-icons-item"></i>
-                            </li><!--end /li-->
+                            <?php
+                            if ($data['Token'] != '999920000' && $data['Token'] != '999901') { ?>
+                                <li <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='background-color:#0073cf;cursor:pointer'" : "style='cursor:pointer'" ?> class="list-inline-item align-self-center mx-0">
+
+                                    <i <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='color:white'" : "" ?> onclick="addtowatchlist('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>')" class="fa-solid fa-plus email-action-icons-item"></i>
+                                </li><!--end /li-->
+                            <?php } ?>
                         </ul><!--end /ul-->
 
                     </div> <!--end action-icons-->

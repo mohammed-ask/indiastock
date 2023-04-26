@@ -106,7 +106,12 @@ $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexcha
                                 </h6>
                                 <div class="d-inline-block font-10"><span <?= $data['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $data['Chg'] ?></span> <span <?= $data['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($data['ChgPcnt'], 2) ?>%)</span></div>
                             </div>
-                            <div><i class="fa fa-times" style="color:grey" aria-hidden="true" onclick="removestock('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>')"></i></div>
+                            <div>
+                                <?php
+                                if ($data['Token'] != '999920000' && $data['Token'] != '999901') { ?>
+                                    <i class="fa fa-times" style="color:grey" aria-hidden="true" onclick="removestock('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>')"></i>
+                                <?php } ?>
+                            </div>
                         </div><!-- end /div -->
                     </a> <!--end-->
                     <hr class="hr-dashed">
@@ -142,9 +147,13 @@ $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexcha
                                                     font-weight: 500 !important; margin-right: 10px !important;">
                                     <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $data["Token"] ?>", "sellstock","", "Sell Stock")'>Sell</a>
                                 </li><!--end /li-->
-                                <li <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='background-color:#0073cf;cursor:pointer'" : "style='cursor:pointer'" ?> class="list-inline-item align-self-center mx-0">
-                                    <i <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='color:white'" : "" ?> onclick="addtowatchlist('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>')" class="fa-solid fa-plus email-action-icons-item"></i>
-                                </li><!--end /li-->
+                                <?php
+                                if ($data['Token'] != '999920000' && $data['Token'] != '999901') { ?>
+                                    <li <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='background-color:#0073cf;cursor:pointer'" : "style='cursor:pointer'" ?> class="list-inline-item align-self-center mx-0">
+
+                                        <i <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='color:white'" : "" ?> onclick="addtowatchlist('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>')" class="fa-solid fa-plus email-action-icons-item"></i>
+                                    </li><!--end /li-->
+                                <?php } ?>
                             </ul><!--end /ul-->
 
                         </div> <!--end action-icons-->
