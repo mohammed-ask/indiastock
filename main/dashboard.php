@@ -13,11 +13,7 @@ $marketdata = array_filter($stockdata, function ($data) {
         return $data;
     }
 });
-// $wstocks = array_filter($stockdata, function ($data) {
-//     if ($data['Symbol'] !== 'NIFTY' && $data['Symbol'] !== 'SENSEX') {
-//         return $data;
-//     }
-// });
+$wstocks = $stockdata;
 $chartdata = $obj->getcandledata(999920000, 'N',  'C', '5m', date('Y-m-d'), date('Y-m-d'));
 $data = $chartdata === "Error fetching candle data:" ? [] : $chartdata['candles'];
 $chart_data = array();
