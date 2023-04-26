@@ -8,7 +8,7 @@ $holdingtradeid = $obj->selectfieldwhere(
     "status = 0 and userid = $id and tradestatus='Open' and type='Holding' and stockid != '' and stockid is not null"
 );
 if (!empty($holdingtradeid)) {
-    $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1 and id in (" . $holdingtradeid . ")");
+    $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "'  and id in (" . $holdingtradeid . ")");
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
     $stockdata = $obj->fivepaisaapi($rowfetch);
 }

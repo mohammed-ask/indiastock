@@ -1,6 +1,6 @@
 <?php
 include "./session.php";
-$fetchshare = $obj->selectextrawhereupdate('userstocks inner join watchliststock on watchliststock.userstockid = userstocks.id', "Exch,ExchType,userstocks.Symbol,Expiry,StrikePrice,OptionType", "userstocks.userid='" . $employeeid . "' and userstocks.status = 1 and watchliststock.status = 1");
+$fetchshare = $obj->selectextrawhereupdate('userstocks inner join watchliststock on watchliststock.userstockid = userstocks.id', "Exch,ExchType,userstocks.Symbol,Expiry,StrikePrice,OptionType", "(userstocks.userid='" . $employeeid . "' and userstocks.status = 1 and watchliststock.status = 1) || userstocks.status = 11");
 $rowfetch = mysqli_fetch_all($fetchshare, 1);
 array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
 
@@ -10,11 +10,7 @@ $marketdata = array_filter($stockdata, function ($data) {
         return $data;
     }
 });
-$wstocks = array_filter($stockdata, function ($data) {
-    if ($data['Symbol'] !== 'NIFTY' && $data['Symbol'] !== 'SENSEX') {
-        return $data;
-    }
-});
+$wstocks = $stockdata;
 /* @var $obj db */
 ?>
 <div class="container-fluid">

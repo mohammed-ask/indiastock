@@ -1,6 +1,6 @@
 <?php
 include "./session.php";
-$limit = $obj->selectfieldwhere("userstocks", "count(id)", "userid=" . $employeeid . " and status = 1");
+$limit = $obj->selectfieldwhere("userstocks", "count(id)", "(userid=" . $employeeid . " and status = 1) || status = 11");
 $checkstock = $obj->selectfieldwhere("userstocks", "count(id)", "userid=" . $employeeid . " and Exch = '" . $_POST['exch'] . "' and Symbol='" . $_POST['stockname'] . "'");
 if ($limit === '50') {
     echo "Limit Reached";
