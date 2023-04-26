@@ -7,6 +7,7 @@ $exchange = $_GET['what'];
 $id = $obj->selectfieldwhere("userstocks", "id", "symboltoken = '" . $token . "' and status = 1");
 $lot = $obj->selectfieldwhere("userstocks", "mktlot", "symboltoken = '" . $token . "'  and status = 1");
 $rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "symboltoken = '" . $token . "'  and status = 1")->fetch_assoc();
+print_r($rowfetch);
 $stockdata = $obj->fivepaisaapi(array($rowfetch));
 if ($stockdata === 'Error fetching candle data:') {
     echo "<div class='alert alert-danger'>Something went wrong! Please Try Again or check if token is valid</div>";
