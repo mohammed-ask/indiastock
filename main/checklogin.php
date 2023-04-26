@@ -26,7 +26,7 @@ if ($num) {
         $pwd1 = $row12['password'];
         if ($pwd == $pwd1) {
             if ($row['status'] == 99) {
-                echo "Error : Can't Login! Your account has been terminated.";
+                echo "Error : Can't Login! Your account no longer exists.";
             } elseif ($row['status'] != 1 || $row['activate'] !== 'Yes') {
                 echo "Error : Can't Login! Your Account Has Not Yet Approved.";
             } else {
