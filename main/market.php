@@ -13,7 +13,7 @@ if (!empty($wsymbol)) {
 $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1");
 $rowfetch = mysqli_fetch_all($fetchshare, 1);
 // print_r($rowfetch);
-array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
+// array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
 
 $stockdata = $obj->fivepaisaapi($rowfetch);
 // echo "<pre>";
@@ -25,11 +25,11 @@ $marketdata = array_filter($stockdata, function ($data) {
         return $data;
     }
 });
-$stockdata = array_filter($stockdata, function ($data) {
-    if ($data['Symbol'] !== 'NIFTY' && $data['Symbol'] !== 'SENSEX') {
-        return $data;
-    }
-});
+// $stockdata = array_filter($stockdata, function ($data) {
+//     if ($data['Symbol'] == 'NIFTY' && $data['Symbol'] == 'SENSEX') {
+//         return $data;
+//     }
+// });
 $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexchange) {
     if (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange))
         return $data;
