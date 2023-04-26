@@ -104,7 +104,7 @@ foreach ($data as $row) {
             <script type="text/javascript">
                 rssfeed_url = new Array();
                 rssfeed_url[0] = "https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms";
-                rssfeed_frame_width = "230";
+                rssfeed_frame_width = "auto";
                 rssfeed_frame_height = "300";
                 rssfeed_scroll = "on";
                 rssfeed_scroll_step = "5";

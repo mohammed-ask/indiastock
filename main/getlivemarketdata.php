@@ -94,11 +94,11 @@ foreach ($stockdata as $data) { ?>
                         <ul class="list-inline">
                             <li class="list-inline-item align-self-center mx-0 bg-success" style="padding: 3px 8px 3px 8px !important;
                                                     font-weight: 500 !important; margin-right: 10px !important;">
-                                <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $data["Symbol"] ?>", "buystock","<?= $data["Exch"] ?>", "Buy Stock")'><i class=""></i> Buy</a>
+                                <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $data["Token"] ?>", "buystock","<?= $data["Exch"] ?>", "Buy Stock")'><i class=""></i> Buy</a>
                             </li><!--end /li-->
                             <li class="list-inline-item align-self-center mx-0 bg-danger" style="padding: 3px 8px 3px 8px !important;
                                                     font-weight: 500 !important; margin-right: 10px !important;">
-                                <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $data["Symbol"] ?>", "sellstock","<?= $data["Exch"] ?>", "Sell Stock")'>Sell</a>
+                                <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $data["Token"] ?>", "sellstock","<?= $data["Exch"] ?>", "Sell Stock")'>Sell</a>
                             </li><!--end /li-->
                             <li <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='background-color:#0073cf;cursor:pointer'" : "style='cursor:pointer'" ?> class="list-inline-item align-self-center mx-0">
                                 <i <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='color:white'" : "" ?> onclick="addtowatchlist('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>')" class="fa-solid fa-plus email-action-icons-item"></i>
