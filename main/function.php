@@ -1713,7 +1713,7 @@ class db
             );
 
             $result = curl_exec($ch);
-            // print_r($result);
+            print_r($result);
             $result = json_decode($result, true);
             if (isset($result['body']['Data'])) {
                 return $result['body']['Data'];
