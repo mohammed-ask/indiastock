@@ -70,8 +70,8 @@ $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexcha
                             <?php foreach ($marketdata as $mdata) {  ?>
                                 <div class="nifty-50 d-inline-block me-3">
                                     <div class="font-11 fw-semibold"><?= $mdata['Symbol'] ?></div>
-                                    <div class="d-inline-block font-11"><?= $mdata['LastRate'] ?> <span class="text-danger"><?= $mdata['Chg'] ?> </span>
-                                        <span class="text-danger">(<?= round($mdata['ChgPcnt'], 2) ?>%)</span>
+                                    <div class="d-inline-block font-11"><?= $mdata['LastRate'] ?> <span <?= $mdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $mdata['Chg'] ?> </span>
+                                        <span <?= $mdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($mdata['ChgPcnt'], 2) ?>%)</span>
                                     </div>
                                 </div>
                             <?php } ?>
