@@ -51,6 +51,9 @@ function fun1(did, target, resulti, wha, process = "process") {
     }
     var isit = confirm("Are you sure you want to " + process + "?");
     if (isit) {
+
+        var overlay = jQuery('<div id="overlay"> </div>');
+        overlay.appendTo(document.body);
         if (globalerror < 1) {
 
             var url = target;
@@ -77,7 +80,6 @@ function fun1(did, target, resulti, wha, process = "process") {
 function Del() {
 
     if (xmlhttp.readyState < 4) {
-
         $("#overlay").show();
         // document.getElementById('overlay').innerHTML = "Processing Your Request..<br/><img src='images/jar-loading.gif' alt=''  />";
 
@@ -88,6 +90,7 @@ function Del() {
         $('#' + resultid).html(resultdata).fadeIn(400);
         //dataTableInitiate();
         location.reload(true);
+        $("#overlay").remove();
         $("#overlay").hide().delay(8000);
     }
 
