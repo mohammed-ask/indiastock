@@ -13,7 +13,7 @@ include './main/conn.php';
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - Windmill Dashboard</title>
+    <title>Forgot - PMS Equity</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="main/dist/css/tailwind.output.css" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -31,6 +31,66 @@ include './main/conn.php';
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+
+<style>
+
+/* --------------------alertify---------------- */
+
+.alertify .ajs-header {
+display: none;
+
+}
+
+
+.alertify .ajs-footer {
+  /* padding: 4px; */
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  min-height: 35px !important;
+  background-color: #00aaaa2e !important;
+  padding: 0px !important;
+}
+
+.alertify .ajs-dialog {
+  
+  padding: 15px 0px 0 0px !important;
+  max-width: 400px !important;
+  border-radius: 5px !important;
+}
+
+.alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
+  margin: 0px !important;
+}
+
+.alertify .ajs-commands {
+  margin:-12px 10px 0 0 !important; 
+}
+
+.alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok {
+  color: #fff !important;
+    border: 1px dotted #fff;
+    border-radius: 5px;
+    /* margin-right: 10px !important; */
+    margin: 5px 6px 5px 10px !important;
+    background-color: #00aaaa;
+}
+
+.alertify .ajs-dimmer {
+  
+  transition-timing-function: ease-in;
+  transition-duration: 500ms !important;
+}
+
+  .alertify .ajs-modal {
+  
+    transition-timing-function: ease-out;
+    transition-duration: 500ms !important;}
+
+
+
+
+</style>
+
 </head>
 
 <body>
@@ -38,17 +98,17 @@ include './main/conn.php';
         <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
             <div class="flex flex-col overflow-y-auto md:flex-row">
                 <div class="h-32 md:h-auto md:w-1/2">
-                    <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="main/dist/img/login-office.jpeg" alt="Office" />
-                    <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="main/dist/img/login-office-dark.jpeg" alt="Office" />
+                    <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="main/images/forget-password.png" alt="forget" />
+                    <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="main/images/forget-password.png" alt="Office" />
                 </div>
                 <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
                     <form onsubmit="event.preventDefault();sendForm('', '', 'checkforgetpassword', 'resultid', 'loginform');return 0;" id="loginform">
                         <div class="w-full">
-                            <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
-                                Forgot Password
-                            </h1>
+                            <h4 class="mb-3 font-semibold text-gray-700 dark:text-gray-200">
+                                Forgot Password ?
+                            </h4><div class=" mb-3">A password reset link will be sent to your registered email address.</div>
                             <label class="block text-sm">
-                                <span class="text-gray-700 dark:text-gray-400">Email</span>
+                                <span class="text-gray-700 dark:text-gray-400">Enter Your Registered Email</span>
                                 <input name="email" data-bvalidator='required' class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="example@gmail.com" />
                             </label>
                             <div id="resultid"></div>

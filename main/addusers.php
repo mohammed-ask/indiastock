@@ -557,6 +557,62 @@
                 margin: 0;
             }
         }
+
+/* --------------------alertify---------------- */
+
+.alertify .ajs-header {
+display: none;
+
+}
+
+
+.alertify .ajs-footer {
+  /* padding: 4px; */
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  min-height: 35px !important;
+  background-color: #00aaaa2e !important;
+  padding: 0px !important;
+}
+
+.alertify .ajs-dialog {
+  
+  padding: 15px 0px 0 0px !important;
+  max-width: 400px !important;
+  border-radius: 5px !important;
+}
+
+.alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
+  margin: 0px !important;
+}
+
+.alertify .ajs-commands {
+  margin:-12px 10px 0 0 !important; 
+}
+
+.alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok {
+  color: #fff !important;
+    border: 1px dotted #fff;
+    border-radius: 5px;
+    /* margin-right: 10px !important; */
+    margin: 5px 6px 5px 10px !important;
+    background-color: #00aaaa;
+}
+
+.alertify .ajs-dimmer {
+  
+  transition-timing-function: ease-in;
+  transition-duration: 500ms !important;
+}
+
+  .alertify .ajs-modal {
+  
+    transition-timing-function: ease-out;
+    transition-duration: 500ms !important;}
+
+
+
+
     </style>
 </head>
 

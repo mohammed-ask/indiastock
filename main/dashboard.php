@@ -100,7 +100,6 @@ foreach ($data as $row) {
 
             <!-- secondary free rss feed start (sw-rss-feed code) -->
 
-
             <script type="text/javascript">
                 rssfeed_url = new Array();
                 rssfeed_url[0] = "https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms";
@@ -111,7 +110,7 @@ foreach ($data as $row) {
                 rssfeed_scroll_bar = "off";
                 rssfeed_target = "_blank";
                 rssfeed_font_size = "12";
-                rssfeed_font_face = "roboto";
+                rssfeed_font_face = "Poppins";
                 rssfeed_border = "off";
                 rssfeed_css_url = "";
                 rssfeed_title = "off";

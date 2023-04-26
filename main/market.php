@@ -46,9 +46,9 @@ $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexcha
                             <span><i class="fa fa-search"></i> Search & Add</span>
                         </a><i class=""></i>
                     </div>
-                    <div style=" margin-left: 16px;"> (Add Upto 30 Stocks)</div>
+                    <div style=" margin-left: 16px;"> (Add Upto 50 Stocks)</div>
                     <div class="profile-tooltip-market mt-0"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
-                        <p class="text-capitalize profile-tooltiptext-market">You can add up to 30 stocks. If you want to add one or more stocks after reaching the limit, you will need to remove an existing stock from the list before adding the new one(s)</p>
+                        <p class="text-capitalize profile-tooltiptext-market">You can add up to 50 stocks. If you want to add one or more stocks after reaching the limit, you will need to remove an existing stock from the list before adding the new one(s)</p>
                     </div>
                     </span>
                 </li>

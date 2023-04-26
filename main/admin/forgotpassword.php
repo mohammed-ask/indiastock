@@ -44,9 +44,10 @@ include './main/conn.php';
                 <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
                     <form onsubmit="event.preventDefault();sendForm('', '', 'checkforgetpassword', 'resultid', 'loginform');return 0;" id="loginform">
                         <div class="w-full">
-                            <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
-                                Forgot Password
-                            </h1>
+                            <h4 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
+                                Forgot Password ?
+                            </h4>
+                            <span>A password reset link will be sent to your registered email address.</span>
                             <label class="block text-sm">
                                 <span class="text-gray-700 dark:text-gray-400">Email</span>
                                 <input name="email" data-bvalidator='required' class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="example@gmail.com" />
