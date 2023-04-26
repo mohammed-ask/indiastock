@@ -27,7 +27,9 @@ if ($num) {
         if ($pwd == $pwd1) {
             if ($row['status'] == 99) {
                 echo "Error : Can't Login! Your account no longer exists.";
-            } elseif ($row['status'] != 1 || $row['activate'] !== 'Yes') {
+            } elseif ($row['activate'] === 'No') {
+                echo "Error : Your account has been de-activated for some reason, please contact out support team";
+            } elseif ($row['status'] == 0 || $row['activate'] !== 'Yes') {
                 echo "Error : Can't Login! Your Account Has Not Yet Approved.";
             } else {
                 $data = array();
