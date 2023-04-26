@@ -10,7 +10,7 @@ $wsymbol = $obj->selectfieldwhere("watchliststock", "group_concat(distinct(symbo
 if (!empty($wsymbol)) {
     $watchlistsym = explode(",", $wsymbol);
 }
-$fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1");
+$fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "(userid='" . $employeeid . "' and status = 1)||status =11");
 $rowfetch = mysqli_fetch_all($fetchshare, 1);
 // print_r($rowfetch);
 // array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
