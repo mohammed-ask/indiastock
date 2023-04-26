@@ -11,6 +11,7 @@ include 'function.php';
 include 'conn.php';
 /* @var $obj db */
 $obj->check_login();
+$obj->check_activate();
 $employeeid = $_SESSION['userid'];
 $role = $_SESSION['role'];
 $rowuserdata = $obj->selectextrawhere("users", "id=" . $employeeid . "")->fetch_assoc();

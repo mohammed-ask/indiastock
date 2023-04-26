@@ -2072,6 +2072,15 @@ class db
         }
     }
 
+    function check_activate()
+    {
+        $activate = $this->selectfieldwhere("users", "activate", "id=" . $this->employeeid . "");
+        if (!empty($activate) && $activate === 'No') {
+            header("location:logout");
+            $this->logout();
+        }
+    }
+
     function logout()
     {
 

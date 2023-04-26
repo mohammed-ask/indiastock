@@ -1,6 +1,6 @@
 <?php
 include 'main/session.php';
-$head = "index";
+$head = "login";
 if (($_SERVER['HTTP_HOST'] == 'localhost')) {
     $head = "/indiastock";
 }
