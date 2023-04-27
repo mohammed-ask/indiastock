@@ -133,7 +133,7 @@ include "main/session.php";
         source: function(request, response) {
             $.ajax({
                 type: "post",
-                url: "main/admin/fetchsymbolsearch.php",
+                url: "main/fetchsymbolsearch.php",
                 data: {
                     search: request.term
                 },
