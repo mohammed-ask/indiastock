@@ -6,7 +6,7 @@ include 'main/conn.php';
 $email = $_POST['email'];
 $pwd = $_POST['password'];
 $table = "users";
-$condition = " (`email` = '" . $email . "' ) and type = 1";
+$condition = " (`email` = '" . $email . "' ) and type = 1 and status != 99";
 $result = $obj->selectextrawhereupdate($table, "*", $condition);
 $num = $obj->total_rows($result);
 if ($num) {
@@ -19,7 +19,7 @@ if ($num) {
 
         $pwd1 = $row12['password'];
         if ($pwd == $pwd1) {
-            if ($row['status'] != 1 || $row['activate'] !== 'Yes') {
+            if ($row['status'] == 0 || $row['activate'] === 'No') {
                 echo "Error : Can't Login! You Are Not Allowed To Login";
             } else {
                 $data = array();
