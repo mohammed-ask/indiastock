@@ -300,7 +300,7 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                             </div>
                         </div>
                         <div class="card-footer">
-                            <?php print_r($permissions) ?>
+                           
                             <?php if (in_array(33, $permissions)) { ?>
 
                             <?php } ?>
