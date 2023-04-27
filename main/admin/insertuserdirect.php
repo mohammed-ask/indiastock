@@ -72,7 +72,7 @@ if ($emailcount > 0) {
     $x['longholding'] = 'No';
     $x['startdatetime'] = changedateformatespecito($_POST['starttime'], "d/m/Y H:i:s", "Y-m-d H:i:s");
     $x['enddatetime'] = changedateformatespecito($_POST['endtime'], "d/m/Y H:i:s", "Y-m-d H:i:s");
-    $x['investmentamount'] = $_POST['investmentamount'];
+    // $x['investmentamount'] = $_POST['investmentamount'];
     $x['limit'] = $_POST['limit'];
 
     $userid = $obj->insertnew($tb_name, $x);
