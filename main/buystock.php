@@ -41,7 +41,7 @@ $stockdata = $stockdata[0];
         <input type="hidden" name="stockid" value="<?= $id ?>" id="">
         <input type="hidden" name="totalamount" id="totalamount" value="<?= $usermargin > 0 ? $stockdata['LastRate'] / $usermargin : $stockdata['LastRate'] ?>">
         <div class="col-3">
-            <label class="form-label" for="Quantity">Lot Size</label>
+            <label class="form-label" for="Quantity">Lot</label>
             <input data-bvalidator='required' readonly name="lot" type="number" id="lot" onclick="this.select();" value="<?= $lot ?>" class="form-control form-control-sm">
         </div>
         <div class="col-4">
