@@ -45,7 +45,7 @@ $stockdata = $stockdata[0];
             <input data-bvalidator='required' readonly name="lot" type="number" id="lot" onclick="this.select();" value="<?= $lot ?>" class="form-control form-control-sm">
         </div>
         <div class="col-4">
-            <label class="form-label" for="Quantity">Quantity</label>
+            <label class="form-label" for="Quantity">Lot/Quantity</label>
             <input data-bvalidator='required' name="qty" type="number" id="qty" onkeyup="sumfund()" onclick="this.select();" value="1" class="form-control form-control-sm">
         </div>
         <div class="col-5">

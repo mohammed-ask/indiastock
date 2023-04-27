@@ -58,7 +58,7 @@ $stockdata = $stockdata[0];
         </div>
 
         <div class="col-4">
-            <label class="form-label" for="Quantity">Quantity</label>
+            <label class="form-label" for="Quantity">Lot/Quantity</label>
             <input type="text" onkeyup="sumfund()" onclick="this.select();" data-balidator='required' name="qty" value="1" class="form-control form-control-sm" id="qty">
         </div>
         <div class="col-5">
