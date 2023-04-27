@@ -17,7 +17,7 @@ $watchlistcount = $obj->selectfieldwhere("watchliststock", "count(id)", "userid=
             </div>
         </div>-->
         <?php if (isset($watchliststocks)) { ?>
-            <div class="card">
+            <div class="card" style="height: 430px;">
                 <div class="card-header">
                     <div class="row align-items-center">
                         <div class="col">
