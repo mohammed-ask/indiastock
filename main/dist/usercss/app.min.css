@@ -5152,8 +5152,8 @@ input:checked+.slider {
     .buystock-tooltip .buystock-tooltiptext {
         width: 20vw;
         left: -530%;
-        margin-left: -190px;
-        bottom: 20%;
+        margin-left: 365px;
+        bottom: 65%;
     }
 }
 
