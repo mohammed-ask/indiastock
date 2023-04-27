@@ -10,7 +10,11 @@ $marketdata = array_filter($stockdata, function ($data) {
         return $data;
     }
 });
-$wstocks = $stockdata;
+$wstocks = array_filter($stockdata, function ($data) {
+    if ($data['Symbol'] !== 'NIFTY' && $data['Symbol'] !== 'SENSEX') {
+        return $data;
+    }
+});
 /* @var $obj db */
 ?>
 <div class="container-fluid">
