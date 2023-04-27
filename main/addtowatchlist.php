@@ -2,6 +2,7 @@
 include "./session.php";
 $symbol = $_POST['symbol'];
 $exchange = $_POST['exchange'];
+$token = $_POST['token'];
 $chkifexist = $obj->selectfieldwhere("watchliststock", "count(id)", "exchange='" . $exchange . "' and symbol = '" . $symbol . "' and status = 1");
 if ($chkifexist > 0) {
     $delete = $obj->deletewhere("watchliststock", "exchange='" . $exchange . "' and symbol = '" . $symbol . "' and status = 1");
@@ -17,6 +18,7 @@ if ($chkifexist > 0) {
     $xx['userid'] = $employeeid;
     $xx['symbol'] = $symbol;
     $xx['exchange'] = $exchange;
+    $xx['token'] = $token;
     $xx['added_on'] = date("Y-m-d H:i:s");
     $xx['updated_by'] = $employeeid;
     $xx['added_by'] = $employeeid;

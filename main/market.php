@@ -10,10 +10,10 @@ $wsymbol = $obj->selectfieldwhere("watchliststock", "group_concat(distinct(symbo
 if (!empty($wsymbol)) {
     $watchlistsym = explode(",", $wsymbol);
 }
-$fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "(userid='" . $employeeid . "' and status = 1)||status =11");
+$fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1");
 $rowfetch = mysqli_fetch_all($fetchshare, 1);
 // print_r($rowfetch);
-// array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
+array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
 
 $stockdata = $obj->fivepaisaapi($rowfetch);
 // echo "<pre>";
@@ -25,11 +25,11 @@ $marketdata = array_filter($stockdata, function ($data) {
         return $data;
     }
 });
-// $stockdata = array_filter($stockdata, function ($data) {
-//     if ($data['Symbol'] == 'NIFTY' && $data['Symbol'] == 'SENSEX') {
-//         return $data;
-//     }
-// });
+$stockdata = array_filter($stockdata, function ($data) {
+    if ($data['Symbol'] !== 'NIFTY' && $data['Symbol'] !== 'SENSEX') {
+        return $data;
+    }
+});
 $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexchange) {
     if (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange))
         return $data;
@@ -107,10 +107,7 @@ $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexcha
                                 <div class="d-inline-block font-10"><span <?= $data['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $data['Chg'] ?></span> <span <?= $data['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($data['ChgPcnt'], 2) ?>%)</span></div>
                             </div>
                             <div>
-                                <?php
-                                if ($data['Token'] != '999920000' && $data['Token'] != '999901') { ?>
-                                    <i class="fa fa-times" style="color:grey" aria-hidden="true" onclick="removestock('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>')"></i>
-                                <?php } ?>
+                                <i class="fa fa-times" style="color:grey" aria-hidden="true" onclick="removestock('<?= $data['Token'] ?>','<?= $data['Exch']  ?>')"></i>
                             </div>
                         </div><!-- end /div -->
                     </a> <!--end-->
@@ -147,13 +144,10 @@ $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexcha
                                                     font-weight: 500 !important; margin-right: 10px !important;">
                                     <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $data["Token"] ?>", "sellstock","", "Sell Stock")'>Sell</a>
                                 </li><!--end /li-->
-                                <?php
-                                if ($data['Token'] != '999920000' && $data['Token'] != '999901') { ?>
-                                    <li <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='background-color:#0073cf;cursor:pointer'" : "style='cursor:pointer'" ?> class="list-inline-item align-self-center mx-0">
+                                <li <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='background-color:#0073cf;cursor:pointer'" : "style='cursor:pointer'" ?> class="list-inline-item align-self-center mx-0">
 
-                                        <i <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='color:white'" : "" ?> onclick="addtowatchlist('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>')" class="fa-solid fa-plus email-action-icons-item"></i>
-                                    </li><!--end /li-->
-                                <?php } ?>
+                                    <i <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='color:white'" : "" ?> onclick="addtowatchlist('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>','<?= $data['Token']  ?>')" class="fa-solid fa-plus email-action-icons-item"></i>
+                                </li><!--end /li-->
                             </ul><!--end /ul-->
 
                         </div> <!--end action-icons-->
@@ -213,11 +207,11 @@ include "main/templete.php"; ?>
         clearInterval(myinterval)
     })
 
-    function removestock(symbol, excg) {
+    function removestock(token, excg) {
         let text = "Are you sure you want to remove this stock";
         if (confirm(text) == true) {
             $.post("main/removestock.php", {
-                    symbol: symbol,
+                    token: token,
                     exchange: excg
                 },
                 function(data) {
@@ -233,10 +227,11 @@ include "main/templete.php"; ?>
         }
     }
 
-    function addtowatchlist(symbol, excg) {
+    function addtowatchlist(symbol, excg, token) {
         $.post("main/addtowatchlist.php", {
                 symbol: symbol,
-                exchange: excg
+                exchange: excg,
+                token: token,
             },
             function(data) {
                 if (data === 'Success') {

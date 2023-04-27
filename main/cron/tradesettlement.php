@@ -5,15 +5,23 @@ ini_set('memory_limit', '-1');
 if (!defined("BASE_URL")) {
     define("BASE_URL", "https://pmsequity.com/");
 }
+
 $host = "localhost";
 $database_Username = "hc020wtvnu2k";
 $database_Password = "PMSEquity@1998";
 $database_Name = "pmsequity";
+
+// Local
+// $database_Username = "root";
+// $database_Password = "";
+// $database_Name = "indiastock";
+
 $siteurl = "https://pmsequity.com/";
 $port = 3306;
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 $timeskip = '+12:30';
+// $timeskip = '+00:30';
 // Market API Details
 define("APP_NAME2", "5P50439284");
 define("CLIENT_CODE2", "50439284");
@@ -276,7 +284,7 @@ $todayopentradeid = $obj->selectfieldwhere(
     "stocktransaction.status = 0 and tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='No'"
 );
 if (!empty($todayopentradeid)) {
-    $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "status = 1 and id in (" . $todayopentradeid . ")");
+    $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "(status = 1||status=11) and id in (" . $todayopentradeid . ")");
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
     $stockdata = $obj->fivepaisaapi($rowfetch);
 }
@@ -294,7 +302,8 @@ while ($row = $obj->fetch_assoc($result)) {
             return $data;
         }
     });
-    $currentrate = $pricedata[0]['LastRate'];
+    $keys = array_keys($pricedata)[0];
+    $currentrate = $pricedata[$keys]['LastRate'];
     $xc['added_on'] = date("Y-m-d H:i:s");
     $xc['updated_on'] = date("Y-m-d H:i:s");
     $xc['status'] = 1;
@@ -344,7 +353,7 @@ while ($row = $obj->fetch_assoc($result)) {
             if ($xc['profitamount'] >= 0) {
                 $useramt = $row['totalamount'] - $row['borrowedamt'];
             } else {
-                $useramt = $row['totalamount'] - $borrowedamt - $xc['profitamount'];
+                $useramt = $row['totalamount'] - $row['borrowedamt'] - $xc['profitamount'];
             }
             $useramount = $useramt + $xc['profitamount'];
             $kk['investmentamount'] = $row['investmentamount'] + $useramount;

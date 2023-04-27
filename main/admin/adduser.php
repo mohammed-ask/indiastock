@@ -41,13 +41,13 @@
         <input name="investmentamount" value="0" data-bvalidator="required,digit" step="any" onfocus="this.select()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Client's Investment" /></label>
     <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Limit</span>
-        <input type="number" name="limit" data-bvalidator="required" step="any" onfocus="this.select()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="0" placeholder="Client's Limit on Investment" /></label>
+        <input type="number" name="limit" data-bvalidator="required" step="any" onfocus="this.select()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="1" placeholder="Client's Limit on Investment" /></label>
     <label class="block text-sm" style="margin-bottom: 5px;">
-        <span class="text-gray-700 dark:text-gray-400">Withdrawel Request Start Time</span>
+        <span class="text-gray-700 dark:text-gray-400">Pause Withdrawel Request Start Time</span>
         <input name="starttime" id="starttime" data-bvalidator="required" onfocus="datetimepicker(this.id)" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Select Start Time" />
     </label>
     <label class="block text-sm" style="margin-bottom: 5px;">
-        <span class="text-gray-700 dark:text-gray-400">Withdrawel Request End Time</span>
+        <span class="text-gray-700 dark:text-gray-400">Pause Withdrawel Request End Time</span>
         <input name="endtime" id="endtime" data-bvalidator="required" onfocus="datetimepicker(this.id)" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Select End Time" />
     </label>
     <label class="block text-sm" style="margin-bottom: 5px;">
@@ -59,8 +59,22 @@
         <input type="password" id="confirmpassword" data-bvalidator="required,matchconfirmpassword[password]" data-bvalidator-msg-matchconfirmpassword="Confirm Password Not Matched" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Confirm Password" />
     </label>
     <label class="block text-sm" style="margin-bottom: 5px;">
+        <span class="text-gray-700 dark:text-gray-400">Carry Forward</span>
+        <select data-bvalidator="required" name="carryforward" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select>
+    </label>
+    <label class="block text-sm" style="margin-bottom: 5px;">
+        <span class="text-gray-700 dark:text-gray-400">Long Holding</span>
+        <select data-bvalidator="required" name="longholding" class="select2 block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select>
+    </label>
+    <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Employee ID</span>
-        <input xdata-bvalidator="required" name="employeeref" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Employee ID For Furthur Reference" /></label>
+        <input xdata-bvalidator="required" name="employeeref" class="select2 block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Employee ID For Furthur Reference" /></label>
     <div>
         <button type="submit" id="modalsubmit" class="w-full px-3 py-1 mt-6 text-sm font-medium hidden">
             Submit
@@ -68,3 +82,6 @@
     </div>
     <div id="resultid"></div>
 </form>
+<script>
+    $("select").select2()
+</script>

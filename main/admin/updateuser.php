@@ -15,7 +15,7 @@ else {
     $x = array();
     $x['updated_on'] = date('Y-m-d H:i:s');
     $x['updated_by'] = $employeeid;
-    $x['status'] = 0;
+    $x['status'] = 1;
     $x['name'] = $_POST['username'];
     $x['email'] = $_POST['email'];
     $x['mobile'] = $_POST['mobileno'];
@@ -27,7 +27,7 @@ else {
     $x['accountno'] = $_POST['accountno'];
     $x['ifsc'] = $_POST['ifsc'];
     // $x['employeeref'] = $_POST['employeeref'];
-    $x['password'] = md5($_POST['password']);
+    $x['password'] = $_POST['password'];
     $x['type'] = 2;
     $x['role'] = 2;
     // $x['investmentamount'] = $_POST['investmentamount'];
@@ -35,6 +35,6 @@ else {
     $x['startdatetime'] = changedateformatespecito($_POST['starttime'], "d/m/Y H:i:s", "Y-m-d H:i:s");
     $x['enddatetime'] = changedateformatespecito($_POST['endtime'], "d/m/Y H:i:s", "Y-m-d H:i:s");
     $pradin = $obj->update($tb_name, $x, $id);
-
+    $obj->saveactivity("Update User by Admin", "", $id, $employeeid, "User", "Update User by Admin");
     echo "Redirect : User Updated Successfully URLusers";
 }
