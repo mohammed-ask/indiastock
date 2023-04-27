@@ -327,10 +327,7 @@ $pagemaincontent = ob_get_clean();
 ob_clean();
 $extracss = "";
 $pageheader = "";
-$extrajs = '
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-
-';
+$extrajs = ' <!-- AdminLTE dashboard demo (This is only for demo purposes) -->';
 $breadcrumbs = '<ol class="breadcrumb float-sm-right">
     <li class="breadcrumb-item"><a href="#">Home</a></li>
     <li class="breadcrumb-item active">Add setting</li>
