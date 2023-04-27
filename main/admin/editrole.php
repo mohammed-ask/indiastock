@@ -8,7 +8,7 @@ $row = $obj->fetch_assoc($result);
 $perm = explode(",", $row['permissions']);
 ?>
 <div class="row">
-    <div class="col-12">
+    <div class="col-12 mobile-bottom-margin">
         <div class="card card-default">
             <div class="card-header">
                 <h3 class="card-title">Edit Role</h3>
