@@ -2,7 +2,7 @@
 include "session.php";
 $todayprofit = $obj->selectfieldwhere("closetradedetail", "sum(profitamount)", "date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and userid=$employeeid and status = 1");
 $todayprofit = empty($todayprofit) ? 0 : $todayprofit;
-$completedtotalprofitloss = $obj->selectfieldwhere("closetradedetail", "sum(profitamount)", "userid=$employeeid and status = 1");
+$completedtotalprofitloss = $obj->selectfieldwhere("closetradedetail", "sum(profitamount)", "userid=$employeeid ");
 
 // Invested Amount
 $investamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "userid=$employeeid and status = 0 and tradestatus = 'Open'");
@@ -23,7 +23,6 @@ $stockdata = 'Error fetching candle data:' ? [] : $stockdata;
 // echo "<pre>";
 // print_r($stockdata);
 // die;
-$stockamount = 0;
 $totalprofit = $completedtotalprofitloss;
 $result = $obj->selectextrawhereupdate(
     "stocktransaction",
@@ -44,10 +43,9 @@ if (!empty($stockdata)) {
         });
         $keys = array_keys($pricedata)[0];
         //Adding Invested Amount
-        $stockamount = $stockamount + $row['totalamount'];
 
         // Adding Profit on Total Share
-        $profitloss = ($row['price'] - $pricedata[$keys]['LastRate']) * $row['qty'];
+        $profitloss = ($row['price'] - $pricedata[$keys]['LastRate']) * $row['qty'] * $row['mktlot'];
         if ($row['trademethod'] === 'Sell') {
             if ($profitloss <= 0) {
                 $profitloss = abs($profitloss);
@@ -55,14 +53,53 @@ if (!empty($stockdata)) {
                 $profitloss = -$profitloss;
             }
         }
-        $stockamount = $stockamount + $profitloss;
         $totalprofit = $totalprofit + $profitloss;
     }
 }
+
+// Today Shares Only
+$result2 = $obj->selectextrawhereupdate(
+    "stocktransaction",
+    "*",
+    "date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and status = 0 and userid = $employeeid and tradestatus='Open' and stockid != '' and stockid is not null"
+);
+
+if (!empty($stockdata)) {
+    while ($row = $obj->fetch_assoc($result2)) {
+        $symbol = $row['symbol'];
+        $excg = $row['exchange'];
+        $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg) {
+            if ($data['Symbol'] === $symbol && $data['Exch'] === $excg) {
+                return $data;
+            }
+        });
+        $keys = array_keys($pricedata)[0];
+        //Adding Invested Amount
+
+        // Adding Profit on Total Share
+        $profitloss = ($row['price'] - $pricedata[$keys]['LastRate']) * $row['qty'] * $row['mktlot'];
+        if ($row['trademethod'] === 'Sell') {
+            if ($profitloss <= 0) {
+                $profitloss = abs($profitloss);
+            } else {
+                $profitloss = -$profitloss;
+            }
+        }
+        $todayprofit = $todayprofit + $profitloss;
+    }
+}
+
 $totalprofit = empty($totalprofit) ? 0 : $totalprofit;
 $totalprofitprcnt = 0;
-if ($investmentamount != 0 || $todayprofit != 0) {
-    $totalprofitprcnt = $totalprofit * 100 / ($investmentamount - $totalprofit);
+$stocktotalamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", " status in (0,1) and userid = $employeeid and tradestatus in ('Open','Close') and stockid != '' and stockid is not null");
+if ($stocktotalamt != 0) {
+    $totalprofitprcnt = $totalprofit * 100 / $stocktotalamt;
+}
+
+$todaystocktotalamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and status in (1, 0) and userid = $employeeid and tradestatus in ('Open','Close') and stockid != '' and stockid is not null");
+$todayprofitpercent = 0;
+if ($todaystocktotalamt != 0) {
+    $todayprofitpercent = $todayprofit * 100 / $todaystocktotalamt;
 }
 ?>
 <div class="row">
@@ -106,7 +143,7 @@ if ($investmentamount != 0 || $todayprofit != 0) {
                     <div class="col text-center">
                         <span <?= $todayprofit > 0 ? "class='h5 text-success'" : "class='h5 text-danger'" ?>>₹<?= round($todayprofit, 2) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Day's Profit/Loss</h6>
-                        <h6 class="text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success">0<span> % </span></h6>
+                        <h6 class="text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success"><?= round($todayprofitpercent, 2) ?><span> % </span></h6>
                     </div><!--end col-->
                 </div> <!-- end row -->
             </div><!--end card-body-->

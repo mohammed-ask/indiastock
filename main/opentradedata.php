@@ -74,7 +74,7 @@ while ($row = $obj->fetch_assoc($result)) {
     // $n[] = round($row['totalamount'], 2);
     $n[] = $row['trademethod'];
     $n[] = $currencysymbol . $currentrate;
-    $profitprcnt = round((($currentrate  - $row['price']) * $row['qty']) / ($row['price'] * $row['qty']) * 100, 2);
+    $profitprcnt = round((($currentrate  - $row['price']) * $row['qty'] * $row['mktlot']) / ($row['price'] * $row['qty'] * $row['mktlot']) * 100, 2);
     if ($row['trademethod'] === 'Sell') {
         if ($profitprcnt <= 0) {
             $profitprcnt = abs($profitprcnt);
@@ -84,7 +84,7 @@ while ($row = $obj->fetch_assoc($result)) {
     }
     $color = $profitprcnt >= 0 ? "text-success" : 'text-danger';
     $n[] = "<strong class='$color'>" . $profitprcnt . "</strong>";
-    $profitloss =  round(($currentrate - $row['price']) * $row['qty'], 2);
+    $profitloss =  round(($currentrate - $row['price']) * $row['qty'] * $row['mktlot'], 2);
     if ($row['trademethod'] === 'Sell') {
         if ($profitloss <= 0) {
             $profitloss = abs($profitloss);

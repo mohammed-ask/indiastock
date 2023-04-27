@@ -40,7 +40,7 @@ $return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "c
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction $join",
-    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on",
+    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,stocktransaction.mktlot",
     "stocktransaction.status = 1 and stocktransaction.userid = $id and tradestatus='Close' $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
@@ -56,7 +56,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['qty'] * $row['price'];
     // $n[] = round($row['totalamount'], 2);
     $n[] = $row['trademethod'];
-    $profitprcnt = round((($row['cprice']  - $row['price']) * $row['qty']) / ($row['price'] * $row['qty']) * 100, 2);
+    $profitprcnt = round((($row['cprice']  - $row['price']) * $row['qty'] * $row['mktlot']) / ($row['price'] * $row['qty'] * $row['mktlot']) * 100, 2);
     if ($row['trademethod'] === 'Sell') {
         if ($profitprcnt <= 0) {
             $profitprcnt = abs($profitprcnt);
@@ -66,7 +66,7 @@ while ($row = $obj->fetch_assoc($result)) {
     }
     $color = $profitprcnt >= 0 ? "text-success" : 'text-danger';
     $n[] = "<strong class='$color'>" . $profitprcnt . "</strong>";
-    $profitloss =  round(($row['cprice'] - $row['price']) * $row['qty'], 2);
+    $profitloss =  round(($row['cprice'] - $row['price']) * $row['qty'] * $row['mktlot'], 2);
     if ($row['trademethod'] === 'Sell') {
         if ($profitloss <= 0) {
             $profitloss = abs($profitloss);
