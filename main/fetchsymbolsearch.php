@@ -1,5 +1,5 @@
 <?php
-include "main/session.php";
+include "./session.php";
 $something = $_POST["search"];
 $product = $obj->selectextrawhereupdate("listedstocks", "Symbol,id", "status = 0 and Symbol like '%" . $something . "%'");
 $response = array();
