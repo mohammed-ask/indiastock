@@ -3,6 +3,7 @@ include "main/session.php";
 $id = $_GET['hakuna'];
 $rowtran = $obj->selectextrawhere("stocktransaction", "id=" . $id . "")->fetch_assoc();
 $token = $obj->selectfieldwhere("userstocks", 'symboltoken', "id=" . $rowtran['stockid'] . "");
+$lot = $obj->selectfieldwhere("userstocks", "mktlot", "symboltoken = '" . $token . "'  and (status = 1||status=11)");
 $rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "id=" . $rowtran['stockid'] . "")->fetch_assoc();
 $stockdata = $obj->fivepaisaapi(array($rowfetch));
 if ($stockdata === 'Error fetching candle data:') {
@@ -60,7 +61,7 @@ $stockdata = $stockdata[0];
         <div class="col">
             <small class="text-muted d-block">Profit/Loss</small>
             <?php
-            $profitloss = ($stockdata['LastRate'] - $rowtran['price']) * $rowtran['qty'];
+            $profitloss = ($stockdata['LastRate'] - $rowtran['price']) * $rowtran['qty'] * $lot;
             if ($rowtran['trademethod'] === 'Sell') {
                 if ($profitloss <= 0) {
                     $profitloss = abs($profitloss);

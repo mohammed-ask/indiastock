@@ -10,18 +10,18 @@ $host = "localhost";
 $database_Username = "hc020wtvnu2k";
 $database_Password = "PMSEquity@1998";
 $database_Name = "pmsequity";
+$timeskip = '+12:30';
 
 // Local
 // $database_Username = "root";
 // $database_Password = "";
 // $database_Name = "indiastock";
+// $timeskip = '+00:30';
 
 $siteurl = "https://pmsequity.com/";
 $port = 3306;
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-$timeskip = '+12:30';
-// $timeskip = '+00:30';
 // Market API Details
 define("APP_NAME2", "5P50439284");
 define("CLIENT_CODE2", "50439284");
@@ -290,7 +290,7 @@ if (!empty($todayopentradeid)) {
 }
 $result = $obj->selectextrawhereupdate(
     "stocktransaction inner join users on users.id = stocktransaction.userid",
-    "stockid,symbol,exchange,qty,price,userid,stocktransaction.id,stocktransaction.type,stocktransaction.limit,totalamount,users.investmentamount,borrowedamt,borrowedprcnt,trademethod",
+    "stockid,symbol,exchange,qty,price,userid,stocktransaction.id,stocktransaction.type,stocktransaction.limit,stocktransaction.totalamount,users.investmentamount,borrowedamt,borrowedprcnt,trademethod,mktlot",
     "stocktransaction.status = 0 and  tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='No'"
 );
 while ($row = $obj->fetch_assoc($result)) {
@@ -312,7 +312,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $xc['qty'] = $row['qty'];
     $xc['price'] = $currentrate;
     if ($row['borrowedamt'] > 0) {
-        $profitAndLoss = $row['qty'] * ($currentrate - $row['price']);
+        $profitAndLoss = $row['mktlot'] * $row['qty'] * ($currentrate - $row['price']);
         if ($row['trademethod'] === 'Sell') {
             if ($profitAndLoss <= 0) {
                 $profitAndLoss = abs($profitAndLoss);
@@ -327,7 +327,7 @@ while ($row = $obj->fetch_assoc($result)) {
             $xc['profitamount'] = $profitAndLoss;
         }
     } else {
-        $xc['profitamount'] = $row['qty'] * ($currentrate - $row['price']);
+        $xc['profitamount'] = $row['mktlot'] * $row['qty'] * ($currentrate - $row['price']);
         if ($row['trademethod'] === 'Sell') {
             if ($xc['profitamount'] <= 0) {
                 $xc['profitamount'] = abs($xc['profitamount']);
