@@ -4,9 +4,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'main/phpmailer/src/Exception.php';
-require 'main/phpmailer/src/PHPMailer.php';
-require 'main/phpmailer/src/SMTP.php';
+require 'main/PHPMailer/src/Exception.php';
+require 'main/PHPMailer/src/PHPMailer.php';
+require 'main/PHPMailer/src/SMTP.php';
 
 include "main/session.php";
 $emailcount = $obj->selectfieldwhere('users', "count(id)", "email='" . $_POST['email'] . "' and status != 99");
