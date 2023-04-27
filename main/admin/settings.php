@@ -300,9 +300,9 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                             </div>
                         </div>
                         <div class="card-footer">
-                           
-                            <?php if (in_array(33, $permissions)) { ?>
-
+                        <?php if (in_array(33, $permissions)) { ?>
+                                <button type="submit" class="text-white btn btn-primary">Save</button>
+                                <div id="resultid"></div>
                             <?php } ?>
                         </div>
                     </form>
@@ -327,7 +327,7 @@ $pagemaincontent = ob_get_clean();
 ob_clean();
 $extracss = "";
 $pageheader = "";
-$extrajs = ' <!-- AdminLTE dashboard demo (This is only for demo purposes) -->';
+$extrajs = '';
 $breadcrumbs = '<ol class="breadcrumb float-sm-right">
     <li class="breadcrumb-item"><a href="#">Home</a></li>
     <li class="breadcrumb-item active">Add setting</li>
