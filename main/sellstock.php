@@ -73,7 +73,7 @@ $stockdata = $stockdata[0];
                 </label>
             </div>
         </div> -->
-        <button <?php echo $investmentamount > 0 && $mrkt === 'Market is open' ? null : 'disabled'; ?> class="btn btn-danger w-100 my-3" onclick="<?php echo $investmentamount > 0 && $mrkt === 'Market is open' ? 'event.preventDefault();sendForm(\'\', \'\', \'insertsellstock\', \'resultid\', \'sellstock\')' : ''; ?>">SELL</button>
+        <button <?php echo $investmentamount > 0 && $mrkt === 'Open' ? null : 'disabled'; ?> class="btn btn-danger w-100 my-3" onclick="<?php echo $investmentamount > 0 && $mrkt === 'Open' ? 'event.preventDefault();sendForm(\'\', \'\', \'insertsellstock\', \'resultid\', \'sellstock\')' : ''; ?>">SELL</button>
         <div id="resultid"></div>
     </form>
     <!-- <div class="mt-3">
