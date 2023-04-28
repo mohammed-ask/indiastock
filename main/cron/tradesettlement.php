@@ -320,8 +320,8 @@ while ($row = $obj->fetch_assoc($result)) {
                 $profitAndLoss = -$profitAndLoss;
             }
         }
-        if ($profitAndLoss >= 0) {
-            $custshare = 100 - $borrowedprcnt;
+        if ($profitAndLoss > 0) {
+            $custshare = 100 - $row['borrowedprcnt'];
             $xc['profitamount'] = round($profitAndLoss * $custshare / 100, 2);
         } else {
             $xc['profitamount'] = $profitAndLoss;
