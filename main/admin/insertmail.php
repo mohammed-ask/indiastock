@@ -25,7 +25,7 @@ $vy['subject'] = $_POST['subject'];
 $vy['message'] = $_POST['message'];
 $mailid = $obj->insertnew('mail', $vy);
 $obj->saveactivity("Send Mail to User", "", $mailid, $_POST['userid'], "User", "Send Mail to User");
-if (!empty($_FILES['files']['name'])) {
+if (!empty($_FILES['files']['name'][0])) {
     foreach ($_FILES['files']["name"] as $key => $value) {
         $name = 'path' . $key;
         $document[$name]['name'] = $_FILES['files']['name'][$key];
