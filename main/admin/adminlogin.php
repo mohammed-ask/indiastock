@@ -57,6 +57,7 @@ display: none;
   padding: 15px 0px 0 0px !important;
   max-width: 400px !important;
   border-radius: 5px !important;
+  top: 25%;
 }
 
 .alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {

@@ -28,7 +28,7 @@ $mail->Port = $port;
 $mail->setFrom("$sendmailfrom");
 $mail->addAddress($email);
 $mail->isHTML(true);
-$mail->Subject = "OTP for Profile Update";
+$mail->Subject = "OTP Verification for Changing Setting";
 // $mail->AddEmbeddedImage('./images/indstock.png', 'logo', './images/indstock.png ');
 ob_start();
 ?>
@@ -149,7 +149,7 @@ ob_start();
 
     <!-- start preheader -->
     <div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
-        Please confirm your Account with PMS Equity, your Account Confirmation Code is...
+    Verification Code Confirmation for Changing Setting- PMS Equity...
     </div>
     <!-- end preheader -->
 
@@ -168,7 +168,7 @@ ob_start();
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-                            <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;  word-spacing: 2px;">Setting Change Code</h1>
+                            <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -1px; line-height: 48px;  word-spacing: 2px;">Verification Code Confirmation for Changing Setting</h1>
                         </td>
                     </tr>
                 </table>

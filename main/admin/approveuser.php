@@ -34,7 +34,7 @@ if ($_GET['what'] === 'Approve') {
     $mail->setFrom("$sendmailfrom");
     $mail->addAddress($email);
     $mail->isHTML(true);
-    $mail->Subject = 'Welcome to PMSEquity';
+    $mail->Subject = 'PMS Equity account has been approved & Login Id & Password is here';
 ?>
     <!DOCTYPE html>
     <html>
@@ -168,7 +168,7 @@ if ($_GET['what'] === 'Approve') {
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                         <tr>
                             <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-                                <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px; word-spacing: 2px;">Welcome to PMS Equity - Login ID & Password is Here </h1>
+                            <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -1px; line-height: 30px; word-spacing: 2px;">Welcome to PMS Equity,</h1><br><h2 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -1px; word-spacing: 2px;">Your Account has been approved: Your Login ID & Password is here </h2>
                             </td>
                         </tr>
                     </table>
@@ -213,7 +213,7 @@ if ($_GET['what'] === 'Approve') {
                                         <td align="left" bgcolor="#ffffff" style="padding: 12px; margin-left:12px; float:left;">
                                             <table border="0" cellpadding="0" cellspacing="0">
                                                 <tr>
-                                                    <p style="margin-top:0;">To login, Click on login button </p>
+                                                    <p style="margin-top:0;">Click button to login ↓</p>
                                                     <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
                                                         <a href="https://pmsequity.com/login" style="display: block; padding: 10px 40px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #00aaaa;">Login</a>
                                                     </td>
