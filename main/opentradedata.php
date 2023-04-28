@@ -9,10 +9,8 @@ $todayopentradeid = $obj->selectfieldwhere(
 if (!empty($todayopentradeid)) {
     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "'  and id in (" . $todayopentradeid . ")");
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
-    print_r($rowfetch);
     $stockdata = $obj->fivepaisaapi($rowfetch);
-    print_r($stockdata);
-    $stockdata = 'Error fetching candle data:' ? [] : $stockdata;
+    $stockdata = $stockdata == 'Error fetching candle data:' ? [] : $stockdata;
 }
 /* @var $obj db */
 $limit = $_GET['length'];
@@ -63,7 +61,6 @@ while ($row = $obj->fetch_assoc($result)) {
     $excg = $row['exchange'];
     $token = $obj->selectfieldwhere("userstocks", "symboltoken", "id=" . $row['stockid'] . "");
     $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg, $token) {
-        echo $data['Token'], ' ', $token;
         if ($data['Token'] == $token) {
             return $data;
         }
