@@ -199,8 +199,8 @@ if ($todaystocktotalamt != 0) {
                                         <th>Stocks</th>
                                         <th>Date</th>
                                         <th>Time</th>
-                                        <th>Qty.</th>
                                         <th>Mkt Lot</th>
+                                        <th>Qty.</th>
                                         <th>Price</th>
                                         <th>Total Amount</th>
                                         <!-- <th>Paid By User</th> -->
