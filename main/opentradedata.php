@@ -63,6 +63,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $excg = $row['exchange'];
     $token = $obj->selectfieldwhere("userstocks", "symboltoken", "id=" . $row['stockid'] . "");
     $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg, $token) {
+        echo $data['Token'], ' ', $token;
         if ($data['Token'] == $token) {
             return $data;
         }
