@@ -10,6 +10,7 @@ if (!empty($todayopentradeid)) {
     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "(userid='" . $employeeid . "'||userid=0)  and id in (" . $todayopentradeid . ")");
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
     $stockdata = $obj->fivepaisaapi($rowfetch);
+    $stockdata = 'Error fetching candle data:' ? [] : $stockdata;
 }
 /* @var $obj db */
 $limit = $_GET['length'];
