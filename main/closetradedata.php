@@ -50,7 +50,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['symbol'];
     $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "dM,Y");
     $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i");
-    $n[] = $row['mktllot'];
+    $n[] = $row['mktlot'];
     $n[] = $row['qty'];
     $n[] = $row['trademethod'] === 'Buy' ? $row['price'] : $row['cprice'];
     $n[] = $row['trademethod'] === 'Sell' ? $row['price'] : $row['cprice'];
