@@ -140,6 +140,7 @@ ob_start();
 
         p {
             font-family: 'Poppins', sans-serif;
+            font-size: 14px !important;
         }
     </style>
 

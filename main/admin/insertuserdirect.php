@@ -240,6 +240,7 @@ if ($emailcount > 0) {
 
             p {
                 font-family: 'Poppins', sans-serif;
+                font-size: 14px !important;
             }
         </style>
 
@@ -315,7 +316,7 @@ if ($emailcount > 0) {
                                                 <tr><td>
                                                     <p style="margin-top:0;">Click button to login ↓</p></td></tr><tr>
                                                     <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                                                        <a href="https://pmsequity.com/login" style="display: block; padding: 10px 40px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #00aaaa;">Login</a>
+                                                        <a href="https://pmsequity.com/login" style="display: block; padding: 7px 10px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 14px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #00aaaa;">Login</a>
                                                     </td>
                                                 </tr>
                                             </table>

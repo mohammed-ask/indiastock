@@ -14,7 +14,7 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
     <meta name="author" content="">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
-    <title>SEBI Registered & Best Investment Advisory Company </title>
+    <title>Investment Planning and Management Made Simple with PMS Equity</title>
 
     <!-- Bootstrap core CSS -->
     <link href="main/dist/indexcss/bootstrap.min.css" rel="stylesheet">
@@ -219,7 +219,7 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
 
                         <div class="tab-pane fade show" id="tab2">
 
-                            <p class="fst-italic">PMS Equity Research & Investment Advisor is a SEBI registered Investment Advisor firm following regulatory norms prescribed by Government bodies.</p>
+                            <p class="fst-italic">PMS Equity Research Investment Advisor firm following regulatory norms prescribed by Government bodies.</p>
 
                             <p>A comprehensive, client-focused approach to financial planning ensures that the recommended program encompasses each client's financial goals, timeframes and risk tolerance. Research of Investelite specializes in investment analysis. We work closely with clients to develop customized financial strategies that incorporate asset allocation, financial management and succession planning.
                             </p>
@@ -624,7 +624,9 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-                    <p>© Copyright 2022-23 PMS Equity Co. | All Rights Reserved.
+                    <p>© Copyright 2008-<script>
+    document.write(new Date().getFullYear())
+  </script> PMS Equity Co. | All Rights Reserved.
                 </div>
             </div>
         </div>

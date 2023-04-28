@@ -138,6 +138,7 @@ ob_start();
 
         p {
             font-family: 'Poppins', sans-serif;
+            font-size: 14px !important;
         }
     </style>
 
@@ -195,7 +196,7 @@ ob_start();
                             <p style="margin: 0;">Thank you for registering with <a href="https://pmsequity.com/">PMS Equity</a>. Please confirm your account.</p>
                             <p>
 
-                                To complete your registration and start using your account, please enter the OTP / Confirmation code to the website:</p>
+                                To complete your registration, please enter the OTP / Confirmation code to the website:</p>
                         </td>
                     </tr>
                     <!-- end copy -->
