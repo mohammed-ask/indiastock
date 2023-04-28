@@ -269,7 +269,8 @@ if ($emailcount > 0) {
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                         <tr>
                             <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-                                <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -1px; line-height: 30px; word-spacing: 2px;">Welcome to PMS Equity,</h1><br><h2 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -1px; word-spacing: 2px;">Your Account has been approved: Your Login ID & Password is here </h2>
+                                <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -1px; line-height: 30px; word-spacing: 2px;">Welcome to PMS Equity,</h1><br>
+                                <h2 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -1px; word-spacing: 2px;">Your Account has been approved: Your Login ID & Password is here </h2>
                             </td>
                         </tr>
                     </table>
@@ -299,7 +300,7 @@ if ($emailcount > 0) {
                                 <p style="margin: 0;">Welcome to <a href="https://pmsequity.com/">PMS Equity</a> ! We are excited to have you as a new member of our community.</p>
                                 <p>Your login information is given below:
                                     <br><br>
-                                    <b>Email:</b><?= $email ?>
+                                    <b>Email:</b><?= $x['email'] ?>
                                     <br><b><span style="margin-top: 10px;">Password:</b> <?= $x['password'] ?> </span>
                                 </p>
                             </td>
@@ -313,8 +314,12 @@ if ($emailcount > 0) {
                                     <tr>
                                         <td align="left" bgcolor="#ffffff" style="padding: 12px; margin-left:12px; float:left;">
                                             <table border="0" cellpadding="0" cellspacing="0">
-                                                <tr><td>
-                                                    <p style="margin-top:0;">Click button to login ↓</p></td></tr><tr>
+                                                <tr>
+                                                    <td>
+                                                        <p style="margin-top:0;">Click button to login ↓</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
                                                     <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
                                                         <a href="https://pmsequity.com/login" style="display: block; padding: 7px 10px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 14px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #00aaaa;">Login</a>
                                                     </td>

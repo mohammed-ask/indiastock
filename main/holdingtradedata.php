@@ -58,8 +58,9 @@ while ($row = $obj->fetch_assoc($result)) {
     $n = array();
     $symbol = $row['symbol'];
     $excg = $row['exchange'];
-    $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg) {
-        if ($data['Symbol'] === $symbol && $data['Exch'] === $excg) {
+    $token = $obj->selectfieldwhere("userstocks", "symboltoken", "id=" . $row['stockid'] . "");
+    $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg, $token) {
+        if ($data['Token'] == $token) {
             return $data;
         }
     });
@@ -68,6 +69,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['symbol'];
     $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y");
     $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i");
+    $n[] = $row['mktlot'];
     $n[] = $row['qty'];
     $n[] = $row['price'];
     $n[] = round($row['qty'] * $row['price'], 2);

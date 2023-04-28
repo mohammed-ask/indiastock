@@ -70,6 +70,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['symbol'];
     $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y");
     $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i");
+    $n[] = $row['mktlot'];
     $n[] = $row['qty'];
     $n[] = $currencysymbol . $row['price'];
     $n[] = $currencysymbol . round($row['qty'] * $row['price'], 2);
