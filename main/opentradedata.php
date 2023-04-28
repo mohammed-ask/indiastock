@@ -8,8 +8,12 @@ $todayopentradeid = $obj->selectfieldwhere(
 );
 if (!empty($todayopentradeid)) {
     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "'  and id in (" . $todayopentradeid . ")");
+    echo "<pre>";
+    print_r($rowfetch);
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
     $stockdata = $obj->fivepaisaapi($rowfetch);
+    print_r($stockdata);
+    echo "</pre>";
     $stockdata = 'Error fetching candle data:' ? [] : $stockdata;
 }
 /* @var $obj db */
