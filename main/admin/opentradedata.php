@@ -81,13 +81,13 @@ while ($row = $obj->fetch_assoc($result)) {
         </path>
     </svg>
 </button>";
-    if ($row['trademethod'] === 'Buy') {
+    if ($row['trademethod'] === 'Buy' && empty($row['stockid'])) {
         $addaction .=  "<button class='btn btn-sm text-white btn-danger'  @click='openModal' onclick='dynamicmodal(\"" . $row['id'] . "\", \"closebrockertrade\", \"Buy\", \"Close Trade\")'>Sell</button>";
-    } else if ($row['trademethod'] === 'Sell') {
+    } else if ($row['trademethod'] === 'Sell' && empty($row['stockid'])) {
         $addaction .=  "<button class='btn btn-sm text-white btn-success' @click='openModal' onclick='dynamicmodal(\"" . $row['id'] . "\", \"closebrockertrade\", \"Sell\", \"Close Trade\")'>Buy</button></div>";
     }
 
-    $n[] = empty($row['stockid']) ? $addaction : null;
+    $n[] =  $addaction;
     $data[] = $n;
     $i++;
 }
