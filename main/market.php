@@ -14,12 +14,16 @@ $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,E
 $rowfetch = mysqli_fetch_all($fetchshare, 1);
 // print_r($rowfetch);
 array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
+echo "<pre>";
+print_r($rowfetch);
+echo "</pre>";
 
 $stockdata = $obj->fivepaisaapi($rowfetch);
 // echo "<pre>";
 // print_r($stockdata);
 // echo "</pre>";
 // die;
+$stockdata = $stockdata == 'Error fetching candle data:' ? [] : $stockdata;
 $marketdata = array_filter($stockdata, function ($data) {
     if ($data['Symbol'] === 'NIFTY' || $data['Symbol'] === 'SENSEX') {
         return $data;
