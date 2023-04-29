@@ -100,7 +100,7 @@ $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexcha
                     <a href="#" class="">
                         <div class="d-flex justify-content-between">
                             <div class="align-self-center">
-                                <h6 class="m-0 text-uppercase font-13"><?= $data['Symbol'] ?></h6>
+                                <h6 class="m-0 text-uppercase font-13"><?= $obj->selectfieldwhere("userstocks", "Symbol", "symboltoken='" . $data['Token'] . "' and userid = '" . $employeeid . "'") ?></h6>
                                 <p class="text-uppercase font-10 mb-0"><?php $exc = $data['Exch'] == 'B' ? ' BSE' : ' NSE';
                                                                         echo  $exc  ?></p>
                             </div>

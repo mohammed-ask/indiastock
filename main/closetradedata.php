@@ -54,7 +54,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['qty'];
     $n[] = $row['trademethod'] === 'Buy' ? $row['price'] : $row['cprice'];
     $n[] = $row['trademethod'] === 'Sell' ? $row['price'] : $row['cprice'];
-    $n[] = round($row['qty'] * $row['price'], 2);
+    $n[] = $currencysymbol . round($row['totalamount'], 2);
     // $n[] = round($row['totalamount'], 2);
     $n[] = $row['trademethod'];
     $profitprcnt = $row['profitprcnt'];
@@ -64,8 +64,9 @@ while ($row = $obj->fetch_assoc($result)) {
     $row['borrowedprcnt'] = empty($row['borrowedprcnt']) ? 0 : $row['borrowedprcnt'];
     $custprofitamount = round($row['profitamount']);
     $n[] = "<strong class='$color'>" . $currencysymbol . $profitloss . "</strong>";
-    $n[] = $custprofitamount;
-    $n[] = $custprofitamount > 0 && !empty($row['borrowedprcnt']) ? $profitloss - $custprofitamount : 0;
+    $n[] = $currencysymbol . $custprofitamount;
+    $brokeramt = $profitloss - $custprofitamount;
+    $n[] = $custprofitamount > 0 && !empty($row['borrowedprcnt']) ? $currencysymbol . $brokeramt : 0;
     $n[] = '<strong class="text-warning">Closed<strong>';
     $data[] = $n;
     $i++;
