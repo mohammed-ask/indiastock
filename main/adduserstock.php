@@ -1,7 +1,7 @@
 <?php
 include "./session.php";
-$limit = $obj->selectfieldwhere("userstocks", "count(id)", "(userid=" . $employeeid . " and status = 1) || status = 11");
-$checkstock = $obj->selectfieldwhere("userstocks", "count(id)", "userid=" . $employeeid . " and Exch = '" . $_POST['exch'] . "' and Symbol='" . $_POST['stockname'] . "'");
+$limit = $obj->selectfieldwhere("userstocks", "count(id)", "userid=" . $employeeid . " and status = 1");
+$checkstock = $obj->selectfieldwhere("userstocks", "count(id)", "userid=" . $employeeid . " and Exch = '" . $_POST['exch'] . "' and Symbol='" . $_POST['stockname'] . "' and status = 1");
 if ($limit === '50') {
     echo "Limit Reached";
 } else if ($checkstock > 0) {
@@ -21,8 +21,19 @@ if ($limit === '50') {
     $xx['StrikePrice'] = $_POST['strikerate'];
     $xx['mktlot'] = $_POST['lotsize'];
     $xx['symboltoken'] = $_POST['token'];
-    $stock = $obj->insertnew("userstocks", $xx);
-    if ($stock > 0) {
+    $rowfetch = array(
+        array(
+            "Exch" => $xx['Exch'],
+            "ExchType" => $xx['ExchType'],
+            "Symbol" => $xx['Symbol'],
+            "Expiry" => $xx['Expiry'],
+            "StrikePrice" => empty($xx['StrikePrice']) ? 0 : $xx['StrikePrice'],
+            "OptionType" => $xx['OptionType']
+        )
+    );
+    $stockdetail = $obj->fivepaisaapi($rowfetch);
+    if (!empty($stockdetail[0]['Symbol'])) {
+        $stock = $obj->insertnew("userstocks", $xx);
         echo "Success";
     } else {
         echo "Failed";
