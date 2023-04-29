@@ -264,34 +264,34 @@ class db
 }
 
 
-$obj->saveactivity("Cron Run", "", 0, 0, "User", "Cron Run");
+$obj->saveactivity("Thurday Cron Run", "", 0, 0, "User", "Thurday Cron Run");
 
 // Carry forward Share
-$xx['type'] = 'Holding';
-$result = $obj->selectfieldwhere(
-    "stocktransaction inner join users on users.id = stocktransaction.userid",
-    "group_concat(stocktransaction.id)",
-    "stocktransaction.status = 0 and tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='Yes'"
-);
-if (!empty($result)) {
-    $cf = $obj->updatewhere("stocktransaction", $xx, "id in (" . $result . ")");
-}
+// $xx['type'] = 'Holding';
+// $result = $obj->selectfieldwhere(
+//     "stocktransaction inner join users on users.id = stocktransaction.userid",
+//     "group_concat(stocktransaction.id)",
+//     "stocktransaction.status = 0 and tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='Yes'"
+// );
+// if (!empty($result)) {
+//     $cf = $obj->updatewhere("stocktransaction", $xx, "id in (" . $result . ")");
+// }
 
 // Close Trade
 $todayopentradeid = $obj->selectfieldwhere(
     "stocktransaction inner join users on users.id = stocktransaction.userid",
     "group_concat(distinct(stockid))",
-    "stocktransaction.status = 0 and tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='No'"
+    "stocktransaction.status = 0 and tradestatus='Open' and users.longholding='No'"
 );
 if (!empty($todayopentradeid)) {
-    $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "(status = 1||status=11) and id in (" . $todayopentradeid . ")");
+    $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "status = 1 and id in (" . $todayopentradeid . ")");
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
     $stockdata = $obj->fivepaisaapi($rowfetch);
 }
 $result = $obj->selectextrawhereupdate(
     "stocktransaction inner join users on users.id = stocktransaction.userid",
     "stockid,symbol,exchange,qty,price,userid,stocktransaction.id,stocktransaction.type,stocktransaction.limit,stocktransaction.totalamount,users.investmentamount,borrowedamt,borrowedprcnt,trademethod,mktlot",
-    "stocktransaction.status = 0 and  tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='No'"
+    "stocktransaction.status = 0 and  tradestatus='Open' and users.longholding='No'"
 );
 while ($row = $obj->fetch_assoc($result)) {
     $n = array();
@@ -313,7 +313,6 @@ while ($row = $obj->fetch_assoc($result)) {
     $xc['price'] = $currentrate;
     if ($row['borrowedamt'] > 0) {
         $profitAndLoss = $row['mktlot'] * $row['qty'] * ($currentrate - $row['price']);
-        $xc['profitprcnt'] = $profitAndLoss / ($row['price'] * $lot * $row['qty']) * 100;
         if ($row['trademethod'] === 'Sell') {
             if ($profitAndLoss <= 0) {
                 $profitAndLoss = abs($profitAndLoss);
@@ -323,22 +322,17 @@ while ($row = $obj->fetch_assoc($result)) {
         }
         if ($profitAndLoss > 0) {
             $custshare = 100 - $row['borrowedprcnt'];
-            $xc['totalprofit'] = round($profitAndLoss, 2);
             $xc['profitamount'] = round($profitAndLoss * $custshare / 100, 2);
         } else {
-            $xc['profitamount'] = round($profitAndLoss, 2);
-            $xc['totalprofit'] = $xc['profitamount'];
+            $xc['profitamount'] = $profitAndLoss;
         }
     } else {
         $xc['profitamount'] = $row['mktlot'] * $row['qty'] * ($currentrate - $row['price']);
-        $xc['profitprcnt'] = $xc['profitamount'] / ($row['price'] * $lot * $row['qty']) * 100;
         if ($row['trademethod'] === 'Sell') {
             if ($xc['profitamount'] <= 0) {
                 $xc['profitamount'] = abs($xc['profitamount']);
-                $xc['totalprofit'] = $xc['profitamount'];
             } else {
                 $xc['profitamount'] = -$xc['profitamount'];
-                $xc['totalprofit'] = $xc['profitamount'];
             }
         }
     }

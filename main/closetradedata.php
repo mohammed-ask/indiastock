@@ -40,7 +40,7 @@ $return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "c
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction $join",
-    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,stocktransaction.mktlot",
+    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,stocktransaction.mktlot,borrowedprcnt,profitprcnt,totalprofit,profitamount",
     "stocktransaction.status = 1 and stocktransaction.userid = $id and tradestatus='Close' $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
@@ -54,28 +54,18 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['qty'];
     $n[] = $row['trademethod'] === 'Buy' ? $row['price'] : $row['cprice'];
     $n[] = $row['trademethod'] === 'Sell' ? $row['price'] : $row['cprice'];
-    $n[] = $row['qty'] * $row['price'];
+    $n[] = round($row['qty'] * $row['price'], 2);
     // $n[] = round($row['totalamount'], 2);
     $n[] = $row['trademethod'];
-    $profitprcnt = round((($row['cprice']  - $row['price']) * $row['qty'] * $row['mktlot']) / ($row['price'] * $row['qty'] * $row['mktlot']) * 100, 2);
-    if ($row['trademethod'] === 'Sell') {
-        if ($profitprcnt <= 0) {
-            $profitprcnt = abs($profitprcnt);
-        } else {
-            $profitprcnt = -$profitprcnt;
-        }
-    }
+    $profitprcnt = $row['profitprcnt'];
     $color = $profitprcnt >= 0 ? "text-success" : 'text-danger';
     $n[] = "<strong class='$color'>" . $profitprcnt . "</strong>";
-    $profitloss =  round(($row['cprice'] - $row['price']) * $row['qty'] * $row['mktlot'], 2);
-    if ($row['trademethod'] === 'Sell') {
-        if ($profitloss <= 0) {
-            $profitloss = abs($profitloss);
-        } else {
-            $profitloss = -$profitloss;
-        }
-    }
+    $profitloss =  $row['totalprofit'];
+    $row['borrowedprcnt'] = empty($row['borrowedprcnt']) ? 0 : $row['borrowedprcnt'];
+    $custprofitamount = round($row['profitamount']);
     $n[] = "<strong class='$color'>" . $currencysymbol . $profitloss . "</strong>";
+    $n[] = $custprofitamount;
+    $n[] = $custprofitamount > 0 && !empty($row['borrowedprcnt']) ? $profitloss - $custprofitamount : 0;
     $n[] = '<strong class="text-warning">Closed<strong>';
     $data[] = $n;
     $i++;

@@ -262,6 +262,8 @@ if ($todaystocktotalamt != 0) {
                                         <th>Buy/Sell</th>
                                         <th>%P/L</th>
                                         <th>P/L</th>
+                                        <th>Your Profit</th>
+                                        <th>Broker Profit</th>
                                         <th>Type</th>
                                     </tr>
                                 </thead>
