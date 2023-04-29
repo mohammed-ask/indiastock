@@ -2,11 +2,7 @@
 include "session.php";
 $watchlistsym = [];
 $sexchange = [];
-$expiredstock = $obj->selectfieldwhere("userstocks", "group_concat(distinct(id))", "userid='" . $employeeid . "' and STR_TO_DATE(Expiry, '%Y%m%d') < date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and status = 1", 1);
-echo "<pre>";
-print_r($expiredstock);
-echo "</pre>";
-die;
+$expiredstock = $obj->selectfieldwhere("userstocks", "group_concat(distinct(id))", "userid='" . $employeeid . "' and STR_TO_DATE(Expiry, '%Y%m%d') < date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))  and Expiry != '' and Expiry is not null and status = 1");
 if (!empty($expiredstock)) {
     $obj->deletewhere("userstocks", "id in (" . $expiredstock . ")");
     $obj->deletewhere("watchliststock", "userstockid in (" . $expiredstock . ")");
