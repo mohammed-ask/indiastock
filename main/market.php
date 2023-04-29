@@ -2,6 +2,11 @@
 include "session.php";
 $watchlistsym = [];
 $sexchange = [];
+$expiredstock = $obj->selectfieldwhere("userstocks", "group_concat(distinct(id))", "userid='" . $employeeid . "' and STR_TO_DATE(Expiry, '%Y%m%d') < date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and status = 1");
+if (!empty($expiredstock)) {
+    $obj->deletewhere("userstocks", "id in (" . $expiredstock . ")");
+    $obj->deletewhere("watchliststock", "userstockid in (" . $expiredstock . ")");
+}
 $wexch = $obj->selectfieldwhere("watchliststock", "group_concat(distinct(exchange))", "userid='" . $employeeid . "' and status = 1");
 if (!empty($wexch)) {
     $sexchange = explode(",", $wexch);
@@ -14,10 +19,9 @@ $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,E
 $rowfetch = mysqli_fetch_all($fetchshare, 1);
 // print_r($rowfetch);
 array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
-echo "<pre>";
-print_r($rowfetch);
-echo "</pre>";
-
+// echo "<pre>";
+// print_r($rowfetch);
+// echo "</pre>";
 $stockdata = $obj->fivepaisaapi($rowfetch);
 // echo "<pre>";
 // print_r($stockdata);
