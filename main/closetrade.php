@@ -47,7 +47,7 @@ $stockdata = $stockdata[0];
         </div>
         <div class="col-auto">
             <label class="form-label" for="Price">Price</label>
-            <input type="text" readonly name="price" value="<?= 166 ?>" class="form-control form-control-sm" id="Price">
+            <input type="text" readonly name="price" value="<?= 38 ?>" class="form-control form-control-sm" id="Price">
         </div>
         <?php
         if ($_GET['what'] === 'Sell') { ?>
@@ -61,7 +61,7 @@ $stockdata = $stockdata[0];
         <div class="col">
             <small class="text-muted d-block">Profit/Loss</small>
             <?php
-            $profitloss = (166 - $rowtran['price']) * $rowtran['qty'] * $lot;
+            $profitloss = (38 - $rowtran['price']) * $rowtran['qty'] * $lot;
             if ($rowtran['trademethod'] === 'Sell') {
                 if ($profitloss <= 0) {
                     $profitloss = abs($profitloss);
