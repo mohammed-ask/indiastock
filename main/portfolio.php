@@ -98,6 +98,7 @@ if ($stocktotalamt != 0) {
 
 $todaystocktotalamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and status in (1, 0) and userid = $employeeid and tradestatus in ('Open','Close') and stockid != '' and stockid is not null");
 $todayprofitpercent = 0;
+echo $todayprofit, ' ', $todaystocktotalamt;
 if ($todaystocktotalamt != 0) {
     $todayprofitpercent = $todayprofit * 100 / $todaystocktotalamt;
 }
@@ -262,7 +263,7 @@ if ($todaystocktotalamt != 0) {
                                         <th>Buy/Sell</th>
                                         <th>%P/L</th>
                                         <th>P/L</th>
-                                        <th>Your Profit</th>
+                                        <th>Your P/L</th>
                                         <th>Broker Profit</th>
                                         <th>Type</th>
                                     </tr>
