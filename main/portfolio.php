@@ -98,7 +98,6 @@ if ($stocktotalamt != 0) {
 
 $todaystocktotalamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and status in (1, 0) and userid = $employeeid and tradestatus in ('Open','Close') and stockid != '' and stockid is not null");
 $todayprofitpercent = 0;
-echo $todayprofit, ' ', $todaystocktotalamt;
 if ($todaystocktotalamt != 0) {
     $todayprofitpercent = $todayprofit * 100 / $todaystocktotalamt;
 }
@@ -144,7 +143,7 @@ if ($todaystocktotalamt != 0) {
                     <div class="col text-center">
                         <span <?= $todayprofit > 0 ? "class='h5 text-success'" : "class='h5 text-danger'" ?>>₹<?= round($todayprofit, 2) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Day's Profit/Loss</h6>
-                        <h6 class="text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success"><?= round($todayprofitpercent, 2) ?><span> % </span></h6>
+                        <h6 <?= $todayprofit >= 0 ? "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'" : "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger'" ?>><?= round($todayprofitpercent, 2) ?><span> % </span></h6>
                     </div><!--end col-->
                 </div> <!-- end row -->
             </div><!--end card-body-->
@@ -157,7 +156,7 @@ if ($todaystocktotalamt != 0) {
                     <div class="col text-center">
                         <span <?= $totalprofit > 0 ? "class='h5 text-success'" : "class='h5 text-danger'" ?>>₹<?= round($totalprofit) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Profit/Loss</h6>
-                        <h6 <?= $totalprofit > 0 ? "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'" : "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger'" ?>><?= round($totalprofitprcnt, 2) ?><span> % </span></h6>
+                        <h6 <?= $totalprofit >= 0 ? "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'" : "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger'" ?>><?= round($totalprofitprcnt, 2) ?><span> % </span></h6>
                     </div><!--end col-->
                 </div> <!-- end row -->
             </div><!--end card-body-->
@@ -265,6 +264,7 @@ if ($todaystocktotalamt != 0) {
                                         <th>P/L</th>
                                         <th>Your P/L</th>
                                         <th>Broker Profit</th>
+                                        <th>Close on</th>
                                         <th>Type</th>
                                     </tr>
                                 </thead>

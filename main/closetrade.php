@@ -3,11 +3,11 @@ include "main/session.php";
 $id = $_GET['hakuna'];
 $rowtran = $obj->selectextrawhere("stocktransaction", "id=" . $id . "")->fetch_assoc();
 $token = $obj->selectfieldwhere("userstocks", 'symboltoken', "id=" . $rowtran['stockid'] . "");
-$lot = $obj->selectfieldwhere("userstocks", "mktlot", "symboltoken = '" . $token . "'  and (status = 1||status=11)");
+$lot = $obj->selectfieldwhere("userstocks", "mktlot", "symboltoken = '" . $token . "'  and status = 1");
 $rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "id=" . $rowtran['stockid'] . "")->fetch_assoc();
 $stockdata = $obj->fivepaisaapi(array($rowfetch));
 if ($stockdata === 'Error fetching candle data:') {
-    echo "<div class='alert alert-danger'>Something went wrong! Please try again or check if token is validddd</div>";
+    echo "<div class='alert alert-danger'>Something went wrong! Please try again or check if token is valid</div>";
     die;
 }
 $stockdata = $stockdata[0];
@@ -47,7 +47,7 @@ $stockdata = $stockdata[0];
         </div>
         <div class="col-auto">
             <label class="form-label" for="Price">Price</label>
-            <input type="text" readonly name="price" value="<?= $stockdata['LastRate'] ?>" class="form-control form-control-sm" id="Price">
+            <input type="text" readonly name="price" value="<?= 166 ?>" class="form-control form-control-sm" id="Price">
         </div>
         <?php
         if ($_GET['what'] === 'Sell') { ?>
@@ -61,7 +61,7 @@ $stockdata = $stockdata[0];
         <div class="col">
             <small class="text-muted d-block">Profit/Loss</small>
             <?php
-            $profitloss = ($stockdata['LastRate'] - $rowtran['price']) * $rowtran['qty'] * $lot;
+            $profitloss = (166 - $rowtran['price']) * $rowtran['qty'] * $lot;
             if ($rowtran['trademethod'] === 'Sell') {
                 if ($profitloss <= 0) {
                     $profitloss = abs($profitloss);
