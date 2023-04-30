@@ -67,7 +67,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $currencysymbol . $custprofitamount;
     $brokeramt = $profitloss - $custprofitamount;
     $n[] = $custprofitamount > 0 && !empty($row['borrowedprcnt']) ? $currencysymbol . $brokeramt : 0;
-    $n[] = '<strong class="text-warning">Closed<strong>';
+    $n[] = '<strong class="text-warning">Closed</strong>';
     $n[] = changedateformatespecito($row['closeon'], "Y-m-d H:i:s", "d M, Y H:i");
     $data[] = $n;
     $i++;
