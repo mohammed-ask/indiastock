@@ -17,7 +17,8 @@ if ($_POST['totalamount'] > $investmentamount * $usermargin) {
     }
     $xx['userid'] = $employeeid;
     $xx['type'] = $trademode;
-    $xx['symbol'] = $_POST['symbol'];
+    $symbol = $obj->selectfieldwhere("userstocks", "Symbol", "id='" . $_POST['stockid'] . "'");
+    $xx['symbol'] = $symbol;
     $xx['exchange'] = $_POST['exchange'];
     $xx['stockid'] = $_POST['stockid'];
     $xx['limit'] = $usermargin;

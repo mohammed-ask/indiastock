@@ -2,6 +2,11 @@
 include "session.php";
 $watchlistsym = [];
 $sexchange = [];
+$expiredstock = $obj->selectfieldwhere("userstocks", "group_concat(distinct(id))", "userid='" . $employeeid . "' and STR_TO_DATE(Expiry, '%Y%m%d') < date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))  and Expiry != '' and Expiry is not null and status = 1");
+if (!empty($expiredstock)) {
+    $obj->deletewhere("userstocks", "id in (" . $expiredstock . ")");
+    $obj->deletewhere("watchliststock", "userstockid in (" . $expiredstock . ")");
+}
 $wexch = $obj->selectfieldwhere("watchliststock", "group_concat(distinct(exchange))", "userid='" . $employeeid . "' and status = 1");
 if (!empty($wexch)) {
     $sexchange = explode(",", $wexch);
@@ -14,10 +19,9 @@ $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,E
 $rowfetch = mysqli_fetch_all($fetchshare, 1);
 // print_r($rowfetch);
 array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
-echo "<pre>";
-print_r($rowfetch);
-echo "</pre>";
-
+// echo "<pre>";
+// print_r($rowfetch);
+// echo "</pre>";
 $stockdata = $obj->fivepaisaapi($rowfetch);
 // echo "<pre>";
 // print_r($stockdata);
@@ -96,7 +100,7 @@ $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexcha
                     <a href="#" class="">
                         <div class="d-flex justify-content-between">
                             <div class="align-self-center">
-                                <h6 class="m-0 text-uppercase font-13"><?= $data['Symbol'] ?></h6>
+                                <h6 class="m-0 text-uppercase font-13"><?= $obj->selectfieldwhere("userstocks", "Symbol", "symboltoken='" . $data['Token'] . "' and userid = '" . $employeeid . "'") ?></h6>
                                 <p class="text-uppercase font-10 mb-0"><?php $exc = $data['Exch'] == 'B' ? ' BSE' : ' NSE';
                                                                         echo  $exc  ?></p>
                             </div>

@@ -27,7 +27,7 @@ $stockdata['ExchangeType'] = $_GET['exchangetype'];
 // $stockdata = $stockdata === "Error fetching candle data: Error while processing, Please try to re-login" ? "" : $stockdata[0];
 // print_r($stockdata);
 $chartdata = empty($stockdata) ? [] : $obj->getcandledata($stockdata['ScripCode'], $stockdata['Exchange'],  $stockdata['ExchangeType'], '5m', date('Y-m-d'), date('Y-m-d'));
-$data = empty($chartdata) ? [] : $chartdata['candles'];
+$data = $chartdata == 'Error fetching candle data:' ? [] : $chartdata['candles'];
 
 $chart_data = array();
 
@@ -64,7 +64,7 @@ foreach ($data as $row) {
             </div>
         </div>
         <div id="container"></div>
-        <?php if (empty($chartdata)) { ?>
+        <?php if ($chartdata == 'Error fetching candle data:') { ?>
             <div class='alert alert-danger'>Due to a technical issue with the NSE server, the chart is currently unavailable</div>
         <?php } ?>
     </div>

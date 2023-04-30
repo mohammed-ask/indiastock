@@ -40,7 +40,7 @@ $stockdata = $stockdata[0];
         <input type="hidden" name="amountpaid" value="<?= $rowtran['totalamount'] ?>" id="">
         <input type="hidden" name="limit" value="<?= $rowtran['limit'] ?>" id="">
         <input type="hidden" name="type" value="<?= $rowtran['type'] ?>" id="">
-        <input type="hidden" name="totalamount" id="totalamount" value="<?= $usermargin > 0 ? $stockdata['LastRate'] / $usermargin : $stockdata['LastRate'] ?>">
+        <!-- <input type="hidden" name="totalamount" id="totalamount" value=""> -->
         <div class="col-auto">
             <label class="form-label" for="Quantity">Quantity</label>
             <input data-bvalidator='required' readonly name="qty" type="number" id="qty" onkeyup="sumfund()" onclick="this.select();" value="<?= $rowtran['qty'] ?>" class="form-control form-control-sm">

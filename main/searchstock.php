@@ -173,7 +173,7 @@ include "main/session.php";
                 } else if (response == 'Success') {
                     $("#addstatus").html("<div class='alert alert-success'>Stock Added Successfully</div>")
                 } else if (response == 'Failed') {
-                    $("#addstatus").html("<div class='alert alert-danger'>Something wnet wrong!</div>")
+                    $("#addstatus").html("<div class='alert alert-danger'>Sorry! You can't add this stock.</div>")
                 } else if (response == 'Limit Reached') {
                     $("#addstatus").html("<div class='alert alert-danger'>You cannot add more than 5 stock</div>")
                 }

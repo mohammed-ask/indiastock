@@ -264,24 +264,24 @@ class db
 }
 
 
-$obj->saveactivity("Cron Run", "", 0, 0, "User", "Cron Run");
+$obj->saveactivity("Thurday Cron Run", "", 0, 0, "User", "Thurday Cron Run");
 
 // Carry forward Share
-$xx['type'] = 'Holding';
-$result = $obj->selectfieldwhere(
-    "stocktransaction inner join users on users.id = stocktransaction.userid",
-    "group_concat(stocktransaction.id)",
-    "stocktransaction.status = 0 and tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='Yes'"
-);
-if (!empty($result)) {
-    $cf = $obj->updatewhere("stocktransaction", $xx, "id in (" . $result . ")");
-}
+// $xx['type'] = 'Holding';
+// $result = $obj->selectfieldwhere(
+//     "stocktransaction inner join users on users.id = stocktransaction.userid",
+//     "group_concat(stocktransaction.id)",
+//     "stocktransaction.status = 0 and tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='Yes'"
+// );
+// if (!empty($result)) {
+//     $cf = $obj->updatewhere("stocktransaction", $xx, "id in (" . $result . ")");
+// }
 
 // Close Trade
 $todayopentradeid = $obj->selectfieldwhere(
     "stocktransaction inner join users on users.id = stocktransaction.userid",
     "group_concat(distinct(stockid))",
-    "stocktransaction.status = 0 and tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='No'"
+    "stocktransaction.status = 0 and tradestatus='Open' and users.longholding='No'"
 );
 if (!empty($todayopentradeid)) {
     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "status = 1 and id in (" . $todayopentradeid . ")");
@@ -291,20 +291,19 @@ if (!empty($todayopentradeid)) {
 $result = $obj->selectextrawhereupdate(
     "stocktransaction inner join users on users.id = stocktransaction.userid",
     "stockid,symbol,exchange,qty,price,userid,stocktransaction.id,stocktransaction.type,stocktransaction.limit,stocktransaction.totalamount,users.investmentamount,borrowedamt,borrowedprcnt,trademethod,mktlot",
-    "stocktransaction.status = 0 and  tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='No'"
+    "stocktransaction.status = 0 and  tradestatus='Open' and users.longholding='No'"
 );
 while ($row = $obj->fetch_assoc($result)) {
     $n = array();
     $symbol = $row['symbol'];
     $excg = $row['exchange'];
-    $token = $obj->selectfieldwhere("userstocks", "symboltoken", "id=" . $row['stockid'] . "");
-    $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg, $token) {
-        if ($data['Token'] == $token) {
+    $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg) {
+        if ($data['Symbol'] === $symbol && $data['Exch'] === $excg) {
             return $data;
         }
     });
     $keys = array_keys($pricedata)[0];
-    $currentrate = 150; //$pricedata[$keys]['LastRate'];
+    $currentrate = $pricedata[$keys]['LastRate'];
     $xc['added_on'] = date("Y-m-d H:i:s");
     $xc['updated_on'] = date("Y-m-d H:i:s");
     $xc['status'] = 1;
@@ -314,7 +313,6 @@ while ($row = $obj->fetch_assoc($result)) {
     $xc['price'] = $currentrate;
     if ($row['borrowedamt'] > 0) {
         $profitAndLoss = $row['mktlot'] * $row['qty'] * ($currentrate - $row['price']);
-        $xc['profitprcnt'] = round($profitAndLoss / ($row['price'] * $row['mktlot'] * $row['qty']) * 100, 2);
         if ($row['trademethod'] === 'Sell') {
             if ($profitAndLoss <= 0) {
                 $profitAndLoss = abs($profitAndLoss);
@@ -324,22 +322,17 @@ while ($row = $obj->fetch_assoc($result)) {
         }
         if ($profitAndLoss > 0) {
             $custshare = 100 - $row['borrowedprcnt'];
-            $xc['totalprofit'] = round($profitAndLoss, 2);
             $xc['profitamount'] = round($profitAndLoss * $custshare / 100, 2);
         } else {
-            $xc['profitamount'] = round($profitAndLoss, 2);
-            $xc['totalprofit'] = $xc['profitamount'];
+            $xc['profitamount'] = $profitAndLoss;
         }
     } else {
         $xc['profitamount'] = $row['mktlot'] * $row['qty'] * ($currentrate - $row['price']);
-        $xc['profitprcnt'] = $xc['profitamount'] / ($row['price'] * $row['mktlot'] * $row['qty']) * 100;
         if ($row['trademethod'] === 'Sell') {
             if ($xc['profitamount'] <= 0) {
                 $xc['profitamount'] = abs($xc['profitamount']);
-                $xc['totalprofit'] = $xc['profitamount'];
             } else {
                 $xc['profitamount'] = -$xc['profitamount'];
-                $xc['totalprofit'] = $xc['profitamount'];
             }
         }
     }
@@ -358,15 +351,15 @@ while ($row = $obj->fetch_assoc($result)) {
         $trade = $obj->update("stocktransaction", $yy, $xc['tradeid']);
         if ($trade > 0) {
             if ($xc['profitamount'] >= 0) {
-                $useramt = $row['totalamount'] + $xc['profitamount'] - $row['borrowedamt'];
+                $useramt = $row['totalamount'] - $row['borrowedamt'];
             } else {
-                $useramt = $row['totalamount'] - $row['borrowedamt'] + $xc['profitamount'];
+                $useramt = $row['totalamount'] - $row['borrowedamt'] - $xc['profitamount'];
             }
-            // $useramount = $useramt + $xc['profitamount'];
-            $kk['investmentamount'] = $row['investmentamount'] + $useramt;
+            $useramount = $useramt + $xc['profitamount'];
+            $kk['investmentamount'] = $row['investmentamount'] + $useramount;
             $user = $obj->update("users", $kk, $row['userid']);
             if ($user > 0) {
-                echo "Trade Closed Succesfully  URLportfolio";
+                echo "Redirect : Trade Closed Succesfully  URLportfolio";
             } else {
                 echo "<div class='alert alert-danger'>Some Error Occured Please Contact Admin</div>";
             }
