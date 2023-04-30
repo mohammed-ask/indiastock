@@ -332,7 +332,7 @@ while ($row = $obj->fetch_assoc($result)) {
         }
     } else {
         $xc['profitamount'] = $row['mktlot'] * $row['qty'] * ($currentrate - $row['price']);
-        $xc['profitprcnt'] = $xc['profitamount'] / ($row['price'] * $lot * $row['qty']) * 100;
+        $xc['profitprcnt'] = $xc['profitamount'] / ($row['price'] * $row['mktlot'] * $row['qty']) * 100;
         if ($row['trademethod'] === 'Sell') {
             if ($xc['profitamount'] <= 0) {
                 $xc['profitamount'] = abs($xc['profitamount']);
