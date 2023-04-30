@@ -287,21 +287,19 @@ if (!empty($todayopentradeid)) {
     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "status = 1 and id in (" . $todayopentradeid . ")", 1);
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
     $stockdata = $obj->fivepaisaapi($rowfetch);
-    print_r($stockdata);
 }
 $result = $obj->selectextrawhereupdate(
     "stocktransaction inner join users on users.id = stocktransaction.userid",
     "stockid,symbol,exchange,qty,price,userid,stocktransaction.id,stocktransaction.type,stocktransaction.limit,stocktransaction.totalamount,users.investmentamount,borrowedamt,borrowedprcnt,trademethod,mktlot",
-    "stocktransaction.status = 0 and  tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='No'",
-    1
+    "stocktransaction.status = 0 and  tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='No'"
 );
-print_r(mysqli_fetch_all($result, 1));
 while ($row = $obj->fetch_assoc($result)) {
     $n = array();
     $symbol = $row['symbol'];
     $excg = $row['exchange'];
-    $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg) {
-        if ($data['Symbol'] === $symbol && $data['Exch'] === $excg) {
+    $token = $obj->selectfieldwhere("userstocks", "symboltoken", "id=" . $row['stockid'] . "");
+    $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg, $token) {
+        if ($data['Token'] == $token) {
             return $data;
         }
     });
