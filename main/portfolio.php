@@ -141,7 +141,7 @@ if ($todaystocktotalamt != 0) {
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col text-center">
-                        <span <?= $todayprofit > 0 ? "class='h5 text-success'" : "class='h5 text-danger'" ?>>₹<?= round($todayprofit, 2) ?></span>
+                        <span <?= $todayprofit >= 0 ? "class='h5 text-success'" : "class='h5 text-danger'" ?>>₹<?= round($todayprofit, 2) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Day's Profit/Loss</h6>
                         <h6 <?= $todayprofit >= 0 ? "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'" : "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger'" ?>><?= round($todayprofitpercent, 2) ?><span> % </span></h6>
                     </div><!--end col-->
@@ -154,7 +154,7 @@ if ($todaystocktotalamt != 0) {
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col text-center">
-                        <span <?= $totalprofit > 0 ? "class='h5 text-success'" : "class='h5 text-danger'" ?>>₹<?= round($totalprofit) ?></span>
+                        <span <?= $totalprofit >= 0 ? "class='h5 text-success'" : "class='h5 text-danger'" ?>>₹<?= round($totalprofit) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Profit/Loss</h6>
                         <h6 <?= $totalprofit >= 0 ? "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'" : "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger'" ?>><?= round($totalprofitprcnt, 2) ?><span> % </span></h6>
                     </div><!--end col-->
