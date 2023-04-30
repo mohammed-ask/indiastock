@@ -30,7 +30,8 @@ include "main/session.php";
     }
 </style>
 <form class="row gy-2 gx-3 align-items-end" id="addtax2">
-    <span><span style="font-size: small;">In case you search for Derivative, write like: </span><span style="font-size: 12px;"><br>Eg: NIFTY 23 May 2023 PE 2345263.00<br><b>[</b> Date of Expiry Option Type (PE / CE) Strike Price<b> ]</b> <br>- To explore MCX Option chain and their strike price, <a style="color: #e75c5c; text-decoration-line: underline; " href="https://www.mcxindia.com/market-data/option-chain">click here</a><br>- Option Chain (Equity Derivatives / NIFTY) and their strike price, <a style="color: #e75c5c; text-decoration-line: underline; " href="https://www.nseindia.com/option-chain">click here</a></span></span> <hr style="    margin: 0; margin-top: 9px;">
+    <span><span style="font-size: small;">In case you search for Derivative, write like: </span><span style="font-size: 12px;"><br>Eg: NIFTY 23 May 2023 PE 2345263.00<br><b>[</b> Date of Expiry Option Type (PE / CE) Strike Price<b> ]</b> <br>- To explore MCX Option chain and their strike price, <a style="color: #e75c5c; text-decoration-line: underline; " target="_blank" href="https://www.mcxindia.com/market-data/option-chain">click here</a><br>- Option Chain (Equity Derivatives / NIFTY) and their strike price, <a style="color: #e75c5c; text-decoration-line: underline; " target="_blank" href="https://www.nseindia.com/option-chain">click here</a></span></span>
+    <hr style="    margin: 0; margin-top: 9px;">
     <div class="row -auto g-2 align-items-center">
         <div class="col-sm-9">
             <h6 style="margin-top: 0;">Search & Add Stocks</h6>
