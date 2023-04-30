@@ -314,7 +314,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $xc['price'] = $currentrate;
     if ($row['borrowedamt'] > 0) {
         $profitAndLoss = $row['mktlot'] * $row['qty'] * ($currentrate - $row['price']);
-        $xc['profitprcnt'] = $profitAndLoss / ($row['price'] * $row['mktlot'] * $row['qty']) * 100;
+        $xc['profitprcnt'] = round($profitAndLoss / ($row['price'] * $row['mktlot'] * $row['qty']) * 100, 2);
         if ($row['trademethod'] === 'Sell') {
             if ($profitAndLoss <= 0) {
                 $profitAndLoss = abs($profitAndLoss);
@@ -358,11 +358,11 @@ while ($row = $obj->fetch_assoc($result)) {
         $trade = $obj->update("stocktransaction", $yy, $xc['tradeid']);
         if ($trade > 0) {
             if ($xc['profitamount'] >= 0) {
-                $useramt = $row['totalamount'] - $row['borrowedamt'];
+                $useramt = $row['totalamount'] + $xc['profitamount'] - $row['borrowedamt'];
             } else {
                 $useramt = $row['totalamount'] - $row['borrowedamt'] - $xc['profitamount'];
             }
-            $useramount = $useramt + $xc['profitamount'];
+            // $useramount = $useramt + $xc['profitamount'];
             $kk['investmentamount'] = $row['investmentamount'] + $useramount;
             $user = $obj->update("users", $kk, $row['userid']);
             if ($user > 0) {
