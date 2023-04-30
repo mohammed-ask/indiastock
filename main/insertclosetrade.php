@@ -59,12 +59,12 @@ if ($close > 0) {
     $trade = $obj->update("stocktransaction", $yy, $xx['tradeid']);
     if ($trade > 0) {
         if ($xx['profitamount'] >= 0) {
-            $useramt = $_POST['amountpaid'] - $borrowedamt;
+            $useramt = $_POST['amountpaid'] + $xx['profitamount'] - $borrowedamt;
         } else {
-            $useramt = $_POST['amountpaid'] - $borrowedamt - $xx['profitamount'];
+            $useramt = $_POST['amountpaid'] - $borrowedamt + $xx['profitamount'];
         }
-        $useramount = $useramt + $xx['profitamount'];
-        $kk['investmentamount'] = $investmentamount + $useramount;
+        // $useramount = $useramt + $xx['profitamount'];
+        $kk['investmentamount'] = $investmentamount + $useramt;
         $user = $obj->update("users", $kk, $employeeid);
         if ($user > 0) {
             $obj->saveactivity("Customer Closed Trade", "", $close, $employeeid, "User", "Customer Closed Trade");
