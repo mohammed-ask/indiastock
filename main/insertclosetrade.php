@@ -21,8 +21,10 @@ if ($borrowedamt > 0) {
     if ($trademethod === 'Sell') {
         if ($profitAndLoss <= 0) {
             $profitAndLoss = abs($profitAndLoss);
+            $xx['profitprcnt'] = abs($xx['profitprcnt']);
         } else {
             $profitAndLoss = -$profitAndLoss;
+            $xx['profitprcnt'] = -$xx['profitprcnt'];
         }
     }
     if ($profitAndLoss >= 0) {
@@ -36,13 +38,16 @@ if ($borrowedamt > 0) {
 } else {
     $xx['profitamount'] = $lot * $_POST['qty'] * ($_POST['price'] - $_POST['oldprice']);
     $xx['profitprcnt'] = round($xx['profitamount'] / ($_POST['price'] * $lot * $_POST['qty']) * 100, 2);
+    $xx['totalprofit'] = $xx['profitamount'];
     if ($trademethod === 'Sell') {
         if ($xx['profitamount'] <= 0) {
             $xx['profitamount'] = round(abs($xx['profitamount']), 2);
             $xx['totalprofit'] = $xx['profitamount'];
+            $xx['profitprcnt'] = abs($xx['profitprcnt']);
         } else {
             $xx['profitamount'] = -$xx['profitamount'];
             $xx['totalprofit'] = $xx['profitamount'];
+            $xx['profitprcnt'] = -$xx['profitprcnt'];
         }
     }
 }
