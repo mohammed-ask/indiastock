@@ -368,7 +368,8 @@ while ($row = $obj->fetch_assoc($result)) {
                 $useramt = $row['totalamount'] - $row['borrowedamt'] + $xc['profitamount'];
             }
             // $useramount = $useramt + $xc['profitamount'];
-            $kk['investmentamount'] = $row['investmentamount'] + $useramt;
+            $investmentamount = $obj->selectfieldwhere("users", "investmentamount", "id='" . $row['userid'] . "'");
+            $kk['investmentamount'] = $investmentamount + $useramt;
             $user = $obj->update("users", $kk, $row['userid']);
             if ($user > 0) {
                 echo "Redirect : Trade Closed Succesfully  URLportfolio";
