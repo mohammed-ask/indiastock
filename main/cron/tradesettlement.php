@@ -293,7 +293,6 @@ $result = $obj->selectextrawhereupdate(
     "stockid,symbol,exchange,qty,price,userid,stocktransaction.id,stocktransaction.type,stocktransaction.limit,stocktransaction.totalamount,users.investmentamount,borrowedamt,borrowedprcnt,trademethod,mktlot",
     "stocktransaction.status = 0 and  tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='No'"
 );
-echo 'ooool';
 while ($row = $obj->fetch_assoc($result)) {
     $n = array();
     $symbol = $row['symbol'];
@@ -366,7 +365,6 @@ while ($row = $obj->fetch_assoc($result)) {
             // $useramount = $useramt + $xc['profitamount'];
             $kk['investmentamount'] = $row['investmentamount'] + $useramt;
             $user = $obj->update("users", $kk, $row['userid']);
-            echo $user, ' uuu';
             if ($user > 0) {
                 echo "Redirect : Trade Closed Succesfully  URLportfolio";
             } else {
