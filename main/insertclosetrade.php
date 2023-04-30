@@ -17,7 +17,7 @@ $xx['price'] = $_POST['price'];
 $lot = $obj->selectfieldwhere("stocktransaction", "mktlot", "id=" . $_POST['tradeid'] . "");
 if ($borrowedamt > 0) {
     $profitAndLoss = $lot * $_POST['qty'] * ($_POST['price'] - $_POST['oldprice']);
-    $xx['profitprcnt'] = $profitAndLoss / ($_POST['price'] * $lot * $_POST['qty']) * 100;
+    $xx['profitprcnt'] = round($profitAndLoss / ($_POST['price'] * $lot * $_POST['qty']) * 100, 2);
     if ($trademethod === 'Sell') {
         if ($profitAndLoss <= 0) {
             $profitAndLoss = abs($profitAndLoss);
@@ -35,7 +35,7 @@ if ($borrowedamt > 0) {
     }
 } else {
     $xx['profitamount'] = $lot * $_POST['qty'] * ($_POST['price'] - $_POST['oldprice']);
-    $xx['profitprcnt'] = $xx['profitamount'] / ($_POST['price'] * $lot * $_POST['qty']) * 100;
+    $xx['profitprcnt'] = round($xx['profitamount'] / ($_POST['price'] * $lot * $_POST['qty']) * 100, 2);
     if ($trademethod === 'Sell') {
         if ($xx['profitamount'] <= 0) {
             $xx['profitamount'] = round(abs($xx['profitamount']), 2);

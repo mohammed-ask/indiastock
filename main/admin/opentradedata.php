@@ -44,13 +44,13 @@ if ((isset($_GET['columns'][0]["search"]["value"])) && (!empty($_GET['columns'][
 if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][1]["search"]["value"]))) {
     $search .= " and stocktransaction.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
-$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))");
-$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) $search ");
+$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and type='Intraday' and date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))");
+$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and type='Intraday' and date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction",
     "*",
-    "status = 0 and tradestatus='Open' and (date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) || date(datetime) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))) $search $order limit $start, $limit"
+    "status = 0 and type='Intraday' and tradestatus='Open' and (date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) || date(datetime) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))) $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
