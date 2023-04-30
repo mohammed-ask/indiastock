@@ -360,7 +360,7 @@ while ($row = $obj->fetch_assoc($result)) {
             if ($xc['profitamount'] >= 0) {
                 $useramt = $row['totalamount'] + $xc['profitamount'] - $row['borrowedamt'];
             } else {
-                $useramt = $row['totalamount'] - $row['borrowedamt'] - $xc['profitamount'];
+                $useramt = $row['totalamount'] - $row['borrowedamt'] + $xc['profitamount'];
             }
             // $useramount = $useramt + $xc['profitamount'];
             $kk['investmentamount'] = $row['investmentamount'] + $useramt;
