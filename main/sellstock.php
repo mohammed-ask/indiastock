@@ -1,7 +1,7 @@
 <?php
 include "main/session.php";
 $mrkt = $obj->marketstatus();
-$mrkt = 'Open';
+// $mrkt = 'Open';
 $token = $_GET['hakuna'];
 $exchange = $_GET['what'];
 $id = $obj->selectfieldwhere("userstocks", "id", "symboltoken = '" . $token . "' and status = 1 and userid='$employeeid'");
