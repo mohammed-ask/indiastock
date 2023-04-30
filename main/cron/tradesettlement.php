@@ -304,7 +304,7 @@ while ($row = $obj->fetch_assoc($result)) {
         }
     });
     $keys = array_keys($pricedata)[0];
-    $currentrate = 38; //$pricedata[$keys]['LastRate'];
+    $currentrate = $pricedata[$keys]['LastRate'];
     $xc['added_on'] = date("Y-m-d H:i:s");
     $xc['updated_on'] = date("Y-m-d H:i:s");
     $xc['status'] = 1;
@@ -366,7 +366,7 @@ while ($row = $obj->fetch_assoc($result)) {
             $kk['investmentamount'] = $row['investmentamount'] + $useramt;
             $user = $obj->update("users", $kk, $row['userid']);
             if ($user > 0) {
-                echo "Trade Closed Succesfully  URLportfolio";
+                echo "Redirect : Trade Closed Succesfully  URLportfolio";
             } else {
                 echo "<div class='alert alert-danger'>Some Error Occured Please Contact Admin</div>";
             }
