@@ -304,7 +304,7 @@ while ($row = $obj->fetch_assoc($result)) {
         }
     });
     $keys = array_keys($pricedata)[0];
-    $currentrate = 150; //$pricedata[$keys]['LastRate'];
+    $currentrate = 175; //$pricedata[$keys]['LastRate'];
     $xc['added_on'] = date("Y-m-d H:i:s");
     $xc['updated_on'] = date("Y-m-d H:i:s");
     $xc['status'] = 1;
