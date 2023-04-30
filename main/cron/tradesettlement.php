@@ -363,7 +363,7 @@ while ($row = $obj->fetch_assoc($result)) {
                 $useramt = $row['totalamount'] - $row['borrowedamt'] - $xc['profitamount'];
             }
             // $useramount = $useramt + $xc['profitamount'];
-            $kk['investmentamount'] = $row['investmentamount'] + $useramount;
+            $kk['investmentamount'] = $row['investmentamount'] + $useramt;
             $user = $obj->update("users", $kk, $row['userid']);
             if ($user > 0) {
                 echo "Trade Closed Succesfully  URLportfolio";
