@@ -284,7 +284,7 @@ $todayopentradeid = $obj->selectfieldwhere(
     "stocktransaction.status = 0 and tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='No'"
 );
 if (!empty($todayopentradeid)) {
-    $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "status = 1 and id in (" . $todayopentradeid . ")", 1);
+    $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "status = 1 and id in (" . $todayopentradeid . ")");
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
     $stockdata = $obj->fivepaisaapi($rowfetch);
 }
@@ -366,7 +366,7 @@ while ($row = $obj->fetch_assoc($result)) {
             $kk['investmentamount'] = $row['investmentamount'] + $useramount;
             $user = $obj->update("users", $kk, $row['userid']);
             if ($user > 0) {
-                echo "Redirect : Trade Closed Succesfully  URLportfolio";
+                echo "Trade Closed Succesfully  URLportfolio";
             } else {
                 echo "<div class='alert alert-danger'>Some Error Occured Please Contact Admin</div>";
             }
