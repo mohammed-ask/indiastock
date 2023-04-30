@@ -30,7 +30,7 @@ if ($_POST['totalamount'] > $investmentamount * $usermargin) {
     $remainfund = $investmentamount - $xx["totalamount"];
     $xy['investmentamount'] = $remainfund < 0 ? 0 : $remainfund;
     $user = $obj->update("users", $xy, $employeeid);
-    if ($buy > 0) {
+    if ($sell > 0) {
         echo "Redirect : " . $_POST['symbol'] . " has been sell successfully URLmarket";
     } else {
         echo "Something went wrong";
