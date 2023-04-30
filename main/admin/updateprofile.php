@@ -11,6 +11,7 @@ if ($emailcount > 0) {
     $xx['password'] = $_POST['password'];
     $tb_name = 'users';
     $profile = $obj->update($tb_name, $xx, $employeeid);
+    $obj->saveactivity("Profile Updated by admin", "", $employeeid, $employeeid, "Admin", "Profile Updated by admin");
     if ($profile > 0) {
         echo "Redirect : User Updated Successfully URLindex";
     }

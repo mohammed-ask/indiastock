@@ -225,8 +225,8 @@ include "main/templete.php"; ?>
                 function(data) {
                     if (data === 'Success') {
                         window.location.reload()
-                    } else {
-
+                    } else if ('Failed') {
+                        alertify.alert("Can't remove this stock, Your position is still open")
                     }
                 },
             );

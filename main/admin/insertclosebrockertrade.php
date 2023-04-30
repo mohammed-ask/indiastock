@@ -17,26 +17,36 @@ $xx['price'] = $_POST['cprice'];
 $row['mktlot'] = $obj->selectfieldwhere("stocktransaction", "mktlot", "id=" . $_POST['id'] . "");
 if ($borrowedamt > 0) {
     $profitAndLoss = $row['mktlot'] * $_POST['qty'] * ($_POST['cprice'] - $_POST['oldprice']);
+    $xx['profitprcnt'] = round($profitAndLoss / ($_POST['oldprice'] * $row['mktlot'] * $_POST['qty']) * 100, 2);
     if ($trademethod === 'Sell') {
         if ($profitAndLoss <= 0) {
             $profitAndLoss = abs($profitAndLoss);
+            $xx['profitprcnt'] = abs($xx['profitprcnt']);
         } else {
             $profitAndLoss = -$profitAndLoss;
+            $xx['profitprcnt'] = -$xx['profitprcnt'];
         }
     }
     if ($profitAndLoss >= 0) {
         $custshare = 100 - $borrowedprcnt;
+        $xx['totalprofit'] = round($profitAndLoss, 2);
         $xx['profitamount'] = round($profitAndLoss * $custshare / 100, 2);
     } else {
+        $xx['totalprofit'] = round($profitAndLoss, 2);
         $xx['profitamount'] = $profitAndLoss;
     }
 } else {
     $xx['profitamount'] = $row['mktlot'] * $_POST['qty'] * ($_POST['cprice'] - $_POST['oldprice']);
+    $xx['profitprcnt'] = round($xx['profitamount'] / ($_POST['oldprice'] * $row['mktlot'] * $_POST['qty']) * 100, 2);
     if ($trademethod === 'Sell') {
         if ($xx['profitamount'] <= 0) {
             $xx['profitamount'] = abs($xx['profitamount']);
+            $xx['totalprofit'] = $xx['profitamount'];
+            $xx['profitprcnt'] = abs($xx['profitprcnt']);
         } else {
             $xx['profitamount'] = -$xx['profitamount'];
+            $xx['totalprofit'] = $xx['profitamount'];
+            $xx['profitprcnt'] = -$xx['profitprcnt'];
         }
     }
 }
@@ -54,12 +64,12 @@ if ($close > 0) {
     $trade = $obj->update("stocktransaction", $yy, $xx['tradeid']);
     if ($trade > 0) {
         if ($xx['profitamount'] >= 0) {
-            $useramt = $_POST['amountpaid'] - $borrowedamt;
+            $useramt = $_POST['amountpaid'] + $xx['profitamount']  - $borrowedamt;
         } else {
-            $useramt = $_POST['amountpaid'] - $borrowedamt - $xx['profitamount'];
+            $useramt = $_POST['amountpaid'] - $borrowedamt + $xx['profitamount'];
         }
-        $useramount = $useramt + $xx['profitamount'];
-        $kk['investmentamount'] = $investmentamount + $useramount;
+        // $useramount = $useramt + $xx['profitamount'];
+        $kk['investmentamount'] = $investmentamount + $useramt;
         $user = $obj->update("users", $kk, $_POST['userid']);
         $obj->saveactivity("Position Closed by Admin", "", $close, $xx['userid'], "User", "Position Closed by Admin");
         if ($user > 0) {
