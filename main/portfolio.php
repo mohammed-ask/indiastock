@@ -199,7 +199,7 @@ if ($todaystocktotalamt != 0) {
                                         <th>Stocks</th>
                                         <th>Date</th>
                                         <th>Time</th>
-                                        <th>Mkt Lot</th>
+                                        <th>Lot</th>
                                         <th>Qty.</th>
                                         <th>Price</th>
                                         <th>Total Amount</th>
@@ -225,7 +225,7 @@ if ($todaystocktotalamt != 0) {
                                         <th>Stocks</th>
                                         <th>Date</th>
                                         <th>Time</th>
-                                        <th>Mkt Lot</th>
+                                        <th>Lot</th>
                                         <th>Qty.</th>
                                         <th>Price</th>
                                         <th>Total Amount</th>
@@ -253,7 +253,7 @@ if ($todaystocktotalamt != 0) {
                                         <th>Stocks</th>
                                         <th>Date</th>
                                         <th>Time</th>
-                                        <th>Mkt Lot</th>
+                                        <th>Lot</th>
                                         <th>Qty.</th>
                                         <th>Buy Price</th>
                                         <th>Sell Price</th>
