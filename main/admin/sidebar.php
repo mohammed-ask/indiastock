@@ -191,24 +191,24 @@
           <template x-if="isInvestmentPageMenuOpen">
             <ul x-transition:enter="transition-all ease-in-out duration-300" x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300" x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0" class="p-2 mt-2 space-y-2 overflow-hidden  font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900" aria-label="submenu">
               <?php if (in_array(25, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                <!-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                   <a class="w-full" href="allinvestment">All</a>
-                </li>
+                </li> -->
               <?php } ?>
               <?php if (in_array(26, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                <!-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                   <a class="w-full" href="pendinginvestment">Pending</a>
-                </li>
+                </li> -->
               <?php } ?>
               <?php if (in_array(27, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                <!-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                   <a class="w-full" href="approvedinvestment">Approved</a>
-                </li>
+                </li> -->
               <?php } ?>
               <?php if (in_array(28, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                <!-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                   <a class="w-full" href="disapprovedinvestment">Disapproved</a>
-                </li>
+                </li> -->
               <?php } ?>
               <?php if (in_array(29, $permissions)) { ?>
                 <!-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
