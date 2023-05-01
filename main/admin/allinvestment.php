@@ -107,5 +107,23 @@ include "templete.php";
                 [0, "desc"]
             ]
         })
+        $(document).on("click", ".showbox", function() {
+            status = $(this).parents('.tr').find('.showbtn').css("display");
+            if (status === 'none') {
+                $(this).parents('.tr').find('.showbtn').css({
+                    display: 'block',
+                    position: 'absolute',
+                    backgroundColor: 'white',
+                    zIndex: 30,
+                    boxShadow: '5px 10px 10px #888888',
+                    padding: '10px',
+                });
+            } else if (status === 'block') {
+                $(this).parents('.tr').find('.showbtn').css({
+                    "display": "none",
+                });
+            }
+
+        })
     });
 </script>
