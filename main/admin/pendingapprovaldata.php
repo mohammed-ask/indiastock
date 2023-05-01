@@ -54,7 +54,9 @@ while ($row = $obj->fetch_assoc($result)) {
 </button>";
     $n[] =  "<button class='flex items-center justify-between px-3 py-1 bg-purple text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"viewusermodal\", \"\", \"User Details\")' aria-label='Edit'>More Detail</button>";
 
-    $n[] = "<div class='tr'><div style='text-align:center;cursor:pointer'  class='showbox'>
+    $appdata = "";
+    if (in_array(36, $permissions)) {
+        $appdata = "<div class='tr'><div style='text-align:center;cursor:pointer'  class='showbox'>
     <img class='object-cover w-5 h-5' style='height:30px;width:30px;;margin:auto' src='../main/images/menu.png' alt='' aria-hidden='true' /></div>
         <div class='showbtn' style='display:none'>
         <ul >
@@ -73,6 +75,8 @@ while ($row = $obj->fetch_assoc($result)) {
                     </a>
                 </li>
         </ul></div></div>";
+    }
+    $n[] = $appdata;
     $data[] = $n;
     $i++;
 }

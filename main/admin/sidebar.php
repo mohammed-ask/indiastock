@@ -441,19 +441,19 @@
                 </li>
               <?php } ?>
               <?php if (in_array(26, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                <!-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                   <a class="w-full" href="pendinginvestment">Pending</a>
-                </li>
+                </li> -->
               <?php } ?>
               <?php if (in_array(27, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                <!-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                   <a class="w-full" href="approvedinvestment">Approved</a>
-                </li>
+                </li> -->
               <?php } ?>
               <?php if (in_array(28, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                <!-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                   <a class="w-full" href="disapprovedinvestment">Disapproved</a>
-                </li>
+                </li> -->
               <?php } ?>
               <?php if (in_array(29, $permissions)) { ?>
                 <!-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">

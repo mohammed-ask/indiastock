@@ -54,7 +54,9 @@ while ($row = $obj->fetch_assoc($result)) {
     <span class='w-5 h-5' fill='currentColor'>Pending</span>
 </button>";
     $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y H:i");
-    $n[] = "<div class='tr'><div style='text-align:center;cursor:pointer'  class='showbox'>
+    $appdata = "";
+    if (in_array(36, $permissions)) {
+        $appdata = "<div class='tr'><div style='text-align:center;cursor:pointer'  class='showbox'>
     <img class='object-cover w-5 h-5' style='height:30px;width:30px;;margin:auto' src='../main/images/menu.png' alt='' aria-hidden='true' /></div>
         <div class='showbtn' style='display:none'>
         <ul >
@@ -73,6 +75,8 @@ while ($row = $obj->fetch_assoc($result)) {
                     </a>
                 </li>
         </ul></div></div>";
+    }
+    $n[] = $appdata;
     $data[] = $n;
     $i++;
 }
