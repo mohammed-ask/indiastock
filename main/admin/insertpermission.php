@@ -1,5 +1,5 @@
 <?php
-include '../session.php';
+include 'main/session.php';
 /* @var $obj db */
 $_POST['added_on'] = date('Y-m-d H:i:s');
 $_POST['added_by'] = $employeeid;
