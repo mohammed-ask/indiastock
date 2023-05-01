@@ -175,6 +175,16 @@
           </li>
         </ul>
       <?php } ?>
+      <?php if (in_array(25, $permissions)) { ?>
+        <ul>
+          <li class="relative px-6 py-3">
+            <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="allinvestment">
+              <i style="color: #057c7c;" class="fa-solid fa-indian-rupee-sign"></i>
+              <span class="ml-3">Investment</span>
+            </a>
+          </li>
+        </ul>
+      <?php } ?>
       <?php if (in_array(25, $permissions) || in_array(26, $permissions) || in_array(27, $permissions) || in_array(28, $permissions) || in_array(29, $permissions)) { ?>
         <li class="relative px-6 py-3">
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleInvestmentPageMenu" aria-haspopup="true">
@@ -191,9 +201,9 @@
           <template x-if="isInvestmentPageMenuOpen">
             <ul x-transition:enter="transition-all ease-in-out duration-300" x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl" x-transition:leave="transition-all ease-in-out duration-300" x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0" class="p-2 mt-2 space-y-2 overflow-hidden  font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900" aria-label="submenu">
               <?php if (in_array(25, $permissions)) { ?>
-                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                <!-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                   <a class="w-full" href="allinvestment">All</a>
-                </li>
+                </li> -->
               <?php } ?>
               <?php if (in_array(26, $permissions)) { ?>
                 <!-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
