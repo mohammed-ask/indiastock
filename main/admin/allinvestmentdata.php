@@ -51,7 +51,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['mobile'];
     $n[] = $row['transactionid'];
     $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M,Y H:i");
-    $n[] =  "<strong>" . $row['amount'] . "</strong>";
+    $n[] =  "<strong>" . $currencysymbol . $row['amount'] . "</strong>";
     // $n[] =  $row['remark'];
     $n[] =  $row['paymentmethod'];
     //     if ($row['status'] == 0) {

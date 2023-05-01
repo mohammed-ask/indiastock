@@ -39,7 +39,7 @@ $return['recordsFiltered'] = $obj->selectfieldwhere("fundrequest $join", "count(
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "fundrequest $join",
-    "fundrequest.id,name,userid,users.mobile,fundrequest.added_on,fundrequest.status,amount,paymentmethod,transactionid",
+    "fundrequest.id,name,userid,users.mobile,fundrequest.added_on,fundrequest.status,amount,paymentmethod,transactionid,investmentamount",
     "fundrequest.status in (0) $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
@@ -49,9 +49,10 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $i;
     $n[] = "<strong>" . $row['name'] . "</strong>";
     $n[] = $row['mobile'];
+    $n[] = $currencysymbol . $row['investmentamount'];
     $n[] = $row['transactionid'];
     $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M,Y H:i");
-    $n[] =  "<strong>" . $row['amount'] . "</strong>";
+    $n[] =  "<strong>" . $currencysymbol . $row['amount'] . "</strong>";
     // $n[] =  $row['remark'];
     $n[] =  $row['paymentmethod'];
     $appdata = "";
