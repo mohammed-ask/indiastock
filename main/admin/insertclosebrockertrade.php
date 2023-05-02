@@ -63,10 +63,10 @@ if ($close > 0) {
     $yy['status'] = 1;
     $trade = $obj->update("stocktransaction", $yy, $xx['tradeid']);
     if ($trade > 0) {
-        if ($xx['profitamount'] >= 0) {
-            $useramt = $_POST['amountpaid'] + $xx['profitamount']  - $borrowedamt;
+        if ($xx['totalprofit'] >= 0) {
+            $useramt = $_POST['amountpaid'] + $xx['totalprofit']  - $borrowedamt;
         } else {
-            $useramt = $_POST['amountpaid'] - $borrowedamt + $xx['profitamount'];
+            $useramt = $_POST['amountpaid'] - $borrowedamt + $xx['totalprofit'];
         }
         // $useramount = $useramt + $xx['profitamount'];
         $kk['investmentamount'] = $investmentamount + $useramt;

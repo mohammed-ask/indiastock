@@ -9,6 +9,10 @@ $rowstock = $obj->selectextrawhere("stocktransaction", "id=" . $id . "")->fetch_
         <div class="form-control"><?= $obj->selectfieldwhere('users', 'name', 'id=' . $rowstock['userid'] . '') ?></div>
     </label>
     <label class="block text-sm  mb-3" style="margin-bottom: 5px;">
+        <span class="text-gray-700 dark:text-gray-400">Lot</span>
+        <div class="form-control"><?= $rowstock['mktlot'] ?></div>
+    </label>
+    <label class="block text-sm  mb-3" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Quantity</span>
         <div class="form-control"><?= $rowstock['qty'] ?></div>
     </label>

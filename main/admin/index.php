@@ -97,8 +97,10 @@ if (in_array(34, $permissions)) {
                         <tr class="text-sm font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                             <th class="px-3 py-2">S.No.</th>
                             <th class="px-3 py-2">Stock Name</th>
+                            <th class="px-3 py-2">Lot</th>
                             <th class="px-3 py-2">Price</th>
                             <th class="px-3 py-2">No. of Share</th>
+                            <th class="px-3 py-2">Total</th>
                             <th class="px-3 py-2">Date & Time</th>
                             <th class="px-3 py-2">User</th>
                             <th class="px-3 py-2">Status</th>
@@ -122,8 +124,10 @@ if (in_array(34, $permissions)) {
                         <tr class="text-sm font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                             <th class="px-3 py-2">S.No.</th>
                             <th class="px-3 py-2">Stock Name</th>
+                            <th class="px-3 py-2">Lot</th>
                             <th class="px-3 py-2">Price</th>
                             <th class="px-3 py-2">No. of Share</th>
+                            <th class="px-3 py-2">Total</th>
                             <th class="px-3 py-2">Date & Time</th>
                             <th class="px-3 py-2">User</th>
                             <th class="px-3 py-2">Status</th>

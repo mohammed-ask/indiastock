@@ -62,11 +62,11 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = "<strong class='$color'>" . $profitprcnt . "</strong>";
     $profitloss =  $row['totalprofit'];
     $row['borrowedprcnt'] = empty($row['borrowedprcnt']) ? 0 : $row['borrowedprcnt'];
-    $custprofitamount = round($row['profitamount']);
+    $custprofitamount = round($row['totalprofit']);
     $n[] = "<strong class='$color'>" . $currencysymbol . $profitloss . "</strong>";
     $n[] = $currencysymbol . $custprofitamount;
-    $brokeramt = $profitloss - $custprofitamount;
-    $n[] = $custprofitamount > 0 && !empty($row['borrowedprcnt']) ? $currencysymbol . $brokeramt : 0;
+    // $brokeramt = $profitloss - $custprofitamount;
+    // $n[] = $custprofitamount > 0 && !empty($row['borrowedprcnt']) ? $currencysymbol . $brokeramt : 0;
     $n[] = '<strong class="text-warning">Closed</strong>';
     $n[] = changedateformatespecito($row['closeon'], "Y-m-d H:i:s", "d M, Y H:i");
     $data[] = $n;

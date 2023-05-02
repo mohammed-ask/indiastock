@@ -16,7 +16,7 @@ $timeskip = '+12:30';
 // $database_Username = "root";
 // $database_Password = "";
 // $database_Name = "indiastock";
-// $timeskip = '+00:30';
+// $timeskip = '+00:00';
 
 $siteurl = "https://pmsequity.com/";
 $port = 3306;
@@ -294,11 +294,11 @@ $result = $obj->selectextrawhereupdate(
     "stocktransaction.status = 0 and  tradestatus='Open' and users.longholding='No'"
 );
 while ($row = $obj->fetch_assoc($result)) {
-    $n = array();
     $symbol = $row['symbol'];
     $excg = $row['exchange'];
-    $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg) {
-        if ($data['Symbol'] === $symbol && $data['Exch'] === $excg) {
+    $token = $obj->selectfieldwhere("userstocks", "symboltoken", "id=" . $row['stockid'] . "");
+    $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg, $token) {
+        if ($data['Token'] == $token) {
             return $data;
         }
     });
@@ -313,26 +313,37 @@ while ($row = $obj->fetch_assoc($result)) {
     $xc['price'] = $currentrate;
     if ($row['borrowedamt'] > 0) {
         $profitAndLoss = $row['mktlot'] * $row['qty'] * ($currentrate - $row['price']);
+        $xc['profitprcnt'] = round($profitAndLoss / ($row['price'] * $row['mktlot'] * $row['qty']) * 100, 2);
         if ($row['trademethod'] === 'Sell') {
             if ($profitAndLoss <= 0) {
                 $profitAndLoss = abs($profitAndLoss);
+                $xc['profitprcnt'] = abs($xc['profitprcnt']);
             } else {
                 $profitAndLoss = -$profitAndLoss;
+                $xc['profitprcnt'] = -$xc['profitprcnt'];
             }
         }
         if ($profitAndLoss > 0) {
             $custshare = 100 - $row['borrowedprcnt'];
+            $xc['totalprofit'] = round($profitAndLoss, 2);
             $xc['profitamount'] = round($profitAndLoss * $custshare / 100, 2);
         } else {
-            $xc['profitamount'] = $profitAndLoss;
+            $xc['profitamount'] = round($profitAndLoss, 2);
+            $xc['totalprofit'] = $xc['profitamount'];
         }
     } else {
         $xc['profitamount'] = $row['mktlot'] * $row['qty'] * ($currentrate - $row['price']);
+        $xc['profitprcnt'] = round($xc['profitamount'] / ($row['price'] * $row['mktlot'] * $row['qty']) * 100, 2);
+        $xc['totalprofit'] = $xc['profitamount'];
         if ($row['trademethod'] === 'Sell') {
             if ($xc['profitamount'] <= 0) {
                 $xc['profitamount'] = abs($xc['profitamount']);
+                $xc['totalprofit'] = $xc['profitamount'];
+                $xc['profitprcnt'] = abs($xc['profitprcnt']);
             } else {
                 $xc['profitamount'] = -$xc['profitamount'];
+                $xc['totalprofit'] = $xc['profitamount'];
+                $xc['profitprcnt'] = -$xc['profitprcnt'];
             }
         }
     }
@@ -350,13 +361,14 @@ while ($row = $obj->fetch_assoc($result)) {
         $yy['status'] = 1;
         $trade = $obj->update("stocktransaction", $yy, $xc['tradeid']);
         if ($trade > 0) {
-            if ($xc['profitamount'] >= 0) {
-                $useramt = $row['totalamount'] - $row['borrowedamt'];
+            if ($xc['totalprofit'] >= 0) {
+                $useramt = $row['totalamount'] + $xc['totalprofit'] - $row['borrowedamt'];
             } else {
-                $useramt = $row['totalamount'] - $row['borrowedamt'] - $xc['profitamount'];
+                $useramt = $row['totalamount'] - $row['borrowedamt'] + $xc['totalprofit'];
             }
-            $useramount = $useramt + $xc['profitamount'];
-            $kk['investmentamount'] = $row['investmentamount'] + $useramount;
+            // $useramount = $useramt + $xc['profitamount'];
+            $investmentamount = $obj->selectfieldwhere("users", "investmentamount", "id='" . $row['userid'] . "'");
+            $kk['investmentamount'] = $investmentamount + $useramt;
             $user = $obj->update("users", $kk, $row['userid']);
             if ($user > 0) {
                 echo "Redirect : Trade Closed Succesfully  URLportfolio";

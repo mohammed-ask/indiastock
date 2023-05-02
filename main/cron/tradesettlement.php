@@ -16,7 +16,7 @@ $timeskip = '+12:30';
 // $database_Username = "root";
 // $database_Password = "";
 // $database_Name = "indiastock";
-// $timeskip = '+00:30';
+// $timeskip = '+00:00';
 
 $siteurl = "https://pmsequity.com/";
 $port = 3306;
@@ -294,7 +294,6 @@ $result = $obj->selectextrawhereupdate(
     "stocktransaction.status = 0 and  tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='No'"
 );
 while ($row = $obj->fetch_assoc($result)) {
-    $n = array();
     $symbol = $row['symbol'];
     $excg = $row['exchange'];
     $token = $obj->selectfieldwhere("userstocks", "symboltoken", "id=" . $row['stockid'] . "");
@@ -362,10 +361,10 @@ while ($row = $obj->fetch_assoc($result)) {
         $yy['status'] = 1;
         $trade = $obj->update("stocktransaction", $yy, $xc['tradeid']);
         if ($trade > 0) {
-            if ($xc['profitamount'] >= 0) {
-                $useramt = $row['totalamount'] + $xc['profitamount'] - $row['borrowedamt'];
+            if ($xc['totalprofit'] >= 0) {
+                $useramt = $row['totalamount'] + $xc['totalprofit'] - $row['borrowedamt'];
             } else {
-                $useramt = $row['totalamount'] - $row['borrowedamt'] + $xc['profitamount'];
+                $useramt = $row['totalamount'] - $row['borrowedamt'] + $xc['totalprofit'];
             }
             // $useramount = $useramt + $xc['profitamount'];
             $investmentamount = $obj->selectfieldwhere("users", "investmentamount", "id='" . $row['userid'] . "'");

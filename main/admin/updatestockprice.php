@@ -2,16 +2,29 @@
 include 'main/session.php';
 $oldtotal = $obj->selectfieldwhere("stocktransaction", 'totalamount', 'id=' . $_POST['id'] . '');
 $investmentamount = $obj->selectfieldwhere("users", 'investmentamount', 'id=' . $_POST['userid'] . '');
-$usermargin = $obj->selectfieldwhere("users", '`limit`', 'id=' . $_POST['userid'] . '');
-$xx['price'] = $_POST['price'];
-$xx['totalamount'] = ($xx['price'] / $usermargin) * $_POST['qty'];
-$stock = $obj->update("stocktransaction", $xx, $_POST['id']);
-$obj->saveactivity("Stock Price Edited by User", "", $_POST['id'], $employeeid, "Admin", "Stock Price Edited by User");
-if ($oldtotal - $xx['totalamount'] > 0) {
-    $yy['investmentamount'] = round($investmentamount + ($oldtotal - $xx['totalamount']), 2);
-    $obj->update("users", $yy, $_POST['userid']);
+$brokeramt = $obj->selectfieldwhere("stocktransaction", 'borrowedamt', 'id=' . $_POST['id'] . '');
+$lot = $obj->selectfieldwhere("stocktransaction", 'mktlot', 'id=' . $_POST['id'] . '');
+$usermargin = $obj->selectfieldwhere("stocktransaction", '`limit`', 'id=' . $_POST['id'] . '');
+
+$brokeramt = empty($brokeramt) ? 0 : $brokeramt;
+$investmentamount = $investmentamount + $oldtotal - $brokeramt;
+$totalamount = $_POST['price'] * $_POST['qty'] * $lot;
+if ($totalamount > $investmentamount * $usermargin) {
+    echo "<div class='alert alert-warning'>You dont have enough fund</div>";
 } else {
-    $yy['investmentamount'] = round($investmentamount - ($xx['totalamount'] - $oldtotal), 2);
-    $obj->update("users", $yy, $_POST['userid']);
+    $xx['price'] = $_POST['price'];
+    $xx['totalamount'] = round($totalamount, 2);
+    if ($totalamount > $investmentamount) {
+        $xx['borrowedamt'] = round($totalamount - $investmentamount, 2);
+        $xx['borrowedprcnt'] = round($xx['borrowedamt'] / $totalamount * 100, 2);
+    } else {
+        $xx['borrowedamt'] = 0;
+        $xx['borrowedprcnt'] = 0;
+    }
+    $buy = $obj->update("stocktransaction", $xx, $_POST['id']);
+    $obj->saveactivity("Stock Price Changed by admin", "", $_POST['id'], $employeeid, "Admin", "Stock Price Changed by admin");
+    $remainfund = $investmentamount - $totalamount;
+    $xy['investmentamount'] = $remainfund < 0 ? 0 : $remainfund;
+    $user = $obj->update("users", $xy, $_POST['userid']);
 }
 echo "Redirect : Price Updated Successfully URLindex";

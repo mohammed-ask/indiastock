@@ -339,6 +339,9 @@ switch ($request['path']) {
     case "$head/cron/settleamount";
         require __DIR__ . '/main/cron/tradesettlement.php';
         break;
+    case "$head/cron/settletradethursday";
+        require __DIR__ . '/main/cron/settletradethursday.php';
+        break;
     case "$head/gitpull";
         require __DIR__ . '/main/guthubpull.php';
         break;
