@@ -62,9 +62,9 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = "<strong class='$color'>" . $profitprcnt . "</strong>";
     $profitloss =  $row['totalprofit'];
     $row['borrowedprcnt'] = empty($row['borrowedprcnt']) ? 0 : $row['borrowedprcnt'];
-    $custprofitamount = round($row['totalprofit']);
+    // $custprofitamount = round($row['totalprofit']);
     $n[] = "<strong class='$color'>" . $currencysymbol . $profitloss . "</strong>";
-    $n[] = $currencysymbol . $custprofitamount;
+    // $n[] = $currencysymbol . $custprofitamount;
     // $brokeramt = $profitloss - $custprofitamount;
     // $n[] = $custprofitamount > 0 && !empty($row['borrowedprcnt']) ? $currencysymbol . $brokeramt : 0;
     $n[] = '<strong class="text-warning">Closed</strong>';

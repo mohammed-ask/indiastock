@@ -202,7 +202,7 @@ if ($todaystocktotalamt != 0) {
                                         <th>Lot</th>
                                         <th>Qty.</th>
                                         <th>Price</th>
-                                        <th>Total Amount</th>
+                                        <th>Total</th>
                                         <!-- <th>Paid By User</th> -->
                                         <th>Buy/Sell</th>
                                         <th>Current Rate</th>
@@ -228,7 +228,7 @@ if ($todaystocktotalamt != 0) {
                                         <th>Lot</th>
                                         <th>Qty.</th>
                                         <th>Price</th>
-                                        <th>Total Amount</th>
+                                        <th>Total</th>
                                         <th>Current Rate</th>
                                         <!-- <th>Paid By User</th> -->
                                         <th>Buy/Sell</th>
@@ -257,12 +257,12 @@ if ($todaystocktotalamt != 0) {
                                         <th>Qty.</th>
                                         <th>Buy Price</th>
                                         <th>Sell Price</th>
-                                        <th>Total Amount</th>
+                                        <th>Total</th>
                                         <!-- <th>Paid By User</th> -->
                                         <th>Buy/Sell</th>
                                         <th>%P/L</th>
                                         <th>P/L</th>
-                                        <th>Your P/L</th>
+                                        <!-- <th>Your P/L</th> -->
                                         <!-- <th>Broker Profit</th> -->
                                         <th>Close on</th>
                                         <th>Type</th>
@@ -285,7 +285,7 @@ if ($todaystocktotalamt != 0) {
                                         <th>Qty.</th>
                                         <th>Buy Price</th>
                                         <th>Sell Price</th>
-                                        <th>Total Amount</th>
+                                        <th>Total</th>
                                         <!-- <th>Paid By User</th> -->
                                         <th>Buy/Sell</th>
                                         <th>Type</th>
