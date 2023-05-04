@@ -41,7 +41,7 @@ if (!in_array(4, $permissions)) {
                         <th class="px-3 py-2">Password</th>
                         <th class="px-3 py-2">Cost</th>
                         <th class="px-3 py-2">Value</th>
-                        <th class="px-3 py-2">SMS</th>
+                        <!-- <th class="px-3 py-2">SMS</th> -->
                         <th class="px-3 py-2">Email</th>
                         <th class="px-3 py-2">Status</th>
                         <th class="px-3 py-2">Fund History</th>

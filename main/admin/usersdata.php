@@ -64,10 +64,10 @@ while ($row = $obj->fetch_assoc($result)) {
     $emailenabled = $row['emailenabled'] === 'Yes' ? 'checked' : '';
     $activation = $row['activate'] === 'Yes' ? 'checked' : '';
     if (in_array(40, $permissions)) {
-        $n[] =  ' <label class="switch">
-    <input type="checkbox" ' . $smsenable . ' class="setactive" data-type="sms" data-id="' . $row['id'] . '" value="' . $row['sms'] . '">
-    <span class="slider round" ></span>
-</label>';
+        //         $n[] =  ' <label class="switch">
+        //     <input type="checkbox" ' . $smsenable . ' class="setactive" data-type="sms" data-id="' . $row['id'] . '" value="' . $row['sms'] . '">
+        //     <span class="slider round" ></span>
+        // </label>';
         $n[] =  '<label class="switch">
     <input type="checkbox" ' . $emailenabled . ' class="setactive" data-type="emailenabled" data-id="' . $row['id'] . '" value="' . $row['emailenabled'] . '">
     <span class="slider round"></span>
@@ -77,7 +77,7 @@ while ($row = $obj->fetch_assoc($result)) {
     <span class="slider round"></span>
 </label>';
     } else {
-        $n[] = '';
+        // $n[] = '';
         $n[] = '';
         $n[] = '';
     }
