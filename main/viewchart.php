@@ -41,7 +41,7 @@ foreach ($data as $row) {
 ?>
 <div class="row card" id="userstock">
     <div class="card-body">
-        <div class="row">
+        <div class="row mb-4">
             <div class="col-sm-3">
                 <label>Start Date</label>
                 <input type="date" id="startdate" name="startdate" value="<?php echo date('Y-m-d'); ?>" class="form-control" placeholder="startdate" />
