@@ -105,11 +105,19 @@ include "main/session.php";
             Name</span>
         <input type="text" name="symbol" id="symbol" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter Stock Name" data-bvalidator="required" />
     </label>
-    <div id="getmargin">
-        <label class="block text-sm" style="margin-bottom: 5px;">
-            <span class="text-gray-700 dark:text-gray-400"> Margin</span>
-            <input name="margin" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' />
-        </label>
+    <div class="row" id="getmargin">
+        <div class="col-6 mb-2">
+            <label class="block text-sm" style="margin-bottom: 5px;">
+                <span class="text-gray-700 dark:text-gray-400"> Fund</span>
+                <input class="disabled block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' />
+            </label>
+        </div>
+        <div class="col-6 mb-2">
+            <label class="block text-sm" style="margin-bottom: 5px;">
+                <span class="text-gray-700 dark:text-gray-400"> Margin</span>
+                <input name="margin" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' />
+            </label>
+        </div>
     </div>
     <div id="stockvalue" class="row">
 
