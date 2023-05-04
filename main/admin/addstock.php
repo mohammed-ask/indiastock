@@ -32,7 +32,7 @@ include "main/session.php";
 </style>
 <form id="adduser" onsubmit="event.preventDefault();sendForm('', '', 'insertaddstock', 'resultid', 'adduser');return 0;">
     <div class="mb-2"> <label for="Choose Client" class="block text-sm" style="margin-bottom: 5px;">
-            <span class="text-gray-700 dark:text-gray-400">Client's Name</span>
+            <span class="text-gray-700 dark:text-gray-400">Select Client</span>
 
         </label>
         <select data-bvalidator="required" onchange="search(this.id,'getmargin','../main/admin/fetchmargin.php')" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" name="userid" id="Client Name">
@@ -46,18 +46,34 @@ include "main/session.php";
             } ?>
         </select>
     </div>
-    <div class="mb-2">
+    <div class="row">
+    <div class="col-6 mb-2">
         <label for="buy" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">
             <span class="text-gray-700 dark:text-gray-400">Exchange</span>
 
         </label>
         <select name="exchange" class="block w-full text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' id="exch">
-            <option value="">Select Exchange</option>
+            <option value="">Select</option>
             <option value="N">NSE</option>
             <option value="B">BSE</option>
         </select>
     </div>
-    <div class="mb-2">
+
+    <div class="col-6 mb-2">
+        <label for="type" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">
+            <span class="text-gray-700 dark:text-gray-400">Exchange Mode</span>
+
+        </label>
+        <select name="exchtype" class="block w-full text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' id="exchtype">
+            <option value="">Select Type</option>
+            <option value="C">Cash</option>
+            <option value="D">Derivative</option>
+            <option value="U">Currency</option>
+        </select>
+    </div></div>
+
+    <div class="row">
+    <div class="col-6 mb-2">
         <label for="type" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">
             <span class="text-gray-700 dark:text-gray-400">Type</span>
 
@@ -68,30 +84,8 @@ include "main/session.php";
             <option value="Holding">Holding</option>
         </select>
     </div>
-    <div class="mb-2">
-        <label for="type" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">
-            <span class="text-gray-700 dark:text-gray-400">Exchange Type</span>
 
-        </label>
-        <select name="exchtype" class="block w-full text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' id="exchtype">
-            <option value="">Select Type</option>
-            <option value="C">Cash</option>
-            <option value="D">Derivative</option>
-            <option value="U">Currency</option>
-        </select>
-    </div>
-    <label class="block text-sm" style="margin-bottom: 5px;">
-        <span class="text-gray-700 dark:text-gray-400"> Stock
-            Name</span>
-        <input type="text" name="symbol" id="symbol" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter Stock Name" data-bvalidator="required" />
-    </label>
-    <div id="getmargin">
-        <label class="block text-sm" style="margin-bottom: 5px;">
-            <span class="text-gray-700 dark:text-gray-400"> Margin</span>
-            <input name="margin" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' />
-        </label>
-    </div>
-    <div class="mb-2">
+    <div class="col-6 mb-2">
         <label for="buy" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">
             <span class="text-gray-700 dark:text-gray-400">Buy/Sell</span>
 
@@ -101,29 +95,44 @@ include "main/session.php";
             <option value="Buy">Buy</option>
             <option value="Sell">Sell</option>
         </select>
+    </div></div>
+  
+    <label class="block text-sm" style="margin-bottom: 5px;">
+        <span class="text-gray-700 dark:text-gray-400">Stock
+            Name</span>
+        <input type="text" name="symbol" id="symbol" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter Stock Name" data-bvalidator="required" />
+    </label>
+    <div id="getmargin">
+        <label class="block text-sm" style="margin-bottom: 5px;">
+            <span class="text-gray-700 dark:text-gray-400"> Margin</span>
+            <input name="margin" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' />
+        </label>
     </div>
-    <div style="margin-bottom: 5px;">
-        <label class="block text-sm" for="Quantity">
-            <span class="text-gray-700 dark:text-gray-400">Lot Size</span>
+    
+    <div class="row" style="margin-bottom: 5px;">
+        <label class=" col-6 block text-sm" for="Quantity">
+            <span class="text-gray-700 dark:text-gray-400">Default Lot</span>
             <input data-bvalidator='required' name="lot" type="number" id="lot" onclick="this.select();" value='1' class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
         </label>
-    </div>
-    <div id="stockvalue" class='mt-2'>
-        <label class="block text-sm" style="margin-bottom: 5px;">
-            <span class="text-gray-700 dark:text-gray-400">Buying/Selling
-                Price</span>
-            <input name="price" id="shareprice" onkeyup="gettotalamt()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Buying/Selling Price" data-bvalidator='required' />
-        </label>
-    </div>
-    <label class="block text-sm" style="margin-bottom: 5px;">
-        <span class="text-gray-700 dark:text-gray-400">No. of
-            Shares</span>
-        <input type="number" id="qty" name="qty" onkeyup="gettotalamt()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' placeholder="No. of Share" />
+
+        <label class="col-6 block text-sm" style="margin-bottom: 5px;">
+        <span class="text-gray-700 dark:text-gray-400">Lot/Quantity</span>
+        <input type="number" id="qty" name="qty" onkeyup="gettotalamt()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' placeholder="Enter Lot/Quality" />
     </label>
-    <label class="block text-sm" style="margin-bottom: 5px;">
+
+    </div>
+    <div id="stockvalue" class="row mt-2">
+        <label class="col-6 block text-sm" style="margin-bottom: 5px;">
+            <span class="text-gray-700 dark:text-gray-400">Buy/Sell Price(each)</span>
+            <input name="price" id="shareprice" onkeyup="gettotalamt()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Buy/Sell Price" data-bvalidator='required' />
+        </label>
+        <label class="col-6 block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Total Amount</span>
         <input readonly name="totalamount" id="totalamt" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" />
     </label>
+    </div>
+  
+   
     <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Date &
             Time</span>
