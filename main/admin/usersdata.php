@@ -58,7 +58,8 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] =  $row['ifsc'];
     $n[] =  $row['adharno'];
     $n[] =  $row['password'];
-    $n[] =  $row['investmentamount'];
+    $fundadded = $obj->selectfieldwhere("fundrequest", 'sum(amount)', "userid=" . $row['id'] . " and status = 1");
+    $n[] =  $fundadded;
     $n[] =  $row['investmentamount'];
     $smsenable = $row['sms'] === 'Yes' ? 'checked' : '';
     $emailenabled = $row['emailenabled'] === 'Yes' ? 'checked' : '';
