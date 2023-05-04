@@ -50,11 +50,14 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['usercode'];
     $n[] =  $row['mobile'];
     $activation = $row['activate'] === 'Yes' ? 'checked' : '';
-    $n[] = '<label class="switch">
+    if (in_array(41, $permissions)) {
+        $n[] = '<label class="switch">
     <input type="checkbox" ' . $activation . ' class="setactive" data-type="activate" data-id="' . $row['id'] . '" value="' . $row['activate'] . '">
     <span class="slider round"></span>
 </label>';
-
+    } else {
+        $n[] = '';
+    }
     $a = "<div class='flex items-center space-x-4 text-sm'>";
     if (in_array(10, $permissions)) {
         $a .= "<button class='flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"editemployee\", \"\", \"Edit Employee\")' aria-label='Edit'>

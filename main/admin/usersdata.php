@@ -63,18 +63,24 @@ while ($row = $obj->fetch_assoc($result)) {
     $smsenable = $row['sms'] === 'Yes' ? 'checked' : '';
     $emailenabled = $row['emailenabled'] === 'Yes' ? 'checked' : '';
     $activation = $row['activate'] === 'Yes' ? 'checked' : '';
-    $n[] =  ' <label class="switch">
+    if (in_array(40, $permissions)) {
+        $n[] =  ' <label class="switch">
     <input type="checkbox" ' . $smsenable . ' class="setactive" data-type="sms" data-id="' . $row['id'] . '" value="' . $row['sms'] . '">
     <span class="slider round" ></span>
 </label>';
-    $n[] =  '<label class="switch">
+        $n[] =  '<label class="switch">
     <input type="checkbox" ' . $emailenabled . ' class="setactive" data-type="emailenabled" data-id="' . $row['id'] . '" value="' . $row['emailenabled'] . '">
     <span class="slider round"></span>
 </label>';
-    $n[] = '<label class="switch">
+        $n[] = '<label class="switch">
     <input type="checkbox" ' . $activation . ' class="setactive" data-type="activate" data-id="' . $row['id'] . '" value="' . $row['activate'] . '">
     <span class="slider round"></span>
 </label>';
+    } else {
+        $n[] = '';
+        $n[] = '';
+        $n[] = '';
+    }
     $n[] = '<button class="px-3 py-1  text-sm  bg-blue  rounded-sm " onclick="window.location.href=\'viewfundhistory?hakuna=' . $row['id'] . '\'">View Detail</button>';
     $a = "<div class='flex items-center space-x-4 text-sm'>";
     if (in_array(2, $permissions)) {
