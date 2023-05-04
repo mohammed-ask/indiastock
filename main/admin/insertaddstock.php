@@ -16,6 +16,7 @@ $xx['userid'] = $_POST['userid'];
 $xx['qty'] = $_POST['qty'];
 $xx['symbol'] = $_POST['symbol'];
 $xx['exchange'] = $_POST['exchange'];
+$xx['exchtype'] = $_POST['exchtype'];
 $xx['type'] = $_POST['type'];
 $xx['mktlot'] = $_POST['lot'];
 $xx['limit'] = $_POST['margin'];

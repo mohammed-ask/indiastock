@@ -38,6 +38,7 @@ if ($borrowedamt > 0) {
 } else {
     $xx['profitamount'] = $row['mktlot'] * $_POST['qty'] * ($_POST['cprice'] - $_POST['oldprice']);
     $xx['profitprcnt'] = round($xx['profitamount'] / ($_POST['oldprice'] * $row['mktlot'] * $_POST['qty']) * 100, 2);
+    $xx['totalprofit'] = $xx['profitamount'];
     if ($trademethod === 'Sell') {
         if ($xx['profitamount'] <= 0) {
             $xx['profitamount'] = abs($xx['profitamount']);

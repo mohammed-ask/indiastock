@@ -47,56 +47,59 @@ include "main/session.php";
         </select>
     </div>
     <div class="row">
-    <div class="col-6 mb-2">
-        <label for="buy" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">
-            <span class="text-gray-700 dark:text-gray-400">Exchange</span>
+        <div class="col-6 mb-2">
+            <label for="buy" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">
+                <span class="text-gray-700 dark:text-gray-400">Exchange</span>
 
-        </label>
-        <select name="exchange" class="block w-full text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' id="exch">
-            <option value="">Select</option>
-            <option value="N">NSE</option>
-            <option value="B">BSE</option>
-        </select>
+            </label>
+            <select name="exchange" class="block w-full text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' id="exch">
+                <option value="">Select</option>
+                <option value="N">NSE</option>
+                <option value="B">BSE</option>
+                <option value="M">MCX</option>
+            </select>
+        </div>
+
+        <div class="col-6 mb-2">
+            <label for="type" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">
+                <span class="text-gray-700 dark:text-gray-400">Exchange Mode</span>
+
+            </label>
+            <select name="exchtype" class="block w-full text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' id="exchtype">
+                <option value="">Select Type</option>
+                <option value="C">Cash</option>
+                <option value="D">Derivative</option>
+                <option value="U">Currency</option>
+            </select>
+        </div>
     </div>
-
-    <div class="col-6 mb-2">
-        <label for="type" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">
-            <span class="text-gray-700 dark:text-gray-400">Exchange Mode</span>
-
-        </label>
-        <select name="exchtype" class="block w-full text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' id="exchtype">
-            <option value="">Select Type</option>
-            <option value="C">Cash</option>
-            <option value="D">Derivative</option>
-            <option value="U">Currency</option>
-        </select>
-    </div></div>
 
     <div class="row">
-    <div class="col-6 mb-2">
-        <label for="type" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">
-            <span class="text-gray-700 dark:text-gray-400">Type</span>
+        <div class="col-6 mb-2">
+            <label for="type" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">
+                <span class="text-gray-700 dark:text-gray-400">Type</span>
 
-        </label>
-        <select name="type" class="block w-full text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' id="type">
-            <option value="">Select Type</option>
-            <option value="Intraday">Intraday</option>
-            <option value="Holding">Holding</option>
-        </select>
+            </label>
+            <select name="type" class="block w-full text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' id="type">
+                <option value="">Select Type</option>
+                <option value="Intraday">Intraday</option>
+                <option value="Holding">Holding</option>
+            </select>
+        </div>
+
+        <div class="col-6 mb-2">
+            <label for="buy" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">
+                <span class="text-gray-700 dark:text-gray-400">Buy/Sell</span>
+
+            </label>
+            <select name="trademethod" class="block w-full text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' id="sell">
+                <option value="">Select Buy/Sell</option>
+                <option value="Buy">Buy</option>
+                <option value="Sell">Sell</option>
+            </select>
+        </div>
     </div>
 
-    <div class="col-6 mb-2">
-        <label for="buy" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">
-            <span class="text-gray-700 dark:text-gray-400">Buy/Sell</span>
-
-        </label>
-        <select name="trademethod" class="block w-full text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' id="sell">
-            <option value="">Select Buy/Sell</option>
-            <option value="Buy">Buy</option>
-            <option value="Sell">Sell</option>
-        </select>
-    </div></div>
-  
     <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Stock
             Name</span>
@@ -108,31 +111,29 @@ include "main/session.php";
             <input name="margin" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' />
         </label>
     </div>
-    
-    <div class="row" style="margin-bottom: 5px;">
+    <div id="stockvalue" class="row">
+
         <label class=" col-6 block text-sm" for="Quantity">
             <span class="text-gray-700 dark:text-gray-400">Default Lot</span>
             <input data-bvalidator='required' name="lot" type="number" id="lot" onclick="this.select();" value='1' class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
         </label>
 
         <label class="col-6 block text-sm" style="margin-bottom: 5px;">
-        <span class="text-gray-700 dark:text-gray-400">Lot/Quantity</span>
-        <input type="number" id="qty" name="qty" onkeyup="gettotalamt()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' placeholder="Enter Lot/Quality" />
-    </label>
+            <span class="text-gray-700 dark:text-gray-400">Lot/Quantity</span>
+            <input type="number" id="qty" name="qty" onkeyup="gettotalamt()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" data-bvalidator='required' placeholder="Enter Lot/Quality" />
+        </label>
 
-    </div>
-    <div id="stockvalue" class="row mt-2">
         <label class="col-6 block text-sm" style="margin-bottom: 5px;">
             <span class="text-gray-700 dark:text-gray-400">Buy/Sell Price(each)</span>
             <input name="price" id="shareprice" onkeyup="gettotalamt()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Buy/Sell Price" data-bvalidator='required' />
         </label>
         <label class="col-6 block text-sm" style="margin-bottom: 5px;">
-        <span class="text-gray-700 dark:text-gray-400">Total Amount</span>
-        <input readonly name="totalamount" id="totalamt" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" />
-    </label>
+            <span class="text-gray-700 dark:text-gray-400">Total Amount</span>
+            <input readonly name="totalamount" id="totalamt" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" />
+        </label>
     </div>
-  
-   
+
+
     <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Date &
             Time</span>
@@ -174,6 +175,52 @@ include "main/session.php";
         var stockName = $(this).val();
         var exch = $("#exch").val();
         var exchtype = $("#exchtype").val();
+        $.ajax({
+            url: '../main/admin/fetchsymbolprice.php',
+            data: {
+                stockName: stockName,
+                exch: exch,
+                exchtype: exchtype,
+            },
+            type: 'POST',
+            success: function(response) {
+                $("#stockvalue").html(response)
+                // handle success response
+            },
+            error: function(xhr, status, error) {
+                // handle error response
+            }
+        });
+    });
+
+    $('#exchtype').on('change', function() {
+        $("#stockvalue").html()
+        var stockName = $('#symbol').val();
+        var exch = $("#exch").val();
+        var exchtype = $(this).val();
+        $.ajax({
+            url: '../main/admin/fetchsymbolprice.php',
+            data: {
+                stockName: stockName,
+                exch: exch,
+                exchtype: exchtype,
+            },
+            type: 'POST',
+            success: function(response) {
+                $("#stockvalue").html(response)
+                // handle success response
+            },
+            error: function(xhr, status, error) {
+                // handle error response
+            }
+        });
+    });
+
+    $('#exch').on('change', function() {
+        $("#stockvalue").html()
+        var stockName = $('#symbol').val();
+        var exch = $(this).val();
+        var exchtype = $('#exchtype').val();
         $.ajax({
             url: '../main/admin/fetchsymbolprice.php',
             data: {

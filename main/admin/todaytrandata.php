@@ -1,16 +1,6 @@
 <?php
 include '../session.php';
-// $id = $employeeid;
-// $todayopentradeid = $obj->selectfieldwhere(
-//     "stocktransaction",
-//     "group_concat(distinct(stockid))",
-//     "status = 0 and tradestatus='Open' and date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))"
-// );
-// if (!empty($todayopentradeid)) {
-//     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1 and id in (" . $todayopentradeid . ")");
-//     $rowfetch = mysqli_fetch_all($fetchshare, 1);
-//     $stockdata = $obj->fivepaisaapi($rowfetch);
-// }
+
 /* @var $obj db */
 $limit = $_GET['length'];
 $start = $_GET['start'];
