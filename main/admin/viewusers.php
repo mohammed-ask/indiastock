@@ -107,4 +107,15 @@ include "templete.php";
         // sendForm('id', [id, decision], 'edit_indent_approve.php', 'resultid', 'indentdec');
 
     })
+    $(document).on('click', '#eye', () => {
+        iconname = $("#eye").attr("class");
+        if (iconname === 'fa fa-eye') {
+            $('#password').attr('type', 'text')
+            $("#eye").attr('class', 'fa fa-eye-slash')
+
+        } else {
+            $('#password').attr('type', 'password')
+            $("#eye").attr('class', 'fa fa-eye')
+        }
+    })
 </script>

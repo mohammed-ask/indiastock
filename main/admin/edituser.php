@@ -81,14 +81,15 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
             ?>
         </select>
     </label><br> -->
-    <label class="block text-sm" style="margin-bottom: 5px;">
+    <label class="block text-sm" style="margin-bottom: 5px;position:relative">
         <span class="text-gray-700 dark:text-gray-400">Change Password</span>
-        <input type="password" id="password" name="password" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Please Give Strong Password!" />
+        <input type="password" id="password" value="<?= $rowuser['password'] ?>" name="password" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Please Give Strong Password!" />
+        <i id="eye" class="fa fa-eye" style="position: absolute;top:38px;right:10px;z-index:50" aria-hidden="true"></i>
     </label>
-    <label class="block text-sm" style="margin-bottom: 5px;">
+    <!-- <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Confirm Password</span>
         <input type="password" id="confirmpassword" data-bvalidator="matchconfirmpassword[password]" data-bvalidator-msg-matchconfirmpassword="Confirm Password Not Matched" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Confirm Password" />
-    </label>
+    </label> -->
     <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Employee ID</span>
         <input xdata-bvalidator="required" name="employeeref" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" disabled value="<?= $rowuser['employeeref'] === '' ? 'NA' : $rowuser['employeeref'] ?>" placeholder="Employee ID For Furthur Reference" /></label>
