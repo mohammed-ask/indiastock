@@ -40,7 +40,7 @@ $return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "c
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction $join",
-    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,tradestatus",
+    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,tradestatus,closetradedetail.added_on on closeon,profitprcnt,totalprofit,mktlot",
     "stocktransaction.status in (1,0) and stocktransaction.userid = $id and (stocktransaction.stockid = '' || stocktransaction.stockid is null) $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
@@ -48,12 +48,15 @@ $data = array();
 while ($row = $obj->fetch_assoc($result)) {
     $n = array();
     $n[] = $row['symbol'];
-    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M,Y");
-    $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i");
+    $n[] = changedateformatespecito($row['datetime'], "Y-m-d H:i:s", "d M,Y H:i");
+    $n[] = changedateformatespecito($row['closeon'], "Y-m-d H:i:s", "d M,Y H:i");
+    $n[] = $row['mktlot'];
     $n[] = $row['qty'];
     $n[] = $row['trademethod'] === 'Buy' ? $row['price'] : $row['cprice'];
     $n[] = $row['trademethod'] === 'Sell' ? $row['price'] : $row['cprice'];
-    $n[] = round($row['qty'] * $row['price'], 2);
+    $n[] = round($row['totalamount'], 2);
+    $n[] = round($row['profitprcnt'], 2);
+    $n[] = round($row['totalprofit'], 2);
     // $n[] = round($row['totalamount'], 2);
     $n[] = $row['trademethod'];
     // $n[] = round(($row['cprice'] - $row['price']) * 100 / $row['price'], 2);
