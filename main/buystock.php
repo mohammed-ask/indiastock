@@ -93,7 +93,7 @@ $stockdata = $stockdata[0];
         </div><!--end col-->
 
 
-        <div class="col-6 text-right">
+        <div class="col-6" style="text-align: right;">
             <div id="profile-tooltip-id">
                 <small class="text-muted d-block">Available Fund</small>
             </div>
