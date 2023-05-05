@@ -251,8 +251,8 @@ if ($todaystocktotalamt != 0) {
                                 <thead class="thead-light">
                                     <tr>
                                         <th>Stocks</th>
-                                        <th> Buy Date</th>
-                                        <th>Buy Time</th>
+                                        <th>Open Date</th>
+                                        <th>Open Time</th>
                                         <th>Lot</th>
                                         <th>Qty.</th>
                                         <th>Buy Price</th>
