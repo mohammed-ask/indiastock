@@ -49,7 +49,7 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
         <input type="number" name="limit" data-bvalidator="required" step="any" onfocus="this.select()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="<?= $rowuser['limit'] ?>" placeholder="Client's Limit on Investment" /></label>
         <div class="row">
     <label class="col-6 block text-sm" style="margin-bottom: 5px;">
-        <span class="text-gray-700 dark:text-gray-400">Stop Withdrawel- From</span>
+        <span class="text-gray-700 dark:text-gray-400">Stop Withdrawal- <span style="margin-left: 3px;">From</span>
         <input name="starttime" id="starttime" value="<?= changedateformatespecito($rowuser['startdatetime'], "Y-m-d H:i:s", "d/m/Y H:i:s") ?>"  onfocus="datetimepicker(this.id)" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Select Start Time" />
     </label>
     <label class="col-6 block text-sm" style="margin-bottom: 5px;">
@@ -93,7 +93,7 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
     </label> -->
     <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Employee ID</span>
-        <input xdata-bvalidator="required" name="employeeref" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" disabled value="<?= $rowuser['employeeref'] === '' ? 'NA' : $rowuser['employeeref'] ?>" placeholder="Employee ID For Furthur Reference" /></label>
+        <input xdata-bvalidator="required" name="employeeref" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" disabled value="<?= $rowuser['employeeref'] === '' ? 'NA' : $rowuser['employeeref'] ?>" placeholder="Employee ID For Further Reference" /></label>
     <div>
         <button type="submit" id="modalsubmit" class="w-full px-3 py-1 mt-6 text-sm font-medium hidden">
             Submit
