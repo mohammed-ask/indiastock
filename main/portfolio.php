@@ -251,8 +251,8 @@ if ($todaystocktotalamt != 0) {
                                 <thead class="thead-light">
                                     <tr>
                                         <th>Stocks</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
+                                        <th> Buy Date</th>
+                                        <th>Buy Time</th>
                                         <th>Lot</th>
                                         <th>Qty.</th>
                                         <th>Buy Price</th>
@@ -264,8 +264,9 @@ if ($todaystocktotalamt != 0) {
                                         <th>P/L</th>
                                         <!-- <th>Your P/L</th> -->
                                         <!-- <th>Broker Profit</th> -->
-                                        <th>Buy/Sell Time</th>
                                         <th>Type</th>
+                                        <th>Close Time</th>
+                                        
                                     </tr>
                                 </thead>
 
