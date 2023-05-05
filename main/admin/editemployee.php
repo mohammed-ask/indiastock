@@ -19,7 +19,7 @@ $rowemployee = $obj->selectextrawhere("users", "id=" . $id . "")->fetch_assoc();
     <label class="block text-sm  mb-3" style="margin-bottom: 5px;position:relative">
         <span class="text-gray-700 dark:text-gray-400">Password</span>
         <input type="password" data-bvalidator="required,minlength[6]" id="password" name="password" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="<?= $rowemployee['password'] ?>" placeholder="Please Give Strong Password!" />
-        <i id="eye" class="fa fa-eye" style="position: absolute;top:38px;right:10px;z-index:50" aria-hidden="true"></i>
+        <i id="eye" class="fa fa-eye" style="position: absolute;top:34px;right:10px;z-index:50" aria-hidden="true"></i>
     </label>
     <label class="block text-md" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Employee Role</span>
