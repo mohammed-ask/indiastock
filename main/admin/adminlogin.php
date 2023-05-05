@@ -32,7 +32,7 @@ include './main/conn.php';
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
 
-
+    <link rel="shortcut icon" href="../main/images/logo/favicon.svg">
 <style>
 
 /* --------------------alertify---------------- */

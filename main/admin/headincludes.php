@@ -49,6 +49,9 @@
  <link rel="stylesheet" href="../main/dist/css/jquery-ui-timepicker-addon.css">
  <!-- summernote -->
 
+ <!-- App favicon -->
+ <link rel="shortcut icon" href="../main/images/logo/favicon.svg">
+
  <!-- summernote -->
  <link rel="stylesheet" href="../main/plugins/summernote/summernote-bs4.min.css">
 

@@ -17,6 +17,8 @@
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
 
+    <link rel="shortcut icon" href="main/images/logo/favicon.svg">
+
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -664,7 +666,7 @@ display: none;
 
                         <div class="input-text">
                             <div class="input-div">
-                                <input type="text" id="mobileno" required require>
+                                <input type="text" id="mobileno" pattern="[0-9]{10}" required require>
                                 <span>Mobile Number</span>
                             </div>
                         </div>
@@ -759,7 +761,7 @@ display: none;
 
                         <div class="input-text">
                             <div class="input-div">
-                                <input type="text" id="password" required require>
+                                <input type="text" id="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[@#])[a-zA-Z@#]{6,8}$" required require>
                                 <span>Password</span>
                             </div>
                         </div>
