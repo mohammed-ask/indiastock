@@ -96,7 +96,7 @@ $stockdata = $stockdata[0];
         <div class="col-5">
             <div style="display: flex;flex-direction:row" id="profile-tooltip-id">
                 <small class="text-muted d-block">Available Fund</small>
-                
+            </div>
             <small>₹<?= round($investmentamount) ?></small>
         </div><!--end col-->
 
