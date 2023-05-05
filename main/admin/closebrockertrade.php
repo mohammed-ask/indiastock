@@ -43,6 +43,11 @@ $stockdata = $price[0];
         <span class="text-gray-700 dark:text-gray-400">Quantity</span>
         <div class="form-control"><?= $rowtran['qty'] ?></div>
     </label>
+    <label class="block text-sm" style="margin-bottom: 5px;">
+        <span class="text-gray-700 dark:text-gray-400">Date &
+            Time</span>
+        <input id="date" name="closetime" onfocus="datetimepicker(this.id)" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Select Date & Time" data-bvalidator='required' />
+    </label>
     <label class="block text-sm mb-3" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Buy/Sell Price</span>
         <input name="qty" class="hidden" value="<?= $rowtran['qty'] ?>" />
