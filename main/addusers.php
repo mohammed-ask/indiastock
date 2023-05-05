@@ -666,7 +666,7 @@ display: none;
 
                         <div class="input-text">
                             <div class="input-div">
-                                <input type="text" id="mobileno" pattern="[0-9]{10}" required require>
+                                <input type="text" id="mobileno" required require>
                                 <span>Mobile Number</span>
                             </div>
                         </div>
@@ -761,7 +761,7 @@ display: none;
 
                         <div class="input-text">
                             <div class="input-div">
-                                <input type="text" id="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[@#])[a-zA-Z@#]{6,8}$" required require>
+                                <input type="text" id="password" required require>
                                 <span>Password</span>
                             </div>
                         </div>
