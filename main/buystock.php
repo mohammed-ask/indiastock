@@ -86,27 +86,28 @@ $stockdata = $stockdata[0];
     </div> <!--end /div-->
 
     <div class="row">
-        <div class="col-5">
+        <div class="col-auto">
             <small class="text-muted d-block">Require Fund</small>
             <small id="reqfund">₹<?= number_format($lot * $stockdata['LastRate'], 2)  ?></small>
-            <!-- <small style="color:green">Margin Available : <?= $usermargin ?>x</small> -->
+            <small style="color:green">Margin/Limit: <?= $usermargin ?>x</small>
         </div><!--end col-->
 
 
-        <div class="col-5">
+        <div class="col-auto">
             <div style="display: flex;flex-direction:row" id="profile-tooltip-id">
                 <small class="text-muted d-block">Available Fund</small>
             </div>
             <small>₹<?= round($investmentamount) ?></small>
         </div><!--end col-->
 
-        <div class="col-2">
+        <!-- <div class="col-2">
             <div style="display: flex;flex-direction:row" id="profile-tooltip-id">
                 <small class="text-muted d-block">Limit</small>
-                <small style="color:green">Margin Available : <?= $usermargin ?>x</small>
+                
             </div>
-            <small>₹<?= round($investmentamount) ?></small>
-        </div><!--end col-->
+            <small style="color:green">Margin Available : <?= $usermargin ?>x</small>
+        </div> -->
+        <!--end col-->
 
     </div><!--end row-->
 </div><!--end modal-body-->
