@@ -7,7 +7,7 @@ ob_start();
 ?>
 <div class="container px-6 mx-auto grid mobile-bottom-margin">
     <div class="flex my-4 items-center justify-between">
-        <h3 class="my-0 text-1xl font-semibold text-gray-700 dark:text-gray-200">All Transaction</h3>
+        <h3 class="my-0 text-1xl font-semibold text-gray-700 dark:text-gray-200">All Positions</h3>
 
 
     </div>

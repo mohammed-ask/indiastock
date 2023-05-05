@@ -282,7 +282,7 @@ if ($todaystocktotalamt != 0) {
                                     <tr>
                                         <th>Stocks</th>
                                         <th>Open Time</th>
-                                        <th>Close TIme</th>
+                                        <th>Close Time</th>
                                         <th>Lot</th>
                                         <th>Qty.</th>
                                         <th>Buy Price</th>
