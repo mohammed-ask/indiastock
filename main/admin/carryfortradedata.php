@@ -86,7 +86,7 @@ while ($row = $obj->fetch_assoc($result)) {
 </button>";
     }
     if ($row['trademethod'] === 'Buy' && empty($row['stockid']) && in_array(39, $permissions)) {
-        $addaction .=  "<button class='btn btn-sm text-white btn-danger'  @click='openModal' onclick='dynamicmodal(\"" . $row['id'] . "\", \"closebrockertrade\", \"Buy\", \"Close Trade\")'>Sell</button>";
+        $addaction .=  "<button class='btn-sm text-white btn-danger'  @click='openModal' onclick='dynamicmodal(\"" . $row['id'] . "\", \"closebrockertrade\", \"Buy\", \"Close Trade\")'>Sell</button>";
     } else if ($row['trademethod'] === 'Sell' && empty($row['stockid']) && in_array(39, $permissions)) {
         $addaction .=  "<button class='btn btn-sm text-white btn-success' @click='openModal' onclick='dynamicmodal(\"" . $row['id'] . "\", \"closebrockertrade\", \"Sell\", \"Close Trade\")'>Buy</button></div>";
     }
