@@ -86,27 +86,24 @@ $stockdata = $stockdata[0];
     </div> <!--end /div-->
 
     <div class="row">
-        <div class="col-4">
+        <div class="col-5">
             <small class="text-muted d-block">Require Fund</small>
             <small id="reqfund">₹<?= number_format($lot * $stockdata['LastRate'], 2)  ?></small>
             <!-- <small style="color:green">Margin Available : <?= $usermargin ?>x</small> -->
         </div><!--end col-->
-        <div class="col-4">
+
+
+        <div class="col-5">
             <div style="display: flex;flex-direction:row" id="profile-tooltip-id">
                 <small class="text-muted d-block">Available Fund</small>
-                <div class="buystock-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
-                    <p class="buystock-tooltiptext text-white">You can purchase <?= $usermargin ?>x worth of share from your available fund</p>
-                </div>
-            </div>
+                
             <small>₹<?= round($investmentamount) ?></small>
         </div><!--end col-->
 
-        <div class="col-4">
+        <div class="col-2">
             <div style="display: flex;flex-direction:row" id="profile-tooltip-id">
-                <small class="text-muted d-block">Available Fund</small>
-                <div class="buystock-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
-                    <p class="buystock-tooltiptext text-white">You can purchase <?= $usermargin ?>x worth of share from your available fund</p>
-                </div>
+                <small class="text-muted d-block">Limit</small>
+                <small style="color:green">Margin Available : <?= $usermargin ?>x</small>
             </div>
             <small>₹<?= round($investmentamount) ?></small>
         </div><!--end col-->
