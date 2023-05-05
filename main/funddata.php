@@ -52,7 +52,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['transactionid'];
     $n[] = $row['paymentmethod'];
     $n[] = $row['amount'];
-    $n[] = $row['status'] === '0' ? '<strong class="text-warning">Unsettled</strong>' : '<strong class="text-success">Settled</strong>';
+    $n[] = $row['status'] === '0' ? '<strong class="text-warning">Pending</strong>' : '<strong class="text-success">Successful</strong>';
     $data[] = $n;
 
     $i++;

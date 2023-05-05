@@ -51,7 +51,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M,Y H:i");
     $n[] = 'TR ID';
     $n[] = $row['amount'];
-    $n[] = $row['status'] === '0' ? '<strong class="text-warning">Pending</strong>' : '<strong class="text-success">Completed</strong>';
+    $n[] = $row['status'] === '0' ? '<strong class="text-warning">Processing</strong>' : '<strong class="text-success">Settled</strong>';
     $data[] = $n;
 
     $i++;
