@@ -47,14 +47,15 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
     <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Limit</span>
         <input type="number" name="limit" data-bvalidator="required" step="any" onfocus="this.select()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="<?= $rowuser['limit'] ?>" placeholder="Client's Limit on Investment" /></label>
-    <label class="block text-sm" style="margin-bottom: 5px;">
+        <div class="row">
+    <label class="col-6 block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Withdrawel Request Start Time</span>
         <input name="starttime" id="starttime" value="<?= changedateformatespecito($rowuser['startdatetime'], "Y-m-d H:i:s", "d/m/Y H:i:s") ?>" data-bvalidator="required" onfocus="datetimepicker(this.id)" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Select Start Time" />
     </label>
-    <label class="block text-sm" style="margin-bottom: 5px;">
+    <label class="col-6 block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Withdrawel Request End Time</span>
         <input name="endtime" id="endtime" value="<?= changedateformatespecito($rowuser['enddatetime'], "Y-m-d H:i:s", "d/m/Y H:i:s") ?>" data-bvalidator="required" onfocus="datetimepicker(this.id)" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Select End Time" />
-    </label>
+    </label></div>
     <!-- <label class="block text-md" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Withdrawel Request Start Time</span>
         <select data-bvalidator="required" class="form-control select2" name="starttime" id="starttime">
@@ -84,7 +85,7 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
     <label class="block text-sm" style="margin-bottom: 5px;position:relative">
         <span class="text-gray-700 dark:text-gray-400">Change Password</span>
         <input type="password" id="password" value="<?= $rowuser['password'] ?>" name="password" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Please Give Strong Password!" />
-        <i id="eye" class="fa fa-eye" style="position: absolute;top:38px;right:10px;z-index:50" aria-hidden="true"></i>
+        <i id="eye" class="fa fa-eye" style="position: absolute;top:34px;right:10px;z-index:50" aria-hidden="true"></i>
     </label>
     <!-- <label class="block text-sm" style="margin-bottom: 5px;">
         <span class="text-gray-700 dark:text-gray-400">Confirm Password</span>
