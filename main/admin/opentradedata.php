@@ -1,16 +1,5 @@
 <?php
 include '../session.php';
-// $id = $employeeid;
-// $todayopentradeid = $obj->selectfieldwhere(
-//     "stocktransaction",
-//     "group_concat(distinct(stockid))",
-//     "status = 0 and tradestatus='Open' and date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))"
-// );
-// if (!empty($todayopentradeid)) {
-//     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1 and id in (" . $todayopentradeid . ")");
-//     $rowfetch = mysqli_fetch_all($fetchshare, 1);
-//     $stockdata = $obj->fivepaisaapi($rowfetch);
-// }
 /* @var $obj db */
 $limit = $_GET['length'];
 $start = $_GET['start'];
@@ -56,17 +45,8 @@ $num = $obj->total_rows($result);
 $data = array();
 while ($row = $obj->fetch_assoc($result)) {
     $n = array();
-    // $symbol = $row['symbol'];
-    // $excg = $row['exchange'];
-    // $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg) {
-    //     if ($data['Symbol'] === $symbol && $data['Exch'] === $excg) {
-    //         return $data;
-    //     }
-    // });
-    // $currentrate = $pricedata[0]['LastRate'];
     $n[] = $i;
     $n[] = $row['symbol'];
-    // $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i");
     $n[] = $row['mktlot'];
     $n[] = $currencysymbol . $row['price'];
     $n[] = $row['qty'];
@@ -74,9 +54,6 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y H:i");
     $n[] = $obj->selectfieldwhere("users", "name", "id=" . $row['userid'] . "");
     $n[] = $row['trademethod'];
-    // $n[] = $row['trademethod'];
-    // $n[] = round(($currentrate - $row['price']) * 100 / $row['price'], 2);
-    // $n[] = round($currentrate - $row['price'], 2);
     $addaction = "";
     if (in_array(38, $permissions)) {
         $addaction = " <div style='display: inline-flex'><button class='flex items-center justify-between px-2  font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"editstockprice\", \"\", \"Edit Stock Price\")'>
