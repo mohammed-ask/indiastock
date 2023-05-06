@@ -22,13 +22,17 @@ ob_start();
                 <thead>
                     <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-4 py-3">S.No.</th>
+                        <th class="px-4 py-3">Open Time</th>
                         <th class="px-4 py-3">User Name</th>
                         <th class="px-4 py-3">Stock Name</th>
+                        <th class="px-4 py-3">Method</th>
+                        <th class="px-4 py-3">Lot</th>
+                        <th class="px-4 py-3">Lot/Quantity</th>
                         <th class="px-4 py-3">Buy Price</th>
                         <th class="px-4 py-3">Sell Price</th>
-                        <th class="px-4 py-3">No. Of Share</th>
-                        <th class="px-4 py-3">Date & Time</th>
+                        <th class="px-4 py-3">Total Amount</th>
                         <th class="px-4 py-3">Status</th>
+                        <th class="px-4 py-3">Added By</th>
                         <th class="px-4 py-3">Action</th>
                     </tr>
                 </thead>

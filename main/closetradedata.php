@@ -40,7 +40,7 @@ $return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "c
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction $join",
-    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,stocktransaction.mktlot,borrowedprcnt,profitprcnt,totalprofit,profitamount,closetradedetail.added_on as closeon",
+    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,stocktransaction.mktlot,borrowedprcnt,profitprcnt,totalprofit,profitamount,closetradedetail.added_on as closeon,datetime,closetime",
     "stocktransaction.status = 1 and stocktransaction.userid = $id and tradestatus='Close' $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
@@ -48,27 +48,22 @@ $data = array();
 while ($row = $obj->fetch_assoc($result)) {
     $n = array();
     $n[] = $row['symbol'];
-    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "dM,Y");
-    $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i");
+    $n[] = changedateformatespecito(empty($row['datetime']) ? $row['added_on'] : $row['datetime'], "Y-m-d H:i:s", "d M, Y H:i");
+    $n[] =  changedateformatespecito(empty($row['closetime']) ? $row['closeon'] : $row['closetime'], "Y-m-d H:i:s", "d M, Y H:i");
     $n[] = $row['mktlot'];
     $n[] = $row['qty'];
     $n[] = $row['trademethod'] === 'Buy' ? $row['price'] : $row['cprice'];
     $n[] = $row['trademethod'] === 'Sell' ? $row['price'] : $row['cprice'];
     $n[] = $currencysymbol . round($row['totalamount'], 2);
-    // $n[] = round($row['totalamount'], 2);
     $n[] = $row['trademethod'];
     $profitprcnt = $row['profitprcnt'];
     $color = $profitprcnt >= 0 ? "text-success" : 'text-danger';
     $n[] = "<strong class='$color'>" . $profitprcnt . "</strong>";
-    $profitloss =  $row['totalprofit'];
+    $profitloss =  empty($row['totalprofit']) ? 0 : round($row['totalprofit'], 2);
     $row['borrowedprcnt'] = empty($row['borrowedprcnt']) ? 0 : $row['borrowedprcnt'];
-    // $custprofitamount = round($row['totalprofit']);
     $n[] = "<strong class='$color'>" . $currencysymbol . $profitloss . "</strong>";
-    // $n[] = $currencysymbol . $custprofitamount;
-    // $brokeramt = $profitloss - $custprofitamount;
-    // $n[] = $custprofitamount > 0 && !empty($row['borrowedprcnt']) ? $currencysymbol . $brokeramt : 0;
     $n[] = '<strong class="text-warning">Closed</strong>';
-    $n[] = changedateformatespecito($row['closeon'], "Y-m-d H:i:s", "d M, Y H:i");
+    $n[] = empty($row['datetime']) ? 'You' : 'Broker';
     $data[] = $n;
     $i++;
 }

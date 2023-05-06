@@ -56,26 +56,15 @@ $num = $obj->total_rows($result);
 $data = array();
 while ($row = $obj->fetch_assoc($result)) {
     $n = array();
-    // $symbol = $row['symbol'];
-    // $excg = $row['exchange'];
-    // $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg) {
-    //     if ($data['Symbol'] === $symbol && $data['Exch'] === $excg) {
-    //         return $data;
-    //     }
-    // });
-    // $currentrate = $pricedata[0]['LastRate'];
     $n[] = $i;
     $n[] = $row['symbol'];
     $n[] = $row['mktlot'];
     $n[] = $currencysymbol . $row['price'];
     $n[] = $row['qty'];
     $n[] = $currencysymbol . $row['totalamount'];
-    $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M, Y H:i");
+    $n[] = changedateformatespecito(empty($row['datetime']) ? $row['added_on'] : $row['datetime'], "Y-m-d H:i:s", "d M, Y H:i");
     $n[] = $obj->selectfieldwhere("users", "name", "id=" . $row['userid'] . "");
-    // $n[] = $row['qty'] * $row['price'];
     $n[] = $row['trademethod'];
-    // $n[] = round(($currentrate - $row['price']) * 100 / $row['price'], 2);
-    // $n[] = round($currentrate - $row['price'], 2);
     $addaction = "";
     if (in_array(38, $permissions)) {
         $addaction = " <div style='display:inline-flex;'><button class='flex items-center justify-between px-2  font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"editstockprice\", \"\", \"Edit Stock Price\")'>
