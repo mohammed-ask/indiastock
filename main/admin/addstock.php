@@ -101,10 +101,23 @@ include "main/session.php";
     </div>
 
     <label class="block text-sm" style="margin-bottom: 5px;">
-        <span class="text-gray-700 dark:text-gray-400">Stock
-            Name</span>
+       <div style="display: inline-flex;"> <span class="text-gray-700 dark:text-gray-400">Stock
+            Name</span> <span class="col-2 profile-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i> <p class="profile-tooltiptext">In case you search for Derivative, write like:<br>
+<b>Option Type-</b> NIFTY 23 May 2023 PE 2345263.00<br>
+[ STOCK Date of Expiry Option Type (PE/CE) Strike Price ]
+<br><br>
+<span><b>For Futures-</b> COPPER 23 May 2023<br>
+[ STOCK Date of Expiry ]</span>
+</p></span> </div>
+
+
+
         <input type="text" name="symbol" id="symbol" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter Stock Name" data-bvalidator="required" />
     </label>
+
+    
+
+    
     <div class="row" id="getmargin">
         <div class="col-6 mb-2">
             <label class="block text-sm" style="margin-bottom: 5px;">

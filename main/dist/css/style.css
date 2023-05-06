@@ -525,3 +525,50 @@ display: none;
     transition-timing-function: ease-out;
     transition-duration: 500ms !important;}
 
+
+
+    /* ................tooltip.............................. */
+
+.profile-tooltip {
+  position: relative;
+  display: flex;
+  margin-left: 8px;
+  align-items: center;
+  vertical-align: middle;
+  margin-top: 2px;
+}
+
+.profile-tooltip .profile-tooltiptext {
+  visibility: hidden;
+  width: 87vw;
+
+  background-color: #057c7c;
+  color: #fff;
+  text-align: left;
+  border-radius: 5px;
+  padding: 4px 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  margin-left: -95px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+
+}
+
+.profile-tooltip:hover .profile-tooltiptext {
+  visibility: visible;
+  opacity: 1;
+
+}
+
+@media (min-width: 650px) and (max-width: 2560px) {
+  .profile-tooltip .profile-tooltiptext {
+      width: 40vw;
+      left: 600%;
+      margin-left: -200px;
+      bottom: 20%;
+  }
+}
