@@ -50,6 +50,7 @@ $stockdata = $stockdata[0];
     <form class="row gy-2 gx-3 align-items-end" id="sellstock">
         <input type="hidden" name="symbol" value="<?= $stockdata['Symbol'] ?>" id="">
         <input type="hidden" name="exchange" value="<?= $stockdata['Exch'] ?>" id="">
+        <input type="hidden" name="exchangetype" value="<?= $stockdata['ExchType'] ?>" id="">
         <input type="hidden" name="stockid" value="<?= $id ?>" id="">
         <input type="hidden" name="totalamount" id="totalamount" value="<?= $lot * $stockdata['LastRate'] ?>">
         <div class="col-3">
@@ -98,10 +99,10 @@ $stockdata = $stockdata[0];
         </div> 
     </div>  -->
     <div class="row">
-    <div class="col-6">
+        <div class="col-6">
             <small class="text-muted d-block">Require Fund</small>
             <small id="reqfund">₹<?= number_format($lot * $stockdata['LastRate'], 2)  ?></small>
-          
+
         </div><!--end col-->
 
         <div class="col-6" style="text-align: right;">
@@ -109,7 +110,7 @@ $stockdata = $stockdata[0];
                 <small class="text-muted d-block">Available Fund</small>
             </div>
             <small>₹<?= round($investmentamount) ?></small>
-            <br>  <small style="color:green">Margin/Limit: <?= $usermargin ?>x</small>
+            <br> <small style="color:green">Margin/Limit: <?= $usermargin ?>x</small>
         </div><!--end col-->
     </div><!--end row-->
 </div><!--end modal-body-->

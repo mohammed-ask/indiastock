@@ -1,6 +1,8 @@
 <?php
 include "main/session.php";
 $oldrequest = $obj->selectfieldwhere("withdrawalrequests", "count(id)", "status = 0 and userid = " . $employeeid . "");
+$message = $obj->selectfieldwhere("users", "message", "id = " . $employeeid . "");
+$message = empty($message) ? "Sorry! Can't Request Withdrawl at this time" : $message;
 $starttime = $obj->selectfieldwhere("users", "startdatetime", "id = " . $employeeid . "");
 $endtime = $obj->selectfieldwhere("users", "enddatetime", "id = " . $employeeid . "");
 $start = empty($starttime) ? '' : strtotime($starttime);
@@ -8,7 +10,7 @@ $end = empty($endtime) ? '' : strtotime($endtime);
 $current = time();
 $hour = date("H");
 if (!empty($start) && !empty($end) && $current >= $start && $current <= $end) {
-    echo "<div  class='alert alert-danger'>Sorry! Can't Request Withdrawl at this time</div>";
+    echo "<div  class='alert alert-danger'>$message</div>";
 } else {
     $amount = $obj->selectfieldwhere("users", "investmentamount", "id=" . $employeeid . "");
     if ($_POST['amount'] > $amount) {

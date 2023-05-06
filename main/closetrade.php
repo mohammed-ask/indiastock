@@ -2,7 +2,7 @@
 include "main/session.php";
 $id = $_GET['hakuna'];
 $rowtran = $obj->selectextrawhere("stocktransaction", "id=" . $id . "")->fetch_assoc();
-$token = $obj->selectfieldwhere("userstocks", 'symboltoken', "id=" . $rowtran['stockid'] . "");
+$token = $obj->selectfieldwhere("userstocks", 'symboltoken', "id=" . $rowtran['stockid'] . " and status = 1");
 $lot = $obj->selectfieldwhere("userstocks", "mktlot", "symboltoken = '" . $token . "'  and status = 1");
 $rowfetch = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "id=" . $rowtran['stockid'] . "")->fetch_assoc();
 $stockdata = $obj->fivepaisaapi(array($rowfetch));
@@ -41,11 +41,15 @@ $stockdata = $stockdata[0];
         <input type="hidden" name="limit" value="<?= $rowtran['limit'] ?>" id="">
         <input type="hidden" name="type" value="<?= $rowtran['type'] ?>" id="">
         <!-- <input type="hidden" name="totalamount" id="totalamount" value=""> -->
-        <div class="col-auto">
+        <div class="col-3">
+            <label class="form-label" for="Quantity">Lot</label>
+            <input data-bvalidator='required' readonly type="number" id="lot" onclick="this.select();" value="<?= $lot ?>" class="form-control form-control-sm">
+        </div>
+        <div class="col-4">
             <label class="form-label" for="Quantity">Quantity</label>
             <input data-bvalidator='required' readonly name="qty" type="number" id="qty" onkeyup="sumfund()" onclick="this.select();" value="<?= $rowtran['qty'] ?>" class="form-control form-control-sm">
         </div>
-        <div class="col-auto">
+        <div class="col-5">
             <label class="form-label" for="Price">Price</label>
             <input type="text" readonly name="price" value="<?= $stockdata['LastRate'] ?>" class="form-control form-control-sm" id="Price">
         </div>

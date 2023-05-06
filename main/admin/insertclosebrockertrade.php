@@ -54,7 +54,7 @@ if ($borrowedamt > 0) {
 // $xx['profitamount'] = $_POST['qty'] * ($_POST['cprice'] - $_POST['oldprice']);
 $xx['userid'] = $_POST['userid'];
 $xx['tradeid'] = $_POST['id'];
-$xx['closetime'] = changedateformatespecito($_POST['closetime'],"d/m/Y H:i:s","Y-m-d H:i:s");
+$xx['closetime'] = changedateformatespecito($_POST['closetime'], "d/m/Y H:i:s", "Y-m-d H:i:s");
 $xx['profitsettled'] = $xx['profitamount'] <= 0 ? 1 : 0;
 // $xx['type'] = $_POST['type'];
 // $xx['limit'] = $_POST['limit'];

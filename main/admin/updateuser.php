@@ -26,6 +26,7 @@ else {
     $x['bankname'] = $_POST['bankname'];
     $x['accountno'] = $_POST['accountno'];
     $x['ifsc'] = $_POST['ifsc'];
+    $x['message'] = $_POST['message'];
     // $x['employeeref'] = $_POST['employeeref'];
     $x['password'] = $_POST['password'];
     $x['type'] = 2;
