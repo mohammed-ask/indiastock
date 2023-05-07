@@ -118,4 +118,8 @@ include "templete.php";
             $("#eye").attr('class', 'fa fa-eye')
         }
     })
+
+    $(document).on('click', '#switchtype', () => {
+        $("#stype").html('<input name="message" id="message" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter Custom Message" />')
+    })
 </script>
