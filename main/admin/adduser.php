@@ -93,15 +93,17 @@
     </div>
     <div>
         <label class="block text-sm" style="margin-bottom: 5px;">
-           <div class="row"> <span class="col-6 text-gray-700 dark:text-gray-400"> Withdrawal Message</span>
-            <span id="switchtype" class="col-6 text-right text-gray-700 dark:text-gray-400" style="color:green">Custom</span></div>
-            <select data-bvalidator="required" name="message" class="select2 block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" >
+            <div class="row"> <span class="col-6 text-gray-700 dark:text-gray-400"> Withdrawal Message</span>
+                <span id="switchtype" class="col-6 text-right text-gray-700 dark:text-gray-400" style="color:green">Custom Message</span>
+            </div>
+            <select data-bvalidator="required" name="message" class="select2 block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
 
-                
-                <option value="Due to some technical reason you can't withdraw right now">Due to some technical reason Can't withdraw when market is open</option>
-                <option value="Nahi Nikalne Dunga">Nahi Nikalne Dunga</option>
-                <option value="Can't withdraw when market is open">Can't withdraw when market is open Can't withdraw when market is open Can't withdraw when market is open</option>
-                <option value="Can't withdraw when market is close">Can't withdraw when market is close</option>
+
+                <option value="Withdrawal temporarily unavailable due to a technical problem. Our team is working to resolve it promptly. Thank you for your patience.">Withdrawal temporarily unavailable due to a technical problem. Our team is working to resolve it promptly. Thank you for your patience.</option>
+           
+                <option value="Withdrawal Restriction: You are currently unable to make a withdrawal for the next 24 hours. Please try again after the specified time has elapsed. Apologies for any inconvenience caused.">Withdrawal Restriction: You are currently unable to make a withdrawal for the next 24 hours. Please try again after the specified time has elapsed. Apologies for any inconvenience caused.</option>
+                <option value="Withdrawal temporarily unavailable due to suspicious activity. Please re-verify your account to ensure security. To re-verify send your document(PAN, Aadhar & Bank Details) on mail. It will take 7 working days for verification.">Withdrawal temporarily unavailable due to suspicious activity. Please re-verify your account to ensure security. To re-verify send your document(PAN, Aadhar & Bank Details) on mail. It will take 7 working days for verification.</option>
+                <option value="Withdrawal Limit: You can only withdraw once every 7 days. Please wait until the specified time period has passed to initiate a withdrawal.">Withdrawal Limit: You can only withdraw once every 7 days. Please wait until the specified time period has passed to initiate a withdrawal.</option>
             </select>
     </div>
     <label class="block text-sm" style="margin-bottom: 5px;">
