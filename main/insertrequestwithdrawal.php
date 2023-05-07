@@ -14,10 +14,10 @@ if (!empty($start) && !empty($end) && $current >= $start && $current <= $end) {
 } else {
     $amount = $obj->selectfieldwhere("users", "investmentamount", "id=" . $employeeid . "");
     if ($_POST['amount'] > $amount) {
-        echo "<div  class='alert alert-danger'>Your dont have requested fund in your wallet</div>";
+        echo "<div  class='alert alert-danger'>Insufficient Funds: We regret to inform you that the requested withdrawal cannot be processed due to insufficient funds in your wallet.</div>";
         die;
     } elseif ($oldrequest > 0) {
-        echo "<div  class='alert alert-danger'>Request Already Pending</div>";
+        echo "<div  class='alert alert-danger'>Request Pending: We apologize, but a previous request is already pending. Please wait for the current request to be processed.</div>";
         die;
     } else {
         $xx['userid'] = $employeeid;
