@@ -572,3 +572,8 @@ display: none;
       bottom: 20%;
   }
 }
+
+.select2-selection__rendered{
+width: 250px !important;
+  
+}
