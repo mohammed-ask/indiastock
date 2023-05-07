@@ -34,6 +34,6 @@ if ($_POST['totalamount'] > $investmentamount * $usermargin) {
     if ($sell > 0) {
         echo "Redirect : " . $_POST['symbol'] . " has been sell successfully URLmarket";
     } else {
-        echo "Something went wrong";
+        echo "Something went wrong, please try again later";
     }
 }

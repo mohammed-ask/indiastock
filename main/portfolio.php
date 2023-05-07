@@ -264,7 +264,7 @@ if ($todaystocktotalamt != 0) {
                                         <th>P/L</th>
                                         <!-- <th>Your P/L</th> -->
                                         <!-- <th>Broker Profit</th> -->
-                                        <th>Type</th>
+                                        <th>Status</th>
                                         <th>Added By</th>
                                     </tr>
                                 </thead>
@@ -291,7 +291,7 @@ if ($todaystocktotalamt != 0) {
                                         <th>P/L</th>
                                         <!-- <th>Paid By User</th> -->
                                         <th>Buy/Sell</th>
-                                        <th>Type</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
 

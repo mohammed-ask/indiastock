@@ -18,5 +18,5 @@ $obj->saveactivity("Fund Added by User", "", $fund, $employeeid, "User", "Fund A
 if ($fund > 0) {
     echo "Redirect : Your deposit has been received and is now being verified by our team.  URLfund";
 } else {
-    echo "Something went wrong";
+    echo "Something went wrong, please try again later";
 }

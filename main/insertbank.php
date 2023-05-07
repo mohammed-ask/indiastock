@@ -19,6 +19,6 @@ if ($pendingreq > 0) {
     if ($bank > 0) {
         echo "Redirect : Your account update request has been received and is currently under review by our team. URLprofile";
     } else {
-        echo "Something Went Wrong";
+        echo "Something Went Wrong, please try again later";
     }
 }

@@ -48,8 +48,8 @@ $data = array();
 while ($row = $obj->fetch_assoc($result)) {
     $n = array();
     $n[] = $row['symbol'];
-    $n[] = changedateformatespecito($row['datetime'], "Y-m-d H:i:s", "d M,Y H:i");
-    $n[] = changedateformatespecito($row['closeon'], "Y-m-d H:i:s", "d M,Y H:i");
+    $n[] = changedateformatespecito($row['datetime'], "Y-m-d H:i:s", "d M, Y H:i");
+    $n[] = changedateformatespecito($row['closeon'], "Y-m-d H:i:s", "d M, Y H:i");
     $n[] = $row['mktlot'];
     $n[] = $row['qty'];
     $n[] = $row['trademethod'] === 'Buy' ? $currencysymbol . $row['price'] : $currencysymbol . $row['cprice'];
