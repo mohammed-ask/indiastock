@@ -125,5 +125,7 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
     <div id="resultid"></div>
 </form>
 <script>
-    $('select').select2()
+  $("select").select2({
+        minimumResultsForSearch:-1
+    })
 </script>
