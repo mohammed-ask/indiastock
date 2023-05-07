@@ -67,7 +67,7 @@
 
     <div>
         <label class="block text-sm" style="margin-bottom: 5px;">
-            <div class="row py-2"> <span class="col-6 text-gray-700 dark:text-gray-400"> Withdrawal Message</span>
+            <div class="row my-1"> <span class="col-6 text-gray-700 dark:text-gray-400"> Withdrawal Message</span>
                 <span id="switchtype" class="col-6 text-right text-gray-700 dark:text-gray-400" style="color:green">Custom Message</span>
             </div>
             <div id="stype">
