@@ -575,5 +575,11 @@ display: none;
 
 .select2-selection__rendered{
 width: 250px !important;
+margin-top: -0.1rem !important;
   
+}
+
+.select2-selection__arrow{
+  top: 0.12rem !important;
+
 }

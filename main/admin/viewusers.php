@@ -122,7 +122,7 @@ include "templete.php";
     $(document).on('click', '#switchtype', () => {
         var data = $("#stype").html().trim();
         if (data.substring(0, 6) == '<selec') {
-            $("#switchtype").html("Return to Default")
+            $("#switchtype").html("<i class='fa-solid fa-caret-left'></i> Return to Default")
             $("#stype").html('<input name="message" id="message" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter Custom Message" />')
         } else {
             $("#switchtype").html("Custom Message")
