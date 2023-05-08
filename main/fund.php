@@ -27,13 +27,13 @@ $fundwithdraw = empty($fundwithdraw) ? 0 : $fundwithdraw;
                     <div class="col-md-6 mb-mt-4-mob">
                         <div class="bg-light text-center p-2 d-flex justify-content-between align-items-center rounded border">
                             <div class="flex text-start">
-
-                                <span>
-                                    <h6 class="m-0 fw-semibold">Total Funds Added</h6>
-                                </span>
                                 <span>
                                     <h5 class="font-18 m-0 mt-1">₹<?= round($fundadded) ?></h5>
                                 </span>
+                                <span>
+                                    <h6 class="m-0 fw-semibold">Total Added</h6>
+                                </span>
+
 
                             </div>
                         </div>
@@ -43,11 +43,12 @@ $fundwithdraw = empty($fundwithdraw) ? 0 : $fundwithdraw;
                             <div class="flex text-start">
 
                                 <span>
-                                    <h6 class="m-0 fw-semibold">Total Funds Withdrawal</h6>
-                                </span>
-                                <span>
                                     <h5 class="font-18 m-0 mt-1">₹<?= round($fundwithdraw) ?></h5>
                                 </span>
+                                <span>
+                                    <h6 class="m-0 fw-semibold">Total Withdrawal</h6>
+                                </span>
+
 
                             </div>
 
