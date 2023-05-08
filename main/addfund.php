@@ -32,7 +32,7 @@ include "main/session.php";
 <div class="border rounded mt-3" style="overflow-wrap: break-word;">
     <div class="row p-3">
         <div class="col-4">
-            <img id="scanqr-myImg" style="width:85px; max-width:90px; border: 1px solid lightgrey; padding: 1px;" height="85px" class="m-0" src="<?= $qrimage ?>" alt="Scan QR & Pay">
+            <img id="scanqr-myImg" style="width:85px; max-width:90px; border: 1px solid lightgrey; padding: 3px;border-radius: 5px;" height="85px" class="m-0" src="<?= $qrimage ?>" alt="Scan QR & Pay">
             <div class="my-1" style="color: black; font-size: 10px; margin-left: 2px;"><i class="fa-solid fa-qrcode"></i> <span> Tap to zoom</span></div>
             <!-- The Modal -->
 <div id="scanqr-myModal" class="scanqr-modal">
