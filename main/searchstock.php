@@ -72,7 +72,7 @@ include "main/session.php";
                     Derivative
                 </label>
             </div>
-            <div class="form-check mb-2 d-inline-block">
+            <div class="form-check mb-2 d-inline-block d-none">
                 <input class="form-check-input" value="U" type="radio" name="trademode" id="trademode3">
                 <label class="form-check-label" for="trademode2">
                     Currency

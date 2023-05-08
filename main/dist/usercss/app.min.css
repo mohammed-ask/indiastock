@@ -5232,3 +5232,93 @@ input:checked+.slider {
       
         transition-timing-function: ease-out;
         transition-duration: 500ms !important;}
+
+
+
+        /* -------------scan-qr css ----------------*/
+
+        #scanqr-myImg {
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#scanqr-myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.scanqr-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.scanqr-modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#scanqr-caption {
+  margin: auto;
+  display: block;
+  width: 50%;
+  max-width: 500px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 100px;
+}
+
+/* Add Animation */
+.scanqr-modal-content, #scanqr-caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.scanqr-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.scanqr-close:hover,
+.scanqr-close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .scanqr-modal-content {
+    width: 100%;
+  }
+}

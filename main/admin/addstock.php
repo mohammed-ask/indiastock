@@ -69,7 +69,7 @@ include "main/session.php";
                 <option value="">Select Type</option>
                 <option value="C">Cash</option>
                 <option value="D">Derivative</option>
-                <option value="U">Currency</option>
+                <option class="d-none" value="U">Currency</option>
             </select>
         </div>
     </div>

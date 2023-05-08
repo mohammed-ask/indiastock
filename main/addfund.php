@@ -9,7 +9,7 @@ include "main/session.php";
         <h5 style="padding-left:16px !important;" class="m-0 font-14 p-2">Bank of India</h5>
     </div>
 
-    <div class="row p-3">
+    <div class="row p-3" style="overflow-wrap: break-word;">
 
         <div class="col-4" style="border-right: 1px solid lightgray;">
             <h6 class="m-0">Holder Name</h6>
@@ -29,10 +29,16 @@ include "main/session.php";
 
     </div><!--end row-->
 </div>
-<div class="border rounded mt-3">
+<div class="border rounded mt-3" style="overflow-wrap: break-word;">
     <div class="row p-3">
         <div class="col-4">
-            <img style="width: 100px;" class="m-0" src="<?= $qrimage ?>" alt="">
+            <img id="scanqr-myImg" style="width:100%; max-width:90px" height="90px" class="m-0" src="<?= $qrimage ?>" alt="QR">
+            <!-- The Modal -->
+<div id="scanqr-myModal" class="scanqr-modal">
+  <span class="scanqr-close">&times;</span>
+  <img class="scanqr-modal-content" id="scanqr-img01">
+  <div id="scanqr-caption"></div>
+</div>
 
         </div><!--end col-->
 
@@ -88,4 +94,27 @@ include "main/session.php";
 </div><!--end modal-body-->
 <script>
     $("#modalfooterbtn").css('display', 'none')
+</script>
+
+<script>
+// Get the modal
+var modal = document.getElementById("scanqr-myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("scanqr-myImg");
+var modalImg = document.getElementById("scanqr-img01");
+var captionText = document.getElementById("scanqr-caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("scanqr-close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
 </script>
