@@ -32,7 +32,8 @@ include "main/session.php";
 <div class="border rounded mt-3" style="overflow-wrap: break-word;">
     <div class="row p-3">
         <div class="col-4">
-            <img id="scanqr-myImg" style="width:100%; max-width:90px" height="90px" class="m-0" src="<?= $qrimage ?>" alt="QR">
+            <img id="scanqr-myImg" style="width:85px; max-width:90px" height="85px" class="m-0" src="<?= $qrimage ?>" alt="Scan QR & Pay">
+            <div class="my-1" style="color: black; font-size: 10px; margin-left: 2px;"><i class="fa-solid fa-qrcode"></i> <span> Tap to zoom</span></div>
             <!-- The Modal -->
 <div id="scanqr-myModal" class="scanqr-modal">
   <span class="scanqr-close">&times;</span>
@@ -80,7 +81,7 @@ include "main/session.php";
 
         <h5 style="margin-top: 30px !important; margin-bottom: 3px !important;" class="card-title my-3 text-danger">Important*</h5>
         <ul style="margin-left: 16px;" class="mb-0">
-            <li>Your Payment will take 30mins to 1hr to reflect in Your Account after reviewing by our team.</li>
+            <li>Your Payment will take 30 mins to 1hr to reflect in Your Account after reviewing by our team.</li>
             <li>You can see Credited amount in your fund section after 30mins to 1 hour after payment.</li>
             <li>There is no any hidden Charges like transaction fee, processing fee & more.</li>
         </ul>
