@@ -5322,3 +5322,8 @@ input:checked+.slider {
     width: 100%;
   }
 }
+
+th{
+width: 20%;
+
+}
