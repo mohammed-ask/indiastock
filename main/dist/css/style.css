@@ -540,7 +540,7 @@ display: none;
 
 .profile-tooltip .profile-tooltiptext {
   visibility: hidden;
-  width: 87vw;
+  width: 90vw;
 
   background-color: #057c7c;
   color: #fff;
@@ -553,7 +553,7 @@ display: none;
   margin-left: -95px;
   opacity: 0;
   transition: opacity 0.3s;
-  font-size: 11px !important;
+  font-size: 12px !important;
   font-weight: 500 !important;
 
 }
@@ -566,7 +566,7 @@ display: none;
 
 @media (min-width: 650px) and (max-width: 2560px) {
   .profile-tooltip .profile-tooltiptext {
-      width: 35vw;
+      width: 33vw;
       left: 600%;
       margin-left: -175px;
       bottom: 20%;

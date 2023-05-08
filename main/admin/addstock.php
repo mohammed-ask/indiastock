@@ -30,7 +30,7 @@ include "main/session.php";
         color: #333;
     }
 </style>
-<form id="adduser" onsubmit="event.preventDefault();sendForm('', '', 'insertaddstock', 'resultid', 'adduser');return 0;">
+<form style="overflow-x: hidden;" id="adduser" onsubmit="event.preventDefault();sendForm('', '', 'insertaddstock', 'resultid', 'adduser');return 0;">
     <div class="mb-2"> <label for="Choose Client" class="block text-sm" style="margin-bottom: 5px;">
             <span class="text-gray-700 dark:text-gray-400">Select Client</span>
 
