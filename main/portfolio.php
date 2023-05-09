@@ -355,17 +355,7 @@ include "main/templete.php"; ?>
     })
 
     // check if current day is a weekday (Monday to Friday)
-    <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
-        // check if current time is between 9 am to 4 pm
-        if ($hour >= 9 && $hour < 16) { ?>
-            setInterval(function() {
-                table.ajax.reload();
-            }, <?= $apiinterval ?>);
-            setInterval(function() {
-                table2.ajax.reload();
-            }, <?= $apiinterval ?>);
-    <?php }
-    } ?>
+
 
     function recalculateDataTableResponsiveSize() {
         $($.fn.dataTable.tables(true)).DataTable().responsive.recalc();
@@ -382,10 +372,41 @@ include "main/templete.php"; ?>
     // });
 
     // // store the currently selected tab in the hash value
+    let todayinterval = null;
+    <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+        if ($hour >= 9 && $hour < 16) { ?>
+            todayinterval = setInterval(function() {
+                table.ajax.reload();
+            }, <?= $apiinterval ?>);
+    <?php }
+    } ?>
+    let holdinginterval = null;
+
     $("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
         recalculateDataTableResponsiveSize();
-        // var id = $(e.target).attr("href").substr(1);
+        var id = $(e.target).attr("href").substr(1);
         // window.location.hash = id;
+        <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+            // check if current time is between 9 am to 4 pm
+            if ($hour >= 9 && $hour < 16) { ?>
+                if (id === 'Today') {
+                    todayinterval = setInterval(function() {
+                        table.ajax.reload();
+                    }, <?= $apiinterval ?>);
+                    clearInterval(holdinginterval)
+                }
+                if (id === 'Carry_Forward') {
+                    holdinginterval = setInterval(function() {
+                        table2.ajax.reload();
+                    }, <?= $apiinterval ?>);
+                    clearInterval(todayinterval)
+                }
+                if (id !== 'Today' && id !== 'Carry_Forward') {
+                    clearInterval(todayinterval)
+                    clearInterval(holdinginterval)
+                }
+        <?php }
+        } ?>
     });
 
     // on load of the page: switch to the currently selected tab

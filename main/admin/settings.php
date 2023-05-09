@@ -300,9 +300,9 @@ $path = $obj->fetchattachment($row['uploadfile_id']);
                             </div>
                         </div>
                         <div class="card-footer">
-                        <?php if (in_array(33, $permissions)) { ?>
+                            <?php if (in_array(33, $permissions)) { ?>
                                 <button type="submit" class="text-white btn btn-primary">Save</button>
-                                <div id="resultid"></div>
+                                <div id="resultid1"></div>
                             <?php } ?>
                         </div>
                     </form>
