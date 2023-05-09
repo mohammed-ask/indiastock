@@ -17,5 +17,5 @@ if ($_SESSION['otp'] == $_POST['otp']) {
     $user = $obj->update("users", $xx, $employeeid);
     echo "Redirect : Profile Updated Successfully URLprofile";
 } else {
-    echo "<div class='alert alert-danger'>OTP does not match</div>";
+    echo "<div class='alert alert-danger'>Invalid OTP. Please provide a valid code.</div>";
 }
