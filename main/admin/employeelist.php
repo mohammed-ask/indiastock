@@ -27,6 +27,8 @@ if (!in_array(12, $permissions)) {
                         <th class="px-3 py-2">User Name</th>
                         <th class="px-3 py-2">Emp ID</th>
                         <th class="px-3 py-2">Mob No.</th>
+                        <th class="px-3 py-2">Email</th>
+                        <th class="px-3 py-2">Role</th>
                         <th class="px-3 py-2">Status</th>
                         <th class="px-3 py-2">Action</th>
                         <th class="px-3 py-2">Clients</th>

@@ -49,6 +49,8 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['name'];
     $n[] = $row['usercode'];
     $n[] =  $row['mobile'];
+    $n[] =  $row['email'];
+    $n[] =  $obj->selectfieldwhere("roles", "name", "id=" . $row['role'] . "");
     $activation = $row['activate'] === 'Yes' ? 'checked' : '';
     if (in_array(41, $permissions)) {
         $n[] = '<label class="switch">
