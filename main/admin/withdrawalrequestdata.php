@@ -61,7 +61,9 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = "<div class='flex items-center space-x-4 text-sm'><button  class='flex items-center justify-between px-2 py-2 bg-theme-color text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['userid'] . "\", \"viewbankdetails\", \"\", \"Client Bank Details\")'  aria-label='Go'>
     <span >Bank Detail</span>
 </button></div>";
-    $n[] = $row['status'] === '0' ? "<div class='tr'><div style='text-align:center;cursor:pointer'  class='showbox'>
+    $adddata = "";
+    if ($row['status'] === '0' && in_array(42, $permissions)) {
+        $adddata .= "<div class='tr'><div style='text-align:center;cursor:pointer'  class='showbox'>
     <img class='object-cover w-5 h-5' style='height:30px;width:30px;;margin:auto' src='../main/images/menu.png' alt='' aria-hidden='true' /></div>
         <div class='showbtn' style='display:none'>
         <ul >
@@ -79,7 +81,9 @@ while ($row = $obj->fetch_assoc($result)) {
                         <button style='color: black;'>Disapprove</button>
                     </a>
                 </li>
-        </ul></div></div>" : null;
+        </ul></div></div>";
+    };
+    $n[] = $adddata;
     $data[] = $n;
 
     $i++;

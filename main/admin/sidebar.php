@@ -46,6 +46,14 @@
                   <a class="w-full" href="users">Users List</a>
                 </li>
               <?php } ?>
+              <?php if (in_array(43, $permissions)) { ?>
+
+                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                  <a class="w-full" href="employeeusers">
+                    Employee Users
+                  </a>
+                </li>
+              <?php } ?>
               <?php if (in_array(14, $permissions)) { ?>
 
                 <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
@@ -264,7 +272,7 @@
 <!-- Mobile sidebar -->
 <div x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div>
 <aside class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white dark:bg-gray-800 md:hidden" x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150" x-transition:enter-start="opacity-0 transform -translate-x-20" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0 transform -translate-x-20" @click.away="closeSideMenu" @keydown.escape="closeSideMenu">
-<div class="py-4 text-gray-500 dark:text-gray-400">
+  <div class="py-4 text-gray-500 dark:text-gray-400">
     <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="https://pmsequity.com/dashboard">
       <img src="../main/images/logo/PMS Equity logo with black text svg.svg" style="margin-left: 25px; margin-top: -30px; margin-bottom: 20px; width:175px" alt="logo">
     </a>
@@ -308,6 +316,14 @@
               <?php if (in_array(4, $permissions)) { ?>
                 <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                   <a class="w-full" href="users">Users List</a>
+                </li>
+              <?php } ?>
+              <?php if (in_array(43, $permissions)) { ?>
+
+                <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                  <a class="w-full" href="employeeusers">
+                    Employee Users
+                  </a>
                 </li>
               <?php } ?>
               <?php if (in_array(14, $permissions)) { ?>

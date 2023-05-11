@@ -1575,7 +1575,9 @@ class db
         $pdate['userid'] = $this->employeeid;
         $pradin = $this->updatewhere("token", ['status' => 0], "status=1");
         if ($pradin) {
-            $pra = $this->insertnew("token", $pdate);
+            if (!empty($pdate['accesstoken'])) {
+                $pra = $this->insertnew("token", $pdate);
+            }
             return $atoken;
         }
     }
