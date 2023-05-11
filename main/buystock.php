@@ -38,6 +38,7 @@ $stockdata = $stockdata[0];
     <form class="row gy-2 gx-3 align-items-end" id="buystock">
         <input type="hidden" name="symbol" value="<?= $stockdata['Symbol'] ?>" id="">
         <input type="hidden" name="exchange" value="<?= $stockdata['Exch'] ?>" id="">
+        <input type="hidden" name="exchangetype" value="<?= $stockdata['ExchType'] ?>" id="">
         <input type="hidden" name="stockid" value="<?= $id ?>" id="">
         <input type="hidden" name="totalamount" id="totalamount" value="<?= $lot * $stockdata['LastRate'] ?>">
         <div class="col-3">
