@@ -1,8 +1,8 @@
 <?php
 include "session.php";
-$todayprofit = $obj->selectfieldwhere("closetradedetail", "sum(profitamount)", "date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and userid=$employeeid and status = 1");
+$todayprofit = $obj->selectfieldwhere("closetradedetail", "sum(totalprofit)", "date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and userid=$employeeid and status = 1");
 $todayprofit = empty($todayprofit) ? 0 : $todayprofit;
-$completedtotalprofitloss = $obj->selectfieldwhere("closetradedetail", "sum(profitamount)", "userid=$employeeid ");
+$completedtotalprofitloss = $obj->selectfieldwhere("closetradedetail", "sum(totalprofit)", "userid=$employeeid ");
 
 // Invested Amount
 $investamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "userid=$employeeid and status = 0 and tradestatus = 'Open'");
