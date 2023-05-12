@@ -91,12 +91,12 @@ if (!empty($stockdata)) {
 
 $totalprofit = empty($totalprofit) ? 0 : $totalprofit;
 $totalprofitprcnt = 0;
-$stocktotalamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", " status in (0,1) and userid = $employeeid and tradestatus in ('Open','Close') and stockid != '' and stockid is not null");
+$stocktotalamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", " userid = $employeeid and ((status in (1, 0) and tradestatus in ('Open','Close') and stockid != '' and stockid is not null) || (status = 1 and tradestatus = 'Close' and (stockid = '' || stockid is null)))");
 if ($stocktotalamt != 0) {
     $totalprofitprcnt = $totalprofit * 100 / $stocktotalamt;
 }
 
-$todaystocktotalamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and status in (1, 0) and userid = $employeeid and tradestatus in ('Open','Close') and stockid != '' and stockid is not null");
+$todaystocktotalamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))  and userid = $employeeid and ((status in (1, 0) and tradestatus in ('Open','Close') and stockid != '' and stockid is not null) || (status = 1 and tradestatus = 'Close' and (stockid = '' || stockid is null)))");
 $todayprofitpercent = 0;
 if ($todaystocktotalamt != 0) {
     $todayprofitpercent = $todayprofit * 100 / $todaystocktotalamt;
