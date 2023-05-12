@@ -85,7 +85,7 @@
     }
 
     <?php
-    if ($_SERVER['REQUEST_URI'] === '/portfolio' || $_SERVER['REQUEST_URI'] === '/mail' || $_SERVER['REQUEST_URI'] === '/fund' || $_SERVER['REQUEST_URI'] === '/profile' || parse_url($_SERVER['REQUEST_URI']) === '/viewchart') { ?>.nopad {
+    if ($_SERVER['REQUEST_URI'] === '/portfolio' || $_SERVER['REQUEST_URI'] === '/mail' || $_SERVER['REQUEST_URI'] === '/fund' || $_SERVER['REQUEST_URI'] === '/profile' || parse_url($_SERVER['REQUEST_URI'])['path'] === '/viewchart') { ?>.nopad {
         padding-top: 85px !important;
     }
 
