@@ -70,8 +70,9 @@ if (!empty($stockdata)) {
     while ($row = $obj->fetch_assoc($result2)) {
         // $symbol = $row['symbol'];
         // $excg = $row['exchange'];
-        $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg) {
-            if ($data['Symbol'] === $symbol && $data['Exch'] === $excg) {
+        $token = $obj->selectfieldwhere("userstocks", "symboltoken", "id=" . $row['stockid'] . "");
+        $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg, $token) {
+            if ($data['Token'] == $token) {
                 return $data;
             }
         });
