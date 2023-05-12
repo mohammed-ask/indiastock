@@ -26,7 +26,7 @@
       </ul> -->
     <?php } ?>
     <ul>
-      <?php if (in_array(4, $permissions) || in_array(14, $permissions)) { ?>
+      <?php if (in_array(4, $permissions) || in_array(14, $permissions) || in_array(43, $permissions)) { ?>
         <li class="relative px-6 py-3">
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleOverviewPagesMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
@@ -298,7 +298,7 @@
       </ul> -->
     <?php } ?>
     <ul>
-      <?php if (in_array(4, $permissions) || in_array(14, $permissions)) { ?>
+      <?php if (in_array(4, $permissions) || in_array(14, $permissions) || in_array(43, $permissions)) { ?>
         <li class="relative px-6 py-3">
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleOverviewPagesMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
