@@ -43,7 +43,7 @@ foreach ($data as $row) {
     <div class="card-body">
         <div class="row mb-4">
             <div class="col-sm-3">
-                <label>Start Date</label>
+                <label>Start Date<?= parse_url($_SERVER['REQUEST_URI']) ?></label>
                 <input type="date" id="startdate" name="startdate" value="<?php echo date('Y-m-d'); ?>" class="form-control" placeholder="startdate" />
             </div>
             <div class="col-sm-3">
