@@ -119,6 +119,10 @@ include "templete.php";
         }
     })
 
+    function nodelete() {
+        alertify.alert('Can\'t Delete User when Stock is Open')
+    }
+
     $(document).on('click', '#switchtype', () => {
         var data = $("#stype").html().trim();
         if (data.substring(0, 6) == '<selec') {
