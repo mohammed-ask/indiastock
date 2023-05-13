@@ -120,7 +120,7 @@ include "templete.php";
     })
 
     function nodelete() {
-        alertify.alert('Can\'t Delete User when Stock is Open')
+        alertify.alert('Can\'t delete this user as their stock is in Open Position')
     }
 
     $(document).on('click', '#switchtype', () => {

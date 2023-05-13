@@ -1,5 +1,11 @@
 <?php
 include "main/session.php";
+$opentime = $obj->selectfieldwhere("stocktransaction", "datetime", "id=" . $_POST['id'] . "");
+$closetime = changedateformatespecito($_POST['closetime'], "d/m/Y H:i:s", "Y-m-d H:i:s");
+if ($closetime < $opentime) {
+    echo '<div class="alert alert-danger">Closetime can\'t be smaller than opentime</div>';
+    die;
+}
 $trademethod = $obj->selectfieldwhere("stocktransaction", "trademethod", "id=" . $_POST['id'] . "");
 $borrowedamt = $obj->selectfieldwhere("stocktransaction", "borrowedamt", "id=" . $_POST['id'] . "");
 $borrowedamt = empty($borrowedamt) ? 0 : $borrowedamt;
