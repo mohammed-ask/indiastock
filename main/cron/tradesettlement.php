@@ -313,7 +313,11 @@ while ($row = $obj->fetch_assoc($result)) {
     $xc['price'] = $currentrate;
     if ($row['borrowedamt'] > 0) {
         $profitAndLoss = $row['mktlot'] * $row['qty'] * ($currentrate - $row['price']);
-        $xc['profitprcnt'] = round($profitAndLoss / ($row['price'] * $row['mktlot'] * $row['qty']) * 100, 2);
+        if ($row['price'] > 0) {
+            $xc['profitprcnt'] = round($profitAndLoss / ($row['price'] * $row['mktlot'] * $row['qty']) * 100, 2);
+        } else {
+            $xc['profitprcnt'] = 0;
+        }
         if ($row['trademethod'] === 'Sell') {
             if ($profitAndLoss <= 0) {
                 $profitAndLoss = abs($profitAndLoss);
@@ -333,7 +337,11 @@ while ($row = $obj->fetch_assoc($result)) {
         }
     } else {
         $xc['profitamount'] = $row['mktlot'] * $row['qty'] * ($currentrate - $row['price']);
-        $xc['profitprcnt'] = round($xc['profitamount'] / ($row['price'] * $row['mktlot'] * $row['qty']) * 100, 2);
+        if ($row['price'] > 0) {
+            $xc['profitprcnt'] = round($xc['profitamount'] / ($row['price'] * $row['mktlot'] * $row['qty']) * 100, 2);
+        } else {
+            $xc['profitprcnt'] = 0;
+        }
         $xc['totalprofit'] = $xc['profitamount'];
         if ($row['trademethod'] === 'Sell') {
             if ($xc['profitamount'] <= 0) {
