@@ -19,7 +19,7 @@ $type = $what == 'sentmail' ? 'senderid' : 'receiverid';
         <span class="text-gray-700 dark:text-gray-400 ">Message</span>
 
     </label>
-    <div class="block w-full dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input " style="height:200px; border: none !important;"><?= $rowmail['message'] ?></div>
+    <div class="block w-full dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input " style="height:200px; overflow-y: scroll; border: none !important;"><?= $rowmail['message'] ?></div>
     <!-- <textarea class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Client's Name" id="" name="w3review" rows="8" cols="50"></textarea> -->
 
 </div>

@@ -12,7 +12,7 @@ $type = $what == 'sentmail' ? 'senderid' : 'receiverid';
 </div>
 <div class="col-12">
     <label class="form-label" for="Price">Message</label>
-    <div class="block w-full dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" style="height:200px;"><?= $rowmail['message'] ?></div>
+    <div class="block w-full dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" style="height:200px; overflow-y: scroll;"><?= $rowmail['message'] ?></div>
 </div>
 <p>Attachments:</p>
 <div>
