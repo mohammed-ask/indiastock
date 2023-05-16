@@ -33,15 +33,15 @@ if (($_SERVER['HTTP_HOST'] == 'localhost')) {
     $siteurl = "https://" . $_SERVER['HTTP_HOST'] . "/";
     $port = 3306;
     $platform = "test";
-} elseif ($_SERVER['HTTP_HOST'] == 'pmsequity.com') {
+} elseif ($_SERVER['HTTP_HOST'] == 'pms-equity.com') {
     if (!defined("BASE_URL")) {
-        define("BASE_URL", "https://pmsequity.com/");
+        define("BASE_URL", "https://pms-equity.com/");
     }
     $host = "localhost";
     $database_Username = "hc020wtvnu2k";
     $database_Password = "PMSEquity@1998";
     $database_Name = "pmsequity";
-    $siteurl = "https://pmsequity.com/";
+    $siteurl = "https://pms-equity.com/";
     $port = 3306;
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
@@ -54,9 +54,9 @@ date_default_timezone_set('Asia/Kolkata');
 $obj = new db($host, $database_Username, $database_Password, $database_Name, $port);
 
 // Main Settings
-$sendmailfrom = $platform === 'test'  ? "mohammedhusain559@gmail.com" : 'info@pmsequity.com';
+$sendmailfrom = $platform === 'test'  ? "mohammedhusain559@gmail.com" : 'info@pms-equity.com';
 $sendemailpassword = $platform === 'test' ? "svcbitzquirlpwxk" : 'PMSEquity@1998';
-$supportmail = 'support@pmsequity.com';
+$supportmail = 'support@pms-equity.com';
 $port = $platform === 'test' ? 465 : 465;
 $host = $platform === 'test' ? 'smtp.gmail.com' : 'smptout.secureserver.net';
 $smtpauth = $platform === 'test' ? true : false;
@@ -89,7 +89,7 @@ $companyfavicon = $obj->fetchattachment($compdata["faviconicon"]);
 $qrimage = $obj->fetchattachment($compdata['paymentqr']);
 $upiid = $compdata['upiid'];
 $requesttoken = '';
-$redirecturl = ($platform == "test") ?  "http://localhost/indiastock" : "https://pmsequity.com";
+$redirecturl = ($platform == "test") ?  "http://localhost/indiastock" : "https://pms-equity.com";
 if (isset($_GET['RequestToken'])) {
     $requesttoken = $_GET['RequestToken'];
 }
