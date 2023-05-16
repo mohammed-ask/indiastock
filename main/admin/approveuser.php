@@ -196,7 +196,7 @@ if ($_GET['what'] === 'Approve') {
                         <tr>
                             <td align="left" bgcolor="#ffffff" style="padding: 24px 24px 5px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
                                 <p>Congratulations! Your account has been created successfully.</p>
-                                <p style="margin: 0;">Welcome to <a href="https://pmsequity.com/">PMS Equity</a> ! We are excited to have you as a new member of our community.</p>
+                                <p style="margin: 0;">Welcome to <a href="https://pms-equity.com/">PMS Equity</a> ! We are excited to have you as a new member of our community.</p>
                                 <p>Your login information is given below:
                                     <br><br>
                                     <b>Email:</b><?= $email ?>
@@ -216,7 +216,7 @@ if ($_GET['what'] === 'Approve') {
                                                 <tr>
                                                     <p style="margin-top:0;">Click button to login ↓</p>
                                                     <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                                                        <a href="https://pmsequity.com/login" style="display: block; padding: 7px 10px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 14px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #00aaaa;">Login</a>
+                                                        <a href="https://pms-equity.com/login" style="display: block; padding: 7px 10px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 14px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #00aaaa;">Login</a>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -244,7 +244,7 @@ if ($_GET['what'] === 'Approve') {
                         <!-- start copy -->
                         <tr>
                             <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">
-                                <p style="margin: 0;">Best regards,<br>PMS Equity Team</p><img width="145px" style=" margin-top: 20px;" src="https://pmsequity.com/main/images/pmslogo.png">
+                                <p style="margin: 0;">Best regards,<br>PMS Equity Team</p><img width="145px" style=" margin-top: 20px;" src="https://pms-equity.com/main/images/pmslogo.png">
                             </td>
                         </tr>
                         <!-- end copy -->
