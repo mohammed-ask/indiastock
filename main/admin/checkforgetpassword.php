@@ -23,7 +23,7 @@ $mail->Username = "$sendmailfrom";
 $mail->Password = "$sendemailpassword";
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
-$mail->setFrom("$sendmailfrom");
+$mail->setFrom("$sendmailfrom", 'PMS Equity Team');;
 $mail->addAddress($_POST['email']);
 $mail->isHTML(true);
 $mail->Subject = "Password Reset";

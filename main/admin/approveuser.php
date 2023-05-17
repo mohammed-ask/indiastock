@@ -31,7 +31,7 @@ if ($_GET['what'] === 'Approve') {
     $mail->isSendmail();
     $mail->SMTPSecure = 'ssl';
     $mail->Port = $port;
-    $mail->setFrom("$sendmailfrom");
+    $mail->setFrom("$sendmailfrom", 'PMS Equity Team');;
     $mail->addAddress($email);
     $mail->isHTML(true);
     $mail->Subject = 'PMS Equity account has been approved & Login Id & Password is here';
@@ -169,7 +169,8 @@ if ($_GET['what'] === 'Approve') {
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                         <tr>
                             <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-                            <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -1px; line-height: 30px; word-spacing: 2px;">Welcome to PMS Equity,</h1><br><h2 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -1px; word-spacing: 2px;">Your Account has been approved: Your Login ID & Password is here </h2>
+                                <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -1px; line-height: 30px; word-spacing: 2px;">Welcome to PMS Equity,</h1><br>
+                                <h2 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -1px; word-spacing: 2px;">Your Account has been approved: Your Login ID & Password is here </h2>
                             </td>
                         </tr>
                     </table>

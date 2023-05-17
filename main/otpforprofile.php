@@ -25,7 +25,7 @@ $mail->isSendmail();
 
 $mail->SMTPSecure = 'ssl';
 $mail->Port = $port;
-$mail->setFrom("$sendmailfrom");
+$mail->setFrom("$sendmailfrom", 'PMS Equity Team');;
 $mail->addAddress($email);
 $mail->isHTML(true);
 $mail->Subject = "OTP Verification for Changing Setting";
@@ -152,7 +152,7 @@ ob_start();
 
     <div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
 
-    Verification Code Confirmation for Changing Setting- PMS Equity...
+        Verification Code Confirmation for Changing Setting- PMS Equity...
     </div>
     <!-- end preheader -->
 

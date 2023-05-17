@@ -131,7 +131,7 @@ if ($emailcount > 0) {
     $mail->isSendmail();
     $mail->SMTPSecure = 'ssl';
     $mail->Port = $port;
-    $mail->setFrom("$sendmailfrom");
+    $mail->setFrom("$sendmailfrom", 'PMS Equity Team');;
     $mail->addAddress($_POST['email']);
     $mail->isHTML(true);
     $mail->Subject = "Account has been approved";
