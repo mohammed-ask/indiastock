@@ -61,6 +61,7 @@ $mail->Port = $port;
 $mail->setFrom("$sendmailfrom", 'PMS Equity Team');
 $mail->addAddress($receivermail);
 $mail->isHTML(true);
+$mail->addReplyTo("$sendmailfrom", 'PMS Equity Team');
 $mail->Subject = $_POST['subject'];
 ?>
 <!DOCTYPE html>
