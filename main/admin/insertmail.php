@@ -235,7 +235,7 @@ $mail->Subject = $_POST['subject'];
                     <!-- start copy -->
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                            <p style="margin: 0;margin-top: 15px;">We encourage you to explore our platform and take advantage of all the features we have to offer. If you have any questions or need assistance, our support team is available 24/7 to help at <a href="mailto:info@pmsequity.com">info@pmsequity.com</a></p>
+                            <p style="margin: 0;margin-top: 15px;">If you have any questions or need assistance, our support team is available 24/7 to help at <a href="mailto:info@pmsequity.com">info@pmsequity.com</a></p>
                             <p>
                                 Thank you for choosing PMS Equity. We look forward to helping you achieve your investment goals.
                             </p>
