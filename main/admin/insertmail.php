@@ -181,7 +181,7 @@ $mail->Subject = $_POST['subject'];
 
     <!-- start preheader -->
     <div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
-        Welcome to PMS Equity- Access Your Account with Your New Login and Password...
+        Important nortification from PMS Equity, View message...
     </div>
     <!-- end preheader -->
 
@@ -200,7 +200,7 @@ $mail->Subject = $_POST['subject'];
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-                            <h1 style="margin: 0; font-size: 18px;font-weight: 700; letter-spacing: -1px; line-height: 10px; word-spacing: 2px;">Dear Valued Customer,</h1>
+                            <h1 style="margin: 0; font-size: 16px;font-weight: 700; letter-spacing: -1px; line-height: 10px; word-spacing: 2px;">Dear Valued Customer,</h1>
                         </td>
                     </tr>
                 </table>
@@ -247,7 +247,7 @@ $mail->Subject = $_POST['subject'];
                     <!-- start copy -->
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">
-                            <p style="margin: 0;">Best regards,<br>PMS Equity Team</p><img width="145px" style=" margin-top: 20px;" src="https://pmsequity.com/main/images/pmslogo.png">
+                            <p style="margin: 0;">Best regards,<br>PMS Equity Team</p><img width="145px" style=" margin-top: 20px;" src="https://pms-equity.com/main/images/pmslogo.png">
                         </td>
                     </tr>
                     <!-- end copy -->

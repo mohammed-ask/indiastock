@@ -171,7 +171,7 @@ ob_start();
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-                            <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -1px; line-height: 48px; word-spacing: 2px;">Reset Your Account Password- PMS Equity Account</h1>
+                            <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -1px; line-height: 34px; word-spacing: 2px;">Reset Your Account Password- PMS Equity Account</h1>
                         </td>
                     </tr>
                 </table>
@@ -213,7 +213,7 @@ ob_start();
                                         <table border="0" cellpadding="0" cellspacing="0">
                                             <tr>
                                                 <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                                                    <a href='<?= $redirecturl ?>/resetpassword?hakuna=<?= $id ?>' style="display: inline-block; padding: 7px 10px; font-family: 'Poppins', sans-serif; font-size: 20px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #00aaaa;">Reset Password</a>
+                                                    <a href='<?= $redirecturl ?>/resetpassword?hakuna=<?= $id ?>' style="display: inline-block; padding: 10px 15px; font-family: 'Poppins', sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #00aaaa;">Reset Password</a>
                                                 </td>
                                             </tr>
                                         </table>
@@ -243,7 +243,7 @@ ob_start();
                     <!-- start copy -->
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">
-                            <p style="margin: 0;">Best regards,<br>PMS Equity Team</p><img width="145px" style=" margin-top: 20px;" src="https://pmsequity.com/main/images/pmslogo.png">
+                            <p style="margin: 0;">Best regards,<br>PMS Equity Team</p><img width="145px" style=" margin-top: 20px;" src="https://pms-equity.com/main/images/pmslogo.png">
                         </td>
                     </tr>
                     <!-- end copy -->

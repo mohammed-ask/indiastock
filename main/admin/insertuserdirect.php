@@ -270,8 +270,8 @@ if ($emailcount > 0) {
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                         <tr>
                             <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-                                <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -1px; line-height: 30px; word-spacing: 2px;">Welcome to PMS Equity,</h1><br>
-                                <h2 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -1px; word-spacing: 2px;">Your Account has been approved: Your Login ID & Password is here </h2>
+                                <h1 style="margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -1px; line-height: 30px; word-spacing: 2px;">Welcome to PMS Equity,</h1><br>
+                                <h2 style="margin: 0; line-height: 30px; font-size: 17px; font-weight: 700; letter-spacing: -1px; word-spacing: 2px;">Your Account has been approved: Your Login ID & Password is here </h2>
                             </td>
                         </tr>
                     </table>
@@ -311,21 +311,11 @@ if ($emailcount > 0) {
                         <!-- start button -->
                         <tr>
                             <td align="left" bgcolor="#ffffff">
-                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <table border="0" cellpadding="0" cellspacing="0">
+                                    <p style="margin-top:0; margin-right: 15px;">Click button to login </p>
                                     <tr>
-                                        <td align="left" bgcolor="#ffffff" style="padding: 12px; margin-left:12px; float:left;">
-                                            <table border="0" cellpadding="0" cellspacing="0">
-                                                <tr>
-                                                    <td>
-                                                        <p style="margin-top:0;">Click button to login ↓</p>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                                                        <a href="https://pms-equity.com/login" style="display: block; padding: 7px 10px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 14px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #00aaaa;">Login</a>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                        <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
+                                            <a href="https://pms-equity.com/login" style="display: block; padding: 7px 10px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 14px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #00aaaa;">Login</a>
                                         </td>
                                     </tr>
                                 </table>
@@ -350,7 +340,7 @@ if ($emailcount > 0) {
                         <!-- start copy -->
                         <tr>
                             <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">
-                                <p style="margin: 0;">Best regards,<br>PMS Equity Team</p><img width="145px" style=" margin-top: 20px;" src="https://pmsequity.com/main/images/pmslogo.png">
+                                <p style="margin: 0;">Best regards,<br>PMS Equity Team</p><img width="145px" style=" margin-top: 20px;" src="https://pms-equity.com/main/images/pmslogo.png">
                             </td>
                         </tr>
                         <!-- end copy -->
