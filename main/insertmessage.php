@@ -33,7 +33,7 @@ $mail->isSendmail();
 $mail->SMTPSecure = 'ssl';
 $mail->Port = $port;
 $mail->setFrom("$sendmailfrom", 'PMS Equity Team');
-$email = 'mohammedmaheswer12@gmail.com';
+$email = 'tubemohammed56@gmail.com';
 $mail->addAddress($email);
 $mail->isHTML(true);
 $mail->Subject = "Customer Inquiry";
