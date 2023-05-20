@@ -1,8 +1,6 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-include './main/function.php';
-include './main/conn.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -10,6 +8,9 @@ use PHPMailer\PHPMailer\Exception;
 require './main/PHPMailer/src/Exception.php';
 require './main/PHPMailer/src/PHPMailer.php';
 require './main/PHPMailer/src/SMTP.php';
+
+include './main/function.php';
+include './main/conn.php';
 
 $xx['name'] = $_POST['name'];
 $xx['surname'] = $_POST['surname'];

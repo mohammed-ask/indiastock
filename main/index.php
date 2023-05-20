@@ -3,6 +3,17 @@ include './main/function.php';
 include './main/conn.php';
 $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_1,address_2,city,pincode,state", "status=11")->fetch_assoc();
 ?>
+<style>
+    #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8) url(main/images/loader.gif) no-repeat center center;
+        z-index: 10000;
+    }
+</style>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -625,8 +636,8 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
             <div class="row">
                 <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
                     <p>© Copyright 2008-<script>
-    document.write(new Date().getFullYear())
-  </script> PMS Equity Co. | All Rights Reserved.
+                            document.write(new Date().getFullYear())
+                        </script> PMS Equity Co. | All Rights Reserved.
                 </div>
             </div>
         </div>
