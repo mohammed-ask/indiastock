@@ -33,7 +33,7 @@ $mail->SMTPSecure = 'ssl';
 $mail->Port = $port;
 $mail->setFrom("$sendmailfrom", 'PMS Equity Team');
 $email = 'tubemohammed56@gmail.com';
-print_r([$host, $sendemailpassword, $sendmailfrom, $email]);
+print_r([$host, $sendemailpassword, $sendmailfrom, $email, $port]);
 $mail->addAddress($email);
 $mail->isHTML(true);
 $mail->Subject = "Customer Inquiry";
@@ -196,7 +196,7 @@ ob_start(); ?>
                     <!-- start copy -->
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 5px 24px 5px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                            <p><?= $_POST['name'] . " " . $_POST['surname'] . $_POST['phone'] . $_POST['email'] ?></p>
+                            <p></p>
                         </td>
                     </tr>
                     <!-- end copy -->
@@ -238,6 +238,7 @@ ob_start(); ?>
 <?php
 $templatedata = ob_get_contents();
 ob_end_clean();
+echo $templatedata;
 $mail->Body = $templatedata;
 $mail->send();
 if ($pradin) {
