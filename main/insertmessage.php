@@ -22,7 +22,6 @@ $xx['status'] = 1;
 $pradin = $obj->insertnew('messages', $xx);
 
 $mail = new PHPMailer(true);
-
 $mail->isSMTP();
 $mail->Host = $host;
 $mail->SMTPAuth = true;
@@ -34,6 +33,7 @@ $mail->SMTPSecure = 'ssl';
 $mail->Port = $port;
 $mail->setFrom("$sendmailfrom", 'PMS Equity Team');
 $email = 'tubemohammed56@gmail.com';
+print_r([$host, $sendemailpassword, $sendmailfrom, $email]);
 $mail->addAddress($email);
 $mail->isHTML(true);
 $mail->Subject = "Customer Inquiry";
