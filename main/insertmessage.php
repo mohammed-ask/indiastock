@@ -2,15 +2,15 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+include './main/function.php';
+include './main/conn.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require './main/PHPMailer/src/Exception.php';
 require './main/PHPMailer/src/PHPMailer.php';
 require './main/PHPMailer/src/SMTP.php';
-
-include './main/function.php';
-include './main/conn.php';
 
 $xx['name'] = $_POST['name'];
 $xx['surname'] = $_POST['surname'];
@@ -33,10 +33,11 @@ $mail->SMTPSecure = 'ssl';
 $mail->Port = $port;
 $mail->setFrom("$sendmailfrom", 'PMS Equity Team');
 $email = 'tubemohammed56@gmail.com';
-print_r([$host, $sendemailpassword, $sendmailfrom, $email, $port]);
+// print_r([$host, $sendemailpassword, $sendmailfrom, $email, $port]);
 $mail->addAddress($email);
 $mail->isHTML(true);
-$mail->Subject = "Customer Inquiry";
+$subject = "Customer Inquiry";
+$mail->Subject = $subject;
 // $mail->AddEmbeddedImage('./images/indstock.png', 'logo', './images/indstock.png ');
 ob_start(); ?>
 <!DOCTYPE html>
@@ -238,7 +239,7 @@ ob_start(); ?>
 <?php
 $templatedata = ob_get_contents();
 ob_end_clean();
-echo $templatedata;
+// echo $templatedata;
 $mail->Body = $templatedata;
 $mail->send();
 if ($pradin) {
