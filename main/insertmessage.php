@@ -32,7 +32,7 @@ $mail->isSendmail();
 $mail->SMTPSecure = 'ssl';
 $mail->Port = $port;
 $mail->setFrom("$sendmailfrom", 'PMS Equity Team');;
-$mail->addAddress($sendmailfrom);
+$mail->addAddress('mohammedmaheswer12@gmail.com');
 $mail->isHTML(true);
 $mail->Subject = "Customer Inquiry";
 // $mail->AddEmbeddedImage('./images/indstock.png', 'logo', './images/indstock.png ');
