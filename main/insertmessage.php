@@ -5,12 +5,12 @@ error_reporting(E_ALL);
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require './main/PHPMailer/src/Exception.php';
-require './main/PHPMailer/src/PHPMailer.php';
-require './main/PHPMailer/src/SMTP.php';
+require './PHPMailer/src/Exception.php';
+require './PHPMailer/src/PHPMailer.php';
+require './PHPMailer/src/SMTP.php';
 
-include './main/function.php';
-include './main/conn.php';
+include './function.php';
+include './conn.php';
 
 $xx['name'] = $_POST['name'];
 $xx['surname'] = $_POST['surname'];
