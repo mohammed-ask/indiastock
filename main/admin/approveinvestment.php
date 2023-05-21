@@ -38,10 +38,11 @@ $mail->Password = "$sendemailpassword";
 $mail->isSendmail();
 $mail->SMTPSecure = 'ssl';
 $mail->Port = $port;
-$mail->setFrom("$sendmailfrom", 'PMS Equity Team');;
+$mail->setFrom("$sendmailfrom", 'PMS Equity Team');
 $mail->addAddress($email);
 $mail->isHTML(true);
-$mail->Subject = 'PMS Equity Fund Request';
+$mail->addReplyTo("$sendmailfrom", 'PMS Equity Team');
+$mail->Subject = 'dddd';
 ?>
 <!DOCTYPE html>
 <html>
@@ -205,7 +206,7 @@ $mail->Subject = 'PMS Equity Fund Request';
                     <!-- start copy -->
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 5px 24px 5px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-
+                            <p></p>
                         </td>
                     </tr>
                     <!-- end copy -->
