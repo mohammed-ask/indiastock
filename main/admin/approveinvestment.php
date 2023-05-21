@@ -12,7 +12,7 @@ require 'main/PHPMailer/src/SMTP.php';
 include "main/session.php";
 $obj->saveactivity("Fund Request Request Approved/Disapprove", "", $_GET["hakuna"], $_GET["hakuna"], "User", "Fund Request Request Approved/Disapprove");
 $id = $_GET['hakuna'];
-$rowfund = $obj->selectextrawhere("fundrequest", "amount", "id=" . $id . "")->fetch_assoc();
+$rowfund = $obj->selectextrawhere("fundrequest", "id=" . $id . "")->fetch_assoc();
 $email = $obj->selectfieldwhere("users", "email", "id=" . $rowfund['userid'] . "");
 $investmentamount = $obj->selectfieldwhere("users", "investmentamount", "id=" . $rowfund['userid'] . "");
 if ($_GET['what'] === 'Approve') {
