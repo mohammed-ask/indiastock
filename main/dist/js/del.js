@@ -89,7 +89,7 @@ function Del() {
 
         $('#' + resultid).html(resultdata).fadeIn(400);
         //dataTableInitiate();
-        // location.reload(true);
+        location.reload(true);
         $("#overlay").remove();
         $("#overlay").hide().delay(8000);
     }

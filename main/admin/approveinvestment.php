@@ -174,7 +174,7 @@ ob_start();
                         <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
 
                             <h2 style="margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -1px; word-spacing: 2px;">
-                                Your Transaction of ₹ 10000 in PMS Equity Wallet is <?= $_GET['what'] === 'Approve' ? "Successful" : 'Failed' ?>. </h2>
+                                Your Transaction of ₹ <?= $rowfund['amount'] ?> in PMS Equity Wallet is <?= $_GET['what'] === 'Approve' ? "Successful" : 'Failed' ?>. </h2>
                         </td>
                     </tr>
                 </table>
