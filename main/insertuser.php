@@ -3,13 +3,6 @@ session_start();
 // ini_set('display_errors', 1);
 // error_reporting(E_ALL);
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require './PHPMailer/src/Exception.php';
-require './PHPMailer/src/PHPMailer.php';
-require './PHPMailer/src/SMTP.php';
-
 include './function.php';
 include './conn.php';
 if ($_SESSION['otp'] != $_POST['otp']) {
@@ -69,7 +62,7 @@ if ($_SESSION['otp'] != $_POST['otp']) {
             $cg['category'] = "usercode";
             // $fsed = getfirstandlastday($date);
             $cg['addedon'] = date("Y-m-d H:i:s");
-            $cg['addedby'] = $employeeid;
+            $cg['addedby'] = 0;
             $cg['status'] = 1;
             $codegeneratorid = $obj->insertnew("codegenerator", $cg);
             $codenumber = 1;
@@ -80,9 +73,9 @@ if ($_SESSION['otp'] != $_POST['otp']) {
         $obj->update("codegenerator", $n, $codegeneratorid);
         $x['usercode'] = $uniqueid;
         $x['added_on'] = date('Y-m-d H:i:s');
-        // $x['added_by'] = $employeeid;
+        // $x['added_by'] = 0;
         $x['updated_on'] = date('Y-m-d H:i:s');
-        // $x['updated_by'] = $employeeid;
+        // $x['updated_by'] = 0;
         $x['status'] = 0;
         $x['name'] = ucwords($_POST['username']);
         $x['email'] = $_POST['email'];
@@ -104,6 +97,26 @@ if ($_SESSION['otp'] != $_POST['otp']) {
         $x['role'] = 2;
         $x['longholding'] = 'No';
         $userid = $obj->insertnew($tb_name, $x);
+        $path = "uploads/userdocs";
+        foreach ($_POST["name"] as $key => $value) {
+            $name = 'path' . $key;
+            $document[$name]['name'] = $_FILES['path']['name'][$key];
+            $document[$name]['type'] = $_FILES['path']['type'][$key];
+            $document[$name]['tmp_name'] = $_FILES['path']['tmp_name'][$key];
+            $document[$name]['size'] = $_FILES['path']['size'][$key];
+            $document[$name]['error'] = $_FILES['path']['error'][$key];
+            $y['path'] = $obj->uploadfilenew($path, $document, $name, array("png", "jpg", "jpeg", "pdf", "doc"));
+            $y['name'] = $_POST['name'][$key];
+            $y['userid'] = $userid;
+            $y['added_on'] = date('Y-m-d H:i:s');
+            $y['added_by'] = 0;
+            $y['updated_on'] = date('Y-m-d H:i:s');
+            $y['updated_by'] = 0;
+            $y['status'] = 1;
+            $postdata = $y;
+            $tb_name = "userdocuments";
+            $pradin = $obj->insertnew($tb_name, $postdata);
+        }
         foreach ($defaultstock as $ds) {
             $jk['Symbol'] = $ds['Symbol'];
             $jk['symboltoken'] = $ds['symboltoken'];
