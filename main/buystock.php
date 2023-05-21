@@ -1,7 +1,8 @@
 <?php
 include "main/session.php";
 $mrkt = $obj->marketstatus();
-// $mrkt = 'Open';
+// $mrkt[0]['MarketStatus'] = 'Open';
+// $mrkt[5]['MarketStatus'] = 'Open';
 $token = $_GET['hakuna'];
 $exchange = $_GET['what'];
 $id = $obj->selectfieldwhere("userstocks", "id", "symboltoken = '" . $token . "' and userid='$employeeid' and status = 1");
@@ -61,7 +62,11 @@ $stockdata = $stockdata[0];
                 </label>
             </div>
         </div> -->
-        <button <?php echo $investmentamount > 0 && $mrkt === 'Open' ? null : 'disabled'; ?> class="btn btn-success w-100 my-3" onclick="<?php echo $investmentamount > 0 && $mrkt === 'Open' ? 'event.preventDefault();sendForm(\'\', \'\', \'insertbuystock\', \'resultid\', \'buystock\')' : ''; ?>">BUY</button>
+        <?php if ($stockdata['Exch'] === 'N' || $stockdata['Exch'] === 'B') { ?>
+            <button <?php echo $investmentamount > 0 && $mrkt[0]['MarketStatus'] === 'Open'  ? null : 'disabled'; ?> class="btn btn-success w-100 my-3" onclick="<?php echo $investmentamount > 0 && $mrkt[0]['MarketStatus'] === 'Open' ? 'event.preventDefault();sendForm(\'\', \'\', \'insertbuystock\', \'resultid\', \'buystock\')' : ''; ?>">BUY</button>
+        <?php } elseif ($stockdata['Exch'] === 'M') { ?>
+            <button <?php echo $investmentamount > 0 && $mrkt[5]['MarketStatus'] === 'Open'  ? null : 'disabled'; ?> class="btn btn-success w-100 my-3" onclick="<?php echo $investmentamount > 0 && $mrkt[0]['MarketStatus'] === 'Open' ? 'event.preventDefault();sendForm(\'\', \'\', \'insertbuystock\', \'resultid\', \'buystock\')' : ''; ?>">BUY</button>
+        <?php } ?>
         <div id="resultid"></div>
     </form>
     <div class="mt-3">

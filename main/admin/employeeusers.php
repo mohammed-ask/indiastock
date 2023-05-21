@@ -34,6 +34,7 @@ if (!in_array(43, $permissions)) {
                         <th class="px-3 py-2">Email</th>
                         <th class="px-3 py-2">Status</th>
                         <th class="px-3 py-2">Fund History</th>
+                        <th class="px-3 py-2">View Docs</th>
                         <th class="px-3 py-2">Action</th>
                     </tr>
                 </thead>

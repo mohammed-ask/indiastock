@@ -281,7 +281,7 @@ $obj->saveactivity("Thurday Cron Run", "", 0, 0, "User", "Thurday Cron Run");
 $todayopentradeid = $obj->selectfieldwhere(
     "stocktransaction inner join users on users.id = stocktransaction.userid",
     "group_concat(distinct(stockid))",
-    "stocktransaction.status = 0 and tradestatus='Open' and users.longholding='No' and stockid != '' and stockid is not null"
+    "stocktransaction.status = 0 and tradestatus='Open' and users.longholding='No' and stockid != '' and stockid is not null  and exchange in ('N','B')"
 );
 if (!empty($todayopentradeid)) {
     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "status = 1 and id in (" . $todayopentradeid . ")");
@@ -291,7 +291,7 @@ if (!empty($todayopentradeid)) {
 $result = $obj->selectextrawhereupdate(
     "stocktransaction inner join users on users.id = stocktransaction.userid",
     "stockid,symbol,exchange,qty,price,userid,stocktransaction.id,stocktransaction.type,stocktransaction.limit,stocktransaction.totalamount,users.investmentamount,borrowedamt,borrowedprcnt,trademethod,mktlot",
-    "stocktransaction.status = 0 and  tradestatus='Open' and users.longholding='No' and stockid != '' and stockid is not null"
+    "stocktransaction.status = 0 and  tradestatus='Open' and users.longholding='No' and stockid != '' and stockid is not null  and exchange in ('N','B')"
 );
 while ($row = $obj->fetch_assoc($result)) {
     $symbol = $row['symbol'];

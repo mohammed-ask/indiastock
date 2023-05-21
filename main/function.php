@@ -1522,7 +1522,7 @@ class db
             curl_close($ch);
             $response = json_decode($res, true);
             if (isset($response['body']['Data'])) {
-                return $response['body']['Data'][0]['MarketStatus'];
+                return $response['body']['Data'];
             } else {
                 throw new Exception('Error fetching:');
             }

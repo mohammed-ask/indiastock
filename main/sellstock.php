@@ -1,6 +1,8 @@
 <?php
 include "main/session.php";
 $mrkt = $obj->marketstatus();
+// $mrkt[0]['MarketStatus'] = 'Open';
+// $mrkt[5]['MarketStatus'] = 'Open';
 // $mrkt = 'Open';
 $token = $_GET['hakuna'];
 $exchange = $_GET['what'];
@@ -74,7 +76,12 @@ $stockdata = $stockdata[0];
                 </label>
             </div>
         </div> -->
-        <button <?php echo $investmentamount > 0 && $mrkt === 'Open' ? null : 'disabled'; ?> class="btn btn-danger w-100 my-3" onclick="<?php echo $investmentamount > 0 && $mrkt === 'Open' ? 'event.preventDefault();sendForm(\'\', \'\', \'insertsellstock\', \'resultid\', \'sellstock\')' : ''; ?>">SELL</button>
+        <?php if ($stockdata['Exch'] === 'N' || $stockdata['Exch'] === 'B') { ?>
+            <button <?php echo $investmentamount > 0 && $mrkt[0]['MarketStatus'] === 'Open' ? null : 'disabled'; ?> class="btn btn-danger w-100 my-3" onclick="<?php echo $investmentamount > 0 && $mrkt[0]['MarketStatus'] === 'Open' ? 'event.preventDefault();sendForm(\'\', \'\', \'insertsellstock\', \'resultid\', \'sellstock\')' : ''; ?>">SELL</button>
+        <?php } elseif ($stockdata['Exch'] === 'M') { ?>
+            <button <?php echo $investmentamount > 0 && $mrkt[0]['MarketStatus'] === 'Open' ? null : 'disabled'; ?> class="btn btn-danger w-100 my-3" onclick="<?php echo $investmentamount > 0 && $mrkt[0]['MarketStatus'] === 'Open' ? 'event.preventDefault();sendForm(\'\', \'\', \'insertsellstock\', \'resultid\', \'sellstock\')' : ''; ?>">SELL</button>
+        <?php } ?>
+
         <div id="resultid"></div>
     </form>
     <!-- <div class="mt-3">

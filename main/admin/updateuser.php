@@ -2,6 +2,9 @@
 include "main/session.php";
 $id = $_POST['id'];
 unset($_POST['id']);
+// echo "<pre>";
+// print_r($_FILES);
+// die;
 $emailcount = $obj->selectfieldwhere('users', "count(id)", "email='" . $_POST['email'] . "' and status != 99 and id != '" . $id . "'");
 $empcode = $obj->selectfieldwhere('users', 'count(id)', 'usercode="' . trim($_POST['employeeref']) . '" and type = 1');
 if ($emailcount > 0) {
@@ -10,6 +13,36 @@ if ($emailcount > 0) {
 if ($empcode != 1 && !empty($_POST['employeeref'])) {
     echo "<div class='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative' role='alert'>Sorry! Employee ID Does Not Match With Our Existing Employees  </div>";
 } else {
+    $path = "main/uploads/userdocs";
+    foreach ($_POST["name"] as $key => $value) {
+        $name = 'path' . $key;
+        if (!empty($_FILES['path']['name'][$key])) {
+            $uplid = $obj->selectfieldwhere("userdocuments", "path", "userid='" . $id . "'  and name='" . $_POST['name'][$key] . "' and status = 1");
+            $oldfile = $obj->selectfieldwhere("uploadfile", "path", "id='" . $uplid . "'");
+            echo $oldfile;
+            if (file_exists($oldfile)) {
+                $delfile = unlink($oldfile);
+                $obj->deletewhere("userdocuments", "userid=" . $id . " and name='" . $_POST['name'][$key] . "' and status = 1");
+                $obj->deletewhere("uploadfile", "id='" . $uplid . "'");
+            }
+            $document[$name]['name'] = $_FILES['path']['name'][$key];
+            $document[$name]['type'] = $_FILES['path']['type'][$key];
+            $document[$name]['tmp_name'] = $_FILES['path']['tmp_name'][$key];
+            $document[$name]['size'] = $_FILES['path']['size'][$key];
+            $document[$name]['error'] = $_FILES['path']['error'][$key];
+            $y['path'] = $obj->uploadfilenew($path, $document, $name, array("png", "jpg", "jpeg", "pdf", "doc"));
+            $y['name'] = $_POST['name'][$key];
+            $y['userid'] = $id;
+            $y['added_on'] = date('Y-m-d H:i:s');
+            $y['added_by'] = $employeeid;
+            $y['updated_on'] = date('Y-m-d H:i:s');
+            $y['updated_by'] = $employeeid;
+            $y['status'] = 1;
+            $postdata = $y;
+            $tb_name = "userdocuments";
+            $pradin = $obj->insertnew($tb_name, $postdata);
+        }
+    }
     $tb_name = 'users';
     $x = array();
     $x['updated_on'] = date('Y-m-d H:i:s');
