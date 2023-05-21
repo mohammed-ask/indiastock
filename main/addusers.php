@@ -863,7 +863,7 @@ margin-bottom: 20px;
                         <div class="input-text m-input-text">
                             <div class='file-input'>
                                 <p>Aadhar Front Side</p>
-                                <input type='file'>
+                                <input type='file' required require>
                                 <span class='button'>Choose</span>
                                 <span class='label' data-js-label>No file selected</span>
                             </div>
@@ -871,7 +871,7 @@ margin-bottom: 20px;
                            
                             <div class='file-input'>
                             <p>Aadhar Back Side</p>
-                                <input type='file'>
+                                <input type='file' required require>
                                 <span class='button'>Choose</span>
                                 <span class='label' data-js-label>No file selected</span>
                             </div>
@@ -881,7 +881,7 @@ margin-bottom: 20px;
                         <div class="input-text m-input-text">
                             <div class='file-input'>
                                 <p>Pan Card</p>
-                                <input type='file'>
+                                <input type='file' required require>
                                 <span class='button'>Choose</span>
                                 <span class='label' data-js-label>No file selected</span>
                             </div>
@@ -889,7 +889,7 @@ margin-bottom: 20px;
                            
                             <div class='file-input'>
                             <p>Passbook / Cancel Cheque</p>
-                                <input type='file'>
+                                <input type='file' required require>
                                 <span class='button'>Choose</span>
                                 <span class='label' data-js-label>No file selected</span>
                             </div>
@@ -898,7 +898,7 @@ margin-bottom: 20px;
                         <div class="input-text m-input-text m2-input-text">
                             <div class='file-input'>
                                 <p>Passport Size Photo</p>
-                                <input type='file'>
+                                <input type='file' required require>
                                 <span class='button'>Choose</span>
                                 <span class='label' data-js-label>No file selected</span>
                             </div>
@@ -906,7 +906,7 @@ margin-bottom: 20px;
                            
                             <div class='file-input'>
                             <p>Signature on Blank page</p>
-                                <input type='file'>
+                                <input type='file' required require>
                                 <span class='button'>Choose</span>
                                 <span class='label' data-js-label>No file selected</span>
                             </div>
@@ -924,12 +924,12 @@ margin-bottom: 20px;
                         <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
                         <div class="text">
                             <h2>Employee ID & Password</h2>
-                            <p>Please enter employee ID(if available) & password.</p>
+                            <p>Please enter broker ID(if available) & password.</p>
                         </div>
                         <div class="input-text">
                             <div class="input-div">
                                 <input type="text" id="employeeref">
-                                <span>Employee ID (if available)</span>
+                                <span>Broker ID (if available)</span>
                             </div>
                         </div>
 
