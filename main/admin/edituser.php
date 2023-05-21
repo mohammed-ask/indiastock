@@ -152,6 +152,11 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
     </div>
     <div class="row row-cols-lg-auto g-3 align-items-center">
         <label class="col-6 block text-sm" style="margin-bottom: 5px;">
+            <span class="text-gray-700 dark:text-gray-400">Passport Size Photo</span>
+            <input hidden value="Passport Size Photo" name="name[]">
+            <input xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+        </label>
+        <label class="col-6 block text-sm" style="margin-bottom: 5px;">
             <span class="text-gray-700 dark:text-gray-400">Passbook</span>
             <input hidden value="Passbook" name="name[]">
             <input xdata-bvalidator="required" class="form-control" type="file" name="path[]">
