@@ -13,6 +13,7 @@ include "main/session.php";
 $obj->saveactivity("Customer Bank Account Approved/Reject", "", $_GET["hakuna"], $_GET["hakuna"], "User", "Customer Bank Account Approved/Reject");
 $id = $_GET['hakuna'];
 $rowbank = $obj->selectextrawhere("bankaccountchange", "id=" . $id . "")->fetch_assoc();
+$email = $obj->selectfieldwhere("users", "email", "id=" . $rowbank['userid'] . "");
 if ($_GET['what'] === 'Approve') {
     $xx['status'] = 1;
     $xx["approvedon"] = date('Y-m-d H:i:s');
@@ -36,6 +37,7 @@ if ($_GET['what'] === 'Approve') {
     $mail->addAddress($email);
     $mail->isHTML(true);
     $mail->Subject = 'PMS Equity bank account has been approved';
+    ob_start();
 ?>
     <!DOCTYPE html>
     <html>
