@@ -19,7 +19,6 @@ if ($empcode != 1 && !empty($_POST['employeeref'])) {
         if (!empty($_FILES['path']['name'][$key])) {
             $uplid = $obj->selectfieldwhere("userdocuments", "path", "userid='" . $id . "'  and name='" . $_POST['name'][$key] . "' and status = 1");
             $oldfile = $obj->selectfieldwhere("uploadfile", "path", "id='" . $uplid . "'");
-            echo $oldfile;
             if (file_exists($oldfile)) {
                 $delfile = unlink($oldfile);
                 $obj->deletewhere("userdocuments", "userid=" . $id . " and name='" . $_POST['name'][$key] . "' and status = 1");
