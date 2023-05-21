@@ -105,7 +105,7 @@
         .progress-bar li {
             position: relative;
             margin-left: 40px;
-            margin-top: 50px;
+            margin-top: 40px;
             counter-increment: container-dabba 1;
             color: #065b5b;
         }
@@ -131,12 +131,12 @@
         .progress-bar li::after {
             content: '';
             position: absolute;
-            height: 90px;
+            height: 80px;
             width: 2px;
             background-color: #048e8e;
             z-index: 1;
             left: -27px;
-            top: -70px;
+            top: -60px;
         }
 
 
@@ -560,57 +560,155 @@
             }
         }
 
-/* --------------------alertify---------------- */
+        /* --------------------alertify---------------- */
 
-.alertify .ajs-header {
-display: none;
+        .alertify .ajs-header {
+            display: none;
 
+        }
+
+
+        .alertify .ajs-footer {
+            /* padding: 4px; */
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+            min-height: 35px !important;
+            background-color: #00aaaa2e !important;
+            padding: 0px !important;
+        }
+
+        .alertify .ajs-dialog {
+
+            padding: 15px 0px 0 0px !important;
+            max-width: 400px !important;
+            border-radius: 5px !important;
+        }
+
+        .alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
+            margin: 0px !important;
+        }
+
+        .alertify .ajs-commands {
+            margin: -12px 10px 0 0 !important;
+        }
+
+        .alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok {
+            color: #fff !important;
+            border: 1px dotted #fff;
+            border-radius: 5px;
+            /* margin-right: 10px !important; */
+            margin: 5px 6px 5px 10px !important;
+            background-color: #00aaaa;
+        }
+
+        .alertify .ajs-dimmer {
+
+            transition-timing-function: ease-in;
+            transition-duration: 500ms !important;
+        }
+
+        .alertify .ajs-modal {
+
+            transition-timing-function: ease-out;
+            transition-duration: 500ms !important;
+        }
+
+
+
+        .form-control[type=file]:not(:disabled):not([readonly]) {
+            cursor: pointer;
+        }
+
+
+
+
+        /* file upload css */
+
+
+        .file-input {
+            display: inline-block;
+            text-align: left;
+            padding: 0;
+            width: 100%;
+            position: relative;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+
+        .file-input>[type='file'] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .file-input>.button {
+            display: inline-block;
+            cursor: pointer;
+            background: #00aaaa;
+            padding: 6px 11px;
+            border-radius: 2px;
+            margin-right: 0px;
+            color: white;
+        }
+
+        .file-input> p {
+            font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 11px;
+        }
+
+
+        .file-input:hover>.button {
+            background: #057c7c;
+            color: white;
+        }
+
+        .file-input>.label {
+            color: #333;
+            white-space: nowrap;
+            opacity: 1;
+            border: 1px solid #00aaaa;
+    padding: 5px 20px 7px 15px;
+    border-radius: 3px;
+        }
+
+        .file-input.-chosen>.label {
+            opacity: 1;
+    border: 1px solid #00aaaa;
+    padding: 5px 3px 7px 15px;
+    border-radius: 3px;
+        }
+
+        @media (max-width:750px) {
+            .file-input {
+    margin-top: 15px;}
+
+    .file-input>.label{
+
+        padding-right: 50px;
+    }
+    .file-input.-chosen>.label {
+
+        padding-right: 40px;
+
+    }
+
+    .m-input-text{
+
+        margin: 0;
+    }
+
+    .m2-input-text{
+
+margin-bottom: 20px;
 }
 
-
-.alertify .ajs-footer {
-  /* padding: 4px; */
-  margin-left: 0px !important;
-  margin-right: 0px !important;
-  min-height: 35px !important;
-  background-color: #00aaaa2e !important;
-  padding: 0px !important;
-}
-
-.alertify .ajs-dialog {
-  
-  padding: 15px 0px 0 0px !important;
-  max-width: 400px !important;
-  border-radius: 5px !important;
-}
-
-.alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
-  margin: 0px !important;
-}
-
-.alertify .ajs-commands {
-  margin:-12px 10px 0 0 !important; 
-}
-
-.alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok {
-  color: #fff !important;
-    border: 1px dotted #fff;
-    border-radius: 5px;
-    /* margin-right: 10px !important; */
-    margin: 5px 6px 5px 10px !important;
-    background-color: #00aaaa;
-}
-
-.alertify .ajs-dimmer {
-  
-  transition-timing-function: ease-in;
-  transition-duration: 500ms !important;
-}
-
-  .alertify .ajs-modal {
-  
-    transition-timing-function: ease-out;
-    transition-duration: 500ms !important;}
+        }
 
 
 
@@ -637,6 +735,7 @@ display: none;
                         <li class="active">Personal Information</li>
                         <li>Required Documents</li>
                         <li>Bank Details</li>
+                        <li>Documentation</li>
                         <li>Password</li>
                     </ul>
 
@@ -675,6 +774,84 @@ display: none;
                             <button class="next_button">Next Step</button>
                         </div>
                     </div>
+
+
+
+
+
+
+                    <div class="main">
+                        <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
+                        <div class="text">
+                            <h2>Upload Documents</h2>
+                            <p>Please Upload your documents & press next</p>
+                        </div>
+
+                        
+                        <div class="input-text m-input-text">
+                            <div class='file-input'>
+                                <p>Aadhar Front Side</p>
+                                <input type='file'>
+                                <span class='button'>Choose</span>
+                                <span class='label' data-js-label>No file selected</span>
+                            </div>
+
+                           
+                            <div class='file-input'>
+                            <p>Aadhar Back Side</p>
+                                <input type='file'>
+                                <span class='button'>Choose</span>
+                                <span class='label' data-js-label>No file selected</span>
+                            </div>
+                        </div>
+
+
+                        <div class="input-text m-input-text">
+                            <div class='file-input'>
+                                <p>Pan Card</p>
+                                <input type='file'>
+                                <span class='button'>Choose</span>
+                                <span class='label' data-js-label>No file selected</span>
+                            </div>
+
+                           
+                            <div class='file-input'>
+                            <p>Passbook / Cancel Cheque</p>
+                                <input type='file'>
+                                <span class='button'>Choose</span>
+                                <span class='label' data-js-label>No file selected</span>
+                            </div>
+                        </div>
+
+                        <div class="input-text m-input-text m2-input-text">
+                            <div class='file-input'>
+                                <p>Passport Size Photo</p>
+                                <input type='file'>
+                                <span class='button'>Choose</span>
+                                <span class='label' data-js-label>No file selected</span>
+                            </div>
+
+                           
+                            <div class='file-input'>
+                            <p>Signature on Blank page</p>
+                                <input type='file'>
+                                <span class='button'>Choose</span>
+                                <span class='label' data-js-label>No file selected</span>
+                            </div>
+                        </div>
+
+                       
+                        <div class="buttons button_space">
+                            <button class="back_button">Back</button>
+                            <button class="next_button">Next Step</button>
+                        </div>
+                    </div>
+
+
+
+
+
+
                     <div class="main">
                         <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
                         <div class="text">
@@ -695,6 +872,7 @@ display: none;
                                 <input type="number" id="adharno" required require>
                                 <span>Aadhar Number</span>
                             </div>
+
                         </div>
                         <div class="input-text">
                             <div class="input-div">
@@ -744,6 +922,73 @@ display: none;
                         </div>
                     </div>
 
+                   
+                    <div class="main">
+                        <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
+                        <div class="text">
+                            <h2>Upload Documents</h2>
+                            <p>Please Upload your documents & press next</p>
+                        </div>
+
+                        
+                        <div class="input-text m-input-text">
+                            <div class='file-input'>
+                                <p>Aadhar Front Side</p>
+                                <input type='file'>
+                                <span class='button'>Choose</span>
+                                <span class='label' data-js-label>No file selected</span>
+                            </div>
+
+                           
+                            <div class='file-input'>
+                            <p>Aadhar Back Side</p>
+                                <input type='file'>
+                                <span class='button'>Choose</span>
+                                <span class='label' data-js-label>No file selected</span>
+                            </div>
+                        </div>
+
+
+                        <div class="input-text m-input-text">
+                            <div class='file-input'>
+                                <p>Pan Card</p>
+                                <input type='file'>
+                                <span class='button'>Choose</span>
+                                <span class='label' data-js-label>No file selected</span>
+                            </div>
+
+                           
+                            <div class='file-input'>
+                            <p>Passbook / Cancel Cheque</p>
+                                <input type='file'>
+                                <span class='button'>Choose</span>
+                                <span class='label' data-js-label>No file selected</span>
+                            </div>
+                        </div>
+
+                        <div class="input-text m-input-text m2-input-text">
+                            <div class='file-input'>
+                                <p>Passport Size Photo</p>
+                                <input type='file'>
+                                <span class='button'>Choose</span>
+                                <span class='label' data-js-label>No file selected</span>
+                            </div>
+
+                           
+                            <div class='file-input'>
+                            <p>Signature on Blank page</p>
+                                <input type='file'>
+                                <span class='button'>Choose</span>
+                                <span class='label' data-js-label>No file selected</span>
+                            </div>
+                        </div>
+
+                       
+                        <div class="buttons button_space">
+                            <button class="back_button">Back</button>
+                            <button class="next_button">Next Step</button>
+                        </div>
+                    </div>
 
 
                     <div class="main">
@@ -994,7 +1239,36 @@ display: none;
             return validate;
 
         }
+
     </script>
+
+<script>
+
+// Also see: https://www.quirksmode.org/dom/inputfile.html
+
+var inputs = document.querySelectorAll('.file-input')
+
+for (var i = 0, len = inputs.length; i < len; i++) {
+  customInput(inputs[i])
+}
+
+function customInput (el) {
+  const fileInput = el.querySelector('[type="file"]')
+  const label = el.querySelector('[data-js-label]')
+  
+  fileInput.onchange =
+  fileInput.onmouseout = function () {
+    if (!fileInput.value) return
+    
+    var value = fileInput.value.replace(/^.*[\\\/]/, '')
+    el.className += ' -chosen'
+    label.innerText = value.length > 15 ? value.slice(0, 15) + '...' : value;
+  }
+}
+
+
+
+</script>
 </body>
 
 </html>
