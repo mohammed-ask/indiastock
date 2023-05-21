@@ -158,7 +158,7 @@ if ($todaystocktotalamt != 0) {
                 <div class="row align-items-center">
                     <div class="col text-center">
                         <span <?= $totalprofit >= 0 ? "class='h5 text-success'" : "class='h5 text-danger'" ?>>₹<?= round($totalprofit) ?></span>
-                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Profit/Loss</h6>
+                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Profit</h6>
                         <h6 <?= $totalprofit >= 0 ? "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'" : "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger'" ?>><?= round($totalprofitprcnt, 2) ?><span> % </span></h6>
                     </div><!--end col-->
                 </div> <!-- end row -->
@@ -166,6 +166,73 @@ if ($todaystocktotalamt != 0) {
         </div> <!--end card-->
     </div><!--end col-->
 </div><!--end row-->
+
+
+<div class="row">
+<div class="col-md-6 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col text-center">
+                       <div style="display: inline-flex;"> <span <?= $totalprofit >= 0 ? "class='m-0 h5 text-success'" : "class='m-0 h5 text-danger'" ?>>₹<?= round($totalprofit) ?></span><span><h6 style="width: max-content; border: none; margin-top: 2px!important; margin-left: 12% !important;" <?= $totalprofit >= 0 ? "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'" : "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger'" ?>>(<?= round($totalprofitprcnt, 2) ?><span> % )</span></h6></span></div>
+                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Loss</h6>
+                        
+                    </div><!--end col-->
+                </div> <!-- end row -->
+            </div><!--end card-body-->
+        </div> <!--end card-->
+    </div><!--end col-->
+    <div class="col-md-6 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col text-center">
+                        <span class="h5">₹<?= round($investamt, 2) ?></span>
+                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Total Fund Added</h6>
+                    </div><!--end col-->
+                </div> <!-- end row -->
+            </div><!--end card-body-->
+        </div> <!--end card-body-->
+    </div><!--end col-->
+    
+    <div class="col-md-6 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col text-center">
+                        <span <?= $todayprofit >= 0 ? "class='h5 text-success'" : "class='h5 text-danger'" ?>>₹<?= round($todayprofit, 2) ?></span>
+                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Total Fund Withdrawal</h6>
+                        
+                    </div><!--end col-->
+                </div> <!-- end row -->
+            </div><!--end card-body-->
+        </div> <!--end card-body-->
+    </div><!--end col-->
+    <div class="col-md-6 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col text-center">
+                        <?php //Current Value 
+                        ?>
+                        <span class="h5">₹<?= round($investmentamount) ?></span>
+                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Avialable Fund</h6>
+
+                    </div><!--end col-->
+                </div> <!-- end row -->
+            </div><!--end card-body-->
+        </div> <!--end card-body-->
+    </div><!--end col-->
+    
+</div><!--end row-->
+
+
+
+
+
+
+
+
 <div class="row">
     <div class="col-12">
         <div class="card">

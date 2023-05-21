@@ -923,12 +923,12 @@ margin-bottom: 20px;
                     <div class="main">
                         <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
                         <div class="text">
-                            <h2>Employee ID & Password</h2>
+                            <h2>Broker ID & Password</h2>
                             <p>Please enter broker ID(if available) & password.</p>
                         </div>
                         <div class="input-text">
                             <div class="input-div">
-                                <input type="text" id="employeeref">
+                                <input style="text-transform: uppercase;" type="text" id="employeeref">
                                 <span>Broker ID (if available)</span>
                             </div>
                         </div>
