@@ -12,7 +12,12 @@ if ($_SESSION['otp'] == $_POST['otp']) {
         $xx['carryforward'] = 'No';
     }
     $xx['mobile'] = $_POST['mobile'];
-    $xx['trademode'] = $_POST['trademode'];
+    if (isset($_POST['longholding'])) {
+        $xx['longholding'] = $_POST['longholding'];
+    } else {
+        $xx['longholding'] = 'No';
+    }
+    // $xx['trademode'] = $_POST['trademode'];
     $xx['password'] = $_POST['password'];
     $user = $obj->update("users", $xx, $employeeid);
     echo "Redirect : Profile Updated Successfully URLprofile";

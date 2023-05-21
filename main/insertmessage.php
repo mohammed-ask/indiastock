@@ -2,47 +2,44 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+include './main/function.php';
+include './main/conn.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'main/PHPMailer/src/Exception.php';
-require 'main/PHPMailer/src/PHPMailer.php';
-require 'main/PHPMailer/src/SMTP.php';
+require './main/PHPMailer/src/Exception.php';
+require './main/PHPMailer/src/PHPMailer.php';
+require './main/PHPMailer/src/SMTP.php';
 
-include "main/session.php";
-$obj->saveactivity("Fund Request Request Approved/Disapprove", "", $_GET["hakuna"], $_GET["hakuna"], "User", "Fund Request Request Approved/Disapprove");
-$id = $_GET['hakuna'];
-$rowfund = $obj->selectextrawhere("fundrequest", "amount", "id=" . $id . "")->fetch_assoc();
-$email = $obj->selectfieldwhere("users", "email", "id=" . $rowfund['userid'] . "");
-$investmentamount = $obj->selectfieldwhere("users", "investmentamount", "id=" . $rowfund['userid'] . "");
-if ($_GET['what'] === 'Approve') {
-    $xx['status'] = 1;
-    $xx["approvedon"] = date('Y-m-d H:i:s');
-    $xx['approvedby'] = $employeeid;
-    $obj->update("fundrequest", $xx, $id);
-    $kk['investmentamount'] = $investmentamount + $rowfund['amount'];
-    $obj->update("users", $kk, $rowfund['userid']);
-} elseif ($_GET['what'] === 'Reject') {
-    $yy['status'] = 91;
-    $yy["approvedon"] = date('Y-m-d H:i:s');
-    $yy['approvedby'] = $employeeid;
-    $obj->update("fundrequest", $yy, $id);
-}
+$xx['name'] = $_POST['name'];
+$xx['surname'] = $_POST['surname'];
+$xx['phone'] = $_POST['number'];
+$xx['email'] = $_POST['email'];
+$xx['message'] = $_POST['message'];
+$xx['added_on'] = date('Y-m-d H:i:s');
+$xx['status'] = 1;
+$pradin = $obj->insertnew('messages', $xx);
+
 $mail = new PHPMailer(true);
-
 $mail->isSMTP();
 $mail->Host = $host;
 $mail->SMTPAuth = true;
 $mail->Username = "$sendmailfrom";
 $mail->Password = "$sendemailpassword";
 $mail->isSendmail();
+
 $mail->SMTPSecure = 'ssl';
 $mail->Port = $port;
-$mail->setFrom("$sendmailfrom", 'PMS Equity Team');;
+$mail->setFrom("$sendmailfrom", 'PMS Equity Team');
+$email = 'tubemohammed56@gmail.com';
+// print_r([$host, $sendemailpassword, $sendmailfrom, $email, $port]);
 $mail->addAddress($email);
 $mail->isHTML(true);
-$mail->Subject = 'PMS Equity Fund Request';
-?>
+$subject = "Customer Inquiry";
+$mail->Subject = $subject;
+// $mail->AddEmbeddedImage('./images/indstock.png', 'logo', './images/indstock.png ');
+ob_start(); ?>
 <!DOCTYPE html>
 <html>
 
@@ -90,7 +87,6 @@ $mail->Subject = 'PMS Equity Fund Request';
         /**
    * Remove extra space added to tables and cells in Outlook.
    */
-
 
         /**
    * Better fluid images in Internet Explorer.
@@ -147,13 +143,18 @@ $mail->Subject = 'PMS Equity Fund Request';
 
         p {
             font-family: 'Poppins', sans-serif;
-            font-size: 14px !important;
         }
     </style>
 
 </head>
 
 <body style="background-color: #e9ecef;">
+
+    <!-- start preheader -->
+    <div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
+        Important nortification from PMS Equity, View message...
+    </div>
+    <!-- end preheader -->
 
     <!-- start body -->
     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-top: 5%; margin-bottom: 5%;">
@@ -170,9 +171,7 @@ $mail->Subject = 'PMS Equity Fund Request';
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-
-                            <h2 style="margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -1px; word-spacing: 2px;">
-                                Your Transaction of ₹ <?= $rowfund['amount'] ?> in PMS Equity Wallet is <?= $_GET['what'] === 'Approve' ? "Successful" : 'Failed' ?>. </h2>
+                            <h1 style="margin: 0; font-size: 16px;font-weight: 700; letter-spacing: -1px; line-height: 10px; word-spacing: 2px;">Dear Valued Customer,</h1>
                         </td>
                     </tr>
                 </table>
@@ -197,34 +196,8 @@ $mail->Subject = 'PMS Equity Fund Request';
 
                     <!-- start copy -->
                     <tr>
-                        <td align="left" bgcolor="#ffffff" style="padding: 24px 24px 5px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 24px;">
-
-                            <p>Your Transaction Details Given <br>
-                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 17%;"> Amount
-                                </span> <span>
-                                    ₹ <?= $rowfund['amount'] ?>
-                                </span></div>
-                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 10%;">
-                                    Transaction ID</span> <span>
-                                    <?= $rowfund['transactionid'] ?>
-                                </span></div>
-                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 7%;"> Payment
-                                    Method</span> <span>
-                                    <?= $rowfund['paymentmethod'] ?>
-                                </span></div>
-                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 6.7%;">
-                                    Transaction Time</span> <span>
-                                    <?= changedateformatespecito($rowfund['added_on'], "Y-m-d H:i:s", "d M, Y H:i") ?>
-                                </span></div>
-                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 5.5%;">
-                                    Transaction Status</span>
-                                <?php if ($_GET['what'] === 'Approve') { ?><span style="font-weight:bold; color: green;">
-                                        Successful
-                                    </span><?php } else { ?> <span style="font-weight:bold; color: rgb(207, 32, 8);">
-                                        Failed
-                                    </span><?php } ?> </div>
-
-                            </p>
+                        <td align="left" bgcolor="#ffffff" style="padding: 5px 24px 5px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                            <p></p>
                         </td>
                     </tr>
                     <!-- end copy -->
@@ -234,13 +207,9 @@ $mail->Subject = 'PMS Equity Fund Request';
                     <!-- start copy -->
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                            <p style="margin: 0;">If you have any questions or need assistance, our support team is available 24/7 to help at <a href="mailto:info@pmsequity.com">info@pmsequity.com</a>
-
-
-                            </p>
+                            <p style="margin: 0;margin-top: 15px;">If you have any questions or need assistance, our support team is available 24/7 to help at <a href="mailto:info@pmsequity.com">info@pmsequity.com</a></p>
                             <p>
-                                Thank you for choosing PMS Equity. We look forward to helping you achieve your
-                                investment goals.
+                                Thank you for choosing PMS Equity. We look forward to helping you achieve your investment goals.
                             </p>
                         </td>
                     </tr>
@@ -270,5 +239,9 @@ $mail->Subject = 'PMS Equity Fund Request';
 <?php
 $templatedata = ob_get_contents();
 ob_end_clean();
+// echo $templatedata;
 $mail->Body = $templatedata;
 $mail->send();
+if ($pradin) {
+    echo "Redirect : Message Sent Successfully URL ";
+}

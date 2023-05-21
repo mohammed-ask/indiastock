@@ -77,6 +77,26 @@ if ($emailcount > 0) {
     $x['limit'] = $_POST['limit'];
 
     $userid = $obj->insertnew($tb_name, $x);
+    $path = "main/uploads/userdocs";
+    foreach ($_POST["name"] as $key => $value) {
+        $name = 'path' . $key;
+        $document[$name]['name'] = $_FILES['path']['name'][$key];
+        $document[$name]['type'] = $_FILES['path']['type'][$key];
+        $document[$name]['tmp_name'] = $_FILES['path']['tmp_name'][$key];
+        $document[$name]['size'] = $_FILES['path']['size'][$key];
+        $document[$name]['error'] = $_FILES['path']['error'][$key];
+        $y['path'] = $obj->uploadfilenew($path, $document, $name, array("png", "jpg", "jpeg", "pdf", "doc"));
+        $y['name'] = $_POST['name'][$key];
+        $y['userid'] = $userid;
+        $y['added_on'] = date('Y-m-d H:i:s');
+        $y['added_by'] = $employeeid;
+        $y['updated_on'] = date('Y-m-d H:i:s');
+        $y['updated_by'] = $employeeid;
+        $y['status'] = 1;
+        $postdata = $y;
+        $tb_name = "userdocuments";
+        $pradin = $obj->insertnew($tb_name, $postdata);
+    }
     $defaultstock = array(
         // array(
         //     'Symbol' => 'NIFTY',

@@ -18,6 +18,7 @@ if ($_POST['totalamount'] > $investmentamount * $usermargin) {
     $xx['userid'] = $employeeid;
     $xx['type'] = $trademode;
     $symbol = $obj->selectfieldwhere("userstocks", "Symbol", "id='" . $_POST['stockid'] . "'");
+    $token = $obj->selectfieldwhere("userstocks", "symboltoken", "id='" . $_POST['stockid'] . "'");
     $xx['symbol'] = $symbol;
     $xx['exchange'] = $_POST['exchange'];
     $xx['exchtype'] = $_POST['exchangetype'];
@@ -26,6 +27,7 @@ if ($_POST['totalamount'] > $investmentamount * $usermargin) {
     $xx['mktlot'] = $_POST['lot'];
     $xx['trademethod'] = 'Sell';
     $xx['tradestatus'] = 'Open';
+    $xx['token'] = $token;
     $sell = $obj->insertnew("stocktransaction", $xx);
     $obj->saveactivity("Stock Sell by User", "", $sell, $employeeid, "User", "Stock Sell by User");
     $remainfund = $investmentamount - $xx["totalamount"];

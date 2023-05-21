@@ -33,6 +33,7 @@ ob_start();
                         <th class="px-3 py-2">Mobile No.</th>
                         <th class="px-3 py-2">Status</th>
                         <th class="px-3 py-2">More Details</th>
+                        <th class="px-3 py-2">User Docs</th>
                         <th class="px-3 py-2">Action</th>
                     </tr>
                 </thead>

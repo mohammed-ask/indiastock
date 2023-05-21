@@ -264,24 +264,24 @@ class db
 }
 
 
-$obj->saveactivity("Cron Run", "", 0, 0, "User", "Cron Run");
+$obj->saveactivity("Thurday Cron Run", "", 0, 0, "User", "Thurday Cron Run");
 
 // Carry forward Share
-$xx['type'] = 'Holding';
-$result = $obj->selectfieldwhere(
-    "stocktransaction inner join users on users.id = stocktransaction.userid",
-    "group_concat(stocktransaction.id)",
-    "stocktransaction.status = 0 and tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='Yes' and stockid != '' and stockid is not null and exchange in ('N','B')"
-);
-if (!empty($result)) {
-    $cf = $obj->updatewhere("stocktransaction", $xx, "id in (" . $result . ")");
-}
+// $xx['type'] = 'Holding';
+// $result = $obj->selectfieldwhere(
+//     "stocktransaction inner join users on users.id = stocktransaction.userid",
+//     "group_concat(stocktransaction.id)",
+//     "stocktransaction.status = 0 and tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='Yes'"
+// );
+// if (!empty($result)) {
+//     $cf = $obj->updatewhere("stocktransaction", $xx, "id in (" . $result . ")");
+// }
 
 // Close Trade
 $todayopentradeid = $obj->selectfieldwhere(
     "stocktransaction inner join users on users.id = stocktransaction.userid",
     "group_concat(distinct(stockid))",
-    "stocktransaction.status = 0 and tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='No' and stockid != '' and stockid is not null  and exchange in ('N','B')"
+    "stocktransaction.status = 0 and tradestatus='Open' and users.longholding='No' and stockid != '' and stockid is not null and exchange in ('M')"
 );
 if (!empty($todayopentradeid)) {
     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "status = 1 and id in (" . $todayopentradeid . ")");
@@ -291,7 +291,7 @@ if (!empty($todayopentradeid)) {
 $result = $obj->selectextrawhereupdate(
     "stocktransaction inner join users on users.id = stocktransaction.userid",
     "stockid,symbol,exchange,qty,price,userid,stocktransaction.id,stocktransaction.type,stocktransaction.limit,stocktransaction.totalamount,users.investmentamount,borrowedamt,borrowedprcnt,trademethod,mktlot",
-    "stocktransaction.status = 0 and  tradestatus='Open' and stocktransaction.type = 'Intraday' and date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and users.carryforward='No' and stockid != '' and stockid is not null  and exchange in ('N','B')"
+    "stocktransaction.status = 0 and  tradestatus='Open' and users.longholding='No' and stockid != '' and stockid is not null and exchange in ('M')"
 );
 while ($row = $obj->fetch_assoc($result)) {
     $symbol = $row['symbol'];

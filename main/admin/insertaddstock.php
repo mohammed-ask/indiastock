@@ -27,6 +27,7 @@ $xx['type'] = $_POST['type'];
 $xx['mktlot'] = $_POST['lot'];
 $xx['limit'] = $_POST['margin'];
 $xx['totalamount'] = $_POST['totalamount'];
+$xx['token'] = $data['ScripCode'];
 if ($xx['totalamount'] > $userfund) {
     $xx['borrowedamt'] = round($_POST['totalamount'] - $userfund, 2);
     $xx['borrowedprcnt'] = round($xx['borrowedamt'] / $_POST['totalamount'] * 100, 2);

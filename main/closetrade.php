@@ -1,5 +1,8 @@
 <?php
 include "main/session.php";
+$mrkt = $obj->marketstatus();
+// $mrkt[0]['MarketStatus'] = 'Open';
+// $mrkt[5]['MarketStatus'] = 'Open';
 $id = $_GET['hakuna'];
 $rowtran = $obj->selectextrawhere("stocktransaction", "id=" . $id . "")->fetch_assoc();
 $token = $obj->selectfieldwhere("userstocks", 'symboltoken', "id=" . $rowtran['stockid'] . " and status = 1");
@@ -54,11 +57,19 @@ $stockdata = $stockdata[0];
             <input type="text" readonly name="price" value="<?= $stockdata['LastRate'] ?>" class="form-control form-control-sm" id="Price">
         </div>
         <?php
-        if ($_GET['what'] === 'Sell') { ?>
-            <button class="btn btn-success w-100 my-3" onclick="event.preventDefault();sendForm('', '', 'insertclosetrade', 'resultid', 'close')">BUY</button>
-        <?php } else if ($_GET['what'] === 'Buy') { ?>
-            <button class="btn btn-danger w-100 my-3" onclick="event.preventDefault();sendForm('', '', 'insertclosetrade', 'resultid', 'close')">SELL</button>
-        <?php } ?>
+        if ($_GET['what'] === 'Sell') {
+            if ($stockdata['Exch'] === 'N' || $stockdata['Exch'] === 'B') { ?>
+                <button <?php echo  $mrkt[0]['MarketStatus'] === 'Open'  ? null : 'disabled'; ?> class="btn btn-success w-100 my-3" onclick="<?php echo $mrkt[0]['MarketStatus'] === 'Open' ? 'event.preventDefault();sendForm(\'\', \'\', \'insertclosetrade\', \'resultid\', \'close\')' : ''; ?>">BUY</button>
+            <?php } elseif ($stockdata['Exch'] === 'M') { ?>
+                <button <?php echo  $mrkt[5]['MarketStatus'] === 'Open'  ? null : 'disabled'; ?> class="btn btn-success w-100 my-3" onclick="<?php echo $mrkt[5]['MarketStatus'] === 'Open' ? 'event.preventDefault();sendForm(\'\', \'\', \'insertclosetrade\', \'resultid\', \'close\')' : ''; ?>">BUY</button>
+            <?php }
+        } else if ($_GET['what'] === 'Buy') {
+            if ($stockdata['Exch'] === 'N' || $stockdata['Exch'] === 'B') { ?>
+                <button <?php echo  $mrkt[0]['MarketStatus'] === 'Open'  ? null : 'disabled'; ?> class="btn btn-danger w-100 my-3" onclick="<?php echo $mrkt[0]['MarketStatus'] === 'Open' ? 'event.preventDefault();sendForm(\'\', \'\', \'insertclosetrade\', \'resultid\', \'close\')' : ''; ?>">SELL</button>
+            <?php } elseif ($stockdata['Exch'] === 'M') {  ?>
+                <button <?php echo  $mrkt[5]['MarketStatus'] === 'Open'  ? null : 'disabled'; ?> class="btn btn-danger w-100 my-3" onclick="<?php echo $mrkt[5]['MarketStatus'] === 'Open' ? 'event.preventDefault();sendForm(\'\', \'\', \'insertclosetrade\', \'resultid\', \'close\')' : ''; ?>">SELL</button>
+        <?php }
+        } ?>
         <div id="resultid"></div>
     </form>
     <div class="row">

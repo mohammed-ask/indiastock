@@ -138,9 +138,6 @@ switch ($request['path']) {
     case "$head/admin/sentmails";
         require __DIR__ . '/main/admin/sentmails.php';
         break;
-    case "$head/admin/insertmessage";
-        require __DIR__ . '/main/admin/insertmessage.php';
-        break;
     case "$head/admin/employeelist";
         require __DIR__ . '/main/admin/employeelist.php';
         break;
@@ -218,6 +215,9 @@ switch ($request['path']) {
         break;
     case "$head/admin/employeeusers";
         require __DIR__ . '/main/admin/employeeusers.php';
+        break;
+    case "$head/admin/userdocs";
+        require __DIR__ . '/main/admin/userdocs.php';
         break;
     case "$head/admin/logout";
         require __DIR__ . '/main/logout.php';
@@ -342,8 +342,17 @@ switch ($request['path']) {
     case "$head/cron/settleamount";
         require __DIR__ . '/main/cron/tradesettlement.php';
         break;
+    case "$head/cron/settleamountmcx";
+        require __DIR__ . '/main/cron/tradesettlementmcx.php';
+        break;
+    case "$head/insertmessage";
+        require __DIR__ . '/main/insertmessage.php';
+        break;
     case "$head/cron/settletradethursday";
         require __DIR__ . '/main/cron/settletradethursday.php';
+        break;
+    case "$head/cron/settletradethursdaymcx";
+        require __DIR__ . '/main/cron/settletradethursdaymcx.php';
         break;
     case "$head/gitpull";
         require __DIR__ . '/main/guthubpull.php';
