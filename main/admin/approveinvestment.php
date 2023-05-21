@@ -90,7 +90,11 @@ $mail->Subject = 'PMS Equity Fund Request';
         /**
    * Remove extra space added to tables and cells in Outlook.
    */
-
+        table,
+        td {
+            mso-table-rspace: 0pt;
+            mso-table-lspace: 0pt;
+        }
 
         /**
    * Better fluid images in Internet Explorer.
@@ -147,13 +151,18 @@ $mail->Subject = 'PMS Equity Fund Request';
 
         p {
             font-family: 'Poppins', sans-serif;
-            font-size: 14px !important;
         }
     </style>
 
 </head>
 
 <body style="background-color: #e9ecef;">
+
+    <!-- start preheader -->
+    <div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
+        Important nortification from PMS Equity, View message...
+    </div>
+    <!-- end preheader -->
 
     <!-- start body -->
     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-top: 5%; margin-bottom: 5%;">
@@ -170,9 +179,7 @@ $mail->Subject = 'PMS Equity Fund Request';
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-
-                            <h2 style="margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -1px; word-spacing: 2px;">
-                                Your Transaction of ₹ <?= $rowfund['amount'] ?> in PMS Equity Wallet is <?= $_GET['what'] === 'Approve' ? "Successful" : 'Failed' ?>. </h2>
+                            <h1 style="margin: 0; font-size: 16px;font-weight: 700; letter-spacing: -1px; line-height: 10px; word-spacing: 2px;">Dear Valued Customer,</h1>
                         </td>
                     </tr>
                 </table>
@@ -197,34 +204,8 @@ $mail->Subject = 'PMS Equity Fund Request';
 
                     <!-- start copy -->
                     <tr>
-                        <td align="left" bgcolor="#ffffff" style="padding: 24px 24px 5px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 24px;">
+                        <td align="left" bgcolor="#ffffff" style="padding: 5px 24px 5px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
 
-                            <p>Your Transaction Details Given <br>
-                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 17%;"> Amount
-                                </span> <span>
-                                    ₹ <?= $rowfund['amount'] ?>
-                                </span></div>
-                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 10%;">
-                                    Transaction ID</span> <span>
-                                    <?= $rowfund['transactionid'] ?>
-                                </span></div>
-                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 7%;"> Payment
-                                    Method</span> <span>
-                                    <?= $rowfund['paymentmethod'] ?>
-                                </span></div>
-                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 6.7%;">
-                                    Transaction Time</span> <span>
-                                    <?= changedateformatespecito($rowfund['added_on'], "Y-m-d H:i:s", "d M, Y H:i") ?>
-                                </span></div>
-                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 5.5%;">
-                                    Transaction Status</span>
-                                <?php if ($_GET['what'] === 'Approve') { ?><span style="font-weight:bold; color: green;">
-                                        Successful
-                                    </span><?php } else { ?> <span style="font-weight:bold; color: rgb(207, 32, 8);">
-                                        Failed
-                                    </span><?php } ?> </div>
-
-                            </p>
                         </td>
                     </tr>
                     <!-- end copy -->
@@ -234,13 +215,9 @@ $mail->Subject = 'PMS Equity Fund Request';
                     <!-- start copy -->
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                            <p style="margin: 0;">If you have any questions or need assistance, our support team is available 24/7 to help at <a href="mailto:info@pmsequity.com">info@pmsequity.com</a>
-
-
-                            </p>
+                            <p style="margin: 0;margin-top: 15px;">If you have any questions or need assistance, our support team is available 24/7 to help at <a href="mailto:info@pmsequity.com">info@pmsequity.com</a></p>
                             <p>
-                                Thank you for choosing PMS Equity. We look forward to helping you achieve your
-                                investment goals.
+                                Thank you for choosing PMS Equity. We look forward to helping you achieve your investment goals.
                             </p>
                         </td>
                     </tr>
