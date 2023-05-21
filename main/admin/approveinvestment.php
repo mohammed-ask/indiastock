@@ -43,6 +43,7 @@ $mail->addAddress($email);
 $mail->isHTML(true);
 $mail->addReplyTo("$sendmailfrom", 'PMS Equity Team');
 $mail->Subject = 'dddd';
+ob_start();
 ?>
 <!DOCTYPE html>
 <html>
