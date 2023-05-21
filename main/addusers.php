@@ -735,7 +735,7 @@ margin-bottom: 20px;
                         <li class="active">Personal Information</li>
                         <li>Required Documents</li>
                         <li>Bank Details</li>
-                        <li>Documentation</li>
+                        <li>Upload Documents</li>
                         <li>Password</li>
                     </ul>
 
@@ -775,77 +775,6 @@ margin-bottom: 20px;
                         </div>
                     </div>
 
-
-
-
-
-
-                    <div class="main">
-                        <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
-                        <div class="text">
-                            <h2>Upload Documents</h2>
-                            <p>Please Upload your documents & press next</p>
-                        </div>
-
-                        
-                        <div class="input-text m-input-text">
-                            <div class='file-input'>
-                                <p>Aadhar Front Side</p>
-                                <input type='file'>
-                                <span class='button'>Choose</span>
-                                <span class='label' data-js-label>No file selected</span>
-                            </div>
-
-                           
-                            <div class='file-input'>
-                            <p>Aadhar Back Side</p>
-                                <input type='file'>
-                                <span class='button'>Choose</span>
-                                <span class='label' data-js-label>No file selected</span>
-                            </div>
-                        </div>
-
-
-                        <div class="input-text m-input-text">
-                            <div class='file-input'>
-                                <p>Pan Card</p>
-                                <input type='file'>
-                                <span class='button'>Choose</span>
-                                <span class='label' data-js-label>No file selected</span>
-                            </div>
-
-                           
-                            <div class='file-input'>
-                            <p>Passbook / Cancel Cheque</p>
-                                <input type='file'>
-                                <span class='button'>Choose</span>
-                                <span class='label' data-js-label>No file selected</span>
-                            </div>
-                        </div>
-
-                        <div class="input-text m-input-text m2-input-text">
-                            <div class='file-input'>
-                                <p>Passport Size Photo</p>
-                                <input type='file'>
-                                <span class='button'>Choose</span>
-                                <span class='label' data-js-label>No file selected</span>
-                            </div>
-
-                           
-                            <div class='file-input'>
-                            <p>Signature on Blank page</p>
-                                <input type='file'>
-                                <span class='button'>Choose</span>
-                                <span class='label' data-js-label>No file selected</span>
-                            </div>
-                        </div>
-
-                       
-                        <div class="buttons button_space">
-                            <button class="back_button">Back</button>
-                            <button class="next_button">Next Step</button>
-                        </div>
-                    </div>
 
 
 
