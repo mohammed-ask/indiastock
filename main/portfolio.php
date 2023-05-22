@@ -54,7 +54,7 @@ if (!empty($stockdata)) {
         //Adding Invested Amount
 
         // Adding Profit on Total Share
-        $profitloss = ($row['price'] - $pricedata[$keys]['LastRate']) * $row['qty'] * $row['mktlot'];
+        $profitloss = ($pricedata[$keys]['LastRate'] - $row['price']) * $row['qty'] * $row['mktlot'];
         if ($row['trademethod'] === 'Sell') {
             if ($profitloss <= 0) {
                 $profitloss = abs($profitloss);
@@ -65,7 +65,6 @@ if (!empty($stockdata)) {
         if ($profitloss > 0) {
             $totalprofit = $totalprofit + $profitloss;
         } else {
-            echo "<script>console.log('running')</script>";
             $totalloss = $totalloss - ($profitloss);
         }
     }
@@ -92,7 +91,7 @@ if (!empty($stockdata)) {
         //Adding Invested Amount
 
         // Adding Profit on Total Share
-        $profitloss = ($row['price'] - $pricedata[$keys]['LastRate']) * $row['qty'] * $row['mktlot'];
+        $profitloss = ($pricedata[$keys]['LastRate'] - $row['price']) * $row['qty'] * $row['mktlot'];
         if ($row['trademethod'] === 'Sell') {
             if ($profitloss <= 0) {
                 $profitloss = abs($profitloss);
