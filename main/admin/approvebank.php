@@ -200,11 +200,11 @@ if ($_GET['what'] === 'Approve') {
                             <td align="left" bgcolor="#ffffff" style="padding: 24px 24px 5px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 24px;">
 
                                 <p>We are pleased to inform you that your bank details have been successfully updated as per your recent request. <br>
-                                <p>Your Updated Bank Details is Given Below <br>
-                                <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 5%;"> Account No.</span>
+                                <p style="text-decoration: underline;">Your Updated Bank Details is Given Below <br>
+                                <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 25px;"> Account No.</span>
                                     <span> <?= $tt['accountno'] ?> </span>
                                 </div>
-                                <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 13%;">IFSC</span>
+                                <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 76px;">IFSC</span>
                                     <span><?= $tt['ifsc'] ?> </span>
                                 </div>
 

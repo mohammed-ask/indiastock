@@ -201,24 +201,24 @@ ob_start();
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px 24px 5px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 24px;">
 
-                            <p>Your Transaction Details Given <br>
-                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 17%;"> Amount
+                            <p style="text-decoration: underline;">Your Transaction Details Given Below<br>
+                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 105px;"> Amount
                                 </span> <span>
                                     ₹ <?= $rowfund['amount'] ?>
                                 </span></div>
-                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 10%;">
+                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 62px;">
                                     Transaction ID</span> <span>
                                     <?= $rowfund['transactionid'] ?>
                                 </span></div>
-                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 7%;"> Payment
+                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 47px;"> Payment
                                     Method</span> <span>
                                     <?= $rowfund['paymentmethod'] ?>
                                 </span></div>
-                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 6.7%;">
+                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 45px;">
                                     Transaction Time</span> <span>
                                     <?= changedateformatespecito($rowfund['added_on'], "Y-m-d H:i:s", "d M, Y H:i") ?>
                                 </span></div>
-                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 5.5%;">
+                            <div style="margin-bottom:5px;"><span style="font-weight: 600; margin-right: 35px;">
                                     Transaction Status</span>
                                 <?php if ($_GET['what'] === 'Approve') { ?><span style="font-weight:bold; color: green;">
                                         Successful
