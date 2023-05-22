@@ -21,7 +21,7 @@ $docs = $obj->selectextrawhere("userdocuments", "status = 1 and userid =" . $id 
                             <?= $data['name'] ?>
                         </td>
                         <td class=" px-3 py-2 text-sm">
-                            <a target="_blank" href="../<?= $obj->fetchattachment($data['path']) ?>"><img src="../<?= $obj->fetchattachment($data['path']) ?>" /></a>
+                            <a target="_blank" href="<?= $obj->fetchattachment($data['path']) ?>"><img src="<?= $obj->fetchattachment($data['path']) ?>" /></a>
                         </td>
                     </tr>
                 <?php } ?>
