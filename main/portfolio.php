@@ -1,12 +1,18 @@
 <?php
 include "session.php";
+$fundadded = $obj->selectfieldwhere("fundrequest", 'sum(amount)', "userid=" . $employeeid . " and status = 1");
+$fundadded = empty($fundadded) ? 0 : $fundadded;
+$fundwithdraw = $obj->selectfieldwhere("withdrawalrequests", 'sum(amount)', "userid=" . $employeeid . " and status = 1");
+$fundwithdraw = empty($fundwithdraw) ? 0 : $fundwithdraw;
+
 $todayprofit = $obj->selectfieldwhere("closetradedetail", "sum(totalprofit)", "date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and userid=$employeeid and status = 1");
 $todayprofit = empty($todayprofit) ? 0 : $todayprofit;
-$completedtotalprofitloss = $obj->selectfieldwhere("closetradedetail", "sum(totalprofit)", "userid=$employeeid ");
-
+$completedtotalprofit = $obj->selectfieldwhere("closetradedetail", "sum(totalprofit)", "userid=$employeeid and totalprofit > 0");
+$completedtotalloss = $obj->selectfieldwhere("closetradedetail", "sum(totalprofit)", "userid=$employeeid and totalprofit < 0");
 // Invested Amount
 $investamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "userid=$employeeid and status = 0 and tradestatus = 'Open'");
 $investamt = empty($investamt) ? 0 : $investamt;
+$completedtotalloss = empty($completedtotalloss) ? 0 : $completedtotalloss;
 
 $totalstocktraded = $obj->selectfieldwhere(
     "stocktransaction",
@@ -23,7 +29,8 @@ $stockdata = 'Error fetching candle data:' ? [] : $stockdata;
 // echo "<pre>";
 // print_r($stockdata);
 // die;
-$totalprofit = $completedtotalprofitloss;
+$totalprofit = $completedtotalprofit;
+$totalloss = $completedtotalloss;
 $result = $obj->selectextrawhereupdate(
     "stocktransaction",
     "*",
@@ -55,7 +62,11 @@ if (!empty($stockdata)) {
                 $profitloss = -$profitloss;
             }
         }
-        $totalprofit = $totalprofit + $profitloss;
+        if ($profitloss > 0) {
+            $totalprofit = $totalprofit + $profitloss;
+        } else {
+            $totalloss = $totalloss - ($profitloss);
+        }
     }
 }
 
@@ -157,9 +168,9 @@ if ($todaystocktotalamt != 0) {
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col text-center">
-                        <span <?= $totalprofit >= 0 ? "class='h5 text-success'" : "class='h5 text-danger'" ?>>₹<?= round($totalprofit) ?></span>
-                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Profit</h6>
-                        <h6 <?= $totalprofit >= 0 ? "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'" : "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger'" ?>><?= round($totalprofitprcnt, 2) ?><span> % </span></h6>
+                        <span class='h5 text-success'>₹<?= round($totalprofit) ?></span>
+                        <!-- <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Profit</h6>
+                        <h6 class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'><?= round($totalprofitprcnt, 2) ?><span> % </span></h6> -->
                     </div><!--end col-->
                 </div> <!-- end row -->
             </div><!--end card-body-->
@@ -168,15 +179,17 @@ if ($todaystocktotalamt != 0) {
 </div><!--end row-->
 
 
-<div class="row" style="display: none;">
-<div class="col-md-6 col-lg-3">
+<div class="row">
+    <div class="col-md-6 col-lg-3">
         <div class="card">
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col text-center">
-                       <div style="display: inline-flex;"> <span <?= $totalprofit >= 0 ? "class='m-0 h5 text-success'" : "class='m-0 h5 text-danger'" ?>>₹<?= round($totalprofit) ?></span><span><h6 style="width: max-content; border: none; margin-top: 2px!important; margin-left: 12% !important;" <?= $totalprofit >= 0 ? "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'" : "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger'" ?>>(<?= round($totalprofitprcnt, 2) ?><span> % )</span></h6></span></div>
+                        <div style="display: inline-flex;"> <span class='m-0 h5 text-danger'>₹<?= round($totalloss) ?></span><span>
+                                <!-- <h6 style="width: max-content; border: none; margin-top: 2px!important; margin-left: 12% !important;" class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger'>(<?= round($totalprofitprcnt, 2) ?><span> % )</span></h6> -->
+                            </span></div>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Loss</h6>
-                        
+
                     </div><!--end col-->
                 </div> <!-- end row -->
             </div><!--end card-body-->
@@ -187,22 +200,22 @@ if ($todaystocktotalamt != 0) {
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col text-center">
-                        <span class="h5">₹<?= round($investamt, 2) ?></span>
+                        <span class="h5 text-success">₹<?= round($fundadded, 2) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Total Fund Added</h6>
                     </div><!--end col-->
                 </div> <!-- end row -->
             </div><!--end card-body-->
         </div> <!--end card-body-->
     </div><!--end col-->
-    
+
     <div class="col-md-6 col-lg-3">
         <div class="card">
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col text-center">
-                        <span <?= $todayprofit >= 0 ? "class='h5 text-success'" : "class='h5 text-danger'" ?>>₹<?= round($todayprofit, 2) ?></span>
+                        <span class='h5 text-danger'>₹<?= round($fundwithdraw, 2) ?></span>
                         <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Total Fund Withdrawal</h6>
-                        
+
                     </div><!--end col-->
                 </div> <!-- end row -->
             </div><!--end card-body-->
@@ -223,7 +236,7 @@ if ($todaystocktotalamt != 0) {
             </div><!--end card-body-->
         </div> <!--end card-body-->
     </div><!--end col-->
-    
+
 </div><!--end row-->
 
 

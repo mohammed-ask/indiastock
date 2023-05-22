@@ -66,6 +66,22 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
             <input name="endtime" id="endtime" value="<?= changedateformatespecito($rowuser['enddatetime'], "Y-m-d H:i:s", "d/m/Y H:i:s") ?>" onfocus="datetimepicker(this.id)" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Select End Time" />
         </label>
     </div>
+    <div class="row">
+        <label class="col-6 block text-sm" style="margin-bottom: 5px;">
+            <span class="text-gray-700 dark:text-gray-400">Carry Forward</span>
+            <select data-bvalidator="required" name="carryforward" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+                <option value="No" <?= $rowuser['carryforward'] === 'No' ? 'selected' : null ?>>No</option>
+                <option value="Yes" <?= $rowuser['carryforward'] === 'Yes' ? 'selected' : null ?>>Yes</option>
+            </select>
+        </label>
+        <label class="col-6 block text-sm" style="margin-bottom: 5px;">
+            <span class="text-gray-700 dark:text-gray-400">Long Holding</span>
+            <select data-bvalidator="required" name="longholding" class="select2 block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+                <option value="No" <?= $rowuser['longholding'] === 'No' ? 'selected' : null ?>>No</option>
+                <option value="Yes" <?= $rowuser['longholding'] === 'Yes' ? 'selected' : null ?>>Yes</option>
+            </select>
+        </label>
+    </div>
     <div>
         <label class="block text-sm" style="margin-bottom: 5px;">
             <div class="row my-1"> <span class="col-6 text-gray-700 dark:text-gray-400"> Withdrawal Message</span>
@@ -121,46 +137,46 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
             <input xdata-bvalidator="required" name="employeeref" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="<?= $rowuser['employeeref'] === '' ? '' : $rowuser['employeeref'] ?>" placeholder="Employee ID For Further Reference" /></label>
     </div>
     <strong>Documents</strong>
-   
-            <label class="block text-sm mt-3 " style="margin-bottom: 5px;">
-                <span class="text-gray-700 dark:text-gray-400">Aadhar Front Side</span>
-                <input hidden value="Aadhar Card Front" name="name[]">
-                <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
-            </label>
-            <label class="block text-sm" style="margin-bottom: 5px;">
-                <input hidden value="Aadhar Card Back" name="name[]">
-                <span class="text-gray-700 dark:text-gray-400">Aadhar Back Side</span>
-                <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
-            </label>
-       
-        
-            <label class="block text-sm" style="margin-bottom: 5px;">
-                <span class="text-gray-700 dark:text-gray-400">Pan Card</span>
-                <input hidden value="PAN card" name="name[]">
 
-                <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
-            </label>
-            <label class="block text-sm" sty le="margin-bottom: 5px;">
-                <span class="text-gray-700 dark:text-gray-400">Signature</span>
-                <input hidden value="Signature" name="name[]">
-                <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
-            </label>
-        
-    
-        <label class="block text-sm" style="margin-bottom: 5px;">
-            <span class="text-gray-700 dark:text-gray-400">Passport Size Photo</span>
-            <input hidden value="Passport Size Photo" name="name[]">
-            <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
-        </label>
-        <label class="block text-sm" style="margin-bottom: 5px;">
-            <span class="text-gray-700 dark:text-gray-400">Passbook</span>
-            <input hidden value="Passbook" name="name[]">
-            <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
-        </label>
-    
-        <button type="submit" id="modalsubmit" class="w-full px-3 py-1 mt-6 text-sm font-medium hidden">
-            Submit
-        </button>
+    <label class="block text-sm mt-3 " style="margin-bottom: 5px;">
+        <span class="text-gray-700 dark:text-gray-400">Aadhar Front Side</span>
+        <input hidden value="Aadhar Card Front" name="name[]">
+        <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+    </label>
+    <label class="block text-sm" style="margin-bottom: 5px;">
+        <input hidden value="Aadhar Card Back" name="name[]">
+        <span class="text-gray-700 dark:text-gray-400">Aadhar Back Side</span>
+        <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+    </label>
+
+
+    <label class="block text-sm" style="margin-bottom: 5px;">
+        <span class="text-gray-700 dark:text-gray-400">Pan Card</span>
+        <input hidden value="PAN card" name="name[]">
+
+        <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+    </label>
+    <label class="block text-sm" sty le="margin-bottom: 5px;">
+        <span class="text-gray-700 dark:text-gray-400">Signature</span>
+        <input hidden value="Signature" name="name[]">
+        <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+    </label>
+
+
+    <label class="block text-sm" style="margin-bottom: 5px;">
+        <span class="text-gray-700 dark:text-gray-400">Passport Size Photo</span>
+        <input hidden value="Passport Size Photo" name="name[]">
+        <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+    </label>
+    <label class="block text-sm" style="margin-bottom: 5px;">
+        <span class="text-gray-700 dark:text-gray-400">Passbook</span>
+        <input hidden value="Passbook" name="name[]">
+        <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+    </label>
+
+    <button type="submit" id="modalsubmit" class="w-full px-3 py-1 mt-6 text-sm font-medium hidden">
+        Submit
+    </button>
     </div>
     <div id="resultid"></div>
 </form>

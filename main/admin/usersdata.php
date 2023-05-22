@@ -33,13 +33,13 @@ if ((isset($_GET['columns'][0]["search"]["value"])) && (!empty($_GET['columns'][
 if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][1]["search"]["value"]))) {
     $search .= " and users.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
-$return['recordsTotal'] = $obj->selectfieldwhere("users  ", "count(users.id)", "status in (0,1) and type = 2 and id not in (26) ");
-$return['recordsFiltered'] = $obj->selectfieldwhere("users ", "count(users.id)", "status in (0,1) and type = 2 and id not in (26) $search ");
+$return['recordsTotal'] = $obj->selectfieldwhere("users  ", "count(users.id)", "status in (1) and type = 2 and id not in (26) ");
+$return['recordsFiltered'] = $obj->selectfieldwhere("users ", "count(users.id)", "status in (1) and type = 2 and id not in (26) $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "users ",
     "*",
-    "status in (0,1) and type = 2 and id not in (26)  $search $order limit $start, $limit"
+    "status in (1) and type = 2 and id not in (26)  $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
