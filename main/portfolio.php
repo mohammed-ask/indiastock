@@ -65,6 +65,7 @@ if (!empty($stockdata)) {
         if ($profitloss > 0) {
             $totalprofit = $totalprofit + $profitloss;
         } else {
+            echo "<script>console.log('running')</script>";
             $totalloss = $totalloss - ($profitloss);
         }
     }
