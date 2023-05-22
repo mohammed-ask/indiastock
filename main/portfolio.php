@@ -457,7 +457,7 @@ include "main/templete.php"; ?>
     // // store the currently selected tab in the hash value
     let todayinterval = null;
     <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
-        if ($hour >= 9 && $hour < 16) { ?>
+        if ($hour >= 9 && $hour < 24) { ?>
             todayinterval = setInterval(function() {
                 table.ajax.reload();
             }, <?= $apiinterval ?>);
@@ -471,7 +471,7 @@ include "main/templete.php"; ?>
         // window.location.hash = id;
         <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
             // check if current time is between 9 am to 4 pm
-            if ($hour >= 9 && $hour < 16) { ?>
+            if ($hour >= 9 && $hour < 24) { ?>
                 if (id === 'Today') {
                     todayinterval = setInterval(function() {
                         table.ajax.reload();
