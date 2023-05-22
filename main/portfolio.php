@@ -168,7 +168,7 @@ if ($todaystocktotalamt != 0) {
 </div><!--end row-->
 
 
-<div class="row">
+<div class="row" style="display: none;">
 <div class="col-md-6 col-lg-3">
         <div class="card">
             <div class="card-body">
