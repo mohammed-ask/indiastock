@@ -656,10 +656,10 @@
             color: white;
         }
 
-        .file-input> p {
+        .file-input>p {
             font-weight: 600;
-    margin-bottom: 5px;
-    font-size: 11px;
+            margin-bottom: 5px;
+            font-size: 11px;
         }
 
 
@@ -673,305 +673,312 @@
             white-space: nowrap;
             opacity: 1;
             border: 1px solid #00aaaa;
-    padding: 5px 20px 7px 15px;
-    border-radius: 3px;
+            padding: 5px 20px 7px 15px;
+            border-radius: 3px;
         }
 
         .file-input.-chosen>.label {
             opacity: 1;
-    border: 1px solid #00aaaa;
-    padding: 5px 3px 7px 15px;
-    border-radius: 3px;
+            border: 1px solid #00aaaa;
+            padding: 5px 3px 7px 15px;
+            border-radius: 3px;
         }
 
         @media (max-width:750px) {
             .file-input {
-    margin-top: 15px;}
+                margin-top: 15px;
+            }
 
-    .file-input>.label{
+            .file-input>.label {
 
-        padding-right: 50px;
-    }
-    .file-input.-chosen>.label {
+                padding-right: 50px;
+            }
 
-        padding-right: 40px;
+            .file-input.-chosen>.label {
 
-    }
+                padding-right: 40px;
 
-    .m-input-text{
+            }
 
-        margin: 0;
-    }
+            .m-input-text {
 
-    .m2-input-text{
+                margin: 0;
+            }
 
-margin-bottom: 20px;
-}
+            .m2-input-text {
+
+                margin-bottom: 20px;
+            }
 
         }
-
-
-
-
     </style>
 </head>
 
 <body>
-    <div class="container-dabba">
-        <div class="card">
-            <div class="form">
-                <div class="left-side">
-                    <div class="left-heading">
-                        <h3><b>WELCOME TO PMS EQUITY</b></h3>
+    <form id="fdata">
+
+        <div class="container-dabba">
+            <div class="card">
+                <div class="form">
+                    <div class="left-side">
+                        <div class="left-heading">
+                            <h3><b>WELCOME TO PMS EQUITY</b></h3>
+                        </div>
+                        <div class="steps-content">
+                            <h3>Step <span class="step-number">1</span></h3>
+                            <p class="step-number-content active">Enter your personal information to create your account.</p>
+                            <p class="step-number-content d-none">Enter required documents details and press next.</p>
+                            <p class="step-number-content d-none">Enter your bank details and press next.</p>
+                            <p class="step-number-content d-none">Enter employee ID & password and click on submit. </p>
+                        </div>
+                        <ul class="progress-bar">
+                            <li class="active">Personal Information</li>
+                            <li>Required Documents</li>
+                            <li>Bank Details</li>
+                            <li>Upload Documents</li>
+                            <li>Password</li>
+                        </ul>
+
+
+
                     </div>
-                    <div class="steps-content">
-                        <h3>Step <span class="step-number">1</span></h3>
-                        <p class="step-number-content active">Enter your personal information to create your account.</p>
-                        <p class="step-number-content d-none">Enter required documents details and press next.</p>
-                        <p class="step-number-content d-none">Enter your bank details and press next.</p>
-                        <p class="step-number-content d-none">Enter employee ID & password and click on submit. </p>
+                    <div class="right-side">
+                        <div class="main active">
+                            <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
+                            <div class="text">
+                                <h2>Your Personal Information</h2>
+                                <p>Enter your personal information and click on next step</p>
+                            </div>
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="text" required require name="username" id="username">
+                                    <span>Full Name</span>
+                                </div>
+                            </div>
+
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="email" id="email" name="email" required require>
+                                    <span>Email ID</span>
+                                </div>
+                            </div>
+
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="text" id="mobileno" name="mobileno" required require>
+                                    <span>Mobile Number</span>
+                                </div>
+                            </div>
+
+                            <div class="buttons">
+                                <button class="next_button">Next Step</button>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="main">
+                            <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
+                            <div class="text">
+                                <h2>Required Documents Details</h2>
+                                <p>Please enter your documents details for next step .</p>
+                            </div>
+
+
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="text" id="address" name="address" required require>
+                                    <span>Address</span>
+                                </div>
+                            </div>
+
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="number" id="adharno" name="adharno" required require>
+                                    <span>Aadhar Number</span>
+                                </div>
+
+                            </div>
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="text" id="panno" name="panno" required require>
+                                    <span>PAN Number</span>
+                                </div>
+
+                                <div class="input-div">
+                                    <input type="date" name="dob" id="dob" required require>
+                                    <span>Date Of Birth</span>
+                                </div>
+                            </div>
+                            <div class="buttons button_space">
+                                <button class="back_button">Back</button>
+                                <button class="next_button">Next Step</button>
+                            </div>
+                        </div>
+                        <div class="main">
+                            <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
+                            <div class="text">
+                                <h2>Bank Details</h2>
+                                <p>Please enter your bank details & press next</p>
+                            </div>
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="text" id="bankname" name="bankname" required require>
+                                    <span>Bank Name</span>
+                                </div>
+                            </div>
+
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="number" id="accountno" name="accountno" required require>
+                                    <span>Account Number</span>
+                                </div>
+                            </div>
+
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="text" name="ifsc" id="ifsc" required require>
+                                    <span>IFSC</span>
+                                </div>
+                            </div>
+                            <div class="buttons button_space">
+                                <button class="back_button">Back</button>
+                                <button class="next_button">Next Step</button>
+                            </div>
+                        </div>
+
+
+                        <div class="main">
+                            <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
+                            <div class="text">
+                                <h2>Upload Documents</h2>
+                                <p>Please Upload your documents & press next</p>
+                            </div>
+
+
+                            <div class="input-text m-input-text">
+                                <div class='file-input'>
+                                    <p>Aadhar Front Side</p>
+                                    <input hidden value="Aadhar Card Front" name="name[]">
+                                    <input class="fileInput" type='file' name="path[]" data-bvalidator="required" require>
+                                    <span class='button'>Choose</span>
+                                    <span class='label' data-js-label>No file selected</span>
+                                </div>
+
+
+                                <div class='file-input'>
+                                    <p>Aadhar Back Side</p>
+                                    <input hidden value="Aadhar Card Back" name="name[]">
+                                    <input type='file' class="fileInput" name="path[]" data-bvalidator="required" require>
+                                    <span class='button'>Choose</span>
+                                    <span class='label' data-js-label>No file selected</span>
+                                </div>
+                            </div>
+
+
+                            <div class="input-text m-input-text">
+                                <div class='file-input'>
+                                    <p>Pan Card</p>
+                                    <input hidden value="PAN card" name="name[]">
+                                    <input type='file' class="fileInput" name="path[]" data-bvalidator="required" require>
+                                    <span class='button'>Choose</span>
+                                    <span class='label' data-js-label>No file selected</span>
+                                </div>
+
+
+                                <div class='file-input'>
+                                    <p>Passbook / Cancel Cheque</p>
+                                    <input hidden value="Passbook" name="name[]">
+                                    <input type='file' class="fileInput" name="path[]" data-bvalidator="required" require>
+                                    <span class='button'>Choose</span>
+                                    <span class='label' data-js-label>No file selected</span>
+                                </div>
+                            </div>
+
+                            <div class="input-text m-input-text m2-input-text">
+                                <div class='file-input'>
+                                    <p>Passport Size Photo</p>
+                                    <input hidden value="Passport Size Photo" name="name[]">
+                                    <input type='file' class="fileInput" name="path[]" data-bvalidator="required" require>
+                                    <span class='button'>Choose</span>
+                                    <span class='label' data-js-label>No file selected</span>
+                                </div>
+
+
+                                <div class='file-input'>
+                                    <p>Signature on Blank page</p>
+                                    <input hidden value="Signature" name="name[]">
+                                    <input type='file' class="fileInput" name="path[]" data-bvalidator="required" require>
+                                    <span class='button'>Choose</span>
+                                    <span class='label' data-js-label>No file selected</span>
+                                </div>
+                            </div>
+
+
+                            <div class="buttons button_space">
+                                <button class="back_button">Back</button>
+                                <button class="next_button">Next Step</button>
+                            </div>
+                        </div>
+
+
+                        <div class="main">
+                            <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
+                            <div class="text">
+                                <h2>Employee ID & Password</h2>
+                                <p>Please enter employee ID(if available) & password.</p>
+                            </div>
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="text" id="employeeref" name="employeeref">
+                                    <span>Employee ID (if available)</span>
+                                </div>
+                            </div>
+
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="text" id="password" name="password" required require>
+                                    <span>Password</span>
+                                </div>
+                            </div>
+
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="text" id="comfirmpass" name="confirmpass" required require>
+                                    <span>Confirm Password</span>
+                                </div>
+                            </div>
+                            <div class="buttons button_space">
+                                <button class="back_button">Back</button>
+                                <button class="next_button" id="otp_button">Submit</button>
+                            </div>
+                        </div>
+                        <div class="main">
+                            <div class="input-text">
+                                <div class="input-div">
+                                    <input type="text" name="otp" id="otp" required require>
+                                    <span>Enter OTP (Sent on your Email)</span>
+                                </div>
+                            </div>
+                            <div class="buttons button_space">
+                                <button class="back_button">Back</button>
+                                <button class="submit_button">Submit now</button>
+                            </div>
+                        </div>
+
+
+
+
+
+
                     </div>
-                    <ul class="progress-bar">
-                        <li class="active">Personal Information</li>
-                        <li>Required Documents</li>
-                        <li>Bank Details</li>
-                        <li>Upload Documents</li>
-                        <li>Password</li>
-                    </ul>
-
-
-
-                </div>
-                <div class="right-side">
-                    <div class="main active">
-                        <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
-                        <div class="text">
-                            <h2>Your Personal Information</h2>
-                            <p>Enter your personal information and click on next step</p>
-                        </div>
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="text" required require id="username">
-                                <span>Full Name</span>
-                            </div>
-                        </div>
-
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="email" id="email" required require>
-                                <span>Email ID</span>
-                            </div>
-                        </div>
-
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="text" id="mobileno" required require>
-                                <span>Mobile Number</span>
-                            </div>
-                        </div>
-
-                        <div class="buttons">
-                            <button class="next_button">Next Step</button>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-                    <div class="main">
-                        <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
-                        <div class="text">
-                            <h2>Required Documents Details</h2>
-                            <p>Please enter your documents details for next step .</p>
-                        </div>
-
-
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="text" id="address" required require>
-                                <span>Address</span>
-                            </div>
-                        </div>
-
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="number" id="adharno" required require>
-                                <span>Aadhar Number</span>
-                            </div>
-
-                        </div>
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="text" id="panno" required require>
-                                <span>PAN Number</span>
-                            </div>
-
-                            <div class="input-div">
-                                <input type="date" id="dob" required require>
-                                <span>Date Of Birth</span>
-                            </div>
-                        </div>
-                        <div class="buttons button_space">
-                            <button class="back_button">Back</button>
-                            <button class="next_button">Next Step</button>
-                        </div>
-                    </div>
-                    <div class="main">
-                        <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
-                        <div class="text">
-                            <h2>Bank Details</h2>
-                            <p>Please enter your bank details & press next</p>
-                        </div>
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="text" id="bankname" required require>
-                                <span>Bank Name</span>
-                            </div>
-                        </div>
-
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="number" id="accountno" required require>
-                                <span>Account Number</span>
-                            </div>
-                        </div>
-
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="text" id="ifsc" required require>
-                                <span>IFSC</span>
-                            </div>
-                        </div>
-                        <div class="buttons button_space">
-                            <button class="back_button">Back</button>
-                            <button class="next_button">Next Step</button>
-                        </div>
-                    </div>
-
-                   
-                    <div class="main">
-                        <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
-                        <div class="text">
-                            <h2>Upload Documents</h2>
-                            <p>Please Upload your documents & press next</p>
-                        </div>
-
-                        
-                        <div class="input-text m-input-text">
-                            <div class='file-input'>
-                                <p>Aadhar Front Side</p>
-                                <input type='file' required require>
-                                <span class='button'>Choose</span>
-                                <span class='label' data-js-label>No file selected</span>
-                            </div>
-
-                           
-                            <div class='file-input'>
-                            <p>Aadhar Back Side</p>
-                                <input type='file' required require>
-                                <span class='button'>Choose</span>
-                                <span class='label' data-js-label>No file selected</span>
-                            </div>
-                        </div>
-
-
-                        <div class="input-text m-input-text">
-                            <div class='file-input'>
-                                <p>Pan Card</p>
-                                <input type='file' required require>
-                                <span class='button'>Choose</span>
-                                <span class='label' data-js-label>No file selected</span>
-                            </div>
-
-                           
-                            <div class='file-input'>
-                            <p>Passbook / Cancel Cheque</p>
-                                <input type='file' required require>
-                                <span class='button'>Choose</span>
-                                <span class='label' data-js-label>No file selected</span>
-                            </div>
-                        </div>
-
-                        <div class="input-text m-input-text m2-input-text">
-                            <div class='file-input'>
-                                <p>Passport Size Photo</p>
-                                <input type='file' required require>
-                                <span class='button'>Choose</span>
-                                <span class='label' data-js-label>No file selected</span>
-                            </div>
-
-                           
-                            <div class='file-input'>
-                            <p>Signature on Blank page</p>
-                                <input type='file' required require>
-                                <span class='button'>Choose</span>
-                                <span class='label' data-js-label>No file selected</span>
-                            </div>
-                        </div>
-
-                       
-                        <div class="buttons button_space">
-                            <button class="back_button">Back</button>
-                            <button class="next_button">Next Step</button>
-                        </div>
-                    </div>
-
-
-                    <div class="main">
-                        <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
-                        <div class="text">
-                            <h2>Broker ID & Password</h2>
-                            <p>Please enter broker ID(if available) & password.</p>
-                        </div>
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input style="text-transform: uppercase;" type="text" id="employeeref">
-                                <span>Broker ID (if available)</span>
-                            </div>
-                        </div>
-
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="text" id="password" required require>
-                                <span>Password</span>
-                            </div>
-                        </div>
-
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="text" id="comfirmpass" required require>
-                                <span>Confirm Password</span>
-                            </div>
-                        </div>
-                        <div class="buttons button_space">
-                            <button class="back_button">Back</button>
-                            <button class="next_button" id="otp_button">Submit</button>
-                        </div>
-                    </div>
-                    <div class="main">
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="text" id="otp" required require>
-                                <span>Enter OTP (Sent on your Email)</span>
-                            </div>
-                        </div>
-                        <div class="buttons button_space">
-                            <button class="back_button">Back</button>
-                            <button class="submit_button">Submit now</button>
-                        </div>
-                    </div>
-
-
-
-
-
-
                 </div>
             </div>
-        </div>
+    </form>
     </div>
     <script src="main/plugins/jquery/jquery.min.js"></script>
     <script src="main/plugins/jquery-ui/jquery-ui.min.js"></script>
@@ -1044,30 +1051,24 @@ margin-bottom: 20px;
         var submit_click = document.querySelectorAll(".submit_button");
         submit_click.forEach(function(submit_click_form) {
 
-            submit_click_form.addEventListener('click', function() {
-                console.log(validateform(), 'validateform')
+            submit_click_form.addEventListener('click', function(event) {
+                event.preventDefault();
+                // console.log(validateform(), 'validateform')
                 if (!validateform()) {
                     return false
                 }
                 formnumber++;
                 addoverlay()
-                $.post("main/insertuser.php", {
-                        username: $('#username').val(),
-                        email: $('#email').val(),
-                        mobileno: $('#mobileno').val(),
-                        address: $('#address').val(),
-                        dob: $('#dob').val(),
-                        adharno: $('#adharno').val(),
-                        panno: $('#panno').val(),
-                        bankname: $('#bankname').val(),
-                        accountno: $('#accountno').val(),
-                        ifsc: $('#ifsc').val(),
-                        employeeref: $('#employeeref').val(),
-                        password: $('#password').val(),
-                        policyread: $('#policyread').val(),
-                        otp: $('#otp').val(),
-                    },
-                    function(response) {
+
+                var form = $("#fdata")[0]; // Replace 'yourForm' with your actual form ID
+                var formData = new FormData(form);
+                $.post({
+                    url: "main/insertuser.php",
+                    data: formData,
+                    mimeType: "multipart/form-data",
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
                         if (response === 'Success') {
                             removeoverlay()
                             alertify.alert('result', 'Thank you for registering your account! Our team will review your request and notify you through email once your account has been approved.', function() {
@@ -1080,12 +1081,12 @@ margin-bottom: 20px;
                             })
                         } else {
                             removeoverlay()
-                            alertify.alert('result', 'Sorry! Something went wrongOops! Something went wrong. Please try again later.', function() {
+                            alertify.alert('result', 'Sorry! Something went wrong Please try again later.', function() {
                                 // window.location.href = 'login'
                             })
                         }
                     },
-                );
+                });
                 // updateform();
             });
         });
@@ -1168,36 +1169,31 @@ margin-bottom: 20px;
             return validate;
 
         }
-
     </script>
 
-<script>
+    <script>
+        // Also see: https://www.quirksmode.org/dom/inputfile.html
 
-// Also see: https://www.quirksmode.org/dom/inputfile.html
+        var inputs = document.querySelectorAll('.file-input')
 
-var inputs = document.querySelectorAll('.file-input')
+        for (var i = 0, len = inputs.length; i < len; i++) {
+            customInput(inputs[i])
+        }
 
-for (var i = 0, len = inputs.length; i < len; i++) {
-  customInput(inputs[i])
-}
+        function customInput(el) {
+            const fileInput = el.querySelector('[type="file"]')
+            const label = el.querySelector('[data-js-label]')
 
-function customInput (el) {
-  const fileInput = el.querySelector('[type="file"]')
-  const label = el.querySelector('[data-js-label]')
-  
-  fileInput.onchange =
-  fileInput.onmouseout = function () {
-    if (!fileInput.value) return
-    
-    var value = fileInput.value.replace(/^.*[\\\/]/, '')
-    el.className += ' -chosen'
-    label.innerText = value.length > 15 ? value.slice(0, 15) + '...' : value;
-  }
-}
+            fileInput.onchange =
+                fileInput.onmouseout = function() {
+                    if (!fileInput.value) return
 
-
-
-</script>
+                    var value = fileInput.value.replace(/^.*[\\\/]/, '')
+                    el.className += ' -chosen'
+                    label.innerText = value.length > 15 ? value.slice(0, 15) + '...' : value;
+                }
+        }
+    </script>
 </body>
 
 </html>

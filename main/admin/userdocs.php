@@ -29,3 +29,6 @@ $docs = $obj->selectextrawhere("userdocuments", "status = 1 and userid =" . $id 
         </table>
     </div>
 </div>
+<script>
+    $("#modalfooterbtn").css('display', 'none')
+</script>

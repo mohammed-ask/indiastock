@@ -274,4 +274,3 @@ $templatedata = ob_get_contents();
 ob_end_clean();
 $mail->Body = $templatedata;
 $mail->send();
-echo "mail send ";
