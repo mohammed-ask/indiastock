@@ -41,8 +41,8 @@ $result = $obj->selectextrawhereupdate(
 
 if (!empty($stockdata)) {
     while ($row = $obj->fetch_assoc($result)) {
-        // $symbol = $row['symbol'];
-        // $excg = $row['exchange'];
+        $symbol = $row['symbol'];
+        $excg = $row['exchange'];
         $token = $obj->selectfieldwhere("userstocks", "symboltoken", "id=" . $row['stockid'] . "");
 
         $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg, $token) {
@@ -79,8 +79,8 @@ $result2 = $obj->selectextrawhereupdate(
 
 if (!empty($stockdata)) {
     while ($row = $obj->fetch_assoc($result2)) {
-        // $symbol = $row['symbol'];
-        // $excg = $row['exchange'];
+        $symbol = $row['symbol'];
+        $excg = $row['exchange'];
         $token = $obj->selectfieldwhere("userstocks", "symboltoken", "id=" . $row['stockid'] . "");
         $pricedata = array_filter($stockdata, function ($data) use ($symbol, $excg, $token) {
             if ($data['Token'] == $token) {
