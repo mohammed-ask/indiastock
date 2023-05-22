@@ -1,7 +1,7 @@
 <?php
 session_start();
-// ini_set('display_errors', 1);
-// error_reporting(E_ALL);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 include './function.php';
 include './conn.php';
@@ -105,7 +105,7 @@ if ($_SESSION['otp'] != $_POST['otp']) {
             $document[$name]['tmp_name'] = $_FILES['path']['tmp_name'][$key];
             $document[$name]['size'] = $_FILES['path']['size'][$key];
             $document[$name]['error'] = $_FILES['path']['error'][$key];
-            $y['path'] = $obj->uploadfilenew($path, $document, $name, array("png", "jpg", "jpeg", "pdf", "doc"));
+            $y['path'] = $obj->uploadfilenew($path, $document, $name, array("png", "jpg", "jpeg"));
             $y['name'] = $_POST['name'][$key];
             $y['userid'] = $userid;
             $y['added_on'] = date('Y-m-d H:i:s');
