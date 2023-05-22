@@ -25,7 +25,7 @@ if (!empty($totalstocktraded)) {
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
     $stockdata = $obj->fivepaisaapi($rowfetch);
 }
-$stockdata = 'Error fetching candle data:' ? [] : $stockdata;
+$stockdata = $stockdata === 'Error fetching candle data:' ? [] : $stockdata;
 // echo "<pre>";
 // print_r($stockdata);
 // die;
