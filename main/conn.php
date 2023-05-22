@@ -100,7 +100,7 @@ $now = new DateTime();
 $dayOfWeek = $now->format('N');
 $hour = $now->format('G');
 if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
-    if ($hour >= 9 && $hour < 16) {
+    if ($hour >= 9 && $hour < 24) {
         $marketopen = true;
     }
 }

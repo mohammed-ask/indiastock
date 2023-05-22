@@ -191,7 +191,7 @@ include "main/templete.php"; ?>
     // check if current day is a weekday (Monday to Friday)
     <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
         // check if current time is between 9 am to 4 pm
-        if ($hour >= 9 && $hour < 16) { ?>
+        if ($hour >= 9 && $hour < 24) { ?>
             setInterval(() => {
                 console.log('counting market')
                 $('#userstock').html()

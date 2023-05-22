@@ -1164,7 +1164,14 @@
                     validate = false
                     vaildate_input.classList.add('warning');
                 }
-                // console.log(vaildate_input.value)
+                if (vaildate_input.files) {
+                    var file = vaildate_input.files[0];
+                    if (file.size > 1024 * 1024) {
+                        alert('Please select an image file smaller than 1 MB.');
+                        validate = false
+                    }
+                    // console.log('vvp', JSON.stringify(file.size))
+                }
             });
             return validate;
 

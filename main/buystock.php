@@ -123,7 +123,7 @@ $stockdata = $stockdata[0];
     // check if current day is a weekday (Monday to Friday)
     <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
         // check if current time is between 9 am to 4 pm
-        if ($hour >= 9 && $hour < 16) { ?>
+        if ($hour >= 9 && $hour < 24) { ?>
             myinterval = setInterval(() => {
                 $('#stockdetails').html()
                 $.post("main/getlivemarketdatasingle.php", {
