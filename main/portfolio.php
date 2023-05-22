@@ -169,8 +169,8 @@ if ($todaystocktotalamt != 0) {
                 <div class="row align-items-center">
                     <div class="col text-center">
                         <span class='h5 text-success'>₹<?= round($totalprofit) ?></span>
-                        <!-- <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Profit</h6>
-                        <h6 class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'><?= round($totalprofitprcnt, 2) ?><span> % </span></h6> -->
+                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Profit</h6>
+                        <!--<h6 class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'><?= round($totalprofitprcnt, 2) ?><span> % </span></h6> -->
                     </div><!--end col-->
                 </div> <!-- end row -->
             </div><!--end card-body-->
