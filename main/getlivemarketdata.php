@@ -167,7 +167,7 @@ foreach ($stockdata as $data) { ?>
                                     <a href="details.html"><i class="fa-solid fa-sliders email-action-icons-item"></i></a>
                                 </li><!--end /li-->
                                 <li class="list-inline-item align-self-center mx-0">
-                                    <a onclick="removewatchlist('<?= $wdata['Symbol'] ?>','<?= $wdata['Exch']  ?>')"><i class="fa-regular fa-trash-can email-action-icons-item"></i></a>
+                                    <a onclick="removewatchlist('<?= $wdata['Token'] ?>','<?= $wdata['Exch']  ?>')"><i class="fa-regular fa-trash-can email-action-icons-item"></i></a>
                                 </li><!--end /li-->
                             </ul><!--end /ul-->
                         </div> <!--end action-icons-->
