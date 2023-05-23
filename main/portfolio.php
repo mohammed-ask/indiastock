@@ -7,7 +7,7 @@ $fundwithdraw = $obj->selectfieldwhere("withdrawalrequests", 'sum(amount)', "use
 $fundwithdraw = empty($fundwithdraw) ? 0 : $fundwithdraw;
 
 //Today Profit
-$todayprofit = $obj->selectfieldwhere("closetradedetail", "sum(totalprofit)", "date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and userid=$employeeid and status = 1", 1);
+$todayprofit = $obj->selectfieldwhere("closetradedetail", "sum(totalprofit)", "date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and userid=$employeeid and status = 1");
 $todayprofit = empty($todayprofit) ? 0 : $todayprofit;
 
 //Overall Profit
