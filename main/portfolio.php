@@ -1,18 +1,25 @@
 <?php
 include "session.php";
+// Total Fund
 $fundadded = $obj->selectfieldwhere("fundrequest", 'sum(amount)', "userid=" . $employeeid . " and status = 1");
 $fundadded = empty($fundadded) ? 0 : $fundadded;
 $fundwithdraw = $obj->selectfieldwhere("withdrawalrequests", 'sum(amount)', "userid=" . $employeeid . " and status = 1");
 $fundwithdraw = empty($fundwithdraw) ? 0 : $fundwithdraw;
 
-$todayprofit = $obj->selectfieldwhere("closetradedetail", "sum(totalprofit)", "date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and userid=$employeeid and status = 1");
+//Today Profit
+$todayprofit = $obj->selectfieldwhere("closetradedetail", "sum(totalprofit)", "date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and userid=$employeeid and status = 1", 1);
 $todayprofit = empty($todayprofit) ? 0 : $todayprofit;
+
+//Overall Profit
 $completedtotalprofit = $obj->selectfieldwhere("closetradedetail", "sum(totalprofit)", "userid=$employeeid and totalprofit > 0");
+
+//Overall Loss
 $completedtotalloss = $obj->selectfieldwhere("closetradedetail", "sum(totalprofit)", "userid=$employeeid and totalprofit < 0");
+$completedtotalloss = empty($completedtotalloss) ? 0 : $completedtotalloss;
+
 // Invested Amount
 $investamt = $obj->selectfieldwhere("stocktransaction", "sum(totalamount)", "userid=$employeeid and status = 0 and tradestatus = 'Open'");
 $investamt = empty($investamt) ? 0 : $investamt;
-$completedtotalloss = empty($completedtotalloss) ? 0 : $completedtotalloss;
 
 $totalstocktraded = $obj->selectfieldwhere(
     "stocktransaction",
@@ -25,7 +32,7 @@ if (!empty($totalstocktraded)) {
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
     $stockdata = $obj->fivepaisaapi($rowfetch);
 }
-$stockdata = $stockdata === 'Error fetching candle data:' ? [] : $stockdata;
+$stockdata = isset($stockdata) && $stockdata !== 'Error fetching candle data:' ? $stockdata : [];
 // echo "<pre>";
 // print_r($stockdata);
 // die;
@@ -169,7 +176,8 @@ if ($todaystocktotalamt != 0) {
                 <div class="row align-items-center">
                     <div class="col text-center">
                         <span class='h5 text-success'>₹<?= round($totalprofit) ?></span>
-                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Profit</h6><h6 class="mt-0"><br></h6>
+                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Profit</h6>
+                        <h6 class="mt-0"><br></h6>
                         <!--<h6 class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'><?= round($totalprofitprcnt, 2) ?><span> % </span></h6> -->
                     </div><!--end col-->
                 </div> <!-- end row -->
@@ -257,10 +265,10 @@ if ($todaystocktotalamt != 0) {
                     <div class="col-auto">
                         <ul class="nav nav-tabs tab-nagative-m" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#Today" role="tab" aria-selected="true">Today's</a>
+                                <a class="nav-link active" data-bs-toggle="tab" href="#Today" role="tab" aria-selected="true">Intraday</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#Carry_Forward" role="tab" aria-selected="false">Carry Forward</a>
+                                <a class="nav-link" data-bs-toggle="tab" href="#Carry_Forward" role="tab" aria-selected="false">Holding</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="tab" href="#Close" role="tab" aria-selected="false">Close</a>
