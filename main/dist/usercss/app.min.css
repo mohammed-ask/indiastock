@@ -5326,3 +5326,14 @@ input:checked+.slider {
     width: 100%;
   }
 }
+
+
+
+
+@media (max-width: 600px) {
+ 
+  .mobile-card-display-none{
+
+    display: none !important;
+  }
+}
