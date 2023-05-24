@@ -769,6 +769,7 @@
                                     <span>Mobile Number</span>
                                 </div>
                             </div>
+                            <div id="timer"></div>
 
                             <div class="buttons">
                                 <button class="next_button">Next Step</button>
@@ -967,7 +968,7 @@
 
                             </div>
                             <div class="buttons button_space">
-                                <button class="back_button">Back</button>
+                                <!-- <button class="back_button">Back</button> -->
                                 <button id="subotp" class="submit_button" disabled="disabled">Submit now</button>
                             </div>
                         </div>
@@ -996,7 +997,7 @@
     <script>
         function startTimer() {
             var timerElement = $("#timer");
-            var totalTime = 10; // Total time in seconds
+            var totalTime = 90; // Total time in seconds
             var minutes, seconds;
 
             var timer = setInterval(function() {
@@ -1014,7 +1015,7 @@
                     clearInterval(timer); // Stop the timer
                     // Perform any desired actions when the timer finishes
                     $("#subotp").removeAttr("disabled");
-                    // timerElement.text("Timer finished!");
+                    timerElement.html("<strong style='color:green'>OTP Send</strong>");
                 } else {
                     totalTime--; // Decrease the total time by 1 second
                 }
@@ -1106,6 +1107,11 @@
                         } else if (response === 'Failed') {
                             removeoverlay()
                             alertify.alert('result', 'Sorry! OTP did not match', function() {
+                                // window.location.href = 'login'
+                            })
+                        } else if (response === 'Already Exists') {
+                            removeoverlay()
+                            alertify.alert('result', 'Sorry! Mail id already exists', function() {
                                 // window.location.href = 'login'
                             })
                         } else {
