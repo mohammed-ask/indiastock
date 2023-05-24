@@ -963,10 +963,12 @@
                                     <input type="text" name="otp" id="otp" required require>
                                     <span>Enter OTP (Sent on your Email)</span>
                                 </div>
+                                <div id="timer"></div>
+
                             </div>
                             <div class="buttons button_space">
                                 <button class="back_button">Back</button>
-                                <button class="submit_button">Submit now</button>
+                                <button id="subotp" class="submit_button" disabled="disabled">Submit now</button>
                             </div>
                         </div>
 
@@ -992,6 +994,32 @@
     <script src="main/dist/js/select2.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
+        function startTimer() {
+            var timerElement = $("#timer");
+            var totalTime = 10; // Total time in seconds
+            var minutes, seconds;
+
+            var timer = setInterval(function() {
+                minutes = Math.floor(totalTime / 60); // Calculate minutes
+                seconds = totalTime % 60; // Calculate seconds
+
+                // Format the time as 2-digit numbers
+                var formattedTime = ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+
+                // Update the timer element
+                timerElement.text(formattedTime);
+
+                // Check if the timer has reached 0
+                if (totalTime <= 0) {
+                    clearInterval(timer); // Stop the timer
+                    // Perform any desired actions when the timer finishes
+                    $("#subotp").removeAttr("disabled");
+                    // timerElement.text("Timer finished!");
+                } else {
+                    totalTime--; // Decrease the total time by 1 second
+                }
+            }, 1000); // Run the timer every second (1000 milliseconds)
+        }
         var next_click = document.querySelectorAll(".next_button");
         var main_form = document.querySelectorAll(".main");
         var step_list = document.querySelectorAll(".progress-bar li");
@@ -1041,6 +1069,7 @@
                     function(data) {
                         if (data === "Success") {
                             removeoverlay()
+                            startTimer()
                         }
                     },
                 );

@@ -15,18 +15,21 @@ $id = $_GET['hakuna'];
 $rowfund = $obj->selectextrawhere("fundrequest", "id=" . $id . "")->fetch_assoc();
 $email = $obj->selectfieldwhere("users", "email", "id=" . $rowfund['userid'] . "");
 $investmentamount = $obj->selectfieldwhere("users", "investmentamount", "id=" . $rowfund['userid'] . "");
-if ($_GET['what'] === 'Approve') {
+if ($_GET['what'] === 'Approve' && $rowfund['status'] == 0) {
     $xx['status'] = 1;
     $xx["approvedon"] = date('Y-m-d H:i:s');
     $xx['approvedby'] = $employeeid;
     $obj->update("fundrequest", $xx, $id);
     $kk['investmentamount'] = $investmentamount + $rowfund['amount'];
     $obj->update("users", $kk, $rowfund['userid']);
-} elseif ($_GET['what'] === 'Reject') {
+} elseif ($_GET['what'] === 'Reject' && $rowfund['status'] == 0) {
     $yy['status'] = 91;
     $yy["approvedon"] = date('Y-m-d H:i:s');
     $yy['approvedby'] = $employeeid;
     $obj->update("fundrequest", $yy, $id);
+} elseif ($rowfund['status'] != 0) {
+    $obj->saveactivity("Already Approved/Disapprove but run again", "", $_GET["hakuna"], $_GET["hakuna"], "User", "Already Approved/Disapprove but run again");
+    die;
 }
 $mail = new PHPMailer(true);
 
