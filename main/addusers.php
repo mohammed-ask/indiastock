@@ -968,7 +968,7 @@
 
                             </div>
                             <div class="buttons button_space">
-                                <!-- <button class="back_button">Back</button> -->
+                                <button class="back_button">Back</button>
                                 <button id="subotp" class="submit_button" disabled="disabled">Submit now</button>
                             </div>
                         </div>
