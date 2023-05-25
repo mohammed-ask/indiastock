@@ -769,8 +769,6 @@
                                     <span>Mobile Number</span>
                                 </div>
                             </div>
-                            <div id="timer"></div>
-
                             <div class="buttons">
                                 <button class="next_button">Next Step</button>
                             </div>
@@ -1180,6 +1178,7 @@
             var validate_inputs = document.querySelectorAll(".main.active input");
             validate_inputs.forEach(function(vaildate_input, index) {
                 vaildate_input.classList.remove('warning');
+                var currentDate = new Date();
                 if (vaildate_input.hasAttribute('require')) {
                     if (vaildate_input.value.length == 0) {
                         validate = false;
@@ -1194,6 +1193,25 @@
                 if (vaildate_input.id === 'password' && vaildate_input.value === '') {
                     validate = false
                     vaildate_input.classList.add('warning');
+                }
+                if (vaildate_input.id === 'mobileno' && vaildate_input.value.length != 10) {
+                    validate = false
+                    alert('Mobile number must be 10 digits')
+                    vaildate_input.classList.add('warning');
+                }
+                if (vaildate_input.id === 'adharno' && vaildate_input.value.length != 12) {
+                    validate = false
+                    alert('Aadhar number must be 12 digits')
+                    vaildate_input.classList.add('warning');
+                }
+                if (vaildate_input.id === 'dob') {
+                    var inputDate = new Date(vaildate_input.value);
+                    inputDate.setFullYear(inputDate.getFullYear() + 18);
+                    if (currentDate < inputDate) {
+                        validate = false
+                        alert('Age must be 18 years or above')
+                        vaildate_input.classList.add('warning');
+                    }
                 }
                 if (vaildate_input.id === 'comfirmpass' && vaildate_input.value !== password) {
                     validate = false
