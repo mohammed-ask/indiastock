@@ -63,6 +63,7 @@ if ($empcode != 1 && !empty($_POST['employeeref'])) {
     $x['type'] = 2;
     $x['carryforward'] = $_POST['carryforward'];
     $x['longholding'] = $_POST['longholding'];
+    $x['withdrawlimit'] = $_POST['withdrawlimit'];
     $x['role'] = 2;
     // $x['investmentamount'] = $_POST['investmentamount'];
     $x['limit'] = $_POST['limit'];

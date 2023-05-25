@@ -82,6 +82,12 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
             </select>
         </label>
     </div>
+    <div class="row">
+        <label class="col-6 block text-sm" style="margin-bottom: 5px;">
+            <span class="text-gray-700 dark:text-gray-400">Withdraw Limit</span>
+            <input type="number" name="limit" data-bvalidator="required" step="any" onfocus="this.select()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="<?= $rowuser['withdrawlimit'] ?>" placeholder="Withdrawal Limit" /></label>
+        </label>
+    </div>
     <div>
         <label class="block text-sm" style="margin-bottom: 5px;">
             <div class="row my-1"> <span class="col-6 text-gray-700 dark:text-gray-400"> Withdrawal Message</span>
