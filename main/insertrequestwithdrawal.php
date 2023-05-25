@@ -9,6 +9,11 @@ $start = empty($starttime) ? '' : strtotime($starttime);
 $end = empty($endtime) ? '' : strtotime($endtime);
 $current = time();
 $hour = date("H");
+$withlimit = $obj->selectfieldwhere("users", 'withdrawlimit', 'id="' . $employeeid . '"');
+if ($withlimit <  $_POST['amount']) {
+    echo "<div class='alert alert-warning'>Cannot withdraw more than $withlimit</div>";
+    die;
+}
 if (!empty($start) && !empty($end) && $current >= $start && $current <= $end) {
     echo "<div  class='alert alert-danger'>$message</div>";
 } else {
