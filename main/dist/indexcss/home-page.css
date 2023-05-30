@@ -321,6 +321,7 @@ header
 }
 
 .header-area .main-nav .logo {
+    margin-top: 15px;
   line-height: 70px;
   float: left;
   -webkit-transition: all 0.3s ease 0s;
