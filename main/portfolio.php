@@ -415,7 +415,7 @@ include "main/templete.php"; ?>
         "ajax": "main/opentradedata.php",
         "processing": false,
         "serverSide": true,
-        "pageLength": 10,
+        "pageLength": 15,
         "paging": true,
         "lengthChange": false,
         "searching": false,
@@ -432,7 +432,7 @@ include "main/templete.php"; ?>
         "ajax": "main/holdingtradedata.php",
         "processing": false,
         "serverSide": true,
-        "pageLength": 10,
+        "pageLength": 15,
         "paging": true,
         "lengthChange": false,
         "searching": false,
@@ -467,7 +467,7 @@ include "main/templete.php"; ?>
     <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
         if ($hour >= 9 && $hour < 24) { ?>
             todayinterval = setInterval(function() {
-                table.ajax.reload();
+                table.ajax.reload(null, false);
             }, <?= $apiinterval ?>);
     <?php }
     } ?>
@@ -482,13 +482,13 @@ include "main/templete.php"; ?>
             if ($hour >= 9 && $hour < 24) { ?>
                 if (id === 'Today') {
                     todayinterval = setInterval(function() {
-                        table.ajax.reload();
+                        table.ajax.reload(null, false);
                     }, <?= $apiinterval ?>);
                     clearInterval(holdinginterval)
                 }
                 if (id === 'Carry_Forward') {
                     holdinginterval = setInterval(function() {
-                        table2.ajax.reload();
+                        table2.ajax.reload(null, false);
                     }, <?= $apiinterval ?>);
                     clearInterval(todayinterval)
                 }
@@ -504,11 +504,11 @@ include "main/templete.php"; ?>
     var hash = window.location.hash;
     $('a[href="' + hash + '"]').tab('show');
 
-    var table = $('#example3').DataTable({
+    var table3 = $('#example3').DataTable({
         "ajax": "main/closetradedata.php",
         "processing": false,
         "serverSide": true,
-        "pageLength": 10,
+        "pageLength": 15,
         "paging": true,
         "lengthChange": false,
         "searching": false,
@@ -520,11 +520,11 @@ include "main/templete.php"; ?>
             [0, "desc"]
         ],
     })
-    var table = $('#example4').DataTable({
+    var table4 = $('#example4').DataTable({
         "ajax": "main/brokertradedata.php",
         "processing": false,
         "serverSide": true,
-        "pageLength": 10,
+        "pageLength": 15,
         "paging": true,
         "lengthChange": false,
         "searching": false,
