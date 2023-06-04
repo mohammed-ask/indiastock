@@ -7,16 +7,16 @@ if (!defined("BASE_URL")) {
 }
 
 $host = "localhost";
-// $database_Username = "hc020wtvnu2k";
-// $database_Password = "PMSEquity@1998";
-// $database_Name = "pmsequity";
-// $timeskip = '+12:30';
+$database_Username = "hc020wtvnu2k";
+$database_Password = "PMSEquity@1998";
+$database_Name = "pmsequity";
+$timeskip = '+12:30';
 
 // Local
-$database_Username = "root";
-$database_Password = "";
-$database_Name = "indiastock";
-$timeskip = '+00:00';
+// $database_Username = "root";
+// $database_Password = "";
+// $database_Name = "indiastock";
+// $timeskip = '+00:00';
 
 $siteurl = "https://pmsequity.com/";
 $port = 3306;
