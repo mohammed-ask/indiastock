@@ -263,9 +263,9 @@ class db
     }
 }
 
-// if (date('H:i') == date('H') . ':30') {
-$obj->saveactivity("Stoploss Cron Run", "", 0, 0, "User", "Stoploss Cron Run");
-// }
+if (date('H:i') == date('H') . ':30') {
+    $obj->saveactivity("Stoploss Cron Run", "", 0, 0, "User", "Stoploss Cron Run");
+}
 die;
 // Close Trade
 $stocktoken = $obj->selectfieldwhere(
