@@ -72,7 +72,7 @@ if (!empty($stockdata)) {
         if ($profitloss > 0) {
             $totalprofit = $totalprofit + $profitloss;
         } else {
-            $totalloss = $totalloss - ($profitloss);
+            $totalloss = $totalloss + ($profitloss);
         }
     }
 }
@@ -297,6 +297,7 @@ if ($todaystocktotalamt != 0) {
                                         <!-- <th>Paid By User</th> -->
                                         <th>Buy/Sell</th>
                                         <th>Current Rate</th>
+                                        <th>Stop Loss</th>
                                         <th>% Day's P/L</th>
                                         <th>Day's P/L</th>
                                         <th>Action</th>
@@ -321,6 +322,7 @@ if ($todaystocktotalamt != 0) {
                                         <th>Price</th>
                                         <th>Total</th>
                                         <th>Current Rate</th>
+                                        <th>Stop Loss</th>
                                         <!-- <th>Paid By User</th> -->
                                         <th>Buy/Sell</th>
                                         <th>%P/L</th>
@@ -351,6 +353,7 @@ if ($todaystocktotalamt != 0) {
                                         <th>Total</th>
                                         <!-- <th>Paid By User</th> -->
                                         <th>Buy/Sell</th>
+                                        <th>Stop Loss</th>
                                         <th>%P/L</th>
                                         <th>P/L</th>
                                         <!-- <th>Your P/L</th> -->

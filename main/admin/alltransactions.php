@@ -27,6 +27,7 @@ ob_start();
                         <th class="px-4 py-3">Lot/Quantity</th>
                         <th class="px-4 py-3">Buy Price</th>
                         <th class="px-4 py-3">Sell Price</th>
+                        <th class="px-4 py-3">Stop Loss</th>
                         <th class="px-4 py-3">Total Amount</th>
                         <th class="px-4 py-3">Status</th>
                         <th class="px-4 py-3">Added By</th>

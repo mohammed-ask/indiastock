@@ -50,7 +50,7 @@ $return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "c
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction $join",
-    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,stocktransaction.userid,stocktransaction.tradestatus,datetime,closetime,closetradedetail.added_on as closeon,mktlot,totalprofit,profitprcnt",
+    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,stocktransaction.userid,stocktransaction.tradestatus,datetime,closetime,closetradedetail.added_on as closeon,mktlot,totalprofit,profitprcnt,stoplossamt",
     "stocktransaction.status = 1 $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
@@ -68,6 +68,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['qty'];
     $n[] = $row['trademethod'] === 'Buy' ? $currencysymbol . $row['price'] : $currencysymbol . $row['cprice'];
     $n[] = $row['trademethod'] === 'Sell' ? $currencysymbol . $row['price'] : $currencysymbol . $row['cprice'];
+    $n[] = !empty($row['stoplossamt']) ? $currencysymbol . $row['stoplossamt'] : '';
     $n[] = $currencysymbol . $row['totalamount'];
     $profitprcnt = empty($row['profitprcnt']) ? 0 : round($row['profitprcnt'], 2);
     $color = $profitprcnt >= 0 ? "text-success" : 'text-danger';

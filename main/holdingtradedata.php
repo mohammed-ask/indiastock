@@ -75,6 +75,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $currencysymbol . round($row['totalamount'], 2);
     // $n[] = round($row['totalamount'], 2);
     $n[] = $currencysymbol . $currentrate;
+    $n[] = !empty($row['stoplossamt']) ? $currencysymbol . $row['stoplossamt'] : '';
     $n[] = $row['trademethod'];
     $profitprcnt = round((($currentrate  - $row['price']) * $row['qty'] * $row['mktlot']) / ($row['price'] * $row['qty'] * $row['mktlot']) * 100, 2);
     if ($row['trademethod'] === 'Sell') {

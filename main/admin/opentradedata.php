@@ -49,6 +49,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['symbol'];
     $n[] = $row['mktlot'];
     $n[] = $currencysymbol . $row['price'];
+    $n[] = !empty($row['stoplossamt']) ? $currencysymbol . $row['stoplossamt'] : '';
     $n[] = $row['qty'];
     $n[] = $currencysymbol . $row['totalamount'];
     $n[] = changedateformatespecito(empty($row['datetime']) ? $row['added_on'] : $row['datetime'], "Y-m-d H:i:s", "d M, Y H:i");

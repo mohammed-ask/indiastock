@@ -1,5 +1,15 @@
 <?php
 include "main/session.php";
+if (isset($_POST['stoplossenabled']) && $_POST['stoploss'] <= $_POST['price']) {
+    echo "<div class='alert alert-warning'>Stop Loss cannot be below or equal to Current rate</div>";
+    die;
+} elseif (isset($_POST['stoplossenabled']) &&  $_POST['stoploss'] > ($_POST['price'] + $_POST['price'] * 20 / 100)) {
+    echo "<div class='alert alert-warning'>Stop Loss cannot be more than 20% of Current rate</div>";
+    die;
+} elseif (isset($_POST['targetenabled']) &&  $_POST['target'] >= $_POST['price']) {
+    echo "<div class='alert alert-warning'>Target cannot be more than or equal to Current rate</div>";
+    die;
+}
 if ($_POST['totalamount'] > $investmentamount * $usermargin) {
     echo "<div class='alert alert-warning'>You dont have enough fund</div>";
 } else {
@@ -28,6 +38,12 @@ if ($_POST['totalamount'] > $investmentamount * $usermargin) {
     $xx['trademethod'] = 'Sell';
     $xx['tradestatus'] = 'Open';
     $xx['token'] = $token;
+    if (isset($_POST['stoplossenabled']) && !empty($_POST['stoploss'])) {
+        $xx['stoplossamt'] = $_POST['stoploss'];
+    }
+    if (isset($_POST['targetenabled']) && !empty($_POST['target'])) {
+        $xx['target'] = $_POST['target'];
+    }
     $sell = $obj->insertnew("stocktransaction", $xx);
     $obj->saveactivity("Stock Sell by User", "", $sell, $employeeid, "User", "Stock Sell by User");
     $remainfund = $investmentamount - $xx["totalamount"];

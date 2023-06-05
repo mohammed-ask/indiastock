@@ -266,12 +266,11 @@ class db
 if (date('H:i') == date('H') . ':30') {
     $obj->saveactivity("Stoploss Cron Run", "", 0, 0, "User", "Stoploss Cron Run");
 }
-die;
 // Close Trade
 $stocktoken = $obj->selectfieldwhere(
     "stocktransaction inner join users on users.id = stocktransaction.userid",
     "group_concat(distinct(token))",
-    "stocktransaction.status = 0 and tradestatus='Open' and stockid != '' and stockid is not null and stoplossamt is not null"
+    "stocktransaction.status = 0 and tradestatus='Open' and stockid != '' and stockid is not null and (stoplossamt is not null || target is not null)"
 );
 if (!empty($stocktoken)) {
     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "status = 1 and symboltoken in (" . $stocktoken . ")");
@@ -280,8 +279,8 @@ if (!empty($stocktoken)) {
 }
 $result = $obj->selectextrawhereupdate(
     "stocktransaction inner join users on users.id = stocktransaction.userid",
-    "stockid,symbol,exchange,qty,price,userid,stocktransaction.id,stocktransaction.type,stocktransaction.limit,stocktransaction.totalamount,users.investmentamount,borrowedamt,borrowedprcnt,trademethod,mktlot,stoplossamt",
-    "stocktransaction.status = 0 and  tradestatus='Open' and stockid != '' and stockid is not null and stoplossamt is not null"
+    "stockid,symbol,exchange,qty,price,userid,stocktransaction.id,stocktransaction.type,stocktransaction.limit,stocktransaction.totalamount,users.investmentamount,borrowedamt,borrowedprcnt,trademethod,mktlot,stoplossamt,target",
+    "stocktransaction.status = 0 and  tradestatus='Open' and stockid != '' and stockid is not null and (stoplossamt is not null || target is not null)"
 );
 while ($row = $obj->fetch_assoc($result)) {
     $symbol = $row['symbol'];
@@ -293,8 +292,8 @@ while ($row = $obj->fetch_assoc($result)) {
         }
     });
     $keys = array_keys($pricedata)[0];
-    $currentrate = $pricedata[$keys]['LastRate'];
-    if (($row['trademethod'] === 'Buy' && $currentrate <= $row['stoplossamt']) || ($row['trademethod'] === 'Sell' && $currentrate >= $row['stoplossamt'])) {
+    $currentrate = 3500; //$pricedata[$keys]['LastRate'];
+    if (($row['trademethod'] === 'Buy' && $currentrate <= $row['stoplossamt']) || ($row['trademethod'] === 'Sell' && $currentrate >= $row['stoplossamt']) || ($row['trademethod'] === 'Buy' && $currentrate >= $row['target']) || ($row['trademethod'] === 'Sell' && $currentrate <= $row['target'])) {
         $xc['added_on'] = date("Y-m-d H:i:s");
         $xc['updated_on'] = date("Y-m-d H:i:s");
         $xc['status'] = 1;
@@ -358,6 +357,11 @@ while ($row = $obj->fetch_assoc($result)) {
         if ($close > 0) {
             $yy["tradestatus"] = 'Close';
             $yy['status'] = 1;
+            if (($row['trademethod'] === 'Buy' && $currentrate <= $row['stoplossamt']) || ($row['trademethod'] === 'Sell' && $currentrate >= $row['stoplossamt'])) {
+                $yy['stoplosstriggred'] = 'Yes';
+            } else {
+                $yy['targettriggred'] = 'Yes';
+            }
             $trade = $obj->update("stocktransaction", $yy, $xc['tradeid']);
             if ($trade > 0) {
                 if ($xc['totalprofit'] >= 0) {

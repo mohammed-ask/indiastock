@@ -40,7 +40,7 @@ $return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "c
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction $join",
-    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,stocktransaction.userid,stocktransaction.tradestatus,stocktransaction.datetime,mktlot",
+    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,stocktransaction.userid,stocktransaction.tradestatus,stocktransaction.datetime,mktlot,stoplossamt",
     "stocktransaction.status in (1,0) and (date(stocktransaction.added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) || date(stocktransaction.datetime) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))) $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
@@ -58,6 +58,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['qty'];
     $n[] = $row['trademethod'] === 'Buy' ? $currencysymbol . $row['price'] : $currencysymbol . $row['cprice'];
     $n[] = $row['trademethod'] === 'Sell' ? $currencysymbol . $row['price'] : $currencysymbol . $row['cprice'];
+    $n[] = !empty($row['stoplossamt']) ? $currencysymbol . $row['stoplossamt'] : '';
     $n[] = $currencysymbol . $row['totalamount'];
     $n[] = $row['tradestatus'];
     $n[] = empty($row['datetime']) ? 'User' : 'Broker';
