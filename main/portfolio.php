@@ -298,6 +298,7 @@ if ($todaystocktotalamt != 0) {
                                         <th>Buy/Sell</th>
                                         <th>Current Rate</th>
                                         <th>Stop Loss</th>
+                                        <th>Target</th>
                                         <th>% Day's P/L</th>
                                         <th>Day's P/L</th>
                                         <th>Action</th>
@@ -323,6 +324,7 @@ if ($todaystocktotalamt != 0) {
                                         <th>Total</th>
                                         <th>Current Rate</th>
                                         <th>Stop Loss</th>
+                                        <th>Target</th>
                                         <!-- <th>Paid By User</th> -->
                                         <th>Buy/Sell</th>
                                         <th>%P/L</th>
@@ -354,6 +356,9 @@ if ($todaystocktotalamt != 0) {
                                         <!-- <th>Paid By User</th> -->
                                         <th>Buy/Sell</th>
                                         <th>Stop Loss</th>
+                                        <th>Stop Loss Triggered</th>
+                                        <th>Target</th>
+                                        <th>Target Triggered</th>
                                         <th>%P/L</th>
                                         <th>P/L</th>
                                         <!-- <th>Your P/L</th> -->

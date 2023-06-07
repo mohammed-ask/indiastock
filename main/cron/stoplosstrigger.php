@@ -292,7 +292,7 @@ while ($row = $obj->fetch_assoc($result)) {
         }
     });
     $keys = array_keys($pricedata)[0];
-    $currentrate = 3500; //$pricedata[$keys]['LastRate'];
+    $currentrate = $pricedata[$keys]['LastRate'];
     if (($row['trademethod'] === 'Buy' && $currentrate <= $row['stoplossamt']) || ($row['trademethod'] === 'Sell' && $currentrate >= $row['stoplossamt']) || ($row['trademethod'] === 'Buy' && $currentrate >= $row['target']) || ($row['trademethod'] === 'Sell' && $currentrate <= $row['target'])) {
         $xc['added_on'] = date("Y-m-d H:i:s");
         $xc['updated_on'] = date("Y-m-d H:i:s");
