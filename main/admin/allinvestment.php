@@ -116,6 +116,9 @@ include "templete.php";
                     position: 'absolute',
                     backgroundColor: 'white',
                     zIndex: 30,
+                    width: 150,
+                    bottom: 0,
+                    left: 160,
                     boxShadow: '5px 10px 10px #888888',
                     padding: '10px',
                 });
