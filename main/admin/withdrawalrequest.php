@@ -73,8 +73,9 @@ include "main/admin/templete.php";
                 backgroundColor: 'white',
                 zIndex: 30,
                 width: 150,
-                bottom: 0,
-                left: 160,
+                // bottom: 0,
+                // left: 160,
+                top: auto,
                 boxShadow: '5px 10px 10px #888888',
                 padding: '10px',
             });
