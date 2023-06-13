@@ -75,7 +75,7 @@ include "main/admin/templete.php";
                 width: 150,
                 bottom: 0,
                 left: 160,
-                top:auto,
+                top: 'auto',
                 boxShadow: '5px 10px 10px #888888',
                 padding: '10px',
             });
