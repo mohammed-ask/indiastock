@@ -31,7 +31,7 @@
     </div>
     <div class="row">
         <label class="col-6 block text-sm" style="margin-bottom: 5px;">
-            <span class="text-gray-700 dark:text-gray-400">Bank Name</span>
+            <span class="text-gray-700 dark:text-gray-400">Bank Namee</span>
             <input data-bvalidator="required" name="bankname" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="eg. BOI, State bank of India, Kotak etc..." /></label>
 
         <label class="col-6 block text-sm" style="margin-bottom: 5px;">
