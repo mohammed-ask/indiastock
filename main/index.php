@@ -88,6 +88,13 @@ $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
+                            <?php
+                            if (isset($_POST['postData'])) {
+                                // $postData = json_decode($_POST['postData'], true);
+                                // Display the button
+                                echo '<button class="btn btn-sm"> Button</button>';
+                            }
+                            ?>
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#about">About Us</a></li>
                             <li class="scroll-to-section"><a href="#services">Services</a></li>

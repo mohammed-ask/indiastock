@@ -44,7 +44,13 @@ foreach ($data as $row) {
                                     <span <?= $mdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($mdata['ChgPcnt'], 2) ?>%)</span>
                                 </div>
                             </div>
-                        <?php } ?>
+                        <?php }
+                        if (isset($_POST['postData'])) {
+                            $postData = json_decode($_POST['postData'], true);
+                            // Display the button
+                            echo '<button> Button</button>';
+                        } ?>
+
                     </div>
                 </div>
             </div>
