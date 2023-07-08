@@ -6,7 +6,7 @@ include "main/session.php";
 </div>
 <div class="border rounded">
     <div class="bg-light">
-        <h5 style="padding-left:16px !important;" class="m-0 font-14 p-2">Bank of India</h5>
+        <h5 style="padding-left:16px !important;" class="m-0 font-14 p-2"><?= $bankname ?></h5>
     </div>
 
     <div class="row p-3" style="overflow-wrap: break-word;">
