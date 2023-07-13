@@ -13,9 +13,9 @@ $marketdata = array_filter($stockdata, function ($data) {
     }
 });
 $stockdata = array_filter($stockdata, function ($data) {
-    if ($data['Symbol'] !== 'NIFTY' && $data['Symbol'] !== 'SENSEX') {
+    // if ($data['Symbol'] !== 'NIFTY' && $data['Symbol'] !== 'SENSEX') {
         return $data;
-    }
+    // }
 });
 $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexchange) {
     if (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange))
