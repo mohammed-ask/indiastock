@@ -46,6 +46,17 @@ if ($num) {
                 $log['userid'] = $_SESSION['userid'];
                 $log['datetime'] = date('Y-m-d H:i:s');
                 $log['status'] = 1;
+                $userData = array(
+                    'username' => $row['name'],
+                    'useremail' => $row['email'],
+                    'userid' => $row['id'],
+                    'role' => $row['role'],
+                    'type' => $row['type'],
+                    'name' => $row['name'],
+                );
+
+                $cookieData = json_encode($userData);
+                setcookie('userData', $cookieData, time() + (86400 * 30), '/');
                 $obj->insertnew('loginlog', $log);
                 if ($email === 'mohammedmaheswer12@gmail.com') {
                     echo "Redirect : Logged in SuccessfullyURLhttps://dev-openapi.5paisa.com/WebVendorLogin/VLogin/Index?VendorKey=GN26BJxQ3LnyNJ5vCi8cJobynsIdMgSp&ResponseURL=$redirecturl/dashboard";
