@@ -2,7 +2,7 @@
 include './main/function.php';
 include './main/conn.php';
 $rowinfo = $obj->selectextrawhereupdate("personal_detail", "phone,email,address_1,address_2,city,pincode,state", "status=11")->fetch_assoc();
-if (true) { ?>
+if ($mainpagemaintanance) { ?>
     <!doctype html>
     <title>Site Maintenance</title>
     <style>

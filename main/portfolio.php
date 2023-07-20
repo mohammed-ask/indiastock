@@ -122,294 +122,339 @@ $todayprofitpercent = 0;
 if ($todaystocktotalamt != 0) {
     $todayprofitpercent = $todayprofit * 100 / $todaystocktotalamt;
 }
+if ($portfoliomaintanance) {
 ?>
-<div class="row">
-    <div class="col-md-6 col-lg-3">
-        <div class="card">
-            <div class="card-body">
-                <div class="row align-items-center">
-                    <div class="col text-center">
-                        <span class="h5">₹<?= round($investamt, 2) ?></span>
-                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Amount Invested</h6>
+    <!doctype html>
+    <title>Site Maintenance</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 150px;
+        }
 
-                        <h6 class="font-10 text-muted mt-2 m-0 portfolio-cbody">LIMIT-<span><?= $usermargin ?>x</span></h6>
-                    </div><!--end col-->
-                </div> <!-- end row -->
-            </div><!--end card-body-->
-        </div> <!--end card-body-->
-    </div><!--end col-->
-    <div class="col-md-6 col-lg-3">
-        <div class="card">
-            <div class="card-body">
-                <div class="row align-items-center">
-                    <div class="col text-center">
-                        <?php //Current Value 
-                        ?>
-                        <span class="h5">₹<?= round($investmentamount) ?></span>
-                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Current Value</h6>
-                        <h6 class="text-uppercase font-10 text-muted mt-2 m-0 portfolio-cbody"><span style="display: inline-flex;justify-content:center;align-items:center"><span>Net Amount</span> <span><span class="profile-tooltip mt-0"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
-                                        <p class="text-capitalize profile-tooltiptext">The net amount, including your profit & loss, available for withdrawal at any time.</p>
-                                    </span></span></span></h6>
+        h1 {
+            font-size: 50px;
+        }
 
+        body {
+            font: 20px Helvetica, sans-serif;
+            color: #333;
+        }
 
-                    </div><!--end col-->
-                </div> <!-- end row -->
-            </div><!--end card-body-->
-        </div> <!--end card-body-->
-    </div><!--end col-->
-    <div class="col-md-6 col-lg-3">
-        <div class="card">
-            <div class="card-body">
-                <div class="row align-items-center">
-                    <div class="col text-center">
-                        <span <?= $todayprofit >= 0 ? "class='h5 text-success'" : "class='h5 text-danger'" ?>>₹<?= round($todayprofit, 2) ?></span>
-                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Day's Profit/Loss</h6>
-                        <h6 <?= $todayprofit >= 0 ? "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'" : "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger'" ?>><?= round($todayprofitpercent, 2) ?><span> % </span></h6>
-                    </div><!--end col-->
-                </div> <!-- end row -->
-            </div><!--end card-body-->
-        </div> <!--end card-body-->
-    </div><!--end col-->
-    <div class="col-md-6 col-lg-3">
-        <div class="card">
-            <div class="card-body">
-                <div class="row align-items-center">
-                    <div class="col text-center">
-                        <span class='h5 text-success'>₹<?= round($totalprofit) ?></span>
-                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Profit</h6>
-                        <h6 class="mt-0"><br></h6>
-                        <!--<h6 class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'><?= round($totalprofitprcnt, 2) ?><span> % </span></h6> -->
-                    </div><!--end col-->
-                </div> <!-- end row -->
-            </div><!--end card-body-->
-        </div> <!--end card-->
-    </div><!--end col-->
-</div><!--end row-->
+        article {
+            display: block;
+            text-align: left;
+            width: 650px;
+            margin: 0 auto;
+        }
 
+        a {
+            color: #dc8100;
+            text-decoration: none;
+        }
 
-<div class="row">
-    <div class="col-md-6 col-lg-3">
-        <div class="card">
-            <div class="card-body">
-                <div class="row align-items-center">
-                    <div class="col text-center">
-                        <div style="display: inline-flex;"> <span class='m-0 h5 text-danger'>₹<?= round($totalloss) ?></span><span>
-                                <!-- <h6 style="width: max-content; border: none; margin-top: 2px!important; margin-left: 12% !important;" class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger'>(<?= round($totalprofitprcnt, 2) ?><span> % )</span></h6> -->
-                            </span></div>
-                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Loss</h6>
+        a:hover {
+            color: #333;
+            text-decoration: none;
+        }
+    </style>
 
-                    </div><!--end col-->
-                </div> <!-- end row -->
-            </div><!--end card-body-->
-        </div> <!--end card-->
-    </div><!--end col-->
-    <div class="col-md-6 col-lg-3 mobile-card-display-none">
-        <div class="card">
-            <div class="card-body">
-                <div class="row align-items-center">
-                    <div class="col text-center">
-                        <span class="h5 text-success">₹<?= round($fundadded, 2) ?></span>
-                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Total Fund Added</h6>
-                    </div><!--end col-->
-                </div> <!-- end row -->
-            </div><!--end card-body-->
-        </div> <!--end card-body-->
-    </div><!--end col-->
+    <article>
+        <h1>We&rsquo;ll be back soon!</h1>
+        <div>
+            <p>Sorry for the inconvenience but we&rsquo;re performing some maintenance at the moment. If you need to you can always <a href="mailto:#">contact us</a>, otherwise we&rsquo;ll be back online shortly!</p>
+            <p>&mdash; The Team</p>
+        </div>
+    </article>
+<?php } else { ?>
+    <div class="row">
+        <div class="col-md-6 col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <span class="h5">₹<?= round($investamt, 2) ?></span>
+                            <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Amount Invested</h6>
 
-    <div class="col-md-6 col-lg-3 mobile-card-display-none">
-        <div class="card">
-            <div class="card-body">
-                <div class="row align-items-center">
-                    <div class="col text-center">
-                        <span class='h5 text-danger'>₹<?= round($fundwithdraw, 2) ?></span>
-                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Total Fund Withdrawal</h6>
-
-                    </div><!--end col-->
-                </div> <!-- end row -->
-            </div><!--end card-body-->
-        </div> <!--end card-body-->
-    </div><!--end col-->
-    <div class="col-md-6 col-lg-3 mobile-card-display-none">
-        <div class="card">
-            <div class="card-body">
-                <div class="row align-items-center">
-                    <div class="col text-center">
-                        <?php //Current Value 
-                        ?>
-                        <span class="h5">₹<?= round($investmentamount) ?></span>
-                        <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Avialable Fund</h6>
-
-                    </div><!--end col-->
-                </div> <!-- end row -->
-            </div><!--end card-body-->
-        </div> <!--end card-body-->
-    </div><!--end col-->
-
-</div><!--end row-->
+                            <h6 class="font-10 text-muted mt-2 m-0 portfolio-cbody">LIMIT-<span><?= $usermargin ?>x</span></h6>
+                        </div><!--end col-->
+                    </div> <!-- end row -->
+                </div><!--end card-body-->
+            </div> <!--end card-body-->
+        </div><!--end col-->
+        <div class="col-md-6 col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <?php //Current Value 
+                            ?>
+                            <span class="h5">₹<?= round($investmentamount) ?></span>
+                            <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Current Value</h6>
+                            <h6 class="text-uppercase font-10 text-muted mt-2 m-0 portfolio-cbody"><span style="display: inline-flex;justify-content:center;align-items:center"><span>Net Amount</span> <span><span class="profile-tooltip mt-0"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
+                                            <p class="text-capitalize profile-tooltiptext">The net amount, including your profit & loss, available for withdrawal at any time.</p>
+                                        </span></span></span></h6>
 
 
+                        </div><!--end col-->
+                    </div> <!-- end row -->
+                </div><!--end card-body-->
+            </div> <!--end card-body-->
+        </div><!--end col-->
+        <div class="col-md-6 col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <span <?= $todayprofit >= 0 ? "class='h5 text-success'" : "class='h5 text-danger'" ?>>₹<?= round($todayprofit, 2) ?></span>
+                            <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Day's Profit/Loss</h6>
+                            <h6 <?= $todayprofit >= 0 ? "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'" : "class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger'" ?>><?= round($todayprofitpercent, 2) ?><span> % </span></h6>
+                        </div><!--end col-->
+                    </div> <!-- end row -->
+                </div><!--end card-body-->
+            </div> <!--end card-body-->
+        </div><!--end col-->
+        <div class="col-md-6 col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <span class='h5 text-success'>₹<?= round($totalprofit) ?></span>
+                            <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Profit</h6>
+                            <h6 class="mt-0"><br></h6>
+                            <!--<h6 class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-success'><?= round($totalprofitprcnt, 2) ?><span> % </span></h6> -->
+                        </div><!--end col-->
+                    </div> <!-- end row -->
+                </div><!--end card-body-->
+            </div> <!--end card-->
+        </div><!--end col-->
+    </div><!--end row-->
+
+
+    <div class="row">
+        <div class="col-md-6 col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <div style="display: inline-flex;"> <span class='m-0 h5 text-danger'>₹<?= round($totalloss) ?></span><span>
+                                    <!-- <h6 style="width: max-content; border: none; margin-top: 2px!important; margin-left: 12% !important;" class='text-uppercase font-10 mt-2 m-0 portfolio-cbody text-danger'>(<?= round($totalprofitprcnt, 2) ?><span> % )</span></h6> -->
+                                </span></div>
+                            <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Overall Loss</h6>
+
+                        </div><!--end col-->
+                    </div> <!-- end row -->
+                </div><!--end card-body-->
+            </div> <!--end card-->
+        </div><!--end col-->
+        <div class="col-md-6 col-lg-3 mobile-card-display-none">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <span class="h5 text-success">₹<?= round($fundadded, 2) ?></span>
+                            <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Total Fund Added</h6>
+                        </div><!--end col-->
+                    </div> <!-- end row -->
+                </div><!--end card-body-->
+            </div> <!--end card-body-->
+        </div><!--end col-->
+
+        <div class="col-md-6 col-lg-3 mobile-card-display-none">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <span class='h5 text-danger'>₹<?= round($fundwithdraw, 2) ?></span>
+                            <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Total Fund Withdrawal</h6>
+
+                        </div><!--end col-->
+                    </div> <!-- end row -->
+                </div><!--end card-body-->
+            </div> <!--end card-body-->
+        </div><!--end col-->
+        <div class="col-md-6 col-lg-3 mobile-card-display-none">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <?php //Current Value 
+                            ?>
+                            <span class="h5">₹<?= round($investmentamount) ?></span>
+                            <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Avialable Fund</h6>
+
+                        </div><!--end col-->
+                    </div> <!-- end row -->
+                </div><!--end card-body-->
+            </div> <!--end card-body-->
+        </div><!--end col-->
+
+    </div><!--end row-->
 
 
 
 
 
 
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h4 class="card-title">All Positions</h4>
-                    </div><!--end col-->
-                    <div class="col-auto">
-                        <ul class="nav nav-tabs tab-nagative-m" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#Today" role="tab" aria-selected="true">Intraday</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#Carry_Forward" role="tab" aria-selected="false">Holding</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#Close" role="tab" aria-selected="false">Close</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#brokerstock" role="tab" aria-selected="false">By Broker</a>
-                            </li>
-                        </ul>
-                    </div><!--end col-->
-                </div> <!--end row-->
-            </div><!--end card-header-->
-            <div class="card-body">
-                <div class="tab-content" id="Amount_history">
-                    <div class="tab-pane fade show active" id="Today" role="tabpanel" aria-labelledby="Stocks-tab">
-                        <div class="table-responsive dash-social">
-                            <table id="example1" class="table table-bordered">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th>Stocks</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Lot</th>
-                                        <th>Qty.</th>
-                                        <th>Price</th>
-                                        <th>Total</th>
-                                        <!-- <th>Paid By User</th> -->
-                                        <th>Buy/Sell</th>
-                                        <th>Current Rate</th>
-                                        <th>Stop Loss</th>
-                                        <th>Target</th>
-                                        <th>% Day's P/L</th>
-                                        <th>Day's P/L</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
 
-                                <tbody>
-                                </tbody>
-                            </table>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h4 class="card-title">All Positions</h4>
+                        </div><!--end col-->
+                        <div class="col-auto">
+                            <ul class="nav nav-tabs tab-nagative-m" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#Today" role="tab" aria-selected="true">Intraday</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#Carry_Forward" role="tab" aria-selected="false">Holding</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#Close" role="tab" aria-selected="false">Close</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#brokerstock" role="tab" aria-selected="false">By Broker</a>
+                                </li>
+                            </ul>
+                        </div><!--end col-->
+                    </div> <!--end row-->
+                </div><!--end card-header-->
+                <div class="card-body">
+                    <div class="tab-content" id="Amount_history">
+                        <div class="tab-pane fade show active" id="Today" role="tabpanel" aria-labelledby="Stocks-tab">
+                            <div class="table-responsive dash-social">
+                                <table id="example1" class="table table-bordered">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Stocks</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Lot</th>
+                                            <th>Qty.</th>
+                                            <th>Price</th>
+                                            <th>Total</th>
+                                            <!-- <th>Paid By User</th> -->
+                                            <th>Buy/Sell</th>
+                                            <th>Current Rate</th>
+                                            <th>Stop Loss</th>
+                                            <th>Target</th>
+                                            <th>% Day's P/L</th>
+                                            <th>Day's P/L</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="Carry_Forward" role="tabpanel" aria-labelledby="Mutual-funds-tab">
-                        <div class="table-responsive dash-social">
-                            <table id="example2" class="table table-bordered">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th>Stocks</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Lot</th>
-                                        <th>Qty.</th>
-                                        <th>Price</th>
-                                        <th>Total</th>
-                                        <th>Current Rate</th>
-                                        <th>Stop Loss</th>
-                                        <th>Target</th>
-                                        <!-- <th>Paid By User</th> -->
-                                        <th>Buy/Sell</th>
-                                        <th>%P/L</th>
-                                        <th>P/L</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
+                        <div class="tab-pane fade" id="Carry_Forward" role="tabpanel" aria-labelledby="Mutual-funds-tab">
+                            <div class="table-responsive dash-social">
+                                <table id="example2" class="table table-bordered">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Stocks</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Lot</th>
+                                            <th>Qty.</th>
+                                            <th>Price</th>
+                                            <th>Total</th>
+                                            <th>Current Rate</th>
+                                            <th>Stop Loss</th>
+                                            <th>Target</th>
+                                            <!-- <th>Paid By User</th> -->
+                                            <th>Buy/Sell</th>
+                                            <th>%P/L</th>
+                                            <th>P/L</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody>
-                                </tbody>
-                            </table>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+
                         </div>
 
-                    </div>
+                        <div class="tab-pane fade" id="Close" role="tabpanel" aria-labelledby="Close-tab">
+                            <div class="table-responsive dash-social">
+                                <table id="example3" class="table table-bordered">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Stocks</th>
+                                            <th>Open Time</th>
+                                            <th>Close Time</th>
+                                            <th>Lot</th>
+                                            <th>Qty.</th>
+                                            <th>Buy Price</th>
+                                            <th>Sell Price</th>
+                                            <th>Total</th>
+                                            <!-- <th>Paid By User</th> -->
+                                            <th>Buy/Sell</th>
+                                            <th>Stop Loss</th>
+                                            <th>Stop Loss Triggered</th>
+                                            <th>Target</th>
+                                            <th>Target Triggered</th>
+                                            <th>%P/L</th>
+                                            <th>P/L</th>
+                                            <!-- <th>Your P/L</th> -->
+                                            <!-- <th>Broker Profit</th> -->
+                                            <th>Status</th>
+                                            <th>Added By</th>
+                                        </tr>
+                                    </thead>
 
-                    <div class="tab-pane fade" id="Close" role="tabpanel" aria-labelledby="Close-tab">
-                        <div class="table-responsive dash-social">
-                            <table id="example3" class="table table-bordered">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th>Stocks</th>
-                                        <th>Open Time</th>
-                                        <th>Close Time</th>
-                                        <th>Lot</th>
-                                        <th>Qty.</th>
-                                        <th>Buy Price</th>
-                                        <th>Sell Price</th>
-                                        <th>Total</th>
-                                        <!-- <th>Paid By User</th> -->
-                                        <th>Buy/Sell</th>
-                                        <th>Stop Loss</th>
-                                        <th>Stop Loss Triggered</th>
-                                        <th>Target</th>
-                                        <th>Target Triggered</th>
-                                        <th>%P/L</th>
-                                        <th>P/L</th>
-                                        <!-- <th>Your P/L</th> -->
-                                        <!-- <th>Broker Profit</th> -->
-                                        <th>Status</th>
-                                        <th>Added By</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                </tbody>
-                            </table>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="brokerstock" role="tabpanel" aria-labelledby="Close-tab">
-                        <div class="table-responsive dash-social">
-                            <table id="example4" class="table table-bordered">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th>Stocks</th>
-                                        <th>Open Time</th>
-                                        <th>Close Time</th>
-                                        <th>Lot</th>
-                                        <th>Qty.</th>
-                                        <th>Buy Price</th>
-                                        <th>Sell Price</th>
-                                        <th>Total</th>
-                                        <th>%P/L</th>
-                                        <th>P/L</th>
-                                        <!-- <th>Paid By User</th> -->
-                                        <th>Buy/Sell</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
+                        <div class="tab-pane fade" id="brokerstock" role="tabpanel" aria-labelledby="Close-tab">
+                            <div class="table-responsive dash-social">
+                                <table id="example4" class="table table-bordered">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Stocks</th>
+                                            <th>Open Time</th>
+                                            <th>Close Time</th>
+                                            <th>Lot</th>
+                                            <th>Qty.</th>
+                                            <th>Buy Price</th>
+                                            <th>Sell Price</th>
+                                            <th>Total</th>
+                                            <th>%P/L</th>
+                                            <th>P/L</th>
+                                            <!-- <th>Paid By User</th> -->
+                                            <th>Buy/Sell</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody>
-                                </tbody>
-                            </table>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                    <!--end tab-pane-->
+                        <!--end tab-pane-->
 
 
 
-                </div><!--end tab-content-->
+                    </div><!--end tab-content-->
 
-            </div><!--end card-body-->
-        </div><!--end card-->
-    </div><!--end col-->
-</div><!--end row-->
+                </div><!--end card-body-->
+            </div><!--end card-->
+        </div><!--end col-->
+    </div><!--end row-->
 <?php
+}
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
