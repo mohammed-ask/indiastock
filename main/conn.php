@@ -33,7 +33,7 @@ if (($_SERVER['HTTP_HOST'] == 'localhost')) {
     $siteurl = "https://" . $_SERVER['HTTP_HOST'] . "/";
     $port = 3306;
     $platform = "test";
-} elseif ($_SERVER['HTTP_HOST'] == 'pms-equity.com') {
+} elseif ($_SERVER['HTTP_HOST'] == 'pms-equity.com' || $_SERVER['HTTP_HOST'] == 'pmsequity.com') {
     if (!defined("BASE_URL")) {
         define("BASE_URL", "https://pms-equity.com/");
     }
@@ -105,7 +105,7 @@ if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
     }
 }
 $timeskip = ($platform == "test") ?  '+00:00' : '+12:30';
-$apiinterval = 4000;
+$apiinterval = 5000;
 $mainpagemaintanance = false;
 $dashboardmaintanance = true;
 $marketmaintanance = true;
