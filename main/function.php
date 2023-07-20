@@ -1564,7 +1564,7 @@ class db
         curl_close($ch);
 
         $res =  json_decode($response);
-        // print_r($res);
+        print_r($res);
         $atoken = $res->body->AccessToken;
         $pdate['accesstoken'] = $atoken;
         $pdate['status'] = 1;
@@ -1715,7 +1715,7 @@ class db
             );
 
             $result = curl_exec($ch);
-            // print_r($result);
+            print_r($result);
             $result = json_decode($result, true);
             if (isset($result['body']['Data'])) {
                 return $result['body']['Data'];
@@ -2032,9 +2032,21 @@ class db
 
     function check_login()
     {
+        if (isset($_COOKIE['userData'])) {
+            $userData = json_decode($_COOKIE['userData'], true);
+            // print_r($userData);
+            // die;
+            $_SESSION['username'] = $userData['username'];
+            $_SESSION['userid'] = $userData['userid'];
+            $_SESSION['useremail'] = $userData['useremail'];
+            $_SESSION['role'] = $userData['role'];
+            $_SESSION['type'] = $userData['type'];
+            $_SESSION['name'] = $userData['name'];
+        }
         if (isset($_SESSION['username']) && $_SESSION['type'] == 2) {
             $user = $_SESSION['username'];
             $head = "";
+
             if (($_SERVER['HTTP_HOST'] == 'localhost')) {
                 $head = "/indiastock";
             }
@@ -2086,7 +2098,7 @@ class db
     function logout()
     {
 
-
+        setcookie('userData', '', time() - 3600, '/');
         session_destroy();
     }
 
