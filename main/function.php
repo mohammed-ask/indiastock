@@ -1564,7 +1564,7 @@ class db
         curl_close($ch);
 
         $res =  json_decode($response);
-        print_r($res);
+        // print_r($res);
         $atoken = $res->body->AccessToken;
         $pdate['accesstoken'] = $atoken;
         $pdate['status'] = 1;
@@ -1715,7 +1715,7 @@ class db
             );
 
             $result = curl_exec($ch);
-            print_r($result);
+            // print_r($result);
             $result = json_decode($result, true);
             if (isset($result['body']['Data'])) {
                 return $result['body']['Data'];
@@ -1770,7 +1770,7 @@ class db
             );
 
             $result = curl_exec($ch);
-            print_r($result);
+            // print_r($result);
             $result = json_decode($result, true);
             if (isset($result['body']['Data'])) {
                 return $result['body']['Data'];
