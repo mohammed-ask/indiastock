@@ -1715,6 +1715,7 @@ class db
             );
 
             $result = curl_exec($ch);
+            echo "testing API";
             print_r($result);
             $result = json_decode($result, true);
             if (isset($result['body']['Data'])) {
