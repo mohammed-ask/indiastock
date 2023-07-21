@@ -3,7 +3,7 @@ include 'main/session.php';
 // echo $obj->getrequesttoken();
 // echo $obj->getaccesstoken();
 // echo $obj->getcandledata();
-$obj->testapi();
+// $obj->testapi();
 // die;
 // $timezone = date_default_timezone_get();
 // echo "Server timezone: $timezone";
@@ -24,7 +24,8 @@ $rowfetch = array(
         "OptionType" => "PE"
     )
 );
-$data = $obj->fivepaisaapi($rowfetch);
+// $data = $obj->fivepaisaapi($rowfetch);
+$data = $obj->fivepaisaapi3($rowfetch);
 print_r($data);
 
 echo 'runnpage';

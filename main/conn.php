@@ -119,9 +119,16 @@ define("OS_NAME", "WEB"); //right
 define("USER_ID", "E1k4ZqoZzfz"); //right
 define("PASSWORD", "BYcnrCZnKPV"); //right
 
+// Proxy API
+define("APP_NAME3", "5P57485365"); //right
+define("CLIENT_CODE3", "51842644"); //right
+define("KEY3", "oeryJy1HNv3rxkrsNiZcR7O4QnvfojS3"); //right
+define("USER_ID3", "KrGQFRlvxaH"); //right
+define("PASSWORD3", "vzae34WtMPO"); //right
+
 // Market API Details
 define("APP_NAME2", "5P50439284"); //right
 define("CLIENT_CODE2", "50439284"); //right
 define("KEY2", "51uZHJivBrXpGMo3t8ECLW11GbyOlEsK"); //right
 define("USER_ID2", "AZQ6KXRzw5A"); //right
-define("PASSWORD2", "UNfA3hnLH4u"); //right
+define("PASSWORD2", "UNfA3hnLH4u"); //right 
