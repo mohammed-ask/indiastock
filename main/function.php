@@ -1720,7 +1720,7 @@ class db
             $result = json_decode($result, true);
             echo "----";
 
-            print_r($result);
+            var_dump($result);
             if (isset($result['body']['Data'])) {
                 return $result['body']['Data'];
             } else {
