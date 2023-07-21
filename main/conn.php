@@ -107,8 +107,8 @@ if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
 $timeskip = ($platform == "test") ?  '+00:00' : '+12:30';
 $apiinterval = 5000;
 $mainpagemaintanance = false;
-$dashboardmaintanance = true;
-$marketmaintanance = true;
+$dashboardmaintanance = false;
+$marketmaintanance = false;
 $portfoliomaintanance = false;
 define("REQUEST_TOKEN", $requesttoken); //right
 define("APP_NAME", "5P51842644"); //right
