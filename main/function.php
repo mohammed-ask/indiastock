@@ -1729,6 +1729,29 @@ class db
         }
     }
 
+    function testapi()
+    {
+        $ch = curl_init();
+
+        // Set cURL options
+        curl_setopt($ch, CURLOPT_URL, 'https://dummyjson.com/products/1');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Execute cURL request and store the response
+        $response = curl_exec($ch);
+
+        // Check for cURL errors
+        if (curl_errno($ch)) {
+            echo 'cURL error: ' . curl_error($ch);
+        }
+
+        // Close cURL session
+        curl_close($ch);
+
+        // Output the API response
+        echo $response;
+    }
+
     function fivepaisaapi2($userstock)
     {
         try {
