@@ -1718,6 +1718,9 @@ class db
             echo "testing API";
             print_r($result);
             $result = json_decode($result, true);
+            echo "----";
+
+            print_r($result);
             if (isset($result['body']['Data'])) {
                 return $result['body']['Data'];
             } else {
