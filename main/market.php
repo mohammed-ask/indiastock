@@ -22,7 +22,7 @@ array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "E
 // echo "<pre>";
 // print_r($rowfetch);
 // echo "</pre>";
-
+$wstocks = [];
 if ($marketmaintanance) {
     include "maintenance.php";
 ?>
