@@ -3,7 +3,7 @@ include 'main/session.php';
 // echo $obj->getrequesttoken();
 // echo $obj->getaccesstoken();
 // echo $obj->getcandledata();
-// $obj->testapi();
+$obj->testapi();
 // die;
 // $timezone = date_default_timezone_get();
 // echo "Server timezone: $timezone";
@@ -24,8 +24,14 @@ $rowfetch = array(
         "OptionType" => "PE"
     )
 );
-// $data = $obj->fivepaisaapi($rowfetch);
-$data = $obj->fivepaisaapi3($rowfetch);
+$data = $obj->fivepaisaapi($rowfetch);
 print_r($data);
+echo 'API 1';
 
-echo 'runnpage';
+$data = $obj->marketstatus();
+print_r($data);
+echo 'API 2';
+
+$data = $obj->searchstockapiwithtoken('TATAMOTORS', 'C', 'N');
+print_r($data);
+echo 'API 3';
