@@ -6,33 +6,35 @@ if (isset($_GET['RequestToken']) && !empty($_GET['RequestToken'])) {
 $fetchshare = $obj->selectextrawhereupdate('userstocks inner join watchliststock on watchliststock.userstockid = userstocks.id', "Exch,ExchType,userstocks.Symbol,Expiry,StrikePrice,OptionType", "userstocks.userid='" . $employeeid . "' and userstocks.status = 1 and watchliststock.status = 1");
 $rowfetch = mysqli_fetch_all($fetchshare, 1);
 array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
-$stockdata = $obj->fivepaisaapi2($rowfetch);
-$stockdata = $stockdata == 'Error fetching candle data:' ? [] : $stockdata;
-$marketdata = array_filter($stockdata, function ($data) {
-    if ($data['Symbol'] === 'NIFTY' || $data['Symbol'] === 'SENSEX') {
-        return $data;
-    }
-});
-$wstocks = array_filter($stockdata, function ($data) {
-    if ($data['Symbol'] !== 'NIFTY' && $data['Symbol'] !== 'SENSEX') {
-        return $data;
-    }
-});
-$chartdata = $obj->getcandledata(999920000, 'N',  'C', '5m', date('Y-m-d'), date('Y-m-d'));
-$data = $chartdata === "Error fetching candle data:" ? [] : $chartdata['candles'];
-$chart_data = array();
 
-foreach ($data as $row) {
-    $dateString = $row[0];
-    $date = DateTime::createFromFormat('Y-m-d\TH:i:s', $dateString, new DateTimeZone('UTC'));
-    $utcTimestamp = $date->getTimestamp() * 1000;
-    $chart_data[] = array($utcTimestamp, $row[1], $row[2], $row[3], $row[4], $row[5]);
-}
 /* @var $obj db */
 if ($dashboardmaintanance) {
     include "maintenance.php";
 ?>
-<?php } else { ?>
+<?php } else {
+    $stockdata = $obj->fivepaisaapi2($rowfetch);
+    $stockdata = $stockdata == 'Error fetching candle data:' ? [] : $stockdata;
+    $marketdata = array_filter($stockdata, function ($data) {
+        if ($data['Symbol'] === 'NIFTY' || $data['Symbol'] === 'SENSEX') {
+            return $data;
+        }
+    });
+    $wstocks = array_filter($stockdata, function ($data) {
+        if ($data['Symbol'] !== 'NIFTY' && $data['Symbol'] !== 'SENSEX') {
+            return $data;
+        }
+    });
+    $chartdata = $obj->getcandledata(999920000, 'N',  'C', '5m', date('Y-m-d'), date('Y-m-d'));
+    $data = $chartdata === "Error fetching candle data:" ? [] : $chartdata['candles'];
+    $chart_data = array();
+
+    foreach ($data as $row) {
+        $dateString = $row[0];
+        $date = DateTime::createFromFormat('Y-m-d\TH:i:s', $dateString, new DateTimeZone('UTC'));
+        $utcTimestamp = $date->getTimestamp() * 1000;
+        $chart_data[] = array($utcTimestamp, $row[1], $row[2], $row[3], $row[4], $row[5]);
+    }
+?>
     <div class="national-data">
         <div class="container-fluid">
             <!-- Page-Title -->

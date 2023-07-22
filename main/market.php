@@ -22,30 +22,32 @@ array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "E
 // echo "<pre>";
 // print_r($rowfetch);
 // echo "</pre>";
-$stockdata = $obj->fivepaisaapi($rowfetch);
-// echo "<pre>";
-// print_r($stockdata);
-// echo "</pre>";
-// die;
-$stockdata = $stockdata == 'Error fetching candle data:' ? [] : $stockdata;
-$marketdata = array_filter($stockdata, function ($data) {
-    if ($data['Symbol'] === 'NIFTY' || $data['Symbol'] === 'SENSEX') {
-        return $data;
-    }
-});
-$stockdata = array_filter($stockdata, function ($data) {
-    // if ($data['Symbol'] !== 'NIFTY' && $data['Symbol'] !== 'SENSEX') {
-    return $data;
-    // }
-});
-$wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexchange) {
-    if (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange))
-        return $data;
-});
+
 if ($marketmaintanance) {
     include "maintenance.php";
 ?>
-<?php } else { ?>
+<?php } else {
+    $stockdata = $obj->fivepaisaapi($rowfetch);
+    // echo "<pre>";
+    // print_r($stockdata);
+    // echo "</pre>";
+    // die;
+    $stockdata = $stockdata == 'Error fetching candle data:' ? [] : $stockdata;
+    $marketdata = array_filter($stockdata, function ($data) {
+        if ($data['Symbol'] === 'NIFTY' || $data['Symbol'] === 'SENSEX') {
+            return $data;
+        }
+    });
+    $stockdata = array_filter($stockdata, function ($data) {
+        // if ($data['Symbol'] !== 'NIFTY' && $data['Symbol'] !== 'SENSEX') {
+        return $data;
+        // }
+    });
+    $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexchange) {
+        if (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange))
+            return $data;
+    });
+?>
     <div class="card">
         <div class="card-body">
             <div class="row">
