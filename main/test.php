@@ -4,6 +4,10 @@ include 'main/session.php';
 // echo $obj->getaccesstoken();
 // echo $obj->getcandledata();
 $obj->testapi();
+// $obj->getsmartapitoken();
+$obj->fetchsmartapi();
+
+die;
 // die;
 // $timezone = date_default_timezone_get();
 // echo "Server timezone: $timezone";

@@ -1797,12 +1797,12 @@ class db
         $ch = curl_init();
 
         // Set cURL options
-        curl_setopt($ch, CURLOPT_URL, 'https://dummyjson.com/products/1');
+        curl_setopt($ch, CURLOPT_URL, 'http://dummyjson.com/products/1');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         // Execute cURL request and store the response
         $response = curl_exec($ch);
-
+        print_r($response);
         // Check for cURL errors
         if (curl_errno($ch)) {
             echo 'cURL error: ' . curl_error($ch);
@@ -1870,55 +1870,93 @@ class db
         }
     }
 
-    function getcftokenfp()
+    function getsmartapitoken()
     {
 
-        error_reporting(E_ALL);
-        ini_set("display_errors", 1);
+        $clientId = 'M884428';
+        $clientPin = '7471';
+        $totpCode = '750063';
+        $apiKey = 'e1L5mgQQ';
 
-        $verifyurl = 'https://openapi.5paisa.com/VendorsAPI/Service1.svc/TradeInformation';
+        $data = json_encode([
+            "clientcode" => $clientId,
+            "password" => $clientPin,
+            "totp" => $totpCode
+        ]);
 
+        $ch = curl_init();
 
-        $time = $this->fetch_assoc($tokentime);
-        $verify = array();
+        curl_setopt($ch, CURLOPT_URL, 'https://apiconnect.angelbroking.com/rest/auth/angelbroking/user/v1/loginByPassword');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_POST, 1);
 
-        $date = date('Y-m-d H:i:s');
-        $da = strtotime($date);
+        $headers = array(
+            'Content-Type: application/json',
+            'Accept: application/json',
+            'X-UserType: USER',
+            'X-SourceID: WEB',
+            'X-ClientLocalIP: CLIENT_LOCAL_IP',
+            'X-ClientPublicIP: CLIENT_PUBLIC_IP',
+            'X-MACAddress: MAC_ADDRESS',
+            'X-PrivateKey: ' . $apiKey
+        );
 
-        try {
-            $ch = curl_init($verifyurl);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-            if (FALSE === $ch)
-                throw new Exception('failed to initialize');
+        $response = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Error: ' . curl_error($ch);
+        }
 
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_close($ch);
 
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-            curl_setopt($ch, CURLOPT_TIMEOUT, 28000);
-            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 28000);
+        echo $response;
+    }
 
-            $output = curl_exec($ch);
+    function fetchsmartapi()
+    {
+        $data = json_encode([
+            "exchange" => "MCX",
+            "tradingsymbol" => "SILVER",
+            "symboltoken" => "250741"
+        ]);
 
-            $res = json_decode($output);
+        $accesstoken = $this->selectfieldwhere('token', 'smartapitoken', 'status=1');
+        // echo $accesstoken;
+        $curl = curl_init();
 
-            print_r($res);
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://apiconnect.angelbroking.com/order-service/rest/secure/angelbroking/order/v1/getLtpData',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => $data,
+            CURLOPT_HTTPHEADER => array(
+                "Authorization: Bearer $accesstoken",
+                'Content-Type: application/json',
+                'Accept: application/json',
+                'X-UserType: USER',
+                'X-SourceID: WEB',
+                'X-ClientLocalIP: CLIENT_LOCAL_IP',
+                'X-ClientPublicIP: CLIENT_PUBLIC_IP',
+                'X-MACAddress: MAC_ADDRESS',
+                'X-PrivateKey: e1L5mgQQ'
+            ),
+        ));
 
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
 
-            if (FALSE === $output) {
-                throw new Exception(curl_error($ch), curl_errno($ch));
-            }
-        } catch (Exception $e) {
+        curl_close($curl);
 
-            trigger_error(
-                sprintf(
-                    'Curl failed with error #%d: %s',
-                    $e->getCode(),
-                    $e->getMessage()
-                ),
-                E_USER_ERROR
-            );
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            echo $response;
         }
     }
 
