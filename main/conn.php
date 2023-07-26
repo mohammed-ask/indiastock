@@ -47,6 +47,20 @@ if (($_SERVER['HTTP_HOST'] == 'localhost')) {
     error_reporting(E_ALL);
 
     $platform = "Production";
+} elseif ($_SERVER['HTTP_HOST'] == 'pmsequity.online') {
+    if (!defined("BASE_URL")) {
+        define("BASE_URL", "https://pms-equity.com/");
+    }
+    $host = "localhost";
+    $database_Username = "u680032863_root";
+    $database_Password = "c3BCQO8P#";
+    $database_Name = "u680032863_pmsequity";
+    $siteurl = "https://pms-equity.com/";
+    $port = 3306;
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+
+    $platform = "Production";
 }
 
 date_default_timezone_set('Asia/Kolkata');
@@ -105,11 +119,11 @@ if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
     }
 }
 $timeskip = ($platform == "test") ?  '+00:00' : '+12:30';
-$apiinterval = 5005;
+$apiinterval = 20000;
 $mainpagemaintanance = false;
-$dashboardmaintanance = true;
-$marketmaintanance = true;
-$portfoliomaintanance = true;
+$dashboardmaintanance = false;
+$marketmaintanance = false;
+$portfoliomaintanance = false;
 define("REQUEST_TOKEN", $requesttoken); //right
 define("APP_NAME", "5P51842644"); //right
 define("CLIENT_CODE", "51842644"); //right
@@ -119,16 +133,9 @@ define("OS_NAME", "WEB"); //right
 define("USER_ID", "E1k4ZqoZzfz"); //right
 define("PASSWORD", "BYcnrCZnKPV"); //right
 
-// Proxy API
-define("APP_NAME3", "5P57485365"); //right
-define("CLIENT_CODE3", "51842644"); //right
-define("KEY3", "oeryJy1HNv3rxkrsNiZcR7O4QnvfojS3"); //right
-define("USER_ID3", "KrGQFRlvxaH"); //right
-define("PASSWORD3", "vzae34WtMPO"); //right
-
 // Market API Details
 define("APP_NAME2", "5P50439284"); //right
 define("CLIENT_CODE2", "50439284"); //right
 define("KEY2", "51uZHJivBrXpGMo3t8ECLW11GbyOlEsK"); //right
 define("USER_ID2", "AZQ6KXRzw5A"); //right
-define("PASSWORD2", "UNfA3hnLH4u"); //right 
+define("PASSWORD2", "UNfA3hnLH4u"); //right
