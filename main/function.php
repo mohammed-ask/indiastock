@@ -1715,12 +1715,9 @@ class db
             );
 
             $result = curl_exec($ch);
-            echo "testing API";
-            print_r($result);
+            // echo "testing API";
+            // print_r($result);
             $result = json_decode($result, true);
-            echo "----";
-
-            var_dump($result);
             if (isset($result['body']['Data'])) {
                 return $result['body']['Data'];
             } else {
@@ -1920,8 +1917,8 @@ class db
             "exchange" => "MCX",
             "tradingsymbol" => "SILVER",
             "symboltoken" => "250741"
-        ]);
 
+        ]);
         $accesstoken = $this->selectfieldwhere('token', 'smartapitoken', 'status=1');
         // echo $accesstoken;
         $curl = curl_init();
@@ -1957,6 +1954,56 @@ class db
             echo "cURL Error #:" . $err;
         } else {
             echo $response;
+        }
+    }
+
+    function fetchsmartapi2()
+    {
+        $data = json_encode([
+            "mode" => "LTP",
+            "exchangeTokens" => [
+                "NSE" => [
+                    "5097",
+                    "3045",
+                ],
+            ]
+        ]);
+        $accesstoken = $this->selectfieldwhere('token', 'smartapitoken', 'status=1');
+        // echo $accesstoken;
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://apiconnect.angelbroking.com/rest/secure/angelbroking/market/v1/quote/',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => $data,
+            CURLOPT_HTTPHEADER => array(
+                "Authorization: Bearer $accesstoken",
+                'Content-Type: application/json',
+                'Accept: application/json',
+                'X-UserType: USER',
+                'X-SourceID: WEB',
+                'X-ClientLocalIP: CLIENT_LOCAL_IP',
+                'X-ClientPublicIP: CLIENT_PUBLIC_IP',
+                'X-MACAddress: MAC_ADDRESS',
+                'X-PrivateKey: e1L5mgQQ'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            echo "<pre>";
+            print_r(json_decode($response));
         }
     }
 

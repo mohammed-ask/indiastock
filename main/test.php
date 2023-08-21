@@ -5,7 +5,8 @@ include 'main/session.php';
 // echo $obj->getcandledata();
 $obj->testapi();
 // $obj->getsmartapitoken();
-$obj->fetchsmartapi();
+// $obj->fetchsmartapi();
+$obj->fetchsmartapi2();
 
 die;
 // die;

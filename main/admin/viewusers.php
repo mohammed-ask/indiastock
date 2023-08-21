@@ -73,7 +73,7 @@ include "templete.php";
             "ajax": "../main/admin/usersdata.php",
             "processing": true,
             "serverSide": true,
-            "pageLength": 15,
+            "pageLength": 1000,
             "paging": true,
             "lengthChange": false,
             "searching": false,

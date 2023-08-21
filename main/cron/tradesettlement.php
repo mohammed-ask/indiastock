@@ -12,6 +12,12 @@ $database_Password = "PMSEquity@1998";
 $database_Name = "pmsequity";
 $timeskip = '+12:30';
 
+//Hostinger Server
+$database_Username = "u680032863_root";
+$database_Password = "c3BCQO8P#";
+$database_Name = "u680032863_pmsequity";
+$timeskip = '+5:30';
+
 // Local
 // $database_Username = "root";
 // $database_Password = "";

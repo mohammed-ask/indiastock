@@ -54,6 +54,7 @@ $stockdata = $stockdata[0];
             <label class="form-label" for="Price">Price</label>
             <input type="text" readonly name="price" value="<?= $stockdata['LastRate'] ?>" class="form-control form-control-sm" id="Price">
         </div>
+        <div style="display: none;">
         <label class="form-label" for="Quantity">Stop Loss</label>
         <div style="margin-left:3px;margin-right:3px" class="row ">
             <div class="col-5">
@@ -73,6 +74,7 @@ $stockdata = $stockdata[0];
                 <input type="checkbox" id="tsliderid" name='targetenabled' class="setactive" value="Yes">
                 <span class="slider round"></span>
             </label>
+        </div>
         </div>
         <!-- <div class="col-auto">
             <div class="form-check">
