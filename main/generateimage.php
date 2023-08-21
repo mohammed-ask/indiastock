@@ -1,6 +1,6 @@
 <?php
 session_start();
-$path = $_SERVER['HTTP_HOST'] == 'localhost' ? 'arial.ttf' : '/home/u680032863/public_html/main/arial.ttf';
+$path = $_SERVER['HTTP_HOST'] == 'localhost' ? 'arial.ttf' : '/home/u477898878/public_html/main/arial.ttf';
 $code = rand(1000, 9999);
 
 // Store the code in a session variable
