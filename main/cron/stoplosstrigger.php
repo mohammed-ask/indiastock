@@ -7,10 +7,17 @@ if (!defined("BASE_URL")) {
 }
 
 $host = "localhost";
+//Go daddy server
 $database_Username = "hc020wtvnu2k";
 $database_Password = "PMSEquity@1998";
 $database_Name = "pmsequity";
 $timeskip = '+12:30';
+
+//Hostinger Server
+$database_Username = "u477898878_root";
+$database_Password = "c3BCQO8P#";
+$database_Name = "u477898878_pmsequity";
+$timeskip = '+5:30';
 
 // Local
 // $database_Username = "root";
@@ -262,10 +269,11 @@ class db
         return $result['body']['Data'];
     }
 }
+
+// if (date('H:i') == date('H') . ':30') {
+$obj->saveactivity("Stoploss Cron Run", "", 0, 0, "User", "Stoploss Cron Run");
+// }
 die;
-if (date('H:i') == date('H') . ':30') {
-    $obj->saveactivity("Stoploss Cron Run", "", 0, 0, "User", "Stoploss Cron Run");
-}
 // Close Trade
 $stocktoken = $obj->selectfieldwhere(
     "stocktransaction inner join users on users.id = stocktransaction.userid",

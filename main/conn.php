@@ -52,9 +52,9 @@ if (($_SERVER['HTTP_HOST'] == 'localhost')) {
         define("BASE_URL", "https://pms-equity.com/");
     }
     $host = "localhost";
-    $database_Username = "u680032863_root";
+    $database_Username = "u477898878_root";
     $database_Password = "c3BCQO8P#";
-    $database_Name = "u680032863_pmsequity";
+    $database_Name = "u477898878_pmsequity";
     $siteurl = "https://pms-equity.com/";
     $port = 3306;
     ini_set('display_errors', 1);
@@ -103,7 +103,7 @@ $companyfavicon = $obj->fetchattachment($compdata["faviconicon"]);
 $qrimage = $obj->fetchattachment($compdata['paymentqr']);
 $upiid = $compdata['upiid'];
 $requesttoken = '';
-$redirecturl = ($platform == "test") ?  "http://localhost/indiastock" : "https://pms-equity.com";
+$redirecturl = ($platform == "test") ?  "http://localhost/indiastock" : "https://pmsequity.online";
 if (isset($_GET['RequestToken'])) {
     $requesttoken = $_GET['RequestToken'];
 }
@@ -118,7 +118,7 @@ if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
         $marketopen = true;
     }
 }
-$timeskip = ($platform == "test") ?  '+00:00' : '+12:30';
+$timeskip = ($platform == "test") ?  '+00:00' : '+5:30';
 $apiinterval = 20000;
 $mainpagemaintanance = false;
 $dashboardmaintanance = false;

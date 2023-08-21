@@ -7,15 +7,16 @@ if (!defined("BASE_URL")) {
 }
 
 $host = "localhost";
-$database_Username = "hc020wtvnu2k";
-$database_Password = "PMSEquity@1998";
-$database_Name = "pmsequity";
-$timeskip = '+12:30';
+//Godaddy server
+// $database_Username = "hc020wtvnu2k";
+// $database_Password = "PMSEquity@1998";
+// $database_Name = "pmsequity";
+// $timeskip = '+12:30';
 
 //Hostinger Server
-$database_Username = "u680032863_root";
+$database_Username = "u477898878_root";
 $database_Password = "c3BCQO8P#";
-$database_Name = "u680032863_pmsequity";
+$database_Name = "u477898878_pmsequity";
 $timeskip = '+5:30';
 
 // Local
