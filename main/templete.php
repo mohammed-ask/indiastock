@@ -170,7 +170,11 @@
 
     <!-- Javascript  -->
 
-    <?php include "footerincludes.php" ?>
+    <?php 
+     if (!isset($_POST['postData'])) {
+    include "footerincludes.php" ;
+     }
+    ?>
 
 
 
