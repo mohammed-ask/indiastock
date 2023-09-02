@@ -95,7 +95,11 @@
 <body id="body" data-layout="horizontal" class="" data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="">
 
     <!-- Top Bar Start -->
-    <?php include "header.php"; ?>
+
+    <?php 
+     if (!isset($_POST['postData'])) {
+    include "header.php"; 
+      }?>
     <!-- Top Bar End -->
     <div class="page-wrapper nopad">
 
