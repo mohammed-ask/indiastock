@@ -90,6 +90,20 @@
     }
 
     <?php } ?>
+
+    <?php 
+     if (isset($_POST['postData'])) { ?>
+    .national-data {
+    position: fixed;
+    display: flex;
+    right: 0;
+    left: 0;
+    top: 0px !important;
+    z-index: 10;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eceff5;
+    }
+    <?php } ?>
 </style>
 
 <body id="body" data-layout="horizontal" class="" data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="">
