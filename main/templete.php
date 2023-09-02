@@ -144,7 +144,10 @@
 
 
             <!-- Footer Start -->
-            <?php include "footer.php" ?>
+            <?php 
+            if (!isset($_POST['postData'])) {
+            include "footer.php";
+            } ?>
             <!-- end Footer -->
 
         </div>
@@ -171,9 +174,7 @@
     <!-- Javascript  -->
 
     <?php 
-     if (!isset($_POST['postData'])) {
     include "footerincludes.php" ;
-     }
     ?>
 
 
