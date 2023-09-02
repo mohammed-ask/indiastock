@@ -51,7 +51,7 @@ if ($dashboardmaintanance) {
                             if (isset($_POST['postData'])) {
                                 $postData = json_decode($_POST['postData'], true);
                                 // Display the button
-                                echo '<button> Button</button>';
+                                // echo '<button> Button</button>';
                             } ?>
 
                         </div>
