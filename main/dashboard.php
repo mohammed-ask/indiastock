@@ -39,9 +39,9 @@ if ($dashboardmaintanance) {
             <div class="row">
                 <div class="col-sm-12 mt-2 mb-2">
                     <div class="page-title-box d-inline-block d-md-flex justify-content-start justify-content-md-between align-items-center">
-                        <div class="my-3 my-md-0 ps-2">
+                        <div class="my-3 my-md-0 ps-2 m-subheader">
                             <?php foreach ($marketdata as $mdata) {  ?>
-                                <div class="nifty-50 d-inline-block me-3">
+                                <div class="nifty-50 d-inline-block me-3 nifty-sensex-border">
                                     <div class="font-11 fw-semibold"><?= $mdata['Symbol'] ?></div>
                                     <div class="d-inline-block font-11"><?= $mdata['LastRate'] ?> <span <?= $mdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $mdata['Chg'] ?> </span>
                                         <span <?= $mdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($mdata['ChgPcnt'], 2) ?>%)</span>
@@ -76,7 +76,76 @@ if ($dashboardmaintanance) {
                     <button type="button" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "addfund","", "")' class="btn btn-sm btn-de-primary">Add Funds</button>
                 </div><!--end card-body-->
             </div><!--end card-->
-            <div class="card">
+
+
+            <!-- -------------------------------For only Mobile App---------------- -->
+<div class="d-web-none mt-4 mb-3">
+
+<div class="row">
+
+<div class="col-6">
+    <div class="card" style="border-radius: 15px;">
+<div class="card-body">
+<div>
+                                    <div class="font-11 fw-semibold">STOCK NAME</div>
+                                    <div class="d-inline-block font-11"><span>₹</span> 19435.3 <div class="text-success">181.5 <span class="text-success">(0.94%)</span> </div>
+                                        
+                                    </div>
+                                </div>
+</div>
+    </div>
+</div>
+<div class="col-6">
+<div class="card" style="border-radius: 15px;">
+<div class="card-body">
+
+<div>
+                                    <div class="font-11 fw-semibold">STOCK NAME</div>
+                                    <div class="d-inline-block font-11"><span>₹</span>19435.3 <div class="text-success">181.5 <span class="text-success">(0.94%)</span></div>
+                                        
+                                    </div>
+                                </div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-6">
+    <div class="card" style="border-radius: 15px;">
+<div class="card-body">
+<div>
+                                    <div class="font-11 fw-semibold">STOCK NAME</div>
+                                    <div class="d-inline-block font-11"><span>₹</span> 19435.3 <div class="text-success">181.5 <span class="text-success">(0.94%)</span> </div>
+                                        
+                                    </div>
+                                </div>
+</div>
+    </div>
+</div>
+<div class="col-6">
+<div class="card" style="border-radius: 15px;">
+<div class="card-body">
+
+<div>
+                                    <div class="font-11 fw-semibold">STOCK NAME</div>
+                                    <div class="d-inline-block font-11"><span>₹</span>19435.3 <div class="text-success">181.5 <span class="text-success">(0.94%)</span></div>
+                                        
+                                    </div>
+                                </div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+            <div class="card d-app-none">
                 <div class="card-header">
                     <div class="row align-items-center">
                         <div class="col">
@@ -158,15 +227,15 @@ if ($dashboardmaintanance) {
             <div class="card">
                 <div class="card-header">
                     <div class="row align-items-center">
-                        <div class="col-sm-3">
+                        <div class="col-sm-3 app-date-width">
                             <label>Start Date</label>
                             <input type="date" id="startdate" name="startdate" value="<?php echo date('Y-m-d'); ?>" class="form-control" placeholder="startdate" />
                         </div>
-                        <div class="col-sm-3 ">
+                        <div class="col-sm-3 app-date-width">
                             <label>End Date</label>
                             <input type="date" id="enddate" name="enddate" value="<?php echo date('Y-m-d'); ?>" class="form-control" placeholder="enddate" />
                         </div>
-                        <div class="offset-md-1 col-auto">
+                        <div class="offset-md-1 mt-2 col-auto">
                             <div class="toolbar">
                                 <button class="btn btn-sm btn-outline-light" onclick="getactive(this.id)" id="one_month">1m</button>
                                 <button class="btn btn-sm btn-outline-light active" onclick="getactive(this.id)" id="six_months">5m</button>
@@ -182,6 +251,7 @@ if ($dashboardmaintanance) {
                     <?php if ($chartdata === "Error fetching candle data:") { ?>
                         <div class='alert alert-danger dashboard-danger'>Due to a technical issue with the NSE server, the chart is currently unavailable</div>
                     <?php } ?>
+                    
                 </div><!--end card-body-->
             </div><!--end card-->
         </div><!--end col-->
