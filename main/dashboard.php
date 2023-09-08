@@ -79,7 +79,7 @@ if ($dashboardmaintanance) {
 
 
             <!-- -------------------------------For only Mobile App---------------- -->
-<div class="d-web-none mt-4 mb-3">
+<div class="d-web-none mt-4 mb-3" style="display:none;">
 
 <div class="row">
 
