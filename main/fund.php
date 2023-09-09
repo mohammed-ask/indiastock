@@ -38,6 +38,7 @@ $fundwithdraw = empty($fundwithdraw) ? 0 : $fundwithdraw;
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6 mb-mt-4-mob app-date-width">
                         <div class="bg-light text-center p-2 d-flex justify-content-between align-items-center rounded border">
                             <div class="flex text-start">

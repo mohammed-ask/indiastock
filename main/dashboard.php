@@ -51,7 +51,7 @@ if ($dashboardmaintanance) {
                             if (isset($_POST['postData'])) {
                                 $postData = json_decode($_POST['postData'], true);
                                 // Display the button
-                                echo '<button> Button</button>';
+                                // echo '<button> Button</button>';
                             } ?>
 
                         </div>
@@ -79,7 +79,9 @@ if ($dashboardmaintanance) {
 
 
             <!-- -------------------------------For only Mobile App---------------- -->
+
 <div class="d-web-none mt-4 mb-3">
+
 
 <div class="row">
 
@@ -257,6 +259,117 @@ if ($dashboardmaintanance) {
         </div><!--end col-->
 
     </div><!--end row-->
+
+
+<!-- ------------------------------------------mobile app comming soon banner Start------------------- -->
+
+<div class="coming-app-popup" id="coming-app-popup">
+  <button class="coming-app-close-btn" id="coming-app-close-btn">X</button>
+  <div class="coming-app-popup-content">
+    <img style="border-radius: 10px;" width="100%" src="main/dist/userimages/PMS EQuity App Coming.gif" alt="app-coming-soon">
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const popup = document.getElementById("coming-app-popup");
+    const closeBtn = document.getElementById("coming-app-close-btn");
+
+    // Show the popup after 3 seconds
+    setTimeout(function() {
+      popup.style.display = "block";
+    }, 3000); // 3000 milliseconds = 3 seconds
+
+    // Close the popup when the close button is clicked
+    closeBtn.addEventListener("click", function() {
+      popup.classList.add("fade-out");
+      setTimeout(function() {
+        popup.style.display = "none";
+        popup.classList.remove("fade-out");
+      }, 500);
+    });
+  });
+</script>
+
+<style>
+
+  .coming-app-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    animation: fade-in 0.5s ease-out; /* Apply the fade-in animation */
+  }
+
+  .coming-app-popup.fade-out {
+    animation: fade-out 0.5s ease-in; /* Apply the fade-out animation */
+  }
+
+  .coming-app-popup-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 3px;
+    /* padding-bottom: 0px; */
+    width: 50%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .coming-app-close-btn {
+    padding: 6px 9px;
+    background-color: white;
+    color: #080606;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+    position: absolute;
+    top: 10%;
+    left: 90%;  
+  }
+
+  @media screen and (max-width: 786px) {
+    .coming-app-popup-content {
+      width: 85%;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+</style>
+
+<!-- ------------------------------------------mobile app comming soon banner End------------------- -->
+
+
+
+
+
 <?php
 }
 $pagemaincontent = ob_get_contents();
