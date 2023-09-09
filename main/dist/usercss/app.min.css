@@ -236,7 +236,7 @@
 
 .footer {
     bottom: 0;
-    padding: 16px;
+    padding: 7px 16px;
     position: absolute;
     right: 0;
     left: 0;
@@ -705,7 +705,7 @@ body.dark-sidebar.enlarge-menu .left-sidebar:hover .brand .logo .logo-light {
 
 @media (max-width:767px) {
     [data-layout=horizontal] .page-wrapper {
-        padding-top: 185px
+        padding-top: 150px
     }
 }
 
@@ -5158,25 +5158,25 @@ input:checked+.slider {
 }
 
 
-.top-margin-for-sidebar{
- top: -15px;
+.top-margin-for-sidebar {
+    top: -15px;
 
 }
 
 @media screen and (max-width: 991px) {
-    .top-margin-for-sidebar{
+    .top-margin-for-sidebar {
         top: 5px !important;
-       
-       }
+
+    }
 }
 
-.highcharts-title{
+.highcharts-title {
 
     font-size: 16px !important;
     padding-top: 10px !important;
     line-height: 10px !important;
     padding-bottom: 10px !important;
-    
+
 }
 
 
@@ -5184,156 +5184,214 @@ input:checked+.slider {
 
 .alertify .ajs-header {
     display: none;
-    
-    }
-    
-    
-    .alertify .ajs-footer {
-      /* padding: 4px; */
-      margin-left: 0px !important;
-      margin-right: 0px !important;
-      min-height: 35px !important;
-      background-color: #00aaaa2e !important;
-      padding: 0px !important;
-    }
-    
-    .alertify .ajs-dialog {
-      
-      padding: 15px 0px 0 0px !important;
-      max-width: 400px !important;
-      border-radius: 5px !important;
-      top: 25%;
-    }
-    
-    .alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
-      margin: 0px !important;
-    }
-    
-    .alertify .ajs-commands {
-      margin:-12px 10px 0 0 !important; 
-    }
-    
-    .alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok {
-      color: #fff !important;
-        border: 1px dotted #fff;
-        border-radius: 5px;
-        /* margin-right: 10px !important; */
-        margin: 5px 6px 5px 10px !important;
-        background-color: #00aaaa;
-    }
-    
-    .alertify .ajs-dimmer {
-      
-      transition-timing-function: ease-in;
-      transition-duration: 500ms !important;
-    }
-    
-      .alertify .ajs-modal {
-      
-        transition-timing-function: ease-out;
-        transition-duration: 500ms !important;}
 
-
-
-        /* -------------scan-qr css ----------------*/
-
-        #scanqr-myImg {
-  border-radius: 2px;
-  cursor: pointer;
-  transition: 0.3s;
 }
 
-#scanqr-myImg:hover {opacity: 0.7;}
+
+.alertify .ajs-footer {
+    /* padding: 4px; */
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    min-height: 35px !important;
+    background-color: #00aaaa2e !important;
+    padding: 0px !important;
+}
+
+.alertify .ajs-dialog {
+
+    padding: 15px 0px 0 0px !important;
+    max-width: 400px !important;
+    border-radius: 5px !important;
+    top: 25%;
+}
+
+.alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
+    margin: 0px !important;
+}
+
+.alertify .ajs-commands {
+    margin: -12px 10px 0 0 !important;
+}
+
+.alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok {
+    color: #fff !important;
+    border: 1px dotted #fff;
+    border-radius: 5px;
+    /* margin-right: 10px !important; */
+    margin: 5px 6px 5px 10px !important;
+    background-color: #00aaaa;
+}
+
+.alertify .ajs-dimmer {
+
+    transition-timing-function: ease-in;
+    transition-duration: 500ms !important;
+}
+
+.alertify .ajs-modal {
+
+    transition-timing-function: ease-out;
+    transition-duration: 500ms !important;
+}
+
+
+
+/* -------------scan-qr css ----------------*/
+
+#scanqr-myImg {
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#scanqr-myImg:hover {
+    opacity: 0.7;
+}
 
 /* The Modal (background) */
 .scanqr-modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Black w/ opacity */
 }
 
 /* Modal Content (image) */
 .scanqr-modal-content {
-  margin: auto;
-  display: block;
-  width: 35%;
-  max-width: 250px;
-  border: 4px solid white;
+    margin: auto;
+    display: block;
+    width: 35%;
+    max-width: 250px;
+    border: 4px solid white;
     border-radius: 5px;
 }
 
 /* Caption of Modal Image */
 #scanqr-caption {
-  margin: auto;
-  display: block;
-  width: 50%;
-  max-width: 500px;
-  text-align: center;
-  color: #fff;
-  padding: 10px 0;
-  text-shadow: 3px 3px 2px black;
+    margin: auto;
+    display: block;
+    width: 50%;
+    max-width: 500px;
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+    text-shadow: 3px 3px 2px black;
     font-size: 18px;
-  
+
 }
 
 /* Add Animation */
-.scanqr-modal-content, #scanqr-caption {  
-  -webkit-animation-name: zoom;
-  -webkit-animation-duration: 0.6s;
-  animation-name: zoom;
-  animation-duration: 0.6s;
+.scanqr-modal-content,
+#scanqr-caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
 }
 
 @-webkit-keyframes zoom {
-  from {-webkit-transform:scale(0)} 
-  to {-webkit-transform:scale(1)}
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
 }
 
 @keyframes zoom {
-  from {transform:scale(0)} 
-  to {transform:scale(1)}
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
 }
 
 /* The Close Button */
 .scanqr-close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 24px;
-  font-weight: bold;
-  transition: 0.3s;
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 24px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .scanqr-close:hover,
 .scanqr-close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-  .scanqr-modal-content {
-    width: 100%;
-  }
+@media only screen and (max-width: 700px) {
+    .scanqr-modal-content {
+        width: 100%;
+    }
 }
 
 
 
 
 @media (max-width: 600px) {
- 
-  .mobile-card-display-none{
 
-    display: none !important;
-  }
+    .mobile-card-display-none {
+
+        display: none !important;
+    }
+}
+
+/*  -------------------------------------- CSS For Mobile App ------------------------------- */
+
+
+@media (max-width: 600px) {
+
+    .d-app-none {
+        display: none;
+    }
+
+
+    .d-web-none {
+        display: block !important;
+    }
+
+    .app-date-width {
+        width: 50%;
+
+    }
+
+    .nifty-sensex-border{
+        border: 1px solid #02b6b6;
+        padding: 10px;
+        border-radius: 10px;
+
+    }
+    .m-subheader{
+        margin: 3px !important;
+        margin-left: 15px !important;
+    }
+}
+
+.d-web-none {
+    display: none;
 }
