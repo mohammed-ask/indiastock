@@ -2,7 +2,7 @@
 include "./session.php";
 $fetchshare = $obj->selectextrawhereupdate('userstocks inner join watchliststock on watchliststock.userstockid = userstocks.id', "Exch,ExchType,userstocks.Symbol,Expiry,StrikePrice,OptionType", "userstocks.userid='" . $employeeid . "' and userstocks.status = 1 and watchliststock.status = 1");
 $rowfetch = mysqli_fetch_all($fetchshare, 1);
-array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
+array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "N", "ExchType" => "C", "Symbol" => "ZOMATO", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "N", "ExchType" => "C", "Symbol" => "INFY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "N", "ExchType" => "C", "Symbol" => "M&M", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "N", "ExchType" => "C", "Symbol" => "RELIANCE", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
 
 $stockdata = $obj->fivepaisaapi2($rowfetch);
 $marketdata = array_filter($stockdata, function ($data) {
@@ -15,6 +15,14 @@ $wstocks = array_filter($stockdata, function ($data) {
         return $data;
     }
 });
+
+$primarystock = array_filter($stockdata, function ($data) {
+    if ($data['Symbol'] === 'ZOMATO' || $data['Symbol'] === 'INFY' || $data['Symbol'] === 'M&M' || $data['Symbol'] === 'RELIANCE') {
+        return $data;
+    }
+});
+$primarystock = array_values($primarystock);
+
 /* @var $obj db */
 ?>
 <div class="container-fluid">
@@ -34,6 +42,69 @@ $wstocks = array_filter($stockdata, function ($data) {
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="primarystocks" style="display: none;">
+    <div class="row">
+
+        <div class="col-6">
+            <div class="card" style="border-radius: 15px;">
+                <div class="card-body">
+                    <div>
+                        <div class="font-11 fw-semibold"><?= $primarystock[0]['Symbol'] ?></div>
+                        <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[0]['LastRate'] ?> <div <?= $primarystock[0]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[0]['Chg'] ?> <span <?= $primarystock[0]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= $primarystock[0]['ChgPcnt'] ?>%)</span> </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card" style="border-radius: 15px;">
+                <div class="card-body">
+
+                    <div>
+                        <div class="font-11 fw-semibold"><?= $primarystock[1]['Symbol'] ?></div>
+                        <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[1]['LastRate'] ?> <div <?= $primarystock[1]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[1]['Chg'] ?> <span <?= $primarystock[1]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= $primarystock[1]['ChgPcnt'] ?>%)</span> </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-6">
+            <div class="card" style="border-radius: 15px;">
+                <div class="card-body">
+                    <div>
+                        <div class="font-11 fw-semibold"><?= $primarystock[2]['Symbol'] ?></div>
+                        <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[2]['LastRate'] ?> <div <?= $primarystock[2]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[2]['Chg'] ?> <span <?= $primarystock[2]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= $primarystock[2]['ChgPcnt'] ?>%)</span> </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card" style="border-radius: 15px;">
+                <div class="card-body">
+
+                    <div>
+                        <div class="font-11 fw-semibold"><?= $primarystock[3]['Symbol'] ?></div>
+                        <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[3]['LastRate'] ?> <div <?= $primarystock[3]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[3]['Chg'] ?> <span <?= $primarystock[3]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= $primarystock[3]['ChgPcnt'] ?>%)</span> </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 </div>
 <div id="sidebarcolumn" style="display: none;">

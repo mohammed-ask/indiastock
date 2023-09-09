@@ -5,7 +5,7 @@ if (isset($_GET['RequestToken']) && !empty($_GET['RequestToken'])) {
 }
 $fetchshare = $obj->selectextrawhereupdate('userstocks inner join watchliststock on watchliststock.userstockid = userstocks.id', "Exch,ExchType,userstocks.Symbol,Expiry,StrikePrice,OptionType", "userstocks.userid='" . $employeeid . "' and userstocks.status = 1 and watchliststock.status = 1");
 $rowfetch = mysqli_fetch_all($fetchshare, 1);
-array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
+array_push($rowfetch, ["Exch" => "N", "ExchType" => "C", "Symbol" => "NIFTY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "B", "ExchType" => "C", "Symbol" => "SENSEX", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "N", "ExchType" => "C", "Symbol" => "ZOMATO", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "N", "ExchType" => "C", "Symbol" => "INFY", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "N", "ExchType" => "C", "Symbol" => "M&M", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "N", "ExchType" => "C", "Symbol" => "RELIANCE", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]);
 $stockdata = $obj->fivepaisaapi2($rowfetch);
 $stockdata = $stockdata == 'Error fetching candle data:' ? [] : $stockdata;
 $marketdata = array_filter($stockdata, function ($data) {
@@ -18,6 +18,14 @@ $wstocks = array_filter($stockdata, function ($data) {
         return $data;
     }
 });
+
+$primarystock = array_filter($stockdata, function ($data) {
+    if ($data['Symbol'] === 'ZOMATO' || $data['Symbol'] === 'INFY' || $data['Symbol'] === 'M&M' || $data['Symbol'] === 'RELIANCE') {
+        return $data;
+    }
+});
+$primarystock = array_values($primarystock);
+
 $chartdata = $obj->getcandledata(999920000, 'N',  'C', '5m', date('Y-m-d'), date('Y-m-d'));
 $data = $chartdata === "Error fetching candle data:" ? [] : $chartdata['candles'];
 $chart_data = array();
@@ -80,72 +88,72 @@ if ($dashboardmaintanance) {
 
             <!-- -------------------------------For only Mobile App---------------- -->
 
-<div class="d-web-none mt-4 mb-3">
+            <div class="d-web-none mt-4 mb-3 primarystock">
 
 
-<div class="row">
+                <div class="row">
 
-<div class="col-6">
-    <div class="card" style="border-radius: 15px;">
-<div class="card-body">
-<div>
-                                    <div class="font-11 fw-semibold">STOCK NAME</div>
-                                    <div class="d-inline-block font-11"><span>₹</span> 19435.3 <div class="text-success">181.5 <span class="text-success">(0.94%)</span> </div>
-                                        
+                    <div class="col-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body">
+                                <div>
+                                    <div class="font-11 fw-semibold"><?= $primarystock[0]['Symbol'] ?></div>
+                                    <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[0]['LastRate'] ?> <div <?= $primarystock[0]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[0]['Chg'] ?> <span <?= $primarystock[0]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= $primarystock[0]['ChgPcnt'] ?>%)</span> </div>
+
                                     </div>
                                 </div>
-</div>
-    </div>
-</div>
-<div class="col-6">
-<div class="card" style="border-radius: 15px;">
-<div class="card-body">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body">
 
-<div>
-                                    <div class="font-11 fw-semibold">STOCK NAME</div>
-                                    <div class="d-inline-block font-11"><span>₹</span>19435.3 <div class="text-success">181.5 <span class="text-success">(0.94%)</span></div>
-                                        
+                                <div>
+                                    <div class="font-11 fw-semibold"><?= $primarystock[1]['Symbol'] ?></div>
+                                    <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[1]['LastRate'] ?> <div <?= $primarystock[1]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[1]['Chg'] ?> <span <?= $primarystock[1]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= $primarystock[1]['ChgPcnt'] ?>%)</span> </div>
+
                                     </div>
                                 </div>
-</div>
-</div>
+                            </div>
+                        </div>
 
-</div>
+                    </div>
 
-</div>
+                </div>
 
-<div class="row">
+                <div class="row">
 
-<div class="col-6">
-    <div class="card" style="border-radius: 15px;">
-<div class="card-body">
-<div>
-                                    <div class="font-11 fw-semibold">STOCK NAME</div>
-                                    <div class="d-inline-block font-11"><span>₹</span> 19435.3 <div class="text-success">181.5 <span class="text-success">(0.94%)</span> </div>
-                                        
+                    <div class="col-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body">
+                                <div>
+                                    <div class="font-11 fw-semibold"><?= $primarystock[2]['Symbol'] ?></div>
+                                    <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[2]['LastRate'] ?> <div <?= $primarystock[2]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[2]['Chg'] ?> <span <?= $primarystock[2]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= $primarystock[2]['ChgPcnt'] ?>%)</span> </div>
+
                                     </div>
                                 </div>
-</div>
-    </div>
-</div>
-<div class="col-6">
-<div class="card" style="border-radius: 15px;">
-<div class="card-body">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body">
 
-<div>
-                                    <div class="font-11 fw-semibold">STOCK NAME</div>
-                                    <div class="d-inline-block font-11"><span>₹</span>19435.3 <div class="text-success">181.5 <span class="text-success">(0.94%)</span></div>
-                                        
+                                <div>
+                                    <div class="font-11 fw-semibold"><?= $primarystock[3]['Symbol'] ?></div>
+                                    <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[3]['LastRate'] ?> <div <?= $primarystock[3]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[3]['Chg'] ?> <span <?= $primarystock[3]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= $primarystock[3]['ChgPcnt'] ?>%)</span> </div>
+
                                     </div>
                                 </div>
-</div>
-</div>
+                            </div>
+                        </div>
 
-</div>
+                    </div>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
             <div class="card d-app-none">
                 <div class="card-header">
@@ -253,7 +261,7 @@ if ($dashboardmaintanance) {
                     <?php if ($chartdata === "Error fetching candle data:") { ?>
                         <div class='alert alert-danger dashboard-danger'>Due to a technical issue with the NSE server, the chart is currently unavailable</div>
                     <?php } ?>
-                    
+
                 </div><!--end card-body-->
             </div><!--end card-->
         </div><!--end col-->
@@ -261,110 +269,113 @@ if ($dashboardmaintanance) {
     </div><!--end row-->
 
 
-<!-- ------------------------------------------mobile app comming soon banner Start------------------- -->
+    <!-- ------------------------------------------mobile app comming soon banner Start------------------- -->
 
-<div class="coming-app-popup" id="coming-app-popup">
-  <button class="coming-app-close-btn" id="coming-app-close-btn">X</button>
-  <div class="coming-app-popup-content">
-    <img style="border-radius: 10px;" width="100%" src="main/dist/userimages/PMS EQuity App Coming.gif" alt="app-coming-soon">
-  </div>
-</div>
+    <div class="coming-app-popup" id="coming-app-popup">
+        <button class="coming-app-close-btn" id="coming-app-close-btn">X</button>
+        <div class="coming-app-popup-content">
+            <img style="border-radius: 10px;" width="100%" src="main/dist/userimages/PMS EQuity App Coming.gif" alt="app-coming-soon">
+        </div>
+    </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const popup = document.getElementById("coming-app-popup");
-    const closeBtn = document.getElementById("coming-app-close-btn");
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const popup = document.getElementById("coming-app-popup");
+            const closeBtn = document.getElementById("coming-app-close-btn");
 
-    // Show the popup after 3 seconds
-    setTimeout(function() {
-      popup.style.display = "block";
-    }, 3000); // 3000 milliseconds = 3 seconds
+            // Show the popup after 3 seconds
+            setTimeout(function() {
+                popup.style.display = "block";
+            }, 3000); // 3000 milliseconds = 3 seconds
 
-    // Close the popup when the close button is clicked
-    closeBtn.addEventListener("click", function() {
-      popup.classList.add("fade-out");
-      setTimeout(function() {
-        popup.style.display = "none";
-        popup.classList.remove("fade-out");
-      }, 500);
-    });
-  });
-</script>
+            // Close the popup when the close button is clicked
+            closeBtn.addEventListener("click", function() {
+                popup.classList.add("fade-out");
+                setTimeout(function() {
+                    popup.style.display = "none";
+                    popup.classList.remove("fade-out");
+                }, 500);
+            });
+        });
+    </script>
 
-<style>
+    <style>
+        .coming-app-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            animation: fade-in 0.5s ease-out;
+            /* Apply the fade-in animation */
+        }
 
-  .coming-app-popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    animation: fade-in 0.5s ease-out; /* Apply the fade-in animation */
-  }
+        .coming-app-popup.fade-out {
+            animation: fade-out 0.5s ease-in;
+            /* Apply the fade-out animation */
+        }
 
-  .coming-app-popup.fade-out {
-    animation: fade-out 0.5s ease-in; /* Apply the fade-out animation */
-  }
+        .coming-app-popup-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 3px;
+            /* padding-bottom: 0px; */
+            width: 50%;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
-  .coming-app-popup-content {
-    background-color: white;
-    border-radius: 10px;
-    padding: 3px;
-    /* padding-bottom: 0px; */
-    width: 50%;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+        .coming-app-close-btn {
+            padding: 6px 9px;
+            background-color: white;
+            color: #080606;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            position: absolute;
+            top: 10%;
+            left: 90%;
+        }
 
-  .coming-app-close-btn {
-    padding: 6px 9px;
-    background-color: white;
-    color: #080606;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 700;
-    position: absolute;
-    top: 10%;
-    left: 90%;  
-  }
+        @media screen and (max-width: 786px) {
+            .coming-app-popup-content {
+                width: 85%;
+            }
+        }
 
-  @media screen and (max-width: 786px) {
-    .coming-app-popup-content {
-      width: 85%;
-    }
-  }
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
 
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-  @keyframes fade-out {
-    from {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-  }
-</style>
+        @keyframes fade-out {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
 
-<!-- ------------------------------------------mobile app comming soon banner End------------------- -->
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+
+    <!-- ------------------------------------------mobile app comming soon banner End------------------- -->
 
 
 
@@ -489,8 +500,10 @@ include "main/templete.php"; ?>
                 $.post("main/getlivemarketdatadashboard.php",
                     function(data) {
                         $('.national-data').html(data)
+                        let pstock = $('.primarystocks').html(data)
                         let sidedata = $('#sidebarcolumn').html()
                         $("#watchlist_2").html(sidedata)
+                        $("#primarystock").html(pstock)
                     },
                 );
             }, <?= $apiinterval ?>)
