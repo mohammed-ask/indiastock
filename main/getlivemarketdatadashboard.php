@@ -52,7 +52,7 @@ $primarystock = array_values($primarystock);
                 <div class="card-body">
                     <div>
                         <div class="font-11 fw-semibold"><?= $primarystock[0]['Symbol'] ?></div>
-                        <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[0]['LastRate'] ?> <div <?= $primarystock[0]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[0]['Chg'] ?> <span <?= $primarystock[0]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= $primarystock[0]['ChgPcnt'] ?>%)</span> </div>
+                        <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[0]['LastRate'] ?> <div <?= $primarystock[0]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[0]['Chg'] ?> <span <?= $primarystock[0]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($primarystock[0]['ChgPcnt'], 2) ?>%)</span> </div>
 
                         </div>
                     </div>
@@ -65,7 +65,7 @@ $primarystock = array_values($primarystock);
 
                     <div>
                         <div class="font-11 fw-semibold"><?= $primarystock[1]['Symbol'] ?></div>
-                        <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[1]['LastRate'] ?> <div <?= $primarystock[1]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[1]['Chg'] ?> <span <?= $primarystock[1]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= $primarystock[1]['ChgPcnt'] ?>%)</span> </div>
+                        <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[1]['LastRate'] ?> <div <?= $primarystock[1]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[1]['Chg'] ?> <span <?= $primarystock[1]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($primarystock[1]['ChgPcnt'], 2) ?>%)</span> </div>
 
                         </div>
                     </div>
@@ -83,7 +83,7 @@ $primarystock = array_values($primarystock);
                 <div class="card-body">
                     <div>
                         <div class="font-11 fw-semibold"><?= $primarystock[2]['Symbol'] ?></div>
-                        <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[2]['LastRate'] ?> <div <?= $primarystock[2]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[2]['Chg'] ?> <span <?= $primarystock[2]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= $primarystock[2]['ChgPcnt'] ?>%)</span> </div>
+                        <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[2]['LastRate'] ?> <div <?= $primarystock[2]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[2]['Chg'] ?> <span <?= $primarystock[2]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($primarystock[2]['ChgPcnt'], 2) ?>%)</span> </div>
 
                         </div>
                     </div>
@@ -96,7 +96,7 @@ $primarystock = array_values($primarystock);
 
                     <div>
                         <div class="font-11 fw-semibold"><?= $primarystock[3]['Symbol'] ?></div>
-                        <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[3]['LastRate'] ?> <div <?= $primarystock[3]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[3]['Chg'] ?> <span <?= $primarystock[3]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= $primarystock[3]['ChgPcnt'] ?>%)</span> </div>
+                        <div class="d-inline-block font-11"><span>₹</span> <?= $primarystock[3]['LastRate'] ?> <div <?= $primarystock[3]['Chg'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $primarystock[3]['Chg'] ?> <span <?= $primarystock[3]['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($primarystock[3]['ChgPcnt'], 2) ?>%)</span> </div>
 
                         </div>
                     </div>
