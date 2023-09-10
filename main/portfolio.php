@@ -349,20 +349,20 @@ if ($portfoliomaintanance) {
                                     <thead class="thead-light">
                                         <tr>
                                             <th>Stocks</th>
-                                            <th>Open Time</th>
-                                            <th>Close Time</th>
+                                            <th>Open_Time</th>
+                                            <th>Close_Time</th>
                                             <th>Lot</th>
                                             <th>Qty.</th>
-                                            <th>Buy Price</th>
-                                            <th>Sell Price</th>
+                                            <th>Buy_Price</th>
+                                            <th>Sell_Price</th>
                                             <th>Total</th>
                                             <!-- <th>Paid By User</th> -->
                                             <th>Buy/Sell</th>
                                             <th>Stop Loss</th>
-                                            <th>Stop Loss Triggered</th>
+                                            <th>Stop_Loss_Triggered</th>
                                             <th>Target</th>
-                                            <th>Target Triggered</th>
-                                            <th>%P/L</th>
+                                            <th>Target_Triggered</th>
+                                            <th>P/L %</th>
                                             <th>P/L</th>
                                             <!-- <th>Your P/L</th> -->
                                             <!-- <th>Broker Profit</th> -->
@@ -382,14 +382,14 @@ if ($portfoliomaintanance) {
                                     <thead class="thead-light">
                                         <tr>
                                             <th>Stocks</th>
-                                            <th>Open Time</th>
-                                            <th>Close Time</th>
+                                            <th>Open_Time</th>
+                                            <th>Close_Time</th>
                                             <th>Lot</th>
                                             <th>Qty.</th>
-                                            <th>Buy Price</th>
-                                            <th>Sell Price</th>
+                                            <th>Buy_Price</th>
+                                            <th>Sell_Price</th>
                                             <th>Total</th>
-                                            <th>%P/L</th>
+                                            <th>P/L %</th>
                                             <th>P/L</th>
                                             <!-- <th>Paid By User</th> -->
                                             <th>Buy/Sell</th>

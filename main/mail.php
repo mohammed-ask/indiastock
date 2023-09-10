@@ -14,7 +14,7 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
             <div class="card-header">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h4 class="card-title">PMS Equity Email</h4>
+                        <h4 class="card-title">Emails</h4>
                     </div><!--end col-->
                     <div class="col-auto">
                         <ul class="nav nav-tabs tab-nagative-m" role="tablist">

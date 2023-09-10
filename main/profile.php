@@ -6,7 +6,7 @@ ob_start();
 <div class="card">
     <div class="card-body">
         <div class="row">
-            <div class="col-4 align-self-center">
+            <div class="col-4 mobile-width align-self-center">
                 <div class="media">
                     <div class="d-inline-block">
                         <img src="<?= empty($avatarpath) ? 'main/images/user.png' : $avatarpath ?>" alt="" class="thumb-lg rounded-circle">

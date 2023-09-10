@@ -5397,6 +5397,10 @@ input:checked+.slider {
     .national-data {
         text-align: center;
     }
+
+    .mobile-width{
+        width: 100%;
+    }
 }
 
 .d-web-none {
