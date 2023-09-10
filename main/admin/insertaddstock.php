@@ -2,12 +2,13 @@
 include "main/session.php";
 // print_r($_POST);
 // die;
- $price = $obj->searchstockapiwithtoken($_POST['symbol'], $_POST['exchtype'], $_POST['exchange']);
- $data = $price[0];
- if (!isset($data['MktLot'])) {
-     echo "<div class='alert alert-warning'>You have entered incorrect details or incorrect symbol! Please enter correct details.</div>";
-     die;
- }
+$aistat = $obj->selectfieldwhere("users", 'aitrading', 'id=' . $_POST['userid'] . '');
+$price = $obj->searchstockapiwithtoken($_POST['symbol'], $_POST['exchtype'], $_POST['exchange']);
+$data = $price[0];
+if (!isset($data['MktLot'])) {
+    echo "<div class='alert alert-warning'>You have entered incorrect details or incorrect symbol! Please enter correct details.</div>";
+    die;
+}
 $userfund = $obj->selectfieldwhere("users", "investmentamount", "id = " . $_POST['userid'] . "");
 if ($_POST['totalamount'] > $userfund * $_POST['margin']) {
     echo "<div class='alert alert-warning'>You dont have enough fund</div>";
@@ -36,6 +37,9 @@ $xx['trademethod'] = $_POST['trademethod'];
 $xx['tradestatus'] = 'Open';
 $xx['price'] = $_POST['price'];
 $xx['datetime'] = changedateformatespecito($_POST['datetime'], "d/m/Y H:i:s", "Y-m-d H:i:s");
+if ($aistat === 'Yes') {
+    $xx['aitrade'] = 'Yes';
+}
 $stock = $obj->insertnew('stocktransaction', $xx);
 $obj->saveactivity("Position Added by Admin", "", $stock, $employeeid, "Admin", "Position Added by Admin");
 $remainfund = $userfund - $xx["totalamount"];

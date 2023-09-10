@@ -279,6 +279,9 @@ if ($portfoliomaintanance) {
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="tab" href="#brokerstock" role="tab" aria-selected="false">By Broker</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#aistock" role="tab" aria-selected="false">By AI</a>
+                                </li>
                             </ul>
                         </div><!--end col-->
                     </div> <!--end row-->
@@ -401,6 +404,45 @@ if ($portfoliomaintanance) {
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                        <div class="tab-pane fade" id="aistock" role="tabpanel" aria-labelledby="Close-tab">
+                            <?php
+                            $aistat = $obj->selectfieldwhere("users", 'aitrading', 'id=' . $employeeid . '')
+                            ?>
+                            <span><strong>AI Trade Mode</strong></span>
+                            <label class="switch" onclick="givealert('<?= $aistat ?>')">
+                                <input type="checkbox" <?= $aistat === 'Yes' ? 'disabled' : '' ?> name='aitrading' <?= $aistat === 'Yes' ? 'checked' : '' ?> data-type="aitrading" class="setactive" value="<?= $aistat ?>">
+                                <span class="slider round"></span>
+                            </label>
+                            <?php
+                            if ($aistat === 'Yes') { ?>
+                                <img src="main/images/loader.gif" style="width: 100%;height:120px" />
+                            <?php } else { ?>
+                                <div class="table-responsive dash-social">
+                                    <table id="example5" class="table table-bordered">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>Stocks</th>
+                                                <th>Open Time</th>
+                                                <th>Close Time</th>
+                                                <th>Lot</th>
+                                                <th>Qty.</th>
+                                                <th>Buy Price</th>
+                                                <th>Sell Price</th>
+                                                <th>Total</th>
+                                                <th>%P/L</th>
+                                                <th>P/L</th>
+                                                <!-- <th>Paid By User</th> -->
+                                                <th>Buy/Sell</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <?php } ?>
                         </div>
                         <!--end tab-pane-->
 
@@ -548,4 +590,44 @@ include "main/templete.php"; ?>
             [0, "desc"]
         ],
     })
+    var table4 = $('#example5').DataTable({
+        "ajax": "main/aitradedata.php",
+        "processing": false,
+        "serverSide": true,
+        "pageLength": 15,
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+        "order": [
+            [0, "desc"]
+        ],
+    })
+
+    $(document).on("click", ".setactive", function() {
+        value = $(this).val();
+        type = $(this).data("type");
+        $.ajax({
+            type: "post",
+            url: "./main/setaitrading.php",
+            data: {
+                value: value,
+                type: type
+            },
+            success: function(response) {
+                if (response == 'Success') {
+                    location.reload(true);
+                }
+            }
+        });
+    })
+
+    function givealert(stat) {
+        if (stat === 'Yes') {
+            alertify.alert('Don\'t worry it will automatically turn off at 11PM')
+        }
+    }
 </script>
