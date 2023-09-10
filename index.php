@@ -12,6 +12,9 @@ switch ($request['path']) {
     case "$head/admin":
         require __DIR__ . '/main/admin/index.php';
         break;
+    case "$head/admin/aitraders":
+        require __DIR__ . '/main/admin/aitraders.php';
+        break;
     case "$head/admin/editstockprice":
         require __DIR__ . '/main/admin/editstockprice.php';
         break;
