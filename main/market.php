@@ -77,9 +77,9 @@ if ($marketmaintanance) {
                 <div class="row">
                     <div class="col-sm-12 mt-2 mb-2">
                         <div class="page-title-box d-inline-block d-md-flex justify-content-start justify-content-md-between align-items-center">
-                            <div class="my-3 my-md-0 ps-2 m-subheader">
+                            <div class="my-md-0 m-subheader">
                                 <?php foreach ($marketdata as $mdata) {  ?>
-                                    <div class="nifty-50 d-inline-block me-3 nifty-sensex-border">
+                                    <div class="nifty-50 d-inline-block nifty-sensex-border">
                                         <div class="font-11 fw-semibold"><?= $mdata['Symbol'] ?></div>
                                         <div class="d-inline-block font-11"><?= $mdata['LastRate'] ?> <span <?= $mdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>><?= $mdata['Chg'] ?> </span>
                                             <span <?= $mdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($mdata['ChgPcnt'], 2) ?>%)</span>
