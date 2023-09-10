@@ -299,8 +299,8 @@ if ($portfoliomaintanance) {
                                             <th>Total</th>
                                             <!-- <th>Paid By User</th> -->
                                             <th>Buy/Sell</th>
-                                            <th>Current Rate</th>
-                                            <th>Stop Loss</th>
+                                            <th>Current_Rate</th>
+                                            <th>Stop_Loss</th>
                                             <th>Target</th>
                                             <th>% Day's P/L</th>
                                             <th>Day's P/L</th>
@@ -325,8 +325,8 @@ if ($portfoliomaintanance) {
                                             <th>Qty.</th>
                                             <th>Price</th>
                                             <th>Total</th>
-                                            <th>Current Rate</th>
-                                            <th>Stop Loss</th>
+                                            <th>Current_Rate</th>
+                                            <th>Stop_Loss</th>
                                             <th>Target</th>
                                             <!-- <th>Paid By User</th> -->
                                             <th>Buy/Sell</th>

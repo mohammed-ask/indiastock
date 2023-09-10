@@ -693,7 +693,7 @@ body.dark-sidebar.enlarge-menu .left-sidebar:hover .brand .logo .logo-light {
 [data-layout=horizontal] .page-wrapper {
     margin: 0 auto;
     width: 100%;
-    padding-top: 120px
+    padding-top: 75px
 }
 
 [data-layout=horizontal] .page-wrapper .page-content-tab {
@@ -5359,6 +5359,12 @@ input:checked+.slider {
 
         display: none !important;
     }
+}
+
+
+.margin-top-mobile{
+
+    margin-top: 45px;
 }
 
 /*  -------------------------------------- CSS For Mobile App ------------------------------- */

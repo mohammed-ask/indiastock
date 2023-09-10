@@ -233,7 +233,7 @@ if ($dashboardmaintanance) {
 
             </div><!--end card-->
         </div><!--end col-->
-        <div class="col-lg-9">
+        <div class="col-lg-9 ">
             <div class="card">
                 <div class="card-header">
                     <div class="row align-items-center">
