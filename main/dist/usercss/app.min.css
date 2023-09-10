@@ -705,7 +705,7 @@ body.dark-sidebar.enlarge-menu .left-sidebar:hover .brand .logo .logo-light {
 
 @media (max-width:767px) {
     [data-layout=horizontal] .page-wrapper {
-        padding-top: 150px
+        padding-top: 75px;
     }
 }
 
