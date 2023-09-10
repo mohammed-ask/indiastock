@@ -39,12 +39,12 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
                                 <thead class="thead-light">
                                     <tr>
 
-                                        <th>Serial No</th>
-                                        <th>Date Time</th>
+                                        <!-- <th>Serial No</th> -->
+                                        <th>Date & Time</th>
                                         <!-- <th>Time</th> -->
-                                        <th>Sender</th>
-                                        <th>Subject</th>
-                                        <th>View Msg</th>
+                                        <!-- <th>Sender</th>
+                                        <th>Subject</th> -->
+                                        <th>Messages</th>
                                         <th>Viewed</th>
                                     </tr><!--end tr-->
                                 </thead>
@@ -59,12 +59,12 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
                             <table id="example2" class="table table-bordered">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th>Serial No</th>
-                                        <th>Date</th>
+                                        <!-- <th>Serial No</th> -->
+                                        <th>Date & Time</th>
                                         <!-- <th>Time</th> -->
-                                        <th>To</th>
-                                        <th>Subject</th>
-                                        <th>View Msg</th>
+                                        <!-- <th>To</th>
+                                        <th>Subject</th> -->
+                                        <th>Messages</th>
 
                                     </tr><!--end tr-->
                                 </thead>
@@ -178,12 +178,12 @@ include "main/templete.php"; ?>
                 render: function(data, type, full, meta) {
                     return "<div class='text-wrap width-200 bg-red'>" + data + "</div>";
                 },
-                targets: 5,
+                targets: 2,
                 visible: false,
             }],
             "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
                 // console.log(aData)
-                if (aData[5] == 1) {
+                if (aData[2] == 1) {
 
                 } else {
                     $('td', nRow).attr('style', 'background-color: rgb(199, 255, 255) !important');

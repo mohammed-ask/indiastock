@@ -95,12 +95,13 @@ $fundwithdraw = empty($fundwithdraw) ? 0 : $fundwithdraw;
                     <table id="example1" class="table table-bordered">
                         <thead class="thead-light">
                             <tr>
-                                <th>No</th>
+                                <!-- <th>No</th> -->
                                 <th>Date</th>
                                 <th>Time</th>
-                                <th>Transaction ID</th>
-                                <th>Peyment Method</th>
                                 <th>Amount</th>
+                                <th>Transaction_ID</th>
+                                <th>Peyment_Method</th>
+                               
                                 <th>Status</th>
                             </tr><!--end tr-->
                         </thead>
@@ -123,11 +124,12 @@ $fundwithdraw = empty($fundwithdraw) ? 0 : $fundwithdraw;
                     <table id="example2" class="table table-bordered">
                         <thead class="thead-light">
                             <tr>
-                                <th>No</th>
+                                <!-- <th>No</th> -->
                                 <th>Date</th>
                                 <th>Time</th>
-                                <th>Transaction ID</th>
                                 <th>Amount</th>
+                                <th>Transaction_ID</th>
+                               
                                 <th>Status</th>
                             </tr><!--end tr-->
                         </thead>
