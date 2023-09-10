@@ -68,7 +68,7 @@ if ($dashboardmaintanance) {
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row margin-top-mobile">
         <div class="col-lg-3">
             <div class="card">
                 <div class="card-body">

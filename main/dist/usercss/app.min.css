@@ -5366,6 +5366,11 @@ input:checked+.slider {
 
 @media (max-width: 600px) {
 
+    .margin-top-mobile{
+
+        margin-top: 75px;
+    }
+
     .d-app-none {
         display: none;
     }
@@ -5382,10 +5387,10 @@ input:checked+.slider {
 
     .nifty-sensex-border {
         border: 1px solid #02b6b6;
-        padding: 10px 15px;
+        padding: 15px 20px;
         border-radius: 10px;
         margin: 5px;
-        margin-right: 1px !important;
+        margin-right: 15px;
     }
 
     .m-subheader {
@@ -5404,11 +5409,22 @@ input:checked+.slider {
     }
 }
 
-@media (max-width: 320px){
+@media (max-width: 360px){
 .nifty-sensex-border {
     
-    padding: 10px 5px;}
+    padding: 10px 5px !important;
+    margin-right: 1px !important;
 }
+    
+}
+
+@media (max-width: 424px){
+    .nifty-sensex-border {
+        
+        padding: 15px 15px;
+        margin-right: 5px;
+    }
+    }
 
 .d-web-none {
     display: none;

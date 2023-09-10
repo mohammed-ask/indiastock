@@ -46,7 +46,7 @@ if ($marketmaintanance) {
     include "maintenance.php";
 ?>
 <?php } else { ?>
-    <div class="card">
+    <div class="card margin-top-mobile">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
