@@ -409,14 +409,15 @@ if ($portfoliomaintanance) {
                             <?php
                             $aistat = $obj->selectfieldwhere("users", 'aitrading', 'id=' . $employeeid . '')
                             ?>
-                            <span><strong>AI Trade Mode</strong></span>
-                            <label class="switch" onclick="givealert('<?= $aistat ?>')">
+                            <div style="display: inline-flex;">
+                            <span style="margin-right:10px;"><strong>AI Trade Mode</strong></span>
+                           <span> <label class="switch" onclick="givealert('<?= $aistat ?>')">
                                 <input type="checkbox" <?= $aistat === 'Yes' ? 'disabled' : '' ?> name='aitrading' <?= $aistat === 'Yes' ? 'checked' : '' ?> data-type="aitrading" class="setactive" value="<?= $aistat ?>">
                                 <span class="slider round"></span>
-                            </label>
+                            </label> </span></div>
                             <?php
                             if ($aistat === 'Yes') { ?>
-                                <img src="main/images/loader.gif" style="width: 100%;height:120px" />
+                                <img src="main/images/AI-is-Trading.gif" style="width: 100%;width: 100%;border-radius: 5px; margin-top: 10px;" />
                             <?php } else { ?>
                                 <div class="table-responsive dash-social">
                                     <table id="example5" class="table table-bordered">
