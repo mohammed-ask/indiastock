@@ -89,20 +89,21 @@
         padding-top: 85px !important;
     }
 
-    <?php } ?>
+    <?php } ?><?php
+                if (isset($_POST['postData'])) { ?>@media (max-width: 767px) {
+        [data-layout=horizontal] .page-wrapper {
+            padding-top: 20px;
+        }
 
-    <?php 
-     if (isset($_POST['postData'])) { ?>
-    .national-data {
-    position: fixed;
-    display: flex;
-    right: 0;
-    left: 0;
-    top: 0px !important;
-    z-index: 10;
-    background-color: #ffffff;
-    border-bottom: 1px solid #eceff5;
+        .national-data {
+            top: 0;
+        }
+
+        .nopad {
+            padding-top: 30px !important;
+        }
     }
+
     <?php } ?>
 </style>
 
@@ -110,10 +111,10 @@
 
     <!-- Top Bar Start -->
 
-    <?php 
-     if (!isset($_POST['postData'])) {
-    include "header.php"; 
-      }?>
+    <?php
+    if (!isset($_POST['postData'])) {
+        include "header.php";
+    } ?>
     <!-- Top Bar End -->
     <div class="page-wrapper nopad">
 
@@ -144,9 +145,9 @@
 
 
             <!-- Footer Start -->
-            <?php 
+            <?php
             if (!isset($_POST['postData'])) {
-            include "footer.php";
+                include "footer.php";
             } ?>
             <!-- end Footer -->
 
@@ -173,8 +174,8 @@
 
     <!-- Javascript  -->
 
-    <?php 
-    include "footerincludes.php" ;
+    <?php
+    include "footerincludes.php";
     ?>
 
 
