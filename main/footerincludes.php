@@ -70,6 +70,26 @@
 <script src="main/dist/js/jquery.bvalidator-yc.js"></script>
 <!--<script src="main/dist/js/bs3form.min.js"></script>-->
 <script src="main/dist/js/b3form.js"></script>
+
+<div class="modal fade" id="customConfirmModal" tabindex="-1" role="dialog" aria-labelledby="customConfirmModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="customConfirmModalLabel">Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to proceed?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="handleCustomConfirm(true)">Proceed</button>
+      </div>
+    </div>
+  </div>
+</div>
 <?php
 if (isset($extrajs)) {
   echo $extrajs;

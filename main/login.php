@@ -35,62 +35,59 @@ include './main/conn.php';
     <link rel="shortcut icon" href="main/images/logo/favicon.svg">
 
     <style>
-/* --------------------alertify---------------- */
+        /* --------------------alertify---------------- */
 
-.alertify .ajs-header {
-display: none;
+        .alertify .ajs-header {
+            display: none;
 
-}
-
-
-.alertify .ajs-footer {
-  /* padding: 4px; */
-  margin-left: 0px !important;
-  margin-right: 0px !important;
-  min-height: 35px !important;
-  background-color: #00aaaa2e !important;
-  padding: 0px !important;
-}
-
-.alertify .ajs-dialog {
-  
-  padding: 15px 0px 0 0px !important;
-  max-width: 400px !important;
-  border-radius: 5px !important;
-  top: 25%;
-}
-
-.alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
-  margin: 0px !important;
-}
-
-.alertify .ajs-commands {
-  margin:-12px 10px 0 0 !important; 
-}
-
-.alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok {
-  color: #fff !important;
-    border: 1px dotted #fff;
-    border-radius: 5px;
-    /* margin-right: 10px !important; */
-    margin: 5px 6px 5px 10px !important;
-    background-color: #00aaaa;
-}
-
-.alertify .ajs-dimmer {
-  
-  transition-timing-function: ease-in;
-  transition-duration: 500ms !important;
-}
-
-  .alertify .ajs-modal {
-  
-    transition-timing-function: ease-out;
-    transition-duration: 500ms !important;}
+        }
 
 
+        .alertify .ajs-footer {
+            /* padding: 4px; */
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+            min-height: 35px !important;
+            background-color: #00aaaa2e !important;
+            padding: 0px !important;
+        }
 
+        .alertify .ajs-dialog {
 
+            padding: 15px 0px 0 0px !important;
+            max-width: 400px !important;
+            border-radius: 5px !important;
+            top: 25%;
+        }
+
+        .alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
+            margin: 0px !important;
+        }
+
+        .alertify .ajs-commands {
+            margin: -12px 10px 0 0 !important;
+        }
+
+        .alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok {
+            color: #fff !important;
+            border: 1px dotted #fff;
+            border-radius: 5px;
+            /* margin-right: 10px !important; */
+            margin: 5px 6px 5px 10px !important;
+            background-color: #00aaaa;
+        }
+
+        .alertify .ajs-dimmer {
+
+            transition-timing-function: ease-in;
+            transition-duration: 500ms !important;
+        }
+
+        .alertify .ajs-modal {
+
+            transition-timing-function: ease-out;
+            transition-duration: 500ms !important;
+        }
     </style>
 </head>
 
@@ -103,7 +100,7 @@ display: none;
                     <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="main/dist/img/login-register-side-img.png" alt="Office" />
                 </div>
                 <div style="padding-left: 2rem; padding-right: 2rem;" class="items-center justify-center p-6 sm:p-12 md:w-1/2">
-                    <form method="post" onsubmit="event.preventDefault();sendForm('', '', 'checklogin', 'resultid', 'loginform');return 0;" id="loginform">
+                    <form method="post" onsubmit="event.preventDefault();sendForm('', '', 'checklogin', 'resultid', 'loginform','Login');return 0;" id="loginform">
                         <div class="w-full">
                             <h4 class="mb-4 text-l font-semibold text-gray-700 dark:text-gray-200">
                                 Login to PMS Equity
@@ -153,6 +150,26 @@ display: none;
     <script src="main/dist/js/jquery.bvalidator-yc.js"></script>
     <script src="main/dist/js/select2.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <div class="modal fade" id="customConfirmModal" tabindex="-1" role="dialog" aria-labelledby="customConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="customConfirmModalLabel">Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to proceed?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="handleCustomConfirm(true)">Proceed</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
