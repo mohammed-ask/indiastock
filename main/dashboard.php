@@ -88,6 +88,14 @@ if ($dashboardmaintanance) {
 
             <!-- -------------------------------For only Mobile App---------------- -->
 
+            
+            <div class="card">
+                <div class="card-body" style="padding:8px;">
+                   <a href="#"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/ai-trading-dashboard.gif" alt=" Start AI Trading Today"></a>
+                    
+                </div><!--end card-body-->
+            </div><!--end card-->
+
             <div class="d-web-none mt-4 mb-3 primarystock">
 
 

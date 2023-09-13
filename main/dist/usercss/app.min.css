@@ -5413,3 +5413,41 @@ input:checked+.slider {
 .d-web-none {
     display: none;
 }
+
+
+
+/*  ----------------------------------Browser alert start------------------------------------------ */
+
+
+.modal-header {display: none !important;}
+
+
+@media (min-width: 576px){
+.modal-dialog {
+    max-width: 320px;
+    margin: 0rem auto;
+}}
+
+.modal-footer{border-top: none !important;
+    padding: 0px 7px 6px 3px;
+}
+.btn-primary {
+    color: #231515;
+    background-color: #ffffff;
+    border-color: #070809;
+   
+}
+
+.btn-secondary {
+    color: #0b0707;
+    background-color: #6c757d00;
+    border-color: #6c757d;
+}
+
+.btn {padding: 0.1rem 0.75rem;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+/*  ----------------------------------Browser alert End------------------------------------------ */
