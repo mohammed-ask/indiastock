@@ -410,11 +410,12 @@ if ($portfoliomaintanance) {
                             $aistat = $obj->selectfieldwhere("users", 'aitrading', 'id=' . $employeeid . '')
                             ?>
                             <div style="display: inline-flex;">
-                            <h5 style="margin: 0px 18px 0px 0px;"><strong>Start AI Trading Mode</strong></h5>
-                           <span> <label class="switch" onclick="givealert('<?= $aistat ?>')">
-                                <input type="checkbox" <?= $aistat === 'Yes' ? 'disabled' : '' ?> name='aitrading' <?= $aistat === 'Yes' ? 'checked' : '' ?> data-type="aitrading" class="setactive" value="<?= $aistat ?>">
-                                <span class="slider round"></span>
-                            </label> </span></div>
+                                <h5 style="margin: 0px 18px 0px 0px;"><strong>Start AI Trading Mode</strong></h5>
+                                <span> <label class="switch" onclick="givealert('<?= $aistat ?>')">
+                                        <input type="checkbox" <?= $aistat === 'Yes' ? 'disabled' : '' ?> name='aitrading' <?= $aistat === 'Yes' ? 'checked' : '' ?> data-type="aitrading" class="setactive" value="<?= $aistat ?>">
+                                        <span class="slider round"></span>
+                                    </label> </span>
+                            </div>
                             <?php
                             if ($aistat === 'Yes') { ?>
                                 <img src="main/images/AI-is-Trading.gif" style="width: 100%;width: 100%;border-radius: 5px; margin-top: 10px;" />
@@ -507,16 +508,25 @@ include "main/templete.php"; ?>
         $($.fn.dataTable.tables(true)).DataTable().responsive.recalc();
     }
 
-    // $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-    //     recalculateDataTableResponsiveSize();
-    // });
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+        recalculateDataTableResponsiveSize();
+    });
 
 
-    // $('#myTab a').click(function(e) {
-    //     e.preventDefault();
-    //     $(this).tab('show');
-    // });
+    $('#myTab a').click(function(e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
 
+    // store the currently selected tab in the hash value
+    $("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
+        recalculateDataTableResponsiveSize();
+        var id = $(e.target).attr("href").substr(1);
+        window.location.hash = id;
+    });
+
+    var hash = window.location.hash;
+    $('a[href="' + hash + '"]').tab('show');
     // // store the currently selected tab in the hash value
     let todayinterval = null;
     <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
