@@ -414,7 +414,7 @@ if ($portfoliomaintanance) {
                                 <span>
                                     <?php
                                     if ($aistat === 'No') { ?>
-                                        <label class="switch" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "aifund","", "Allot Fund to AI")'>
+                                        <label class="switch" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "aifund","", "AI Enhanced Trading Mode")'>
                                         <?php } else { ?>
                                             <label class="switch" onclick="givealert('<?= $aistat ?>')">
                                             <?php } ?>

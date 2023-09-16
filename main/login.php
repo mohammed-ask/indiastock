@@ -90,35 +90,47 @@ include './main/conn.php';
         }
 
 /*  ----------------------------------Browser alert start------------------------------------------ */
-        .modal-header {display: none !important;}
+
+.browser-d-none {display: none !important;}
 
         
+.browser-model-content{border-radius: 0rem 0rem 0.3rem 0.3rem;
+border: none;
 
-@media (min-width: 576px){
-.modal-dialog {
-    max-width: 320px;
+text-align: center;}
+
+.modal-dialog-broswer {
+    max-width: 350px;
     margin: 0rem auto;
-}}
-
-.modal-footer{border-top: none !important;
-    padding: 0px 7px 6px 3px;
 }
-.btn-primary {
+
+.modal-footer-browser{border-top: none !important;
+    padding: 0px 7px 6px 3px;
+    justify-content: center;
+}
+.browser-btn-primary {
     color: #231515;
     background-color: #ffffff;
     border-color: #070809;
    
 }
 
-.btn-secondary {
+.browser-btn-secondary {
     color: #0b0707;
     background-color: #6c757d00;
     border-color: #6c757d;
+
 }
 
-.btn {padding: 0.1rem 0.75rem;
-    font-size: 12px;
+.browser-btn {    
+
+    padding: 0.3rem 1.3rem;
+    font-size: 14px;
     font-weight: 500;
+    background-color: #048f83;
+    color: white;
+    border: none;
+    
 }
 
 
@@ -187,20 +199,14 @@ include './main/conn.php';
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
     <div class="modal fade" id="customConfirmModal" tabindex="-1" role="dialog" aria-labelledby="customConfirmModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="customConfirmModalLabel">Confirmation</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+        <div class="modal-dialog modal-dialog-broswer" role="document">
+            <div class="modal-content browser-model-content">
                 <div class="modal-body">
                     Are you sure you want to proceed?
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="handleCustomConfirm(true)">Proceed</button>
+                <div class="modal-footer modal-footer-browser">
+                    <button type="button" class="btn btn-secondary browser-btn browser-btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary browser-btn browser-btn-primary" onclick="handleCustomConfirm(true)">Proceed</button>
                 </div>
             </div>
         </div>
