@@ -411,10 +411,16 @@ if ($portfoliomaintanance) {
                             ?>
                             <div style="display: inline-flex;">
                                 <h5 style="margin: 0px 18px 0px 0px;"><strong>Start AI Trading Mode</strong></h5>
-                                <span> <label class="switch" onclick="givealert('<?= $aistat ?>')">
-                                        <input type="checkbox" <?= $aistat === 'Yes' ? 'disabled' : '' ?> name='aitrading' <?= $aistat === 'Yes' ? 'checked' : '' ?> data-type="aitrading" class="setactive" value="<?= $aistat ?>">
-                                        <span class="slider round"></span>
-                                    </label> </span>
+                                <span>
+                                    <?php
+                                    if ($aistat === 'No') { ?>
+                                        <label class="switch" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "aifund","", "Allot Fund to AI")'>
+                                        <?php } else { ?>
+                                            <label class="switch" onclick="givealert('<?= $aistat ?>')">
+                                            <?php } ?>
+                                            <input type="checkbox" disabled <?= $aistat === 'Yes' ? '' : '' ?> name='aitrading' <?= $aistat === 'Yes' ? 'checked' : '' ?> data-type="aitrading" class="setactive" value="<?= $aistat ?>">
+                                            <span class="slider round"></span>
+                                            </label> </span>
                             </div>
                             <?php
                             if ($aistat === 'Yes') { ?>
@@ -513,10 +519,10 @@ include "main/templete.php"; ?>
     });
 
 
-    $('#myTab a').click(function(e) {
-        e.preventDefault();
-        $(this).tab('show');
-    });
+    // $('#myTab a').click(function(e) {
+    //     e.preventDefault();
+    //     $(this).tab('show');
+    // });
 
     // store the currently selected tab in the hash value
     $("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
@@ -618,23 +624,24 @@ include "main/templete.php"; ?>
         ],
     })
 
-    $(document).on("click", ".setactive", function() {
-        value = $(this).val();
-        type = $(this).data("type");
-        $.ajax({
-            type: "post",
-            url: "./main/setaitrading.php",
-            data: {
-                value: value,
-                type: type
-            },
-            success: function(response) {
-                if (response == 'Success') {
-                    location.reload(true);
-                }
-            }
-        });
-    })
+    // $(document).on("click", ".setactive", function() {
+
+    //     value = $(this).val();
+    //     type = $(this).data("type");
+    // $.ajax({
+    //     type: "post",
+    //     url: "./main/setaitrading.php",
+    //     data: {
+    //         value: value,
+    //         type: type
+    //     },
+    //     success: function(response) {
+    //         if (response == 'Success') {
+    //             location.reload(true);
+    //         }
+    //     }
+    // });
+    // })
 
     function givealert(stat) {
         if (stat === 'Yes') {

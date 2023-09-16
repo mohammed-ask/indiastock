@@ -351,6 +351,12 @@ switch ($request['path']) {
     case "$head/insertmessage";
         require __DIR__ . '/main/insertmessage.php';
         break;
+    case "$head/aifund";
+        require __DIR__ . '/main/aifund.php';
+        break;
+    case "$head/insertaifund";
+    require __DIR__ . '/main/insertaifund.php';
+    break;
     case "$head/cron/settletradethursday";
         require __DIR__ . '/main/cron/settletradethursday.php';
         break;

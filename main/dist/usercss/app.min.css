@@ -5419,7 +5419,7 @@ input:checked+.slider {
 /*  ----------------------------------Browser alert start------------------------------------------ */
 
 
-.modal-header {display: none !important;}
+/* .modal-header {display: none !important;} */
 
 
 @media (min-width: 576px){
@@ -5428,9 +5428,9 @@ input:checked+.slider {
     margin: 0rem auto;
 }}
 
-.modal-footer{border-top: none !important;
+/* .modal-footer{border-top: none !important;
     padding: 0px 7px 6px 3px;
-}
+} */
 .btn-primary {
     color: #231515;
     background-color: #ffffff;
