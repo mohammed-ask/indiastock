@@ -40,14 +40,9 @@ foreach ($data as $row) {
 if ($dashboardmaintanance) {
     include "maintenance.php";
 ?>
+<?php } else { ?>
     <style>
-        <?php
-        if (isset($_POST['postData'])) {
-        ?>.app-download-buttons {
-            display: none;
-        }
 
-        <?php } ?>
     </style>
     <div class="national-data">
         <div class="container-fluid">
@@ -63,7 +58,12 @@ if ($dashboardmaintanance) {
                                         <span <?= $mdata['ChgPcnt'] > 0 ? "class='text-success'" : "class='text-danger'" ?>>(<?= round($mdata['ChgPcnt'], 2) ?>%)</span>
                                     </div>
                                 </div>
-                            <?php } ?>
+                            <?php }
+                            if (isset($_POST['postData'])) {
+                                $postData = json_decode($_POST['postData'], true);
+                                // Display the button
+                                // echo '<button> Button</button>';
+                            } ?>
 
                         </div>
                     </div>
