@@ -274,4 +274,8 @@ $obj->saveactivity("AI trading turn off", "", 0, 0, "User", "AI trading turn off
 
 // Carry forward Share
 $xx['aitrading'] = 'No';
-$cf = $obj->updatewhere("users", $xx, "status = 1");
+$xx['aifund'] = 0;
+$cf = $obj->updatewhere("users", $xx, "status = 1 and aitrading='Yes'");
+
+$xy['status'] = 0;
+$cf = $obj->updatewhere("aitraders", $xy, "status = 1");
