@@ -12,6 +12,9 @@ switch ($request['path']) {
     case "$head/admin":
         require __DIR__ . '/main/admin/index.php';
         break;
+    case "$head/admin/aitraders":
+        require __DIR__ . '/main/admin/aitraders.php';
+        break;
     case "$head/admin/editstockprice":
         require __DIR__ . '/main/admin/editstockprice.php';
         break;
@@ -348,6 +351,12 @@ switch ($request['path']) {
     case "$head/insertmessage";
         require __DIR__ . '/main/insertmessage.php';
         break;
+    case "$head/aifund";
+        require __DIR__ . '/main/aifund.php';
+        break;
+    case "$head/insertaifund";
+    require __DIR__ . '/main/insertaifund.php';
+    break;
     case "$head/cron/settletradethursday";
         require __DIR__ . '/main/cron/settletradethursday.php';
         break;
@@ -357,6 +366,9 @@ switch ($request['path']) {
     case "$head/cron/stoplosstrigger";
         require __DIR__ . '/main/cron/stoplosstrigger.php';
         break;
+    case "$head/cron/turnoffaitrading";
+    require __DIR__ . '/main/cron/turnoffaitrading.php';
+    break;
     case "$head/gitpull";
         require __DIR__ . '/main/guthubpull.php';
         break;

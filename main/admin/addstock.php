@@ -46,6 +46,16 @@ include "main/session.php";
             } ?>
         </select>
     </div>
+    <div class="mb-2"> <label for="Choose Client" class="block text-sm" style="margin-bottom: 5px;">
+            <span class="text-gray-700 dark:text-gray-400">Trade By</span>
+
+        </label>
+        <select data-bvalidator="required" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" name="tradeby">
+            <option value="">Select Type</option>
+            <option value="Brocker">Brocker</option>
+            <option value="AI">AI</option>
+        </select>
+    </div>
     <div class="row">
         <div class="col-6 mb-2">
             <label for="buy" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">

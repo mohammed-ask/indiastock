@@ -15,6 +15,16 @@
         </a>
       </li>
     </ul>
+    <ul>
+      <li class="relative px-6 py-3">
+        <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="aitraders">
+
+          <i style="color: #057c7c;" class="fa-solid fa-house w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"></i>
+
+          <span class="ml-3">AI Traders</span>
+        </a>
+      </li>
+    </ul>
     <?php if (in_array(31, $permissions)) { ?>
       <!-- <ul>
         <li class="relative px-6 py-3">
