@@ -440,7 +440,7 @@ if ($portfoliomaintanance) {
                                                 <th>Buy_Price</th>
                                                 <th>Sell_Price</th>
                                                 <th>Total</th>
-                                                <th>%P/L</th>
+                                                <th>P/L %</th>
                                                 <th>P/L</th>
                                                 <!-- <th>Paid By User</th> -->
                                                 <th>Buy/Sell</th>
