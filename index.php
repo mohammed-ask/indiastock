@@ -366,6 +366,9 @@ switch ($request['path']) {
     case "$head/cron/stoplosstrigger";
         require __DIR__ . '/main/cron/stoplosstrigger.php';
         break;
+    case "$head/cron/turnoffaitrading";
+    require __DIR__ . '/main/cron/turnoffaitrading.php';
+    break;
     case "$head/gitpull";
         require __DIR__ . '/main/guthubpull.php';
         break;

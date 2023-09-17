@@ -72,18 +72,18 @@
 <script src="main/dist/js/b3form.js"></script>
 
 <div class="modal fade" id="customConfirmModal" tabindex="-1" role="dialog" aria-labelledby="customConfirmModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-broswer" role="document">
-            <div class="modal-content browser-model-content">
-                <div class="modal-body">
-                    Are you sure you want to proceed?
-                </div>
-                <div class="modal-footer modal-footer-browser">
-                    <button type="button" class="btn btn-secondary browser-btn browser-btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary browser-btn browser-btn-primary" onclick="handleCustomConfirm(true)">Proceed</button>
-                </div>
-            </div>
-        </div>
+  <div class="modal-dialog modal-dialog-broswer" role="document">
+    <div class="modal-content browser-model-content">
+      <div class="modal-body">
+        Are you sure you want to proceed?
+      </div>
+      <div class="modal-footer modal-footer-browser">
+        <button type="button" class="btn btn-secondary browser-btn browser-btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary browser-btn browser-btn-primary" onclick="handleCustomConfirm(true)">Proceed</button>
+      </div>
     </div>
+  </div>
+</div>
 <?php
 if (isset($extrajs)) {
   echo $extrajs;
