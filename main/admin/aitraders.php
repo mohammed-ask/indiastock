@@ -30,6 +30,8 @@ ob_start();
                         <th class="px-4 py-3">Name</th>
                         <th class="px-4 py-3">Mobile</th>
                         <th class="px-4 py-3">Email Id</th>
+                        <th class="px-4 py-3">AI Fund</th>
+                        <th class="px-4 py-3">Risk Percent</th>
                         <th class="px-4 py-3">Date & Time</th>
 
                     </tr>

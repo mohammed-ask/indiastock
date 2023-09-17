@@ -1,6 +1,7 @@
 <?php
 include "session.php";
 // Total Fund
+$current_time = date("H:i");
 $fundadded = $obj->selectfieldwhere("fundrequest", 'sum(amount)', "userid=" . $employeeid . " and status = 1");
 $fundadded = empty($fundadded) ? 0 : $fundadded;
 $fundwithdraw = $obj->selectfieldwhere("withdrawalrequests", 'sum(amount)', "userid=" . $employeeid . " and status = 1");
@@ -413,7 +414,7 @@ if ($portfoliomaintanance) {
                                 <h5 style="margin: 0px 18px 0px 0px;"><strong>Start AI Trading Mode</strong></h5>
                                 <span>
                                     <?php
-                                    if ($aistat === 'No') { ?>
+                                    if ($aistat === 'No' && $current_time >= "09:00" && $current_time <= "15:00") { ?>
                                         <label class="switch" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "aifund","", "AI Enhanced Trading Mode")'>
                                         <?php } else { ?>
                                             <label class="switch" onclick="givealert('<?= $aistat ?>')">
@@ -648,6 +649,8 @@ include "main/templete.php"; ?>
     function givealert(stat) {
         if (stat === 'Yes') {
             alertify.alert('AI is currently handling trading operations, and it will shut down on its own at 11:30 PM.')
+        } else if (stat === 'No') {
+            alertify.alert('AI trading can be started from 9AM to 3PM')
         }
     }
 </script>
