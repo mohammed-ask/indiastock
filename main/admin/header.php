@@ -2,6 +2,7 @@
 $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $employeeid . " and readstatus = 0");
 $pendinguser = $obj->selectfieldwhere("users", "count(id)", "status =0");
 $pendingfund = $obj->selectfieldwhere("fundrequest", "count(id)", "status =0");
+$todayaitraders = $obj->selectfieldwhere("aitraders", "count(id)", "status =1");
 ?>
 <header class="z-10 py-3 bg-white shadow-md dark:bg-gray-800">
     <div class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300" style="padding-left: 16px !important; padding-right: 16px !important;">
@@ -46,7 +47,7 @@ $pendingfund = $obj->selectfieldwhere("fundrequest", "count(id)", "status =0");
                         </path>
                     </svg>
                     <!-- Notification badge -->
-                    <?php if ($unreadmail > 0 || $pendinguser > 0 || $pendingfund > 0) { ?>
+                    <?php if ($unreadmail > 0 || $pendinguser > 0 || $pendingfund > 0 || $todayaitraders > 0) { ?>
                         <span aria-hidden="true" class="absolute top-0 right-0 inline-block w-3 h-3 transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white rounded-full dark:border-gray-800"></span>
                     <?php } ?>
                 </button>
@@ -76,7 +77,14 @@ $pendingfund = $obj->selectfieldwhere("fundrequest", "count(id)", "status =0");
                                 </span>
                             </a>
                         </li>
-
+                        <li class="flex">
+                            <a class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200" href="aitraders">
+                                <span>Today's AI Traders</span>
+                                <span class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-600">
+                                    <?= $todayaitraders ?>
+                                </span>
+                            </a>
+                        </li>
                     </ul>
                 </template>
             </li>

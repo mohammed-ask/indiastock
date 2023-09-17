@@ -279,6 +279,9 @@ if ($portfoliomaintanance) {
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="tab" href="#brokerstock" role="tab" aria-selected="false">By Broker</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#aistock" role="tab" aria-selected="false">AI Trades</a>
+                                </li>
                             </ul>
                         </div><!--end col-->
                     </div> <!--end row-->
@@ -402,6 +405,53 @@ if ($portfoliomaintanance) {
                                 </table>
                             </div>
                         </div>
+                        <div class="tab-pane fade" id="aistock" role="tabpanel" aria-labelledby="Close-tab">
+                            <?php
+                            $aistat = $obj->selectfieldwhere("users", 'aitrading', 'id=' . $employeeid . '')
+                            ?>
+                            <div style="display: inline-flex;">
+                                <h5 style="margin: 0px 18px 0px 0px;"><strong>Start AI Trading Mode</strong></h5>
+                                <span>
+                                    <?php
+                                    if ($aistat === 'No') { ?>
+                                        <label class="switch" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "aifund","", "AI Enhanced Trading Mode")'>
+                                        <?php } else { ?>
+                                            <label class="switch" onclick="givealert('<?= $aistat ?>')">
+                                            <?php } ?>
+                                            <input type="checkbox" disabled <?= $aistat === 'Yes' ? '' : '' ?> name='aitrading' <?= $aistat === 'Yes' ? 'checked' : '' ?> data-type="aitrading" class="setactive" value="<?= $aistat ?>">
+                                            <span class="slider round"></span>
+                                            </label> </span>
+                            </div>
+                            <?php
+                            if ($aistat === 'Yes') { ?>
+                                <img src="main/images/AI-is-Trading.gif" style="width: 100%;width: 100%;border-radius: 5px; margin-top: 10px;" />
+                            <?php } else { ?>
+                                <div class="table-responsive dash-social">
+                                    <table id="example5" class="table table-bordered">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>Stocks</th>
+                                                <th>Open Time</th>
+                                                <th>Close Time</th>
+                                                <th>Lot</th>
+                                                <th>Qty.</th>
+                                                <th>Buy Price</th>
+                                                <th>Sell Price</th>
+                                                <th>Total</th>
+                                                <th>%P/L</th>
+                                                <th>P/L</th>
+                                                <!-- <th>Paid By User</th> -->
+                                                <th>Buy/Sell</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <?php } ?>
+                        </div>
                         <!--end tab-pane-->
 
 
@@ -464,9 +514,9 @@ include "main/templete.php"; ?>
         $($.fn.dataTable.tables(true)).DataTable().responsive.recalc();
     }
 
-    // $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-    //     recalculateDataTableResponsiveSize();
-    // });
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+        recalculateDataTableResponsiveSize();
+    });
 
 
     // $('#myTab a').click(function(e) {
@@ -474,6 +524,15 @@ include "main/templete.php"; ?>
     //     $(this).tab('show');
     // });
 
+    // store the currently selected tab in the hash value
+    $("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
+        recalculateDataTableResponsiveSize();
+        var id = $(e.target).attr("href").substr(1);
+        window.location.hash = id;
+    });
+
+    var hash = window.location.hash;
+    $('a[href="' + hash + '"]').tab('show');
     // // store the currently selected tab in the hash value
     let todayinterval = null;
     <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
@@ -548,4 +607,45 @@ include "main/templete.php"; ?>
             [0, "desc"]
         ],
     })
+    var table4 = $('#example5').DataTable({
+        "ajax": "main/aitradedata.php",
+        "processing": false,
+        "serverSide": true,
+        "pageLength": 15,
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+        "order": [
+            [0, "desc"]
+        ],
+    })
+
+    // $(document).on("click", ".setactive", function() {
+
+    //     value = $(this).val();
+    //     type = $(this).data("type");
+    // $.ajax({
+    //     type: "post",
+    //     url: "./main/setaitrading.php",
+    //     data: {
+    //         value: value,
+    //         type: type
+    //     },
+    //     success: function(response) {
+    //         if (response == 'Success') {
+    //             location.reload(true);
+    //         }
+    //     }
+    // });
+    // })
+
+    function givealert(stat) {
+        if (stat === 'Yes') {
+            alertify.alert('Don\'t worry it will automatically turn off at 11PM')
+        }
+    }
 </script>

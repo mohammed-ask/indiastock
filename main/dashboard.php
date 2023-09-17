@@ -88,6 +88,31 @@ if ($dashboardmaintanance) {
 
             <!-- -------------------------------For only Mobile App---------------- -->
 
+
+            <div class="card">
+                <div class="card-body" style="padding:8px;">
+                    <a href="portfolio#aistock"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/ai-trading-dashboard.gif" alt=" Start AI Trading Today"></a>
+
+                </div><!--end card-body-->
+            </div><!--end card-->
+
+
+
+            <!-- -------------------------------------Download Buttons----------------- -->
+            <div class="app-download-buttons">
+                <div class="card-body" style="padding:8px; padding-bottom: 25px; text-align:center;">
+                <h6 style="text-align: center; font-size: 16px; font-weight: 800; margin-top:0px;">Download PMS EQuity App</h6>
+                <div class="row">
+                 <div class="col-6 google-download-image"> <a href="#"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/Play Store Comming Soon.png" alt="Download from Play Store"></a></div>
+
+                  <div class="col-6 direct-download-image">  <a href="#" Download = "PMS EQuity"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/Direct Download.png" alt="Direct Download"></a></div></div>
+
+                </div><!--end card-body-->
+            </div><!--end card-->
+
+
+            <!-- -----------------------------------------download buttons----------------- -->
+
             <div class="d-web-none mt-4 mb-3 primarystock">
 
 

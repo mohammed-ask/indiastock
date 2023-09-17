@@ -2,15 +2,24 @@
 include "main/session.php";
 // print_r($_POST);
 // die;
- $price = $obj->searchstockapiwithtoken($_POST['symbol'], $_POST['exchtype'], $_POST['exchange']);
- $data = $price[0];
- if (!isset($data['MktLot'])) {
-     echo "<div class='alert alert-warning'>You have entered incorrect details or incorrect symbol! Please enter correct details.</div>";
-     die;
- }
+$aistat = $obj->selectfieldwhere("users", 'aitrading', 'id=' . $_POST['userid'] . '');
+$price = $obj->searchstockapiwithtoken($_POST['symbol'], $_POST['exchtype'], $_POST['exchange']);
+$data = $price[0];
+if (!isset($data['MktLot'])) {
+    echo "<div class='alert alert-warning'>You have entered incorrect details or incorrect symbol! Please enter correct details.</div>";
+    die;
+}
 $userfund = $obj->selectfieldwhere("users", "investmentamount", "id = " . $_POST['userid'] . "");
+if ($aistat === 'No' && $_POST['tradeby'] === 'AI') {
+    echo "<div class='alert alert-warning'>This user has not selected AI trade mode.</div>";
+    die;
+} elseif ($_POST['tradeby'] === 'AI' && $aistat === 'Yes') {
+    $aifund = $obj->selectfieldwhere("users", "aifund", "id = " . $_POST['userid'] . "");
+    $userfund = $aifund;
+    $xx['aitrade'] = 'Yes';
+}
 if ($_POST['totalamount'] > $userfund * $_POST['margin']) {
-    echo "<div class='alert alert-warning'>You dont have enough fund</div>";
+    echo "<div class='alert alert-warning'>User dont have enough fund eighter AI don't have enough fund Alloted</div>";
     die;
 }
 $xx['added_on'] = date("Y-m-d H:i:s");

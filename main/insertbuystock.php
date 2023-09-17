@@ -3,6 +3,13 @@ include 'main/session.php';
 // echo "<pre>";
 // print_r($_POST);
 // die;
+$aitrading = $obj->selectfieldwhere("users", "aitrading", "id='" . $employeeid . "'");
+if($aitrading==='Yes'){
+    $aifund = $obj->selectfieldwhere("users", "aifund", "id='" . $employeeid . "'");
+    if(!empty($aifund)){
+    $investmentamount = $investmentamount - $aifund;
+    }
+}
 if (isset($_POST['stoplossenabled']) && $_POST['stoploss'] >= $_POST['price']) {
     echo "<div class='alert alert-warning'>Stop Loss cannot be above or equal to Current rate</div>";
     die;
@@ -14,7 +21,7 @@ if (isset($_POST['stoplossenabled']) && $_POST['stoploss'] >= $_POST['price']) {
     die;
 }
 if ($_POST['totalamount'] > $investmentamount * $usermargin) {
-    echo "<div class='alert alert-warning'>You dont have enough fund</div>";
+    echo "<div class='alert alert-warning'>You dont have enough fund or you have alloted to AI</div>";
 } else {
     $xx['added_by'] = $employeeid;
     $xx['added_on'] = date("Y-m-d H:i:s");
