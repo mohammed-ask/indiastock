@@ -42,7 +42,12 @@ if ($dashboardmaintanance) {
 ?>
 <?php } else { ?>
     <style>
+        <?php if (isset($_POST['postData'])) { ?>.app-download-buttons {
+            display: none;
 
+        }
+
+        <?php } ?>
     </style>
     <div class="national-data">
         <div class="container-fluid">
