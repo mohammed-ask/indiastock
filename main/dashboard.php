@@ -113,7 +113,7 @@ if ($dashboardmaintanance) {
                     <div class="row">
                         <div class="col-6 google-download-image"> <a href="#"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/Play Store Comming Soon.png" alt="Download from Play Store"></a></div>
 
-                        <div class="col-6 direct-download-image"> <a href="#" Download="PMS EQuity"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/Direct Download.png" alt="Direct Download"></a></div>
+                        <div class="col-6 direct-download-image"> <a href="main/dist/userimages/Play Store Comming Soon.png" Download="PMS EQuity"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/Direct Download.png" alt="Direct Download"></a></div>
                     </div>
 
                 </div><!--end card-body-->
@@ -305,12 +305,12 @@ if ($dashboardmaintanance) {
 
     <!-- ------------------------------------------mobile app comming soon banner Start------------------- -->
 
-    <div class="coming-app-popup" id="coming-app-popup">
+    <!-- <div class="coming-app-popup" id="coming-app-popup">
         <button class="coming-app-close-btn" id="coming-app-close-btn">X</button>
         <div class="coming-app-popup-content">
             <img style="border-radius: 10px;" width="100%" src="main/dist/userimages/PMS EQuity App Coming.gif" alt="app-coming-soon">
         </div>
-    </div>
+    </div> -->
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
