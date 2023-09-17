@@ -426,17 +426,19 @@ if ($portfoliomaintanance) {
                             if ($aistat === 'Yes') { ?>
                                 <img src="main/images/AI-is-Trading.gif" style="width: 100%;width: 100%;border-radius: 5px; margin-top: 10px;" />
                             <?php } else { ?>
+                                <p> <span style="color:#bd1c1c; font-weight:600;">Remember* </span>You can activate AI Trade Mode between 9:15 AM to 3:00 PM, and once it's on, it will automatically close at 11:30 PM.</p>
+
                                 <div class="table-responsive dash-social">
                                     <table id="example5" class="table table-bordered">
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>Stocks</th>
-                                                <th>Open Time</th>
-                                                <th>Close Time</th>
+                                                <th>Open_Time</th>
+                                                <th>Close_Time</th>
                                                 <th>Lot</th>
                                                 <th>Qty.</th>
-                                                <th>Buy Price</th>
-                                                <th>Sell Price</th>
+                                                <th>Buy_Price</th>
+                                                <th>Sell_Price</th>
                                                 <th>Total</th>
                                                 <th>%P/L</th>
                                                 <th>P/L</th>
@@ -645,7 +647,7 @@ include "main/templete.php"; ?>
 
     function givealert(stat) {
         if (stat === 'Yes') {
-            alertify.alert('Don\'t worry it will automatically turn off at 11PM')
+            alertify.alert('AI is currently handling trading operations, and it will shut down on its own at 11:30 PM.')
         }
     }
 </script>

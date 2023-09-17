@@ -116,10 +116,13 @@ function updateIndicatorText(percentage) {
     indicatorProgress.textContent = 'Low Risk';
   } else if (percentage < 60) {
     indicatorProgress.textContent = 'Medium Risk';
-  } else if (percentage < 80) {
+  } else if (percentage < 70) {
     indicatorProgress.textContent = 'Medium Risk';
-  } else {
+  }
+  else if (percentage < 80) {
     indicatorProgress.textContent = 'High Risk';
+  } else {
+    indicatorProgress.textContent = 'Extremely High Risk';
   }
 }
 
