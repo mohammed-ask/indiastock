@@ -171,9 +171,9 @@ if ($mainpagemaintanance) { ?>
                                     <div><span class="banner-create-button"><a href="register">Create Account</a></span> <span class="main-red-button"><a href="login">Login <i class="fa-solid fa-right-to-bracket"></i></a></span></div>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 p-0">
                                 <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                                    <img src="main/dist/indeximage/home-page-image.gif" width="112%" alt="team meeting">
+                                    <img src="main/dist/indeximage/home-page-image.gif" width="100%" alt="team meeting">
                                 </div>
                             </div>
                         </div>
@@ -182,8 +182,46 @@ if ($mainpagemaintanance) { ?>
             </div>
         </div>
 
+        <!-- ----------------------app Section -->
+ 
+ <section id="cta" class="mt-5">
+            <div class="container" data-aos="zoom-out" style="border: 1px solid lightblue; border-radius: 10px; padding: 20px 35px;">
+
+                <div class="row g-5">
+
+                <div class="col-lg-4 col-md-6 order-first d-flex align-items-center">
+                        <div class="img">
+                            <img src="main\dist\indeximage\mobile-app-mockup.png" alt="" class="img-fluid" style="width: 55%; margin-left:80px;">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
+                        <h3 style="font-weight:800;">Trade Smarter with  <br> PMS EQuity Mobile App</h3>
+
+                        <h5 class="d-flex align-items-center mt-4" style="font-weight:700;">Convenience on the Go</h5>
+                        <p>Our trading app allows you to access your investments and make trades anytime, anywhere, putting the power of the market in your pocket.</p>
+
+                        <h5 class="d-flex align-items-center mt-4" style="font-weight:700;">AI Trade Mode</h5>
+                        <p>Unlock the future of trading with our AI Trade Mode, which provides you with intelligent, data-driven trading suggestions and strategies, enhancing your decision-making and boosting your trading success..</p>
+<div class="row mt-3">
+    <div class="col-6"><a href="#"><img class="download-img" src="main\dist\indeximage\playstore-coming-soon.png" alt=""></a></div>
+    <div class="col-6"><a href="main/dist/download-app/PMS-EQuity.apk" Download="PMS EQuity"><img class="download-img" src="main\dist\indeximage\direct-download.png" alt=""></a></div>
+</div>
+
+                        
+                    </div>
+
+                    
+                </div>
+
+            </div>
+        </section><!-- End Call To Action Section -->
+
+
+
+
         <!-- ======= Featured Services Section ======= -->
-        <section id="featured-services" class="featured-services" style="margin-top: 10%;">
+        <section id="featured-services" class="featured-services" style="margin-top: 5%;">
             <div class="container">
 
                 <div class="row gy-4">

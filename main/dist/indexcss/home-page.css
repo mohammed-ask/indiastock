@@ -133,7 +133,7 @@ p {
 }
 
 img {
-  width: 112%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -1961,4 +1961,18 @@ section.testimonials {
 
 .services .service-item:hover .img img {
   transform: scale(1.2);
+}
+
+
+.download-img{
+  width: 60%;
+}
+
+@media (max-width: 900px) {
+
+  .download-img{
+    width: 90%;
+  }
+
+
 }
