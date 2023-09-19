@@ -4834,7 +4834,7 @@ fieldset:disabled .btn {
 
 .nav-link {
     display: block;
-    padding: .5rem .2rem;
+    padding: .5rem .3rem;
     color: #00aaaa;
     text-decoration: none;
     -webkit-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
