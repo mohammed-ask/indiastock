@@ -281,7 +281,7 @@ if ($portfoliomaintanance) {
                                     <a class="nav-link" data-bs-toggle="tab" href="#brokerstock" role="tab" aria-selected="false">By Broker</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="#aistock" role="tab" aria-selected="true">AI Trades</a>
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#aistock" role="tab" aria-selected="true">AI Trade</a>
                                 </li>
                             </ul>
                         </div><!--end col-->
