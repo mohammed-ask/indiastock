@@ -269,7 +269,7 @@ if ($portfoliomaintanance) {
                         <div class="col-auto">
                             <ul class="nav nav-tabs tab-nagative-m" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="#Today" role="tab" aria-selected="true">Intraday</a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#Today" role="tab" aria-selected="false">Intraday</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="tab" href="#Carry_Forward" role="tab" aria-selected="false">Holding</a>
@@ -281,7 +281,7 @@ if ($portfoliomaintanance) {
                                     <a class="nav-link" data-bs-toggle="tab" href="#brokerstock" role="tab" aria-selected="false">By Broker</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#aistock" role="tab" aria-selected="false">AI Trades</a>
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#aistock" role="tab" aria-selected="true">AI Trades</a>
                                 </li>
                             </ul>
                         </div><!--end col-->
@@ -650,7 +650,7 @@ include "main/templete.php"; ?>
         if (stat === 'Yes') {
             alertify.alert('AI is currently handling trading operations, and it will shut down on its own at 11:30 PM.')
         } else if (stat === 'No') {
-            alertify.alert('AI trading can be started from 9AM to 3PM')
+            alertify.alert('You can activate AI Trade Mode between 9:15 AM to 3:00 PM')
         }
     }
 </script>
