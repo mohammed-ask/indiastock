@@ -306,7 +306,7 @@ if ($portfoliomaintanance) {
                                             <th>Current_Rate</th>
                                             <th>Stop_Loss</th>
                                             <th>Target</th>
-                                            <th>% Day's P/L</th>
+                                            <th>Day's P/L%</th>
                                             <th>Day's P/L</th>
                                             <th>Action</th>
                                         </tr>
@@ -334,7 +334,7 @@ if ($portfoliomaintanance) {
                                             <th>Target</th>
                                             <!-- <th>Paid By User</th> -->
                                             <th>Buy/Sell</th>
-                                            <th>%P/L</th>
+                                            <th>P/L%</th>
                                             <th>P/L</th>
                                             <th>Action</th>
                                         </tr>
@@ -366,7 +366,7 @@ if ($portfoliomaintanance) {
                                             <th>Stop_Loss_Triggered</th>
                                             <th>Target</th>
                                             <th>Target_Triggered</th>
-                                            <th>P/L %</th>
+                                            <th>P/L%</th>
                                             <th>P/L</th>
                                             <!-- <th>Your P/L</th> -->
                                             <!-- <th>Broker Profit</th> -->
@@ -393,7 +393,7 @@ if ($portfoliomaintanance) {
                                             <th>Buy_Price</th>
                                             <th>Sell_Price</th>
                                             <th>Total</th>
-                                            <th>P/L %</th>
+                                            <th>P/L%</th>
                                             <th>P/L</th>
                                             <!-- <th>Paid By User</th> -->
                                             <th>Buy/Sell</th>
