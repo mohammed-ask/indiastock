@@ -522,20 +522,20 @@ include "main/templete.php"; ?>
     });
 
 
-    // $('#myTab a').click(function(e) {
-    //     e.preventDefault();
-    //     $(this).tab('show');
-    // });
-
-    // store the currently selected tab in the hash value
-    $("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
-        recalculateDataTableResponsiveSize();
-        var id = $(e.target).attr("href").substr(1);
-        window.location.hash = id;
+    $('#myTab a').click(function(e) {
+        e.preventDefault();
+        $(this).tab('show');
     });
 
-    var hash = window.location.hash;
-    $('a[href="' + hash + '"]').tab('show');
+    // store the currently selected tab in the hash value
+    // $("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
+    //     recalculateDataTableResponsiveSize();
+    //     var id = $(e.target).attr("href").substr(1);
+    //     window.location.hash = id;
+    // });
+
+    // var hash = window.location.hash;
+    // $('a[href="' + hash + '"]').tab('show');
     // // store the currently selected tab in the hash value
     let todayinterval = null;
     <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
@@ -575,8 +575,8 @@ include "main/templete.php"; ?>
     });
 
     // on load of the page: switch to the currently selected tab
-    var hash = window.location.hash;
-    $('a[href="' + hash + '"]').tab('show');
+    // var hash = window.location.hash;
+    // $('a[href="' + hash + '"]').tab('show');
 
     var table3 = $('#example3').DataTable({
         "ajax": "main/closetradedata.php",

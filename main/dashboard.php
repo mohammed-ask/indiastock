@@ -99,7 +99,7 @@ if ($dashboardmaintanance) {
 
             <div class="card">
                 <div class="card-body" style="padding:8px;">
-                    <a href="portfolio#aistock"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/ai-trading-dashboard.gif" alt=" Start AI Trading Today"></a>
+                    <a href="portfolio"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/ai-trading-dashboard.gif" alt=" Start AI Trading Today"></a>
 
                 </div><!--end card-body-->
             </div><!--end card-->
