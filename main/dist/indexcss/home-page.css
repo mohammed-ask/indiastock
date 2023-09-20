@@ -1973,6 +1973,11 @@ section.testimonials {
   .download-img{
     width: 90%;
   }
+}
 
+@media (min-width: 1200px) {
 
+.margin-for-deshboard{
+  margin-left: -135px;
+}
 }

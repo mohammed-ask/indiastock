@@ -205,7 +205,7 @@ if ($mainpagemaintanance) { ?>
                         <p>Unlock the future of trading with our AI Trade Mode, which provides you with intelligent, data-driven trading suggestions and strategies, enhancing your decision-making and boosting your trading success..</p>
 <div class="row mt-3">
     <div class="col-6"><a href="#"><img class="download-img" src="main\dist\indeximage\playstore-coming-soon.png" alt=""></a></div>
-    <div class="col-6"><a href="main/dist/download-app/PMS-EQuity.apk" Download="PMS EQuity"><img class="download-img" src="main\dist\indeximage\direct-download.png" alt=""></a></div>
+    <div class="col-6"><a class="margin-for-deshboard" href="main/dist/download-app/PMS-EQuity.apk" Download="PMS EQuity"><img class="download-img" src="main\dist\indeximage\direct-download.png" alt=""></a></div>
 </div>
 
                         
