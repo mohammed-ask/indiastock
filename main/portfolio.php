@@ -277,9 +277,12 @@ if ($portfoliomaintanance) {
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="tab" href="#Close" role="tab" aria-selected="false">Close</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#brokerstock" role="tab" aria-selected="false">By Broker</a>
-                                </li>
+                                <?php
+                                if ($usermail !== 'yashraj@mailinator.com') { ?>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#brokerstock" role="tab" aria-selected="false">By Broker</a>
+                                    </li>
+                                <?php } ?>
                                 <?php
                                 if ($usermail !== 'yashraj@mailinator.com') { ?>
                                     <li class="nav-item">
