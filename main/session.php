@@ -13,6 +13,7 @@ include 'conn.php';
 $obj->check_login();
 $obj->check_activate();
 $employeeid = $_SESSION['userid'];
+$usermail = $_SESSION['useremail'];
 $role = $_SESSION['role'];
 $rowuserdata = $obj->selectextrawhere("users", "id=" . $employeeid . "")->fetch_assoc();
 $avatarpath = $obj->fetchattachment($rowuserdata['avatar']);
