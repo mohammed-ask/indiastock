@@ -25,43 +25,45 @@ ob_start();
             </div><!--end col-->
 
         </div>
-        <div class="accordion mt-3" id="accordionSettings">
-            <div class="accordion-item">
-                <h2 class="accordion-header mt-0" id="bankAC">
-                    <button class="accordion-button font-14" type="button" data-bs-toggle="collapse" data-bs-target="#settingOne" aria-expanded="true" aria-controls="settingOne">
-                        Linked Bank Account
-                    </button>
-                </h2>
-                <div id="settingOne" class="accordion-collapse collapse show" aria-labelledby="bankAC" data-bs-parent="#accordionSettings">
-                    <div class="accordion-body px-0">
-                        <div class="border rounded">
-                            <div class="bg-light d-flex justify-content-between">
-                                <h5 class="m-0 font-15 p-2 py-3"> Bank Details</h5>
-                                <div class="align-self-center me-3">
-                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "bankaccountchange","", "Change Bank Details")'>Edit</button>
+        <?php
+        if ($usermail !== 'yashraj@mailinator.com') { ?>
+            <div class="accordion mt-3" id="accordionSettings">
+                <div class="accordion-item">
+                    <h2 class="accordion-header mt-0" id="bankAC">
+                        <button class="accordion-button font-14" type="button" data-bs-toggle="collapse" data-bs-target="#settingOne" aria-expanded="true" aria-controls="settingOne">
+                            Linked Bank Account
+                        </button>
+                    </h2>
+                    <div id="settingOne" class="accordion-collapse collapse show" aria-labelledby="bankAC" data-bs-parent="#accordionSettings">
+                        <div class="accordion-body px-0">
+                            <div class="border rounded">
+                                <div class="bg-light d-flex justify-content-between">
+                                    <h5 class="m-0 font-15 p-2 py-3"> Bank Details</h5>
+                                    <div class="align-self-center me-3">
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "bankaccountchange","", "Change Bank Details")'>Edit</button>
+                                    </div>
                                 </div>
+                                <div class="row p-2">
+
+                                    <div class="col-4">
+                                        <h6 class="m-0">Bank Name</h6>
+                                        <p class="mb-0"><?= $rowprofile['bankname'] ?></p>
+                                    </div><!--end col-->
+                                    <div class="col-4" style="padding-left: 0;">
+                                        <h6 class="m-0">A/c no.</h6>
+                                        <p class="mb-0"><?= $rowprofile['accountno'] ?></p>
+                                    </div><!--end col-->
+                                    <div class="col-4" style="padding-left: 0; padding-right: 0;">
+                                        <h6 class="m-0">IFSC</h6>
+                                        <p class="mb-0"><?= $rowprofile['ifsc'] ?></p>
+                                    </div><!--end col-->
+
+                                </div><!--end row-->
                             </div>
-                            <div class="row p-2">
-
-                                <div class="col-4">
-                                    <h6 class="m-0">Bank Name</h6>
-                                    <p class="mb-0"><?= $rowprofile['bankname'] ?></p>
-                                </div><!--end col-->
-                                <div class="col-4" style="padding-left: 0;">
-                                    <h6 class="m-0">A/c no.</h6>
-                                    <p class="mb-0"><?= $rowprofile['accountno'] ?></p>
-                                </div><!--end col-->
-                                <div class="col-4" style="padding-left: 0; padding-right: 0;">
-                                    <h6 class="m-0">IFSC</h6>
-                                    <p class="mb-0"><?= $rowprofile['ifsc'] ?></p>
-                                </div><!--end col-->
-
-                            </div><!--end row-->
-                        </div>
-                    </div><!--end accordion-body-->
-                </div><!--end settingOne-->
-            </div><!--end accordion-item-->
-
+                        </div><!--end accordion-body-->
+                    </div><!--end settingOne-->
+                </div><!--end accordion-item-->
+            <?php } ?>
 
             <div class="accordion-item">
                 <h2 class="accordion-header mt-0" id="General">
@@ -97,7 +99,7 @@ ob_start();
                                     Holding
                                 </label>
                             </div> -->
-                            
+
 
                             <div style="display: flex;" id="profile-tooltip-id">
                                 <span>
@@ -107,27 +109,33 @@ ob_start();
                                     <p class="profile-tooltiptext">If you keep it turned on, your stocks bought today will be converted to holdings. However, if you turn it off, your today's stocks will be sold at the market close time.</p>
                                 </div>
                             </div>
-                            <div style="margin-left:3px" class="row row-cols-lg-auto g-3 align-items-center">
-                                <label class="switch">
-                                    <input type="checkbox" name='carryforward' <?= $rowprofile['carryforward'] === 'Yes' ? 'checked' : '' ?> class="setactive" value="Yes">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
+                            <?php
+                            if ($usermail !== 'yashraj@mailinator.com') { ?>
+                                <div style="margin-left:3px" class="row row-cols-lg-auto g-3 align-items-center">
+                                    <label class="switch">
+                                        <input type="checkbox" name='carryforward' <?= $rowprofile['carryforward'] === 'Yes' ? 'checked' : '' ?> class="setactive" value="Yes">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            <?php } ?>
                             <div style="display: flex;">
-                            <span>
-                                <h5 class="mt-4 font-13">Long-Term Holding</h5>
-                            </span>
+                                <span>
+                                    <h5 class="mt-4 font-13">Long-Term Holding</h5>
+                                </span>
 
-                            <div class="profile-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
+                                <div class="profile-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
                                     <p class="profile-tooltiptext">By turning on this option, you can hold this asset for as long as you want without being automatically sold or bought, whether it's for weeks, months, or whenever you choose.</p>
-                                </div></div>
-
-                            <div style="margin-left:3px" class="row row-cols-lg-auto g-3 align-items-center">
-                                <label class="switch">
-                                    <input type="checkbox" name='longholding' <?= $rowprofile['longholding'] === 'Yes' ? 'checked' : '' ?> class="setactive" value="Yes">
-                                    <span class="slider round"></span>
-                                </label>
+                                </div>
                             </div>
+                            <?php
+                            if ($usermail !== 'yashraj@mailinator.com') { ?>
+                                <div style="margin-left:3px" class="row row-cols-lg-auto g-3 align-items-center">
+                                    <label class="switch">
+                                        <input type="checkbox" name='longholding' <?= $rowprofile['longholding'] === 'Yes' ? 'checked' : '' ?> class="setactive" value="Yes">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            <?php } ?>
                             <h5 class="mt-3 font-13">Change Password</h5>
                             <div class="row row-cols-lg-auto g-3 align-items-center">
                                 <div class="col-12" style="position: relative;">
@@ -148,7 +156,7 @@ ob_start();
                 </div><!--end settingOne-->
             </div><!--end accordion-item-->
 
-        </div> <!--end accordion-->
+            </div> <!--end accordion-->
     </div><!--end card-body-->
 </div><!--end card-->
 <?php
