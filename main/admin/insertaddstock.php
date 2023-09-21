@@ -15,11 +15,15 @@ if ($aistat === 'No' && $_POST['tradeby'] === 'AI') {
     die;
 } elseif ($_POST['tradeby'] === 'AI' && $aistat === 'Yes') {
     $aifund = $obj->selectfieldwhere("users", "aifund", "id = " . $_POST['userid'] . "");
-    $userfund = $aifund;
+    // $userfund = $aifund;
+    if ($_POST['totalamount'] > $aifund) {
+        echo "<div class='alert alert-warning'>User have not alloted enough fund to AI for this trade</div>";
+        die;
+    }
     $xx['aitrade'] = 'Yes';
 }
 if ($_POST['totalamount'] > $userfund * $_POST['margin']) {
-    echo "<div class='alert alert-warning'>User dont have enough fund eighter AI don't have enough fund Alloted</div>";
+    echo "<div class='alert alert-warning'>User dont have enough fund</div>";
     die;
 }
 $xx['added_on'] = date("Y-m-d H:i:s");
@@ -34,7 +38,7 @@ $xx['exchange'] = $_POST['exchange'];
 $xx['exchtype'] = $_POST['exchtype'];
 $xx['type'] = $_POST['type'];
 $xx['mktlot'] = $_POST['lot'];
-$xx['limit'] = $_POST['margin'];
+$xx['limit'] = $_POST['tradeby'] === 'AI' && $aistat === 'Yes' ? 1 : $_POST['margin'];
 $xx['totalamount'] = $_POST['totalamount'];
 $xx['token'] = $data['ScripCode'];
 if ($xx['totalamount'] > $userfund) {

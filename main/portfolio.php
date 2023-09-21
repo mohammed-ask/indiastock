@@ -6,6 +6,7 @@ $fundadded = $obj->selectfieldwhere("fundrequest", 'sum(amount)', "userid=" . $e
 $fundadded = empty($fundadded) ? 0 : $fundadded;
 $fundwithdraw = $obj->selectfieldwhere("withdrawalrequests", 'sum(amount)', "userid=" . $employeeid . " and status = 1");
 $fundwithdraw = empty($fundwithdraw) ? 0 : $fundwithdraw;
+$aistat = $obj->selectfieldwhere("users", 'aitrading', 'id=' . $employeeid . '');
 
 //Today Profit
 $todayprofit = $obj->selectfieldwhere("closetradedetail", "sum(totalprofit)", "date(added_on) = date(CONVERT_TZ(NOW(),'+00:00','$timeskip')) and userid=$employeeid and status = 1");
@@ -295,7 +296,7 @@ if ($portfoliomaintanance) {
                 </div><!--end card-header-->
                 <div class="card-body">
                     <div class="tab-content" id="Amount_history">
-                        <div class="tab-pane fade show active" id="Today" role="tabpanel" aria-labelledby="Stocks-tab">
+                        <div class="tab-pane fade show" id="Today" role="tabpanel" aria-labelledby="Stocks-tab">
                             <div class="table-responsive dash-social">
                                 <table id="example1" class="table table-bordered">
                                     <thead class="thead-light">
@@ -412,10 +413,8 @@ if ($portfoliomaintanance) {
                                 </table>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="aistock" role="tabpanel" aria-labelledby="Close-tab">
-                            <?php
-                            $aistat = $obj->selectfieldwhere("users", 'aitrading', 'id=' . $employeeid . '')
-                            ?>
+                        <div class="tab-pane fade active show" id="aistock" role="tabpanel" aria-labelledby="Close-tab">
+
                             <div style="display: inline-flex;">
                                 <h5 style="margin: 0px 18px 0px 0px;"><strong>Start AI Trading Mode</strong></h5>
                                 <span>
