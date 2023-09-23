@@ -97,10 +97,12 @@
         .progress-bar {
             list-style: none;
             /*color:#fff;*/
-            margin-top: 30px;
+            margin-top: -15px;
             font-size: 13px;
             font-weight: 700;
             counter-reset: container-dabba 0;
+            background-color: transparent;
+            text-align: left;
         }
 
         .progress-bar li {
@@ -779,10 +781,10 @@
                 <div class="form">
                     <div class="left-side">
                         <div class="left-heading">
-                            <h3><b>WELCOME TO PMS EQUITY</b></h3>
+                            <h3 style="font-size:18px;"><b>WELCOME TO PMS EQUITY</b></h3>
                         </div>
                         <div class="steps-content">
-                            <h3>Step <span class="step-number">1</span></h3>
+                            <h3 style="font-size: 18px; font-weight: 600;">Step <span class="step-number">1</span></h3>
                             <p class="step-number-content active">Enter your personal information to create your account.</p>
                             <p class="step-number-content d-none">Enter required documents details and press next.</p>
                             <p class="step-number-content d-none">Enter your bank details and press next.</p>
@@ -803,7 +805,7 @@
                         <div class="main active">
                             <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
                             <div class="text">
-                                <h2>Your Personal Information</h2>
+                                <h2 style="font-size:20px;">Your Personal Information</h2>
                                 <p>Enter your personal information and click on next step</p>
                             </div>
                             <div class="input-text">
@@ -840,7 +842,7 @@
                         <div class="main">
                             <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
                             <div class="text">
-                                <h2>Required Documents Details</h2>
+                                <h2 style="font-size:20px;">Required Documents Details</h2>
                                 <p>Please enter your documents details for next step .</p>
                             </div>
 
@@ -878,7 +880,7 @@
                         <div class="main">
                             <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
                             <div class="text">
-                                <h2>Bank Details</h2>
+                                <h2 style="font-size:20px;">Bank Details</h2>
                                 <p>Please enter your bank details & press next</p>
                             </div>
                             <div class="input-text">
@@ -911,7 +913,7 @@
                         <div class="main">
                             <div><img width="170px" src="main/images/logo/PMS Equity logo with black text svg.svg" alt=""></div>
                             <div class="text">
-                                <h2>Upload Documents</h2>
+                                <h2 style="font-size:20px;">Upload Documents</h2>
                                 <p>Please Upload your documents & press next</p>
                             </div>
 
