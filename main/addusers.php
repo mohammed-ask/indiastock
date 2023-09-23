@@ -19,6 +19,7 @@
 
     <link rel="shortcut icon" href="main/images/logo/favicon.svg">
 
+    <link rel="stylesheet" href="main/dist/css/adminlte.min.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -1038,7 +1039,7 @@
     </form>
     </div>
     <script src="main/plugins/jquery/jquery.min.js"></script>
-    <script src="main/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- <script src="main/plugins/jquery-ui/jquery-ui.min.js"></script> -->
 
     <!-- Bootstrap 4 -->
     <script src="main/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
