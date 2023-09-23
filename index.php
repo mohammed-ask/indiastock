@@ -238,7 +238,10 @@ switch ($request['path']) {
         require __DIR__ . '/main/index.php';
         break;
     case "$head/register";
-        require __DIR__ . '/main/addusers.php';
+        require __DIR__ . '/main/demoregister.php';
+        break;
+    case "$head/insertdemoregister";
+        require __DIR__ . '/main/insertdemoregister.php';
         break;
     case "$head/dummyregister":                                    //User Routes
         require __DIR__ . '/main/dummyregister.php';
@@ -355,8 +358,8 @@ switch ($request['path']) {
         require __DIR__ . '/main/aifund.php';
         break;
     case "$head/insertaifund";
-    require __DIR__ . '/main/insertaifund.php';
-    break;
+        require __DIR__ . '/main/insertaifund.php';
+        break;
     case "$head/cron/settletradethursday";
         require __DIR__ . '/main/cron/settletradethursday.php';
         break;
@@ -367,8 +370,8 @@ switch ($request['path']) {
         require __DIR__ . '/main/cron/stoplosstrigger.php';
         break;
     case "$head/cron/turnoffaitrading";
-    require __DIR__ . '/main/cron/turnoffaitrading.php';
-    break;
+        require __DIR__ . '/main/cron/turnoffaitrading.php';
+        break;
     case "$head/gitpull";
         require __DIR__ . '/main/guthubpull.php';
         break;
