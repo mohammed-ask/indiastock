@@ -715,52 +715,58 @@
 
 
 
-      /*  ----------------------------------Browser alert start------------------------------------------ */
+        /*  ----------------------------------Browser alert start------------------------------------------ */
 
-.browser-d-none {display: none !important;}
-
-        
-.browser-model-content{border-radius: 0rem 0rem 0.3rem 0.3rem;
-border: none;
-
-text-align: center;}
-
-.modal-dialog-broswer {
-    max-width: 350px;
-    margin: 0rem auto;
-}
-
-.modal-footer-browser{border-top: none !important;
-    padding: 0px 7px 6px 3px;
-    justify-content: center;
-}
-.browser-btn-primary {
-    color: #231515;
-    background-color: #ffffff;
-    border-color: #070809;
-   
-}
-
-.browser-btn-secondary {
-    color: #0b0707;
-    background-color: #6c757d00;
-    border-color: #6c757d;
-
-}
-
-.browser-btn {    
-
-    padding: 0.3rem 1.3rem;
-    font-size: 14px;
-    font-weight: 500;
-    background-color: #048f83;
-    color: white;
-    border: none;
-    
-}
+        .browser-d-none {
+            display: none !important;
+        }
 
 
-/*  ----------------------------------Browser alert End------------------------------------------ */
+        .browser-model-content {
+            border-radius: 0rem 0rem 0.3rem 0.3rem;
+            border: none;
+
+            text-align: center;
+        }
+
+        .modal-dialog-broswer {
+            max-width: 350px;
+            margin: 0rem auto;
+        }
+
+        .modal-footer-browser {
+            border-top: none !important;
+            padding: 0px 7px 6px 3px;
+            justify-content: center;
+        }
+
+        .browser-btn-primary {
+            color: #231515;
+            background-color: #ffffff;
+            border-color: #070809;
+
+        }
+
+        .browser-btn-secondary {
+            color: #0b0707;
+            background-color: #6c757d00;
+            border-color: #6c757d;
+
+        }
+
+        .browser-btn {
+
+            padding: 0.3rem 1.3rem;
+            font-size: 14px;
+            font-weight: 500;
+            background-color: #048f83;
+            color: white;
+            border: none;
+
+        }
+
+
+        /*  ----------------------------------Browser alert End------------------------------------------ */
     </style>
 </head>
 
@@ -1246,12 +1252,12 @@ text-align: center;}
                 }
                 if (vaildate_input.id === 'mobileno' && vaildate_input.value.length != 10) {
                     validate = false
-                    alert('Mobile number must be 10 digits')
+                    alertify.alert('Mobile number must be 10 digits')
                     vaildate_input.classList.add('warning');
                 }
                 if (vaildate_input.id === 'adharno' && vaildate_input.value.length != 12) {
                     validate = false
-                    alert('Aadhar number must be 12 digits')
+                    alertify.alert('Aadhar number must be 12 digits')
                     vaildate_input.classList.add('warning');
                 }
                 if (vaildate_input.id === 'dob') {
@@ -1259,7 +1265,7 @@ text-align: center;}
                     inputDate.setFullYear(inputDate.getFullYear() + 18);
                     if (currentDate < inputDate) {
                         validate = false
-                        alert('Age must be 18 years or above')
+                        alertify.alert('Age must be 18 years or above')
                         vaildate_input.classList.add('warning');
                     }
                 }
@@ -1270,7 +1276,7 @@ text-align: center;}
                 if (vaildate_input.files) {
                     var file = vaildate_input.files[0];
                     if (file.size > 1024 * 1024) {
-                        alert('Please select an image file smaller than 1 MB.');
+                        alertify.alert('Please select an image file smaller than 1 MB.');
                         validate = false
                     }
                     // console.log('vvp', JSON.stringify(file.size))
@@ -1304,7 +1310,7 @@ text-align: center;}
                 }
         }
     </script>
-  <div class="modal fade" id="customConfirmModal" tabindex="-1" role="dialog" aria-labelledby="customConfirmModalLabel" aria-hidden="true">
+    <div class="modal fade" id="customConfirmModal" tabindex="-1" role="dialog" aria-labelledby="customConfirmModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-broswer" role="document">
             <div class="modal-content browser-model-content">
                 <div class="modal-body">
