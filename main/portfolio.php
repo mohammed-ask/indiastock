@@ -413,53 +413,56 @@ if ($portfoliomaintanance) {
                                 </table>
                             </div>
                         </div>
-                        <div class="tab-pane fade active show" id="aistock" role="tabpanel" aria-labelledby="Close-tab">
+                        <?php
+                        if ($usermail !== 'yashraj@mailinator.com') { ?>
+                            <div class="tab-pane fade active show" id="aistock" role="tabpanel" aria-labelledby="Close-tab">
 
-                            <div style="display: inline-flex;">
-                                <h5 style="margin: 0px 18px 0px 0px;"><strong>Start AI Trading Mode</strong></h5>
-                                <span>
-                                    <?php
-                                    if ($aistat === 'No' && $current_time >= "09:00" && $current_time <= "15:00") { ?>
-                                        <label class="switch" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "aifund","", "AI Enhanced Trading Mode")'>
-                                        <?php } else { ?>
-                                            <label class="switch" onclick="givealert('<?= $aistat ?>')">
-                                            <?php } ?>
-                                            <input type="checkbox" disabled <?= $aistat === 'Yes' ? '' : '' ?> name='aitrading' <?= $aistat === 'Yes' ? 'checked' : '' ?> data-type="aitrading" class="setactive" value="<?= $aistat ?>">
-                                            <span class="slider round"></span>
-                                            </label> </span>
-                            </div>
-                            <?php
-                            if ($aistat === 'Yes') { ?>
-                                <img src="main/images/AI-is-Trading.gif" style="width: 100%;width: 100%;border-radius: 5px; margin-top: 10px;" />
-                            <?php } else { ?>
-                                <p> <span style="color:#bd1c1c; font-weight:600;">Remember* </span>You can activate AI Trade Mode between 9:15 AM to 3:00 PM, and once it's on, it will automatically close at 11:30 PM.</p>
-
-                                <div class="table-responsive dash-social">
-                                    <table id="example5" class="table table-bordered">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th>Stocks</th>
-                                                <th>Open_Time</th>
-                                                <th>Close_Time</th>
-                                                <th>Lot</th>
-                                                <th>Qty.</th>
-                                                <th>Buy_Price</th>
-                                                <th>Sell_Price</th>
-                                                <th>Total</th>
-                                                <th>P/L %</th>
-                                                <th>P/L</th>
-                                                <!-- <th>Paid By User</th> -->
-                                                <th>Buy/Sell</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                        </tbody>
-                                    </table>
+                                <div style="display: inline-flex;">
+                                    <h5 style="margin: 0px 18px 0px 0px;"><strong>Start AI Trading Mode</strong></h5>
+                                    <span>
+                                        <?php
+                                        if ($aistat === 'No' && $current_time >= "09:00" && $current_time <= "15:00") { ?>
+                                            <label class="switch" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "aifund","", "AI Enhanced Trading Mode")'>
+                                            <?php } else { ?>
+                                                <label class="switch" onclick="givealert('<?= $aistat ?>')">
+                                                <?php } ?>
+                                                <input type="checkbox" disabled <?= $aistat === 'Yes' ? '' : '' ?> name='aitrading' <?= $aistat === 'Yes' ? 'checked' : '' ?> data-type="aitrading" class="setactive" value="<?= $aistat ?>">
+                                                <span class="slider round"></span>
+                                                </label> </span>
                                 </div>
-                            <?php } ?>
-                        </div>
+                                <?php
+                                if ($aistat === 'Yes') { ?>
+                                    <img src="main/images/AI-is-Trading.gif" style="width: 100%;width: 100%;border-radius: 5px; margin-top: 10px;" />
+                                <?php } else { ?>
+                                    <p> <span style="color:#bd1c1c; font-weight:600;">Remember* </span>You can activate AI Trade Mode between 9:15 AM to 3:00 PM, and once it's on, it will automatically close at 11:30 PM.</p>
+
+                                    <div class="table-responsive dash-social">
+                                        <table id="example5" class="table table-bordered">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th>Stocks</th>
+                                                    <th>Open_Time</th>
+                                                    <th>Close_Time</th>
+                                                    <th>Lot</th>
+                                                    <th>Qty.</th>
+                                                    <th>Buy_Price</th>
+                                                    <th>Sell_Price</th>
+                                                    <th>Total</th>
+                                                    <th>P/L %</th>
+                                                    <th>P/L</th>
+                                                    <!-- <th>Paid By User</th> -->
+                                                    <th>Buy/Sell</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        <?php } ?>
                         <!--end tab-pane-->
 
 
