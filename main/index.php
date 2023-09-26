@@ -677,6 +677,7 @@ if ($mainpagemaintanance) { ?>
                     <div class="col-lg-5 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
                         <form id="contact" method="post" onsubmit="event.preventDefault();sendForm('', '', 'insertmessage', 'resultid', 'contact');return 0;">
                             <div class="row">
+                            <h3 style="font-size: 24px; margin-bottom: 20px;">Fill the form</h3>
                                 <div class="col-lg-6">
                                     <fieldset>
                                         <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
