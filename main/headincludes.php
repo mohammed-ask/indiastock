@@ -8,7 +8,6 @@
  <!-- Shubham Template -->
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-
  <title>PMS Equity- The Real Earning Start Here</title>
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  <meta content="Premium Multipurpose Admin &amp; Dashboard Template" name="description">
@@ -56,6 +55,16 @@
 
  <!-- summernote -->
  <link rel="stylesheet" href="main/plugins/summernote/summernote-bs4.min.css">
+
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P9108ZJ253"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-P9108ZJ253');
+</script>
 
 
  <?php

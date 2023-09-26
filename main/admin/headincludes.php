@@ -54,6 +54,15 @@
 
  <!-- summernote -->
  <link rel="stylesheet" href="../main/plugins/summernote/summernote-bs4.min.css">
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P9108ZJ253"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-P9108ZJ253');
+</script>
 
  <?php
   if (isset($extracss)) {
