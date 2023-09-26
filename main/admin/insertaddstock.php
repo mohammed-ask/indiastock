@@ -26,6 +26,9 @@ if ($_POST['totalamount'] > $userfund * $_POST['margin']) {
     echo "<div class='alert alert-warning'>User dont have enough fund</div>";
     die;
 }
+if ($_POST['tradeby'] === 'AI' && $aistat === 'Yes') {
+    $obj->updatewhere('aitraders', ['tradedone' => 'Yes'], 'userid=' . $_POST['userid'] . ' and status = 1');
+}
 $xx['added_on'] = date("Y-m-d H:i:s");
 $xx['added_by'] = $employeeid;
 $xx['updated_on'] = date("Y-m-d H:i:s");

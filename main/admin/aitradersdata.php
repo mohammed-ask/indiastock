@@ -39,7 +39,7 @@ $return['recordsFiltered'] = $obj->selectfieldwhere("aitraders $join", "count(ai
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "aitraders $join",
-    "`aitraders`.`added_on`, `aitraders`.`userid`,`users`.`name`,`users`.`mobile`,`users`.`email`,`aitraders`.`id`,`aitraders`.`aifund`,`aitraders`.`riskprct` ",
+    "`aitraders`.`added_on`, `aitraders`.`userid`,`users`.`name`,`users`.`mobile`,`users`.`email`,`aitraders`.`id`,`aitraders`.`aifund`,`aitraders`.`riskprct`,`aitraders`.`tradedone` ",
     "aitraders.status=1  $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
@@ -47,6 +47,7 @@ $data = array();
 while ($row = $obj->fetch_assoc($result)) {
     $n = array();
     $n[] = $row['name'];
+    $n[] = $row['tradedone'] === 'No' ? 'Pending' : 'Completed';
     $n[] = $row['mobile'];
     $n[] = $row['email'];
     $n[] = $row['aifund'];

@@ -89,7 +89,10 @@ if ($dashboardmaintanance) {
                             <img src="main/dist/userimages/money.png" class="thumb-lg" alt="...">
                         </div><!--end col-->
                     </div><!--end row-->
-                    <button type="button" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "addfund","", "")' class="btn btn-sm btn-de-primary">Add Funds</button>
+                    <?php
+                    if ($usermail !== 'yashraj@mailinator.com') { ?>
+                        <button type="button" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "addfund","", "")' class="btn btn-sm btn-de-primary">Add Funds</button>
+                    <?php } ?>
                 </div><!--end card-body-->
             </div><!--end card-->
 
