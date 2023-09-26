@@ -281,7 +281,7 @@ if ($portfoliomaintanance) {
                                 <?php
                                 if ($usermail !== 'yashraj@mailinator.com') { ?>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#brokerstock" role="tab" aria-selected="false">By Broker</a>
+                                        <a class="nav-link" data-bs-toggle="tab" href="#brokerstock" role="tab" aria-selected="false">Advisor</a>
                                     </li>
                                 <?php } ?>
                                 <?php

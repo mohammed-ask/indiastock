@@ -52,8 +52,8 @@ include "main/session.php";
         </label>
         <select data-bvalidator="required" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" name="tradeby">
             <option value="">Select Type</option>
-            <option value="Brocker">Brocker</option>
-            <option value="AI">AI</option>
+            <option value="Brocker">Advisor</option>
+            <option value="AI">AI Mode</option>
         </select>
     </div>
     <div class="row">
