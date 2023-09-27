@@ -57,7 +57,7 @@ include "main/admin/templete.php";
             "ajax": "../main/admin/alltransactiondata.php",
             "processing": true,
             "serverSide": true,
-            "pageLength": 15,
+            "pageLength": 200,
             "paging": true,
             "lengthChange": false,
             "searching": false,

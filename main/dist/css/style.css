@@ -399,7 +399,7 @@ input:checked+.slider:before {
 @media only screen and (min-width: 1024px) and (max-width: 2560px) {
   .showbtn {
     top: 50%;
-    right: 7%;
+    left: 15%;
   }
 }
 
