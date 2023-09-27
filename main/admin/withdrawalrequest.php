@@ -51,7 +51,7 @@ include "main/admin/templete.php";
             "ajax": "../main/admin/withdrawalrequestdata.php",
             "processing": true,
             "serverSide": true,
-            "pageLength": 15,
+            "pageLength": 50,
             "paging": true,
             "lengthChange": false,
             "searching": false,
