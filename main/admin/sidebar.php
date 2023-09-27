@@ -6,7 +6,7 @@
     </a>
 
     <ul>
-      <li class="relative px-6 py-3">
+      <li class="relative px-6 py-2">
         <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="index">
 
           <i style="color: #057c7c;" class="fa-solid fa-house w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"></i>
@@ -16,7 +16,7 @@
       </li>
     </ul>
     <ul>
-      <li class="relative px-6 py-3">
+      <li class="relative px-6 py-2">
         <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="aitraders">
 
           <i style="color: #057c7c;" class="fa-solid fa-robot w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"></i>
@@ -27,7 +27,7 @@
     </ul>
     <?php if (in_array(31, $permissions)) { ?>
       <!-- <ul>
-        <li class="relative px-6 py-3">
+        <li class="relative px-6 py-2">
           <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="requestwithdrawal">
             <i class="fas fa-rupee-sign"></i>
             <span class="ml-3">Request Withdrawal</span>
@@ -37,7 +37,7 @@
     <?php } ?>
     <ul>
       <?php if (in_array(4, $permissions) || in_array(14, $permissions) || in_array(43, $permissions)) { ?>
-        <li class="relative px-6 py-3">
+        <li class="relative px-6 py-2">
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleOverviewPagesMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -78,7 +78,7 @@
       <?php } ?>
       <?php if (in_array(8, $permissions) || in_array(18, $permissions)) { ?>
 
-        <li class="relative px-6 py-3">
+        <li class="relative px-6 py-2">
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleRolePagesMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -108,7 +108,7 @@
         </li>
       <?php } ?>
       <?php if (in_array(22, $permissions) || in_array(23, $permissions)) { ?>
-        <li class="relative px-6 py-3">
+        <li class="relative px-6 py-2">
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleTransectionMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -146,7 +146,7 @@
         </li>
       <?php } ?>
       <?php if (in_array(15, $permissions) || in_array(16, $permissions) || in_array(17, $permissions)) { ?>
-        <li class="relative px-6 py-3">
+        <li class="relative px-6 py-2">
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="togglePagesMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -185,7 +185,7 @@
       <?php } ?>
       <?php if (in_array(15, $permissions)) { ?>
         <ul>
-          <li class="relative px-6 py-3">
+          <li class="relative px-6 py-2">
             <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="pendingapproval">
               <i style="color: #057c7c;" class="fa-solid fa-user-clock"></i>
               <span class="ml-3">Pending Approvals</span>
@@ -195,7 +195,7 @@
       <?php } ?>
       <?php if (in_array(25, $permissions)) { ?>
         <ul>
-          <li class="relative px-6 py-3">
+          <li class="relative px-6 py-2">
             <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="allinvestment">
               <i style="color: #057c7c;" class="fa-solid fa-indian-rupee-sign"></i>
               <span class="ml-4">Investment</span>
@@ -204,7 +204,7 @@
         </ul>
       <?php } ?>
       <?php if (in_array(25, $permissions) || in_array(26, $permissions) || in_array(27, $permissions) || in_array(28, $permissions) || in_array(29, $permissions)) { ?>
-        <!-- <li class="relative px-6 py-3">
+        <!-- <li class="relative px-6 py-2">
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleInvestmentPageMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -249,7 +249,7 @@
       <?php } ?>
       <?php if (in_array(29, $permissions)) { ?>
         <ul>
-          <li class="relative px-6 py-3">
+          <li class="relative px-6 py-2">
             <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="withdrawalrequest">
               <i style="color: #057c7c;" class="fa-solid fa-money-bill-transfer"></i>
               <span class="ml-3">Withdrawal Requests</span>
@@ -259,7 +259,7 @@
       <?php } ?>
       <?php if (in_array(12, $permissions)) { ?>
         <ul>
-          <li class="relative px-6 py-3">
+          <li class="relative px-6 py-2">
             <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="employeelist">
               <i style="color: #057c7c;" class="fa-solid fa-users"></i>
               <span class="ml-3">Employee's Details</span>
@@ -288,7 +288,7 @@
     </a>
 
     <ul>
-      <li class="relative px-6 py-3">
+      <li class="relative px-6 py-2">
         <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="index">
 
           <i style="color: #057c7c;" class="fa-solid fa-house w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"></i>
@@ -299,7 +299,7 @@
     </ul>
     <?php if (in_array(31, $permissions)) { ?>
       <!-- <ul>
-        <li class="relative px-6 py-3">
+        <li class="relative px-6 py-2">
           <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="requestwithdrawal">
             <i class="fas fa-rupee-sign"></i>
             <span class="ml-3">Request Withdrawal</span>
@@ -309,7 +309,7 @@
     <?php } ?>
 
     <ul>
-      <li class="relative px-6 py-3">
+      <li class="relative px-6 py-2">
         <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="aitraders">
 
           <i style="color: #057c7c;" class="fa-solid fa-robot w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"></i>
@@ -320,7 +320,7 @@
     </ul>
     <?php if (in_array(31, $permissions)) { ?>
       <!-- <ul>
-        <li class="relative px-6 py-3">
+        <li class="relative px-6 py-2">
           <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="requestwithdrawal">
             <i class="fas fa-rupee-sign"></i>
             <span class="ml-3">Request Withdrawal</span>
@@ -330,7 +330,7 @@
     <?php } ?>
     <ul>
       <?php if (in_array(4, $permissions) || in_array(14, $permissions) || in_array(43, $permissions)) { ?>
-        <li class="relative px-6 py-3">
+        <li class="relative px-6 py-2">
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleOverviewPagesMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -371,7 +371,7 @@
       <?php } ?>
       <?php if (in_array(8, $permissions) || in_array(18, $permissions)) { ?>
 
-        <li class="relative px-6 py-3">
+        <li class="relative px-6 py-2">
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleRolePagesMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -401,7 +401,7 @@
         </li>
       <?php } ?>
       <?php if (in_array(22, $permissions) || in_array(23, $permissions)) { ?>
-        <li class="relative px-6 py-3">
+        <li class="relative px-6 py-2">
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleTransectionMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -439,7 +439,7 @@
         </li>
       <?php } ?>
       <?php if (in_array(15, $permissions) || in_array(16, $permissions) || in_array(17, $permissions)) { ?>
-        <li class="relative px-6 py-3">
+        <li class="relative px-6 py-2">
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="togglePagesMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -478,7 +478,7 @@
       <?php } ?>
       <?php if (in_array(15, $permissions)) { ?>
         <ul>
-          <li class="relative px-6 py-3">
+          <li class="relative px-6 py-2">
             <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="pendingapproval">
               <i style="color: #057c7c;" class="fa-solid fa-user-clock"></i>
               <span class="ml-3">Pending Approvals</span>
@@ -488,7 +488,7 @@
       <?php } ?>
       <?php if (in_array(25, $permissions)) { ?>
         <ul>
-          <li class="relative px-6 py-3">
+          <li class="relative px-6 py-2">
             <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="allinvestment">
               <i style="color: #057c7c;" class="fa-solid fa-indian-rupee-sign"></i>
               <span class="ml-4">Investment</span>
@@ -497,7 +497,7 @@
         </ul>
       <?php } ?>
       <?php if (in_array(25, $permissions) || in_array(26, $permissions) || in_array(27, $permissions) || in_array(28, $permissions) || in_array(29, $permissions)) { ?>
-        <!-- <li class="relative px-6 py-3">
+        <!-- <li class="relative px-6 py-2">
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleInvestmentPageMenu" aria-haspopup="true">
             <span class="inline-flex items-center">
               <span class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -542,7 +542,7 @@
       <?php } ?>
       <?php if (in_array(29, $permissions)) { ?>
         <ul>
-          <li class="relative px-6 py-3">
+          <li class="relative px-6 py-2">
             <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="withdrawalrequest">
               <i style="color: #057c7c;" class="fa-solid fa-money-bill-transfer"></i>
               <span class="ml-3">Withdrawal Requests</span>
@@ -552,7 +552,7 @@
       <?php } ?>
       <?php if (in_array(12, $permissions)) { ?>
         <ul>
-          <li class="relative px-6 py-3">
+          <li class="relative px-6 py-2">
             <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="employeelist">
               <i style="color: #057c7c;" class="fa-solid fa-users"></i>
               <span class="ml-3">Employee's Details</span>
