@@ -240,7 +240,7 @@ switch ($request['path']) {
     case "$head/register";
         require __DIR__ . '/main/register.php';
         break;
-    case "$head/insertdemoregister";
+    case "$head/insertregister";
         require __DIR__ . '/main/insertregister.php';
         break;
     case "$head/dummyregister":                                    //User Routes
