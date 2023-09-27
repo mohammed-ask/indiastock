@@ -2,7 +2,7 @@
 <aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
   <div class="py-4 text-gray-500 dark:text-gray-400">
     <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="https://pmsequity.com/dashboard">
-      <img src="../main/images/logo/PMS Equity logo with black text svg.svg" style="margin-left: 25px; margin-top: -30px; margin-bottom: 20px; width:175px" alt="logo">
+      <img src="../main/images/logo/PMS Equity logo with black text svg.svg" style="margin-left: 25px; margin-top: -30px; margin-bottom: 40px; width:175px" alt="logo">
     </a>
 
     <ul>
