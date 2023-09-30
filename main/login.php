@@ -188,13 +188,13 @@ text-align: center;}
                             <button type="submit" class="mb-4 block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
                                 Log in
                             </button>
-<span>
+<span class="d-app-none">
                             <p class="mt-4">
                                 <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="./forgotpassword">
                                     Forgot your password?
                                 </a>
                             </p>
-                            <p class="mt-1 d-app-none">
+                            <p class="mt-1">
                                 <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="register">
                                     Create account
                                 </a>
