@@ -372,7 +372,7 @@ if ($portfoliomaintanance) {
                                             <!-- <th>Stop Loss</th>
                                             <th>Stop_Loss_Triggered</th>
                                             <th>Target</th> -->
-                                            <th>Target_Triggered</th>
+                                            <!-- <th>Target_Triggered</th> -->
                                             <th>P/L%</th>
                                             <th>P/L</th>
                                             <!-- <th>Your P/L</th> -->
