@@ -67,7 +67,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $row['borrowedprcnt'] = empty($row['borrowedprcnt']) ? 0 : $row['borrowedprcnt'];
     $n[] = "<strong class='$color'>" . $currencysymbol . $profitloss . "</strong>";
     $n[] = '<strong class="text-warning">Closed</strong>';
-    $n[] = empty($row['datetime']) ? 'You' : 'Broker';
+    $n[] = empty($row['datetime']) ? 'You' : 'Advisor';
     $data[] = $n;
     $i++;
 }
