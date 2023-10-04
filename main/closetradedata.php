@@ -56,10 +56,10 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['trademethod'] === 'Sell' ? $row['price'] : $row['cprice'];
     $n[] = $currencysymbol . round($row['totalamount'], 2);
     $n[] = $row['trademethod'];
-    $n[] = !empty($row['stoplossamt']) ? $currencysymbol . $row['stoplossamt'] : '';
-    $n[] = $row['stoplosstriggred'];
-    $n[] = !empty($row['target']) ? $currencysymbol . $row['target'] : '';
-    $n[] = $row['targettriggred'];
+    // $n[] = !empty($row['stoplossamt']) ? $currencysymbol . $row['stoplossamt'] : '';
+    // $n[] = $row['stoplosstriggred'];
+    // $n[] = !empty($row['target']) ? $currencysymbol . $row['target'] : '';
+    // $n[] = $row['targettriggred'];
     $profitprcnt = $row['profitprcnt'];
     $color = $profitprcnt >= 0 ? "text-success" : 'text-danger';
     $n[] = "<strong class='$color'>" . $profitprcnt . "</strong>";

@@ -311,8 +311,8 @@ if ($portfoliomaintanance) {
                                             <!-- <th>Paid By User</th> -->
                                             <th>Buy/Sell</th>
                                             <th>Current_Rate</th>
-                                            <th>Stop_Loss</th>
-                                            <th>Target</th>
+                                            <!-- <th>Stop_Loss</th>
+                                            <th>Target</th> -->
                                             <th>Day's P/L%</th>
                                             <th>Day's P/L</th>
                                             <th>Action</th>
@@ -337,8 +337,8 @@ if ($portfoliomaintanance) {
                                             <th>Price</th>
                                             <th>Total</th>
                                             <th>Current_Rate</th>
-                                            <th>Stop_Loss</th>
-                                            <th>Target</th>
+                                            <!-- <th>Stop_Loss</th>
+                                            <th>Target</th> -->
                                             <!-- <th>Paid By User</th> -->
                                             <th>Buy/Sell</th>
                                             <th>P/L%</th>
@@ -369,9 +369,9 @@ if ($portfoliomaintanance) {
                                             <th>Total</th>
                                             <!-- <th>Paid By User</th> -->
                                             <th>Buy/Sell</th>
-                                            <th>Stop Loss</th>
+                                            <!-- <th>Stop Loss</th>
                                             <th>Stop_Loss_Triggered</th>
-                                            <th>Target</th>
+                                            <th>Target</th> -->
                                             <th>Target_Triggered</th>
                                             <th>P/L%</th>
                                             <th>P/L</th>
