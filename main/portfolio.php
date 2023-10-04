@@ -313,8 +313,8 @@ if ($portfoliomaintanance) {
                                             <th>Current_Rate</th>
                                             <!-- <th>Stop_Loss</th>
                                             <th>Target</th> -->
-                                            <th>Day's P/L%</th>
-                                            <th>Day's P/L</th>
+                                            <th>P/L%</th>
+                                            <th>P/L</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
