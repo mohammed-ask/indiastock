@@ -58,10 +58,10 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['qty'];
     $n[] = $row['trademethod'] === 'Buy' ? $currencysymbol . $row['price'] : $currencysymbol . $row['cprice'];
     $n[] = $row['trademethod'] === 'Sell' ? $currencysymbol . $row['price'] : $currencysymbol . $row['cprice'];
-    $n[] = !empty($row['stoplossamt']) ? $currencysymbol . $row['stoplossamt'] : '';
+    // $n[] = !empty($row['stoplossamt']) ? $currencysymbol . $row['stoplossamt'] : '';
     $n[] = $currencysymbol . $row['totalamount'];
     $n[] = $row['tradestatus'];
-    $n[] = empty($row['datetime']) ? 'User' : 'Broker';
+    $n[] = empty($row['datetime']) ? 'User' : 'Advisor';
     $addaction = "";
     if (in_array(38, $permissions) && $row['tradestatus'] === 'Open') {
         $addaction .= " <div style='display: inline-flex'><button class='flex items-center justify-between px-2 py-2  font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"editstockprice\", \"\", \"Edit Stock Price\")'>

@@ -68,7 +68,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['qty'];
     $n[] = $row['trademethod'] === 'Buy' ? $currencysymbol . $row['price'] : $currencysymbol . $row['cprice'];
     $n[] = $row['trademethod'] === 'Sell' ? $currencysymbol . $row['price'] : $currencysymbol . $row['cprice'];
-    $n[] = !empty($row['stoplossamt']) ? $currencysymbol . $row['stoplossamt'] : '';
+    // $n[] = !empty($row['stoplossamt']) ? $currencysymbol . $row['stoplossamt'] : '';
     $n[] = $currencysymbol . $row['totalamount'];
     $n[] = $row['tradestatus'];
     $n[] = empty($row['datetime']) ? 'User' : 'Broker';

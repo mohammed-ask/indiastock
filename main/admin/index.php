@@ -99,7 +99,7 @@ if (in_array(34, $permissions)) {
                             <th class="px-3 py-2">Stock Name</th>
                             <th class="px-3 py-2">Lot</th>
                             <th class="px-3 py-2">Price</th>
-                            <th class="px-3 py-2">Stop Loss</th>
+                            <!-- <th class="px-3 py-2">Stop Loss</th> -->
                             <th class="px-3 py-2">Lot/Quantity</th>
                             <th class="px-3 py-2">Total</th>
                             <th class="px-3 py-2">Date & Time</th>
@@ -127,7 +127,7 @@ if (in_array(34, $permissions)) {
                             <th class="px-3 py-2">Stock Name</th>
                             <th class="px-3 py-2">Lot</th>
                             <th class="px-3 py-2">Price</th>
-                            <th class="px-3 py-2">Stop Loss</th>
+                            <!-- <th class="px-3 py-2">Stop Loss</th> -->
                             <th class="px-3 py-2">Lot/Quantity</th>
                             <th class="px-3 py-2">Total</th>
                             <th class="px-3 py-2">Date & Time</th>
