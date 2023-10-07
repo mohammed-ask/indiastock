@@ -9,8 +9,6 @@ $xx['aifund'] = $_POST['aifund'];
 $xx['aitrading'] = 'Yes';
 $obj->update('users', $xx, $employeeid);
 
-$obj->update('users', $xx, $employeeid);
-
 $yy['userid'] = $employeeid;
 $yy['added_on'] = date('Y-m-d H:i:s');
 $yy['status'] = 1;
