@@ -22,9 +22,9 @@ if ($totalamount > $investmentamount * $usermargin) {
         $xx['borrowedprcnt'] = 0;
     }
     $buy = $obj->update("stocktransaction", $xx, $_POST['id']);
-    $obj->saveactivity("Stock Price Changed by admin", "", $_POST['id'], $employeeid, "Admin", "Stock Price Changed by admin");
     $remainfund = $investmentamount - $totalamount;
     $xy['investmentamount'] = $remainfund < 0 ? 0 : $remainfund;
     $user = $obj->update("users", $xy, $_POST['userid']);
+    $obj->saveactivity("Stock Price Changed by admin", "$_POST[userid]", $_POST['id'], $employeeid, "Admin", "Stock Price Changed by admin");
 }
 echo "Redirect : Price Updated Successfully URLindex";
