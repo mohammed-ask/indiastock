@@ -401,8 +401,9 @@ if ($dashboardmaintanance) {
  @media screen and (max-width: 460px) {
     .coming-app-close-btn {
 
-        top: 25% ;
-    left: 91% !important;
+        top: 27% !important;
+    left: 88% !important;
+
     }
  }
 
