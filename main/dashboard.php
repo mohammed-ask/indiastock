@@ -313,6 +313,14 @@ if ($dashboardmaintanance) {
         <button class="coming-app-close-btn" id="coming-app-close-btn">X</button>
         <div class="coming-app-popup-content">
             <img style="border-radius: 8px 8px 0px 0px;" width="100%" src="main/dist/userimages/web-warning.gif" alt="app-coming-soon">
+            <!-- <video controls autoplay loop muted style="border-radius: 8px 8px 0px 0px;" width="100%">
+        <source src="main\dist\userimages\warning 2.0.mp4" type="video/mp4"> -->
+    
+    </video>
+
+
+
+    
             <div class="row" style="padding:8px 5px;">
             <div class="col-6" style="font-weight:800; color:#d10606; margin-top: 2px; font-size: 12px;">Report An Issue?</div>
             <div class="col-6"> <span class="report-button"><a href="https://wa.me/+917840030838" target="_blank"> Via WhatsApp </a></span> <span class="report-button" style="margin-left: 10px;"> <a href="mailto:support@pmsequity.online" target="_blank"> Via Mail </a></span></span></div>
