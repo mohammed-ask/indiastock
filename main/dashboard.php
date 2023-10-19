@@ -365,6 +365,7 @@ if ($dashboardmaintanance) {
     padding: 5px;
     font-size: 9px;
     color: #d10606;
+    background-color: #fff4f4;
         }
 
         .coming-app-popup.fade-out {
