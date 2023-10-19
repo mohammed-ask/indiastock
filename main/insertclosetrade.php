@@ -80,7 +80,7 @@ if ($close > 0) {
         $kk['investmentamount'] = $investmentamount + $useramt;
         $user = $obj->update("users", $kk, $employeeid);
         if ($user > 0) {
-            $obj->saveactivity("Customer Closed Trade", "", $close, $employeeid, "User", "Customer Closed Trade");
+            $obj->saveactivity("Customer Closed Trade", "$kk[investmentamount]", $close, $employeeid, "User", "Customer Closed Trade");
             echo "Redirect : Trade Closed Succesfully  URLportfolio";
         } else {
             echo "<div class='alert alert-danger'>Some Error Occured Please please try after sometime!</div>";

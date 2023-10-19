@@ -53,9 +53,9 @@ $xx['tradestatus'] = 'Open';
 $xx['price'] = $_POST['price'];
 $xx['datetime'] = changedateformatespecito($_POST['datetime'], "d/m/Y H:i:s", "Y-m-d H:i:s");
 $stock = $obj->insertnew('stocktransaction', $xx);
-$obj->saveactivity("Position Added by Admin", "", $stock, $employeeid, "Admin", "Position Added by Admin");
 $remainfund = $userfund - $xx["totalamount"];
 $xy['investmentamount'] = $remainfund < 0 ? 0 : $remainfund;
+$obj->saveactivity("Position Added by Admin", "$xy[investmentamount]", $stock, $_POST['userid'], "Admin", "Position Added by Admin");
 $user = $obj->update("users", $xy, $_POST['userid']);
 
 if (is_numeric($stock) && $stock > 0) {

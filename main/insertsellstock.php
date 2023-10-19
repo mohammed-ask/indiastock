@@ -1,5 +1,14 @@
 <?php
 include "main/session.php";
+$aitrading = $obj->selectfieldwhere("users", "aitrading", "id='" . $employeeid . "'");
+if ($aitrading === 'Yes') {
+    $aifund = $obj->selectfieldwhere("users", "aifund", "id='" . $employeeid . "'");
+    if (!empty($aifund) && $_POST['totalamount'] > ($investmentamount - $aifund * $usermargin)) {
+        echo "<div class='alert alert-warning'>You dont have enough fund or you have alloted to AI</div>";
+        die;
+        // $investmentamount = $investmentamount - $aifund;
+    }
+}
 if (isset($_POST['stoplossenabled']) && $_POST['stoploss'] <= $_POST['price']) {
     echo "<div class='alert alert-warning'>Stop Loss cannot be below or equal to Current rate</div>";
     die;
