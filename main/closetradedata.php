@@ -40,7 +40,7 @@ $return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "c
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction $join",
-    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,stocktransaction.mktlot,borrowedprcnt,profitprcnt,totalprofit,profitamount,closetradedetail.added_on as closeon,datetime,closetime,stoplossamt,stoplosstriggred,targettriggred",
+    "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,stocktransaction.mktlot,borrowedprcnt,profitprcnt,totalprofit,profitamount,closetradedetail.added_on as closeon,datetime,closetime,stoplossamt,stoplosstriggred,targettriggred,aitrade",
     "stocktransaction.status = 1 and stocktransaction.userid = $id and tradestatus='Close' $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
@@ -67,7 +67,15 @@ while ($row = $obj->fetch_assoc($result)) {
     $row['borrowedprcnt'] = empty($row['borrowedprcnt']) ? 0 : $row['borrowedprcnt'];
     $n[] = "<strong class='$color'>" . $currencysymbol . $profitloss . "</strong>";
     $n[] = '<strong class="text-warning">Closed</strong>';
-    // $n[] = empty($row['datetime']) ? 'You' : 'Advisor';
+    $tradername = '';
+    if (empty($row['datetime'])) {
+        $tradername =  'You';
+    } elseif ($row['aitrade'] === 'Yes') {
+        $tradername =  'AI';
+    } else {
+        $tradername =  'Advisor';
+    }
+    $n[] = $tradername;
     $data[] = $n;
     $i++;
 }
