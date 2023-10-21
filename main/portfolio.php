@@ -378,7 +378,7 @@ if ($portfoliomaintanance) {
                                             <!-- <th>Your P/L</th> -->
                                             <!-- <th>Broker Profit</th> -->
                                             <th>Status</th>
-                                            <!-- <th>Added_By</th> -->
+                                            <th>Added_By</th>
                                         </tr>
                                     </thead>
 
