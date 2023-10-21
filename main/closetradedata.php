@@ -71,7 +71,7 @@ while ($row = $obj->fetch_assoc($result)) {
     if (empty($row['datetime'])) {
         $tradername =  'You';
     } elseif ($row['aitrade'] === 'Yes') {
-        $tradername =  'AI';
+        $tradername =  'AI Trade';
     } else {
         $tradername =  'Advisor';
     }
