@@ -297,7 +297,7 @@ if ($dashboardmaintanance) {
                 <div class="card-body pb-0" style="padding-left: 0px !important; padding-right: 0px !important;">
                     <div id="container"></div>
                     <?php if ($chartdata === "Error fetching candle data:") { ?>
-                        <div class='alert alert-danger dashboard-danger'>Chart is unavailable</div>
+                        <div class='alert alert-danger dashboard-danger'>Chart is unavailable!</div>
                     <?php } ?>
 
                 </div><!--end card-body-->
