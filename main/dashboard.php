@@ -297,7 +297,7 @@ if ($dashboardmaintanance) {
                 <div class="card-body pb-0" style="padding-left: 0px !important; padding-right: 0px !important;">
                     <div id="container"></div>
                     <?php if ($chartdata === "Error fetching candle data:") { ?>
-                        <div class='alert alert-danger dashboard-danger'>Due to a technical issue with the NSE server, the chart is currently unavailable</div>
+                        <div class='alert alert-danger dashboard-danger'>Chart is unavailable</div>
                     <?php } ?>
 
                 </div><!--end card-body-->
@@ -315,20 +315,20 @@ if ($dashboardmaintanance) {
             <img style="border-radius: 8px 8px 0px 0px;" width="100%" src="main/dist/userimages/web-warning.gif" alt="app-coming-soon">
             <!-- <video controls autoplay loop muted style="border-radius: 8px 8px 0px 0px;" width="100%">
         <source src="main\dist\userimages\warning 2.0.mp4" type="video/mp4"> -->
-    
-    </video>
+
+            </video>
 
 
 
-    
+
             <div class="row" style="padding:8px 5px;">
-            <div class="col-6" style="font-weight:800; color:#d10606; margin-top: 2px; font-size: 12px;">Report An Issue?</div>
-            <div class="col-6"> <span class="report-button"><a href="https://wa.me/+917840030838" target="_blank"> Via WhatsApp </a></span> <span class="report-button" style="margin-left: 10px;"> <a href="mailto:support@pmsequity.online" target="_blank"> Via Mail </a></span></span></div>
-          
-        </div>
+                <div class="col-6" style="font-weight:800; color:#d10606; margin-top: 2px; font-size: 12px;">Report An Issue?</div>
+                <div class="col-6"> <span class="report-button"><a href="https://wa.me/+917840030838" target="_blank"> Via WhatsApp </a></span> <span class="report-button" style="margin-left: 10px;"> <a href="mailto:support@pmsequity.online" target="_blank"> Via Mail </a></span></span></div>
+
+            </div>
 
         </div>
-       
+
     </div>
 
     <script>
@@ -366,14 +366,14 @@ if ($dashboardmaintanance) {
             /* Apply the fade-in animation */
         }
 
-        .report-button{
+        .report-button {
 
             border: 1px solid #cf1818;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 9px;
-    color: #d10606;
-    background-color: #fff4f4;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 9px;
+            color: #d10606;
+            background-color: #fff4f4;
         }
 
         .coming-app-popup.fade-out {
@@ -407,22 +407,23 @@ if ($dashboardmaintanance) {
             left: 76%;
         }
 
- @media screen and (max-width: 460px) {
-    .coming-app-close-btn {
+        @media screen and (max-width: 460px) {
+            .coming-app-close-btn {
 
-        top: 27% !important;
-    left: 88% !important;
+                top: 27% !important;
+                left: 88% !important;
 
-    }
- }
+            }
+        }
 
- @media screen and (max-width: 768px) {
-    .coming-app-close-btn {
+        @media screen and (max-width: 768px) {
+            .coming-app-close-btn {
 
-        top: 25%;
-    left: 94%;
-    }
- }
+                top: 25%;
+                left: 94%;
+            }
+        }
+
         @media screen and (max-width: 786px) {
             .coming-app-popup-content {
                 width: 85%;
