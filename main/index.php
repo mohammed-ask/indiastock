@@ -727,6 +727,160 @@ if ($mainpagemaintanance) { ?>
 
 
 
+         <!-- ------------------------------------------mobile app comming soon banner Start------------------- -->
+
+    <div class="coming-app-popup" id="coming-app-popup">
+        <button class="coming-app-close-btn" id="coming-app-close-btn">X</button>
+        <div class="coming-app-popup-content">
+            <img style="border-radius: 8px 8px 0px 0px;" width="100%" src="main/dist/userimages/web-warning.gif" alt="app-coming-soon">
+            <!-- <video controls autoplay loop muted style="border-radius: 8px 8px 0px 0px;" width="100%">
+        <source src="main\dist\userimages\warning 2.0.mp4" type="video/mp4"> -->
+
+            <!-- </video> -->
+
+
+
+
+            <div class="row" style="padding:8px 5px;">
+                <div class="col-6" style="font-weight:800; color:#d10606; margin-top: 2px; font-size: 12px;">Report An Issue?</div>
+                <div class="col-6"> <span class="report-button"><a  style="color: red;" href="https://wa.me/+917840030838" target="_blank"> Via WhatsApp </a></span> <span class="report-button" style="margin-left: 10px;"> <a style="color: red;" href="mailto:support@pmsequity.online" target="_blank"> Via Mail </a></span></span></div>
+
+            </div>
+
+        </div></div>
+
+
+        
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const popup = document.getElementById("coming-app-popup");
+            const closeBtn = document.getElementById("coming-app-close-btn");
+
+            // Show the popup after 3 seconds
+            setTimeout(function() {
+                popup.style.display = "block";
+            }, 10000);
+             // 3000 milliseconds = 3 seconds
+
+            // Close the popup when the close button is clicked
+            closeBtn.addEventListener("click", function() {
+                popup.classList.add("fade-out");
+                setTimeout(function() {
+                    popup.style.display = "none";
+                    popup.classList.remove("fade-out");
+                }, 500);
+            });
+        });
+    </script>
+
+    <style>
+        .coming-app-popup {
+            /* display: none; */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            animation: fade-in 0.5s ease-out;
+            /* Apply the fade-in animation */
+        }
+
+        .report-button {
+
+            border: 1px solid #cf1818;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 9px;
+            color: #d10606;
+            background-color: #fff4f4;
+        }
+
+        .coming-app-popup.fade-out {
+            animation: fade-out 0.5s ease-in;
+            /* Apply the fade-out animation */
+        }
+
+        .coming-app-popup-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 0px;
+            /* padding-bottom: 0px; */
+            width: 50%;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .coming-app-close-btn {
+            padding: 3px 9px;
+            background-color: white;
+            color: #080606;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            position: absolute;
+            top: 5%;
+            left: 76%;
+        }
+
+        @media screen and (max-width: 460px) {
+            .coming-app-close-btn {
+
+                top: 27% !important;
+                left: 88% !important;
+
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .coming-app-close-btn {
+
+                top: 25%;
+                left: 94%;
+            }
+        }
+
+        @media screen and (max-width: 786px) {
+            .coming-app-popup-content {
+                width: 85%;
+            }
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-out {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+
+    <!-- ------------------------------------------mobile app comming soon banner End------------------- -->
+
+
+
+
 
         <footer>
             <div class="container">

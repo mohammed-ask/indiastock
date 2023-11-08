@@ -312,18 +312,19 @@ if ($dashboardmaintanance) {
     <div class="coming-app-popup" id="coming-app-popup">
         <button class="coming-app-close-btn" id="coming-app-close-btn">X</button>
         <div class="coming-app-popup-content">
-            <img style="border-radius: 8px 8px 0px 0px;" width="100%" src="main/dist/userimages/web-warning.gif" alt="app-coming-soon">
+            
+            <img style="border-radius: 8px 8px 0px 0px;" width="100%" src="main/dist/userimages/diwali-popup.gif" alt="app-coming-soon">
             <!-- <video controls autoplay loop muted style="border-radius: 8px 8px 0px 0px;" width="100%">
         <source src="main\dist\userimages\warning 2.0.mp4" type="video/mp4"> -->
 
-            </video>
+            <!-- </video> -->
 
 
 
 
             <div class="row" style="padding:8px 5px;">
-                <div class="col-6" style="font-weight:800; color:#d10606; margin-top: 2px; font-size: 12px;">Report An Issue?</div>
-                <div class="col-6"> <span class="report-button"><a href="https://wa.me/+917840030838" target="_blank"> Via WhatsApp </a></span> <span class="report-button" style="margin-left: 10px;"> <a href="mailto:support@pmsequity.online" target="_blank"> Via Mail </a></span></span></div>
+                <div class="col-12"><a class="invest-now-button" href="portfolio">Invest Now</a></div>
+               
 
             </div>
 
@@ -366,6 +367,17 @@ if ($dashboardmaintanance) {
             /* Apply the fade-in animation */
         }
 
+        .invest-now-button{
+            font-weight: 800;
+    color: #00aaaa;
+    margin-top: 2px;
+    font-size: 12px;
+    border: 1px solid;
+    padding: 7px 10px;
+    border-radius: 9px;
+    background-color: #00aaaa0f;
+        }
+
         .report-button {
 
             border: 1px solid #cf1818;
@@ -399,7 +411,8 @@ if ($dashboardmaintanance) {
             background-color: white;
             color: #080606;
             border: none;
-            border-radius: 50px;
+            border-radius: 8px;
+            z-index: 1;
             cursor: pointer;
             font-weight: 700;
             position: absolute;
@@ -410,8 +423,8 @@ if ($dashboardmaintanance) {
         @media screen and (max-width: 460px) {
             .coming-app-close-btn {
 
-                top: 27% !important;
-                left: 88% !important;
+                top: 23% !important;
+                left: 91% !important;
 
             }
         }
@@ -419,8 +432,8 @@ if ($dashboardmaintanance) {
         @media screen and (max-width: 768px) {
             .coming-app-close-btn {
 
-                top: 25%;
-                left: 94%;
+                top: 16%;
+                left: 91%;
             }
         }
 
