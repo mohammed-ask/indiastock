@@ -96,7 +96,7 @@ $stockdata = $stockdata[0];
 </div>
 <script>
     $("#modalfooterbtn").css('display', 'none')
-    <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+    <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 7 && $dayOfWeek != 6) {
         // check if current time is between 9 am to 4 pm
         if ($hour >= 9 && $hour < 24) { ?>
             myinterval = setInterval(() => {

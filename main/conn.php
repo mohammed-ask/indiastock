@@ -113,7 +113,7 @@ $currencysymbol = '₹';
 $now = new DateTime();
 $dayOfWeek = $now->format('N');
 $hour = $now->format('G');
-if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+if ($dayOfWeek >= 1 && $dayOfWeek <= 7 && $dayOfWeek != 6) {
     if ($hour >= 9 && $hour < 24) {
         $marketopen = true;
     }

@@ -546,7 +546,7 @@ include "main/templete.php"; ?>
     // $('a[href="' + hash + '"]').tab('show');
     // // store the currently selected tab in the hash value
     let todayinterval = null;
-    <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+    <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 7 && $dayOfWeek != 6) {
         if ($hour >= 9 && $hour < 24) { ?>
             todayinterval = setInterval(function() {
                 table.ajax.reload(null, false);
@@ -559,7 +559,7 @@ include "main/templete.php"; ?>
         recalculateDataTableResponsiveSize();
         var id = $(e.target).attr("href").substr(1);
         // window.location.hash = id;
-        <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+        <?php if ($dayOfWeek >= 1 && $dayOfWeek <= 7 && $dayOfWeek != 6) {
             // check if current time is between 9 am to 4 pm
             if ($hour >= 9 && $hour < 24) { ?>
                 if (id === 'Today') {
