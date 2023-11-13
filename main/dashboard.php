@@ -316,10 +316,7 @@ if ($dashboardmaintanance) {
             <img style="border-radius: 8px 8px 0px 0px;" width="100%" src="main/dist/userimages/diwali-popup.gif" alt="app-coming-soon">
             <!-- <video controls autoplay loop muted style="border-radius: 8px 8px 0px 0px;" width="100%">
         <source src="main\dist\userimages\warning 2.0.mp4" type="video/mp4"> -->
-
             <!-- </video> -->
-
-
 
 
             <div class="row" style="padding:8px 5px;">

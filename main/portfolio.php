@@ -421,7 +421,7 @@ if ($portfoliomaintanance) {
                                     <h5 style="margin: 0px 18px 0px 0px;"><strong>Start AI Trading Mode</strong></h5>
                                     <span>
                                         <?php
-                                        if ($aistat === 'No' && $current_time >= "09:00" && $current_time <= "19:15") { ?>
+                                        if ($aistat === 'No' && $current_time >= "09:15" && $current_time <= "15:00") { ?>
                                             <label class="switch" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "aifund","", "AI Enhanced Trading Mode")'>
                                             <?php } else { ?>
                                                 <label class="switch" onclick="givealert('<?= $aistat ?>')">
