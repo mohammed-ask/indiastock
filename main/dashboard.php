@@ -309,15 +309,11 @@ if ($dashboardmaintanance) {
 
     <!-- ------------------------------------------mobile app comming soon banner Start------------------- -->
 
-    <div class="coming-app-popup" id="coming-app-popup">
+    <!-- <div class="coming-app-popup" id="coming-app-popup">
         <button class="coming-app-close-btn" id="coming-app-close-btn">X</button>
         <div class="coming-app-popup-content">
             
             <img style="border-radius: 8px 8px 0px 0px;" width="100%" src="main/dist/userimages/diwali-popup.gif" alt="app-coming-soon">
-            <!-- <video controls autoplay loop muted style="border-radius: 8px 8px 0px 0px;" width="100%">
-        <source src="main\dist\userimages\warning 2.0.mp4" type="video/mp4"> -->
-            <!-- </video> -->
-
 
             <div class="row" style="padding:8px 5px;">
                 <div class="col-12"><a class="invest-now-button" href="portfolio">Invest Now</a></div>
@@ -334,12 +330,12 @@ if ($dashboardmaintanance) {
             const popup = document.getElementById("coming-app-popup");
             const closeBtn = document.getElementById("coming-app-close-btn");
 
-            // Show the popup after 3 seconds
+           
             setTimeout(function() {
                 popup.style.display = "block";
-            }, 3000); // 3000 milliseconds = 3 seconds
+            }, 3000);
 
-            // Close the popup when the close button is clicked
+            
             closeBtn.addEventListener("click", function() {
                 popup.classList.add("fade-out");
                 setTimeout(function() {
@@ -352,7 +348,7 @@ if ($dashboardmaintanance) {
 
     <style>
         .coming-app-popup {
-            /* display: none; */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -361,7 +357,7 @@ if ($dashboardmaintanance) {
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 1000;
             animation: fade-in 0.5s ease-out;
-            /* Apply the fade-in animation */
+          
         }
 
         .invest-now-button{
@@ -387,7 +383,7 @@ if ($dashboardmaintanance) {
 
         .coming-app-popup.fade-out {
             animation: fade-out 0.5s ease-in;
-            /* Apply the fade-out animation */
+          
         }
 
         .coming-app-popup-content {
@@ -463,7 +459,7 @@ if ($dashboardmaintanance) {
                 transform: translateY(-20px);
             }
         }
-    </style>
+    </style> -->
 
     <!-- ------------------------------------------mobile app comming soon banner End------------------- -->
 
