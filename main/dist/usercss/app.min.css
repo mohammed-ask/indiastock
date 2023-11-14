@@ -40,7 +40,7 @@
 
 .navbar-custom .nav-link.nav-icon i {
     font-size: 18px;
-    padding-bottom: 2px;
+    padding-bottom: 0px;
     color: #384a65
 }
 
@@ -49,7 +49,7 @@
 }
 
 .navbar-custom .topbar-nav {
-    height: 52px;
+    height: 55px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -396,7 +396,7 @@
     margin-left: auto;
     position: relative;
     min-height: calc(100vh - 52px);
-    padding: 0 8px 52px 8px;
+    padding: 0 8px 65px 8px;
     margin-top: 52px
 }
 
@@ -681,7 +681,7 @@ body.dark-sidebar.enlarge-menu .left-sidebar:hover .brand .logo .logo-light {
 }
 
 [data-layout=horizontal] .topbar .navbar-custom .navbar-custom-menu {
-    min-height: 52px;
+    min-height: 55px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1020,7 +1020,7 @@ body.dark-sidebar.enlarge-menu .left-sidebar:hover .brand .logo .logo-light {
     }
 
     body[data-layout=horizontal] .topbar .navigation-menu {
-        margin-left: 60px
+        margin-left: 165px
     }
 }
 
@@ -3810,7 +3810,7 @@ hr.hr-dashed {
     display: flex;
     right: 0;
     left: 0;
-    top: 52px;
+    top: 55px;
     z-index: 10;
     background-color: #fff;
     border-bottom: 1px solid #eceff5
@@ -5055,14 +5055,14 @@ input:checked+.slider {
 
     position: absolute;
     top: 70%;
-    left: 18%;
+    left: 40%;
     margin-right: 65px;
 }
 
 @media screen and (max-width: 559px) {
     .dashboard-danger {
         top: 70%;
-        left: 16%;
+        left: 30%;
         margin-right: 20px;
     }
 }
@@ -5381,6 +5381,11 @@ input:checked+.slider {
         display: none;
     }
 
+    .thumb-xs{
+
+        border-radius: 10px !important;
+    }
+
 
     .d-web-none {
         display: block !important;
@@ -5413,6 +5418,14 @@ input:checked+.slider {
     .mobile-width{
         width: 100%;
     }
+
+    .nav-icon .nav-link{
+        background-color: transparent !important;
+    }
+
+
+
+
 }
 
 @media (max-width: 360px){

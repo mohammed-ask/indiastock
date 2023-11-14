@@ -111,7 +111,7 @@ if ($dashboardmaintanance) {
 
 
             <!-- -------------------------------------Download Buttons Start----------------- -->
-            <div class="app-download-buttons">
+            <div class="app-download-buttons d-app-none">
                 <div class="card-body" style="padding:8px; padding-bottom: 25px; text-align:center;">
                     <h6 style="text-align: center; font-size: 16px; font-weight: 800; margin-top:0px;">Download PMS EQuity App</h6>
                     <div class="row">
@@ -222,6 +222,9 @@ if ($dashboardmaintanance) {
 .
 .
  -->
+
+
+ 
 
 
                 <!-- secondary free rss feed start (sw-rss-feed code) -->

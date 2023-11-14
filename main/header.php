@@ -6,8 +6,10 @@ $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $empl
     <div class="brand">
         <a class="logo">
 
-        <img src="main/images/logo/PMS Equity logo with black text svg.svg" width="100%" alt="logo-small" class="user-panel-logo">
-            </span>
+        <span class="d-app-none"><img src="main/images/logo/PMS Equity logo with black text svg.svg" width="100%" alt="logo-small" class="user-panel-logo"></span>
+        
+        <span class="d-web-none"><img src="main/images/logo/logo-icon.svg" width="32%" alt="logo-small" class="user-panel-logo"></span>
+           
             <!-- <span>
                 <img src="main/dist/userimages/logo-sm.png" alt="logo-small" class="logo-sm">
             </span>
@@ -28,23 +30,29 @@ $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $empl
         <ul class="list-unstyled topbar-nav float-end mb-0">
 
 
-            <li class="dropdown notification-list">
-                <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="user-index.html" role="button" aria-haspopup="false" aria-expanded="false">
-                    <i class="fa-regular fa-bell"></i>
-                    <?php if ($unreadmail > 0) { ?>
+            <li class="">
+                <a class="nav-link arrow-none nav-icon" href="mail" >
+                <i style="color: #00aaaa;" class="fa-solid fa-message"></i>
+                    <!-- <?php if ($unreadmail > 0) { ?>
                         <span class="alert-badge"></span>
-                    <?php } ?>
+                    <?php } ?> -->
                 </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-sm pt-0">
+                <!-- <div class="dropdown-menu dropdown-menu-end dropdown-sm pt-0">
 
                     <a href="mail">
                         <h6 class="dropdown-item-text font-13 m-0 py-2 border-bottom d-flex justify-content-between align-items-center">
                             Unread Messages <span class="badge bg-soft-primary badge-pill"><?= $unreadmail ?></span>
                         </h6>
-                    </a>
+                    </a> -->
+            </li>
+            <li class=" d-web-none">
+                <a class="nav-link arrow-none nav-icon" href="logout" style="background-color:transparent;">
+                <i style="color: #c30f0f;" class="fa-solid fa-right-from-bracket"></i>
+                </a>
+               
             </li>
 
-            <li class="dropdown">
+            <li class="dropdown d-app-none">
                 <a class="nav-link dropdown-toggle nav-user" data-bs-toggle="dropdown" href="user-index.html" role="button" aria-haspopup="false" aria-expanded="false">
                     <div class="d-flex align-items-center">
                         <img src="<?= empty($avatarpath) ? 'main/images/user.png' : $avatarpath ?>" class="rounded-circle me-0 me-md-2 thumb-xs">
@@ -63,7 +71,7 @@ $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $empl
                         Logout</a>
                 </div>
             </li><!--end topbar-profile-->
-            <li class="menu-item">
+            <li class="menu-item d-app-none">
                 <!-- Mobile menu toggle-->
                 <a class="navbar-toggle nav-link" id="mobileToggle" onclick="toggleMenu()">
                     <div class="lines">

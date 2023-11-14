@@ -1,4 +1,4 @@
-<footer class="footer text-center text-sm-start">
+<footer class="footer text-center text-sm-start d-app-none">
   © 2008-
   <script>
     document.write(new Date().getFullYear())
