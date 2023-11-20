@@ -58,7 +58,7 @@ include "main/session.php";
 
     </div><!--end row-->
 </div>
-<h5 style="margin-top: 30px !important; margin-bottom: 12px !important; text-align: center; font-size: 14px;" class="card-title my-3">** Pay First & Add Transaction Details Below **</h5>
+<h5 style="margin-top: 25px !important; margin-bottom: 0px !important; text-align: center; font-size: 14px;" class="card-title my-3">** Pay First & Add Transaction Details Below **</h5>
 <div class="modal-body">
     <form class="row gy-2 gx-3 align-items-end" id="addfund">
         <!-- <div class="col-6">
@@ -75,12 +75,12 @@ include "main/session.php";
             <input type="text" data-bvalidator="required" class="form-control form-control-sm" id="" name="paymentmethod" placeholder="Google pay, Phone Pe, Bank Transfer, or Other">
         </div> -->
         <div class="col-6">
-            <label class="form-label" for="Price">Amount</label>
+            <label class="form-label mb-0" for="Price">Amount</label>
             <input type="number" step="any" data-bvalidator="required" class="form-control form-control-sm" id="" name="amount" placeholder="Amount you add in Funds">
         </div>
         <div class="col-6">
-            <label class="form-label" for="Price">Upload Screenshot</label>
-            <input id="file-upload" name='paymentmethod' type="file" name="fileUpload" accept="image/*" />
+            <label class="form-label mb-0" for="Price">Upload Screenshot</label>
+            <input class="form-control form-control-sm" id="file-upload" name='paymentmethod' type="file" name="fileUpload" accept="image/*" />
         </div>
 
         <h5 style="margin-top: 30px !important; margin-bottom: 3px !important;" class="card-title my-3 text-danger">Important*</h5>
