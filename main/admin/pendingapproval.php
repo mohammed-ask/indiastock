@@ -2,7 +2,9 @@
 include "main/session.php";
 /* @var $obj db */
 ob_start();
-
+if (!in_array(15, $permissions)) {
+    header("location:index");
+}
 
 ?>
 <div class="container px-6 mx-auto grid mobile-bottom-margin">
