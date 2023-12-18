@@ -40,7 +40,7 @@ $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "fundrequest",
     "*",
-    "status in (0,1) and userid = $employeeid $search $order limit $start, $limit"
+    "status in (0,1) and userid = $employeeid and visible = 'Yes' $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
@@ -52,7 +52,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] = $row['amount'];
     $n[] = $row['transactionid'];
     $n[] = $row['paymentmethod'];
-   
+
     $n[] = $row['status'] === '0' ? '<strong class="text-warning">Pending</strong>' : '<strong class="text-success">Successful</strong>';
     $data[] = $n;
 

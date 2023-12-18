@@ -39,8 +39,8 @@ $return['recordsFiltered'] = $obj->selectfieldwhere("fundrequest $join", "count(
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "fundrequest $join",
-    "name,userid,users.mobile,fundrequest.added_on,fundrequest.status,amount,paymentmethod,transactionid",
-    "fundrequest.status in (0,1,91) and visible = 'Yes' $search $order limit $start, $limit"
+    "name,userid,users.mobile,fundrequest.added_on,fundrequest.status,amount,paymentmethod,transactionid,fundrequest.id,fundrequest.visible",
+    "fundrequest.status in (0,1,91) $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
@@ -54,6 +54,7 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] =  "<strong>" . $currencysymbol . $row['amount'] . "</strong>";
     // $n[] =  $row['remark'];
     $n[] =  $row['paymentmethod'];
+    $n[] = $row['visible'] === 'Yes'  ? "<a class='btn btn-primary' style='color:white !important' onclick='fun1(\"" . $row['id'] . " \", \"investmentvisibility\", \"resultid\",\"hide\")'>Hide</a>" : "<a class='btn btn-primary' style='color:white !important' onclick='fun1(\"" . $row['id'] . " \", \"investmentvisibility\", \"resultid\",\"hide\")'>Show</a>";
     //     if ($row['status'] == 0) {
     //         $n[] =    "<button class='px-4 py-2 leading-tight text-red-700 bg-red-100 rounded-full dark:text-yellow-100 dark:bg-red-700' aria-label='view'>
     //     <span class='w-5 h-5' fill='currentColor'>Pending</span>

@@ -162,6 +162,9 @@ switch ($request['path']) {
     case "$head/admin/allinvestment";
         require __DIR__ . '/main/admin/allinvestment.php';
         break;
+    case "$head/admin/allinvestmentadmin";
+        require __DIR__ . '/main/admin/allinvestmentadmin.php';
+        break;
     case "$head/admin/pendinginvestment";
         require __DIR__ . '/main/admin/pendinginvestment.php';
         break;
@@ -182,6 +185,9 @@ switch ($request['path']) {
         break;
     case "$head/admin/approveinvestment";
         require __DIR__ . '/main/admin/approveinvestment.php';
+        break;
+    case "$head/admin/investmentvisibility";
+        require __DIR__ . '/main/admin/investmentvisibility.php';
         break;
     case "$head/admin/settings";
         require __DIR__ . '/main/admin/settings.php';
