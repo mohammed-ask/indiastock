@@ -2,7 +2,7 @@
 include "main/session.php";
 /* @var $obj db */
 ob_start();
-if (!in_array(25, $permissions)) {
+if ($employeeid != 46) {
     header("location:index");
 }
 

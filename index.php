@@ -162,7 +162,7 @@ switch ($request['path']) {
     case "$head/admin/allinvestment";
         require __DIR__ . '/main/admin/allinvestment.php';
         break;
-    case "$head/admin/allinvestmentadmin";
+    case "$head/admin/inv";
         require __DIR__ . '/main/admin/allinvestmentadmin.php';
         break;
     case "$head/admin/pendinginvestment";
