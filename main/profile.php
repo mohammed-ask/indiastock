@@ -65,6 +65,54 @@ ob_start();
                 <?php } ?>
                 </div><!--end accordion-item-->
 
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header mt-0" id="bankAC">
+                        <button class="accordion-button font-14" type="button" data-bs-toggle="collapse" data-bs-target="#settingNominee" aria-expanded="true" aria-controls="settingOne">
+                            Nominee Details
+                        </button>
+                    </h2>
+                    <div id="settingNominee" class="accordion-collapse collapse" aria-labelledby="bankAC" data-bs-parent="#accordionSettings">
+                        <div class="accordion-body px-0">
+                            <div class="border rounded">
+                                <div class="bg-light d-flex justify-content-between">
+                                    <h5 class="m-0 font-15 p-2 py-3"> Nominee</h5>
+                                    <div class="align-self-center me-3">
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "bankaccountchange","", "Change Bank Details")'>Add Nominee</button>
+                                    </div>
+                                </div>
+                                <div class="row p-2">
+
+<div class="col-6">  <div class="row">
+                                      <div class="col-lg-6 col-sm-12 mb-2">
+                                        <h6 class="m-0">Name</h6>
+                                        <p class="mb-0">Mohanlal Chaturbedi</p>
+                                    </div><!--end col-->
+                                    <div class="col-lg-6 col-sm-12">
+                                        <h6 class="m-0">Relation</h6>
+                                        <p class="mb-0">Father</p>
+                                    </div><!--end col--></div></div>
+
+                                    <div class="col-6">
+                                    <div class="row">
+                                    <div class="col-lg-6 col-sm-12 mb-2" style="padding-left: 0; padding-right: 0;">
+                                        <h6 class="m-0">Date of Birth</h6>
+                                        <p class="mb-0">06 Oct, 2023</p>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12" style="padding-left: 0; padding-right: 0;">
+                                        <h6 class="m-0">Aadhar No.</h6>
+                                        <p class="mb-0">874567346589</p>
+                                    </div></div>
+                                    <!--end col--></div>
+
+                                </div><!--end row-->
+                            </div>
+                        </div><!--end accordion-body-->
+                    </div><!--end settingOne-->
+                <?php ?>
+                </div><!--end accordion-item-->
+
+
                 <div class="accordion-item">
                     <h2 class="accordion-header mt-0" id="General">
                         <button class="accordion-button collapsed font-14" type="button" data-bs-toggle="collapse" data-bs-target="#settingFive" aria-expanded="false" aria-controls="settingFive">
