@@ -203,6 +203,16 @@
           </li>
         </ul>
       <?php } ?>
+      <!-- <?php if ($employeeid == 1 || $employeeid == 46) { ?>
+        <ul>
+          <li class="relative px-6 py-2">
+            <a class="inline-flex items-center w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="allinvestmentadmin">
+              <i style="color: #057c7c;" class="fa-solid fa-indian-rupee-sign"></i>
+              <span class="ml-4">Investment for Admin</span>
+            </a>
+          </li>
+        </ul>
+      <?php } ?> -->
       <?php if (in_array(25, $permissions) || in_array(26, $permissions) || in_array(27, $permissions) || in_array(28, $permissions) || in_array(29, $permissions)) { ?>
         <!-- <li class="relative px-6 py-2">
           <button class="inline-flex items-center justify-between w-full  font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" @click="toggleInvestmentPageMenu" aria-haspopup="true">
