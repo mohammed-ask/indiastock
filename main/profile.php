@@ -1,6 +1,7 @@
 <?php
 include "main/session.php";
 $rowprofile = $obj->selectextrawhere("users", "id=" . $employeeid . "")->fetch_assoc();
+$rownominee = $obj->selectextrawhere("nominee", "userid=" . $employeeid . " and status = 1")->fetch_assoc();
 ob_start();
 ?>
 <div class="card">
@@ -78,38 +79,46 @@ ob_start();
                                 <div class="bg-light d-flex justify-content-between">
                                     <h5 class="m-0 font-15 p-2 py-3"> Nominee</h5>
                                     <div class="align-self-center me-3">
-                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "bankaccountchange","", "Change Bank Details")'>Add Nominee</button>
+                                        <?php
+                                        if (!isset($rownominee['name'])) { ?>
+                                            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("", "addnominee","", "Add Nominee")'>Add Nominee</button>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <div class="row p-2">
 
-<div class="col-6">  <div class="row">
-                                      <div class="col-lg-6 col-sm-12 mb-2">
-                                        <h6 class="m-0">Name</h6>
-                                        <p class="mb-0">Mohanlal Chaturbedi</p>
-                                    </div><!--end col-->
-                                    <div class="col-lg-6 col-sm-12">
-                                        <h6 class="m-0">Relation</h6>
-                                        <p class="mb-0">Father</p>
-                                    </div><!--end col--></div></div>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-sm-12 mb-2">
+                                                <h6 class="m-0">Name</h6>
+                                                <p class="mb-0"><?= isset($rownominee['name']) ? $rownominee['name'] : '-' ?></p>
+                                            </div><!--end col-->
+                                            <div class="col-lg-6 col-sm-12">
+                                                <h6 class="m-0">Relation</h6>
+                                                <p class="mb-0"><?= isset($rownominee['relation']) ? $rownominee['relation'] : '-' ?></p>
+                                            </div><!--end col-->
+                                        </div>
+                                    </div>
 
                                     <div class="col-6">
-                                    <div class="row">
-                                    <div class="col-lg-6 col-sm-12 mb-2" style="padding-left: 0; padding-right: 0;">
-                                        <h6 class="m-0">Date of Birth</h6>
-                                        <p class="mb-0">06 Oct, 2023</p>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-sm-12 mb-2" style="padding-left: 0; padding-right: 0;">
+                                                <h6 class="m-0">Date of Birth</h6>
+                                                <p class="mb-0"><?= isset($rownominee['dob']) ? changedateformatespecito($rownominee['dob'], 'Y-m-d', 'd/m/Y') : '-' ?></p>
+                                            </div>
+                                            <div class="col-lg-6 col-sm-12" style="padding-left: 0; padding-right: 0;">
+                                                <h6 class="m-0">Aadhar No.</h6>
+                                                <p class="mb-0"><?= isset($rownominee['adharno']) ? $rownominee['adharno'] : '-' ?></p>
+                                            </div>
+                                        </div>
+                                        <!--end col-->
                                     </div>
-                                    <div class="col-lg-6 col-sm-12" style="padding-left: 0; padding-right: 0;">
-                                        <h6 class="m-0">Aadhar No.</h6>
-                                        <p class="mb-0">874567346589</p>
-                                    </div></div>
-                                    <!--end col--></div>
 
                                 </div><!--end row-->
                             </div>
                         </div><!--end accordion-body-->
                     </div><!--end settingOne-->
-                <?php ?>
+                    <?php ?>
                 </div><!--end accordion-item-->
 
 

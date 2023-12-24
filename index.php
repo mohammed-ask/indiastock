@@ -351,6 +351,12 @@ switch ($request['path']) {
     case "$head/insertresetpassword";
         require __DIR__ . '/main/insertresetpassword.php';
         break;
+    case "$head/addnominee";
+        require __DIR__ . '/main/addnominee.php';
+        break;
+    case "$head/insertnominee";
+        require __DIR__ . '/main/insertnominee.php';
+        break;
     case "$head/cron/settleamount";
         require __DIR__ . '/main/cron/tradesettlement.php';
         break;
