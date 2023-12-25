@@ -205,7 +205,7 @@ include './main/conn.php';
                             <span>
                                 <p class="mt-4 text-md font-medium">
                                   
-                                <span style="font-weight: 600; color: #ca0202;">Important Notice:</span> Account Deletion Process – All Data, Including Image, emials, transactions, Password and all other Details, Will Be Permanently Erased.</p>
+                                <span style="font-weight: 600; color: #ca0202;">Important Notice:</span> Account Deletion Process – All Data, Including Image, emial, History, Password and all other Details, Will Be Permanently Erased from PMS Equity Account.</p>
 
                             </span>
 
