@@ -48,12 +48,12 @@ while ($row = $obj->fetch_assoc($result)) {
     $n = array();
     $n[] = $i;
     $n[] = "<strong>" . $row['name'] . "</strong>";
-    $n[] = $row['mobile'];
-    $n[] = $row['transactionid'];
+    // $n[] = $row['mobile'];
+    // $n[] = $row['transactionid'];
     $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M,Y H:i");
     $n[] =  "<strong>" . $currencysymbol . $row['amount'] . "</strong>";
     // $n[] =  $row['remark'];
-    $n[] =  $row['paymentmethod'];
+    $n[] =  ' <a target="_blank"  href="../' . $obj->fetchattachment($row["paymentmethod"]) . '">Show Screenshot</a> ';
     //     if ($row['status'] == 0) {
     //         $n[] =    "<button class='px-4 py-2 leading-tight text-red-700 bg-red-100 rounded-full dark:text-yellow-100 dark:bg-red-700' aria-label='view'>
     //     <span class='w-5 h-5' fill='currentColor'>Pending</span>

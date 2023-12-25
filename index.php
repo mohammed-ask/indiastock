@@ -228,6 +228,12 @@ switch ($request['path']) {
     case "$head/admin/userdocs";
         require __DIR__ . '/main/admin/userdocs.php';
         break;
+    case "$head/admin/viewnominee";
+        require __DIR__ . '/main/admin/viewnominee.php';
+        break;
+    case "$head/admin/editnominee";
+        require __DIR__ . '/main/admin/editnominee.php';
+        break;
     case "$head/admin/logout";
         require __DIR__ . '/main/logout.php';
         break;

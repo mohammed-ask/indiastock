@@ -82,6 +82,7 @@ while ($row = $obj->fetch_assoc($result)) {
         $n[] = '';
         $n[] = '';
     }
+    // $n[] = $row['mpin'];
     $openstock = $obj->selectfieldwhere("stocktransaction", "count(id)", "userid=" . $row['id'] . " and tradestatus='Open' and status = 0");
     $n[] = '<button class="px-3 py-1  text-sm  bg-blue  rounded-sm " onclick="window.location.href=\'viewfundhistory?hakuna=' . $row['id'] . '\'">View Detail</button>';
     if (in_array(44, $permissions)) {
@@ -90,6 +91,8 @@ while ($row = $obj->fetch_assoc($result)) {
     } else {
         $n[] = "";
     }
+    $n[] = "<button class='px-3 py-1  text-sm  bg-blue  rounded-sm ' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"viewnominee\", \"\", \"Edit User Nominee\")' aria-label='Edit'>
+    View Nominee</button>";
     $a = "<div class='flex items-center space-x-4 text-sm'>";
     if (in_array(2, $permissions)) {
         $a .= "<button class='flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['id'] . "\", \"edituser\", \"\", \"Edit Customer\")' aria-label='Edit'>
