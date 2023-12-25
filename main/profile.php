@@ -46,15 +46,15 @@ ob_start();
                                 </div>
                                 <div class="row p-2">
 
-                                    <div class="col-4">
+                                    <div class="col-lg-4 mt-2">
                                         <h6 class="m-0">Bank Name</h6>
                                         <p class="mb-0"><?= $rowprofile['bankname'] ?></p>
                                     </div><!--end col-->
-                                    <div class="col-4" style="padding-left: 0;">
+                                    <div class="col-lg-4 mt-2">
                                         <h6 class="m-0">A/c no.</h6>
                                         <p class="mb-0"><?= $rowprofile['accountno'] ?></p>
                                     </div><!--end col-->
-                                    <div class="col-4" style="padding-left: 0; padding-right: 0;">
+                                    <div class="col-lg-4 mt-2">
                                         <h6 class="m-0">IFSC</h6>
                                         <p class="mb-0"><?= $rowprofile['ifsc'] ?></p>
                                     </div><!--end col-->
@@ -201,12 +201,15 @@ ob_start();
                                     </div>
                                 </div>
                                 <h5 class="mt-3 font-13" style="color:red;">Important*</h5>
-                                <p class="mt-1 font-13">To make changes in any setting, whether it's a specific setting or all the general settings, <br>you will need to provide an OTP that will be sent to your registered email address for verification purposes.</p>
+                                <p class="mt-1 font-13">To modify settings, provide OTP sent to your registered email for verification.</p>
                                 <div id="otpinput"></div>
                                 <div class="col-12 mt-3">
                                     <button type="button" class="btn btn-primary" id="otp" onclick="requestotp()">Send OTP</button>
                                     <button type="button" class="btn btn-primary" id="formsubmit" style="display: none;" onclick="sendForm('', '', 'updateprofile', 'resultid', 'addtax')">Submit</button>
                                 </div>
+
+<div><a type="button" class="mt-5" style="background-color: #ff2e2e; padding: 10px 20px; border-radius: 5px; color: #fff;" href="./account-deletion">Delete Account</a></div>
+
                                 <div id="resultid"></div>
                             </div><!--end accordion-body-->
                         </form>
