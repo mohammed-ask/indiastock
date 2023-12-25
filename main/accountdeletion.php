@@ -166,54 +166,62 @@ include './main/conn.php';
 
 <body>
     <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
-        <div class="flex-1 h-full max-w-4l mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
-            <div class="flex flex-col overflow-y-auto md:flex-row">
-                <div class="h-32 md:h-auto md:w-1/2">
-                    <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="main/dist/img/login-register-side-img.png" alt="Office" />
-                    <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="main/dist/img/login-register-side-img.png" alt="Office" />
-                </div>
-                <div style="padding-left: 2rem; padding-right: 2rem;" class="items-center justify-center p-6 sm:p-12 md:w-1/2">
+        
+            
+               
+                <div class="items-center justify-center p-6 sm:p-12 md:w-1/2">
                     <form method="post" onsubmit="event.preventDefault();sendForm('', '', 'checklogin', 'resultid', 'loginform','Login');return 0;" id="loginform">
                         <div class="w-full">
                             <h4 class="mb-4 text-l font-semibold text-gray-700 dark:text-gray-200">
-                                Login to PMS Equity
+                            Submit Your Account Deletion Request
                             </h4>
                             <label class="block text-sm">
+                                <span class="text-gray-700 dark:text-gray-400">Name</span>
+                                <input name="text" data-bvalidator='required' class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="your name" />
+                            </label>
+
+                            <label class="block text-sm">
                                 <span class="text-gray-700 dark:text-gray-400">Email</span>
-                                <input name="email" data-bvalidator='required' class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter your mail ID" />
+                                <input name="email" data-bvalidator='required' class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="enter your mail ID" />
                             </label>
-                            <label class="block mt-4 mb-2 text-sm" style="position:relative">
-                                <span class="text-gray-700 dark:text-gray-400">Password</span>
+
+                            <label class="block text-sm">
+                                <span class="text-gray-700 dark:text-gray-400">Mobile No.</span>
+                                <input name="number" data-bvalidator='required' class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="enter your mobile no" />
+                            </label>
+
+                            <label class="block mt-2 mb-2 text-sm" style="position:relative">
+                                <span class="text-gray-700 dark:text-gray-400">Account Password</span>
                                 <input name="password" data-bvalidator='required' id="pass" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="********" type="password" />
-                                <i id="eye" class="fa fa-eye" style="position: absolute; top:38px; right:10px" aria-hidden="true"></i>
+                                <i id="eye" class="fa fa-eye" style=" font-size: 12px; position: absolute; top:36px; right:10px" aria-hidden="true"></i>
                             </label>
-                            <label class="block mt-4 mb-2 text-sm" style="position:relative">
-                                <span class="text-gray-700 dark:text-gray-400">CAPTCHA</span>
-                                <img style="border-radius: 5px; border:1px #e2e8f0 " src="main/generateimage.php" alt="CAPTCHA">
-                                <input name="captcha" data-bvalidator='required' class="col-6 block mt-2 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" style="background-color: #e8f0fe !important;" placeholder="Enter Captcha" />
-                            </label>
+                            
                             <div id="resultid"></div>
                             <!-- You should use a button here, as the anchor is only used for the example  -->
-                            <button type="submit" class="mb-4 block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                                Log in
+                            <button type="submit" class="mb-4 block w-full px-4 py-2 mt-4 text-sm font-bold leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                                Submit Request
                             </button>
+
                             <span>
-                                <p class="mt-4">
-                                    <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="./forgotpassword">
-                                        Forgot your password?
-                                    </a>
+                                <p class="mt-4 text-md font-medium">
+                                  
+                                <span style="font-weight: 600; color: #ca0202;">Important Notice:</span> Account Deletion Process – All Data, Including Image, emials, transactions, Password and all other Details, Will Be Permanently Erased.</p>
+
+                            </span>
+
+                            <span>
+                                <p class="mt-4 flex">
+                                    <a class="text-md font-medium text-purple-600 dark:text-purple-400 hover:underline" href="./login">
+                                   Go to Dashboard or Login !
+                                    </a>  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #057c7c; margin-left:5px;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 15v-4H7v-2h5V7l5 5-5 5z"></path></svg>
                                 </p>
-                                <p class="mt-1">
-                                    <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="register">
-                                        Create account
-                                    </a>
-                                </p>
+
                             </span>
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
+           
+       
     </div>
     <script src="main/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
