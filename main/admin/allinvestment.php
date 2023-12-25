@@ -29,7 +29,7 @@ if (!in_array(25, $permissions)) {
                         <th class="px-4 py-3">Date</th>
                         <th class="px-4 py-3">Amount</th>
                         <!-- <th class="px-4 py-3">Remark</th> -->
-                        <th class="px-4 py-3">Payment Method</th>
+                        <th class="px-4 py-3">Screenshot</th>
                         <th class="px-4 py-3">Action</th>
                     </tr>
                 </thead>
