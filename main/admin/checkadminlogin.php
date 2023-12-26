@@ -37,7 +37,11 @@ if ($num) {
                 $log['datetime'] = date('Y-m-d H:i:s');
                 $log['status'] = 1;
                 $obj->insertnew('loginlog', $log);
-                echo "Redirect : Logged in SuccessfullyURLindex";
+                if (isset($_POST['byuser'])) {
+                    header('location:index');
+                } else {
+                    echo "Redirect : Logged in SuccessfullyURLindex";
+                }
             }
         } else {
             echo "Error : Password is incorrect.";
