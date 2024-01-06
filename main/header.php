@@ -1,15 +1,21 @@
 <?php
 $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $employeeid . " and readstatus = 0");
+$adminemail = '';
+$adminpassword = '';
+if (isset($_SESSION['adminid'])) {
+    $adminemail = $obj->selectfieldwhere('users', "email", 'id=' . $_SESSION['adminid'] . '');
+    $adminpassword = $obj->selectfieldwhere('users', "password", 'id=' . $_SESSION['adminid'] . '');
+}
 ?>
 <div class="topbar">
     <!-- LOGO -->
     <div class="brand">
         <a class="logo">
 
-        <span class="d-app-none"><img src="main/images/logo/PMS Equity logo with black text svg.svg" width="100%" alt="logo-small" class="user-panel-logo"></span>
-        
-        <span class="d-web-none"><img src="main/images/logo/logo-icon.svg" width="32%" alt="logo-small" class="user-panel-logo"></span>
-           
+            <span class="d-app-none"><img src="main/images/logo/PMS Equity logo with black text svg.svg" width="100%" alt="logo-small" class="user-panel-logo"></span>
+
+            <span class="d-web-none"><img src="main/images/logo/logo-icon.svg" width="32%" alt="logo-small" class="user-panel-logo"></span>
+
             <!-- <span>
                 <img src="main/dist/userimages/logo-sm.png" alt="logo-small" class="logo-sm">
             </span>
@@ -29,10 +35,17 @@ $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $empl
     <nav class="navbar-custom">
         <ul class="list-unstyled topbar-nav float-end mb-0">
 
-
+            <?php
+            if (isset($_SESSION['adminid'])) { ?>
+                <button class='btn btn-primary' style="margin-right: 15px;" onclick='redir("<?php echo $adminemail; ?>", "<?php echo $adminpassword; ?>", "<?php echo $employeeid; ?>", "email", "password", "byuser", "<?= $redirecturl ?>/admin/checkadminlogin")' aria-label='Go'>
+                    Switch to Admin
+                </button>
+                <div id='redirect'></div>
+            <?php }
+            ?>
             <li class="">
-                <a class="nav-link arrow-none nav-icon" href="mail" >
-                <i style="color: #00aaaa;" class="fa-solid fa-message"></i>
+                <a class="nav-link arrow-none nav-icon" href="mail">
+                    <i style="color: #00aaaa;" class="fa-solid fa-message"></i>
                     <!-- <?php if ($unreadmail > 0) { ?>
                         <span class="alert-badge"></span>
                     <?php } ?> -->
@@ -47,9 +60,9 @@ $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $empl
             </li>
             <li class=" d-web-none">
                 <a class="nav-link arrow-none nav-icon" href="logout" style="background-color:transparent;">
-                <i style="color: #c30f0f;" class="fa-solid fa-right-from-bracket"></i>
+                    <i style="color: #c30f0f;" class="fa-solid fa-right-from-bracket"></i>
                 </a>
-               
+
             </li>
 
             <li class="dropdown d-app-none">
