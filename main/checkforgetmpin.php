@@ -11,7 +11,7 @@ require './main/PHPMailer/src/SMTP.php';
 
 include './main/function.php';
 include './main/conn.php';
-$id = $obj->selectfieldwhere("users", "id", "email = '" . $_POST['email'] . "'");
+$id = $obj->selectfieldwhere("users", "id", "email = '" . $_POST['email'] . "' and status = 1");
 if (empty($id)) {
     echo "<div  class='bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md' role='alert'>Email Not Registered!</div>";
     die;
