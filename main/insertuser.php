@@ -56,7 +56,7 @@ if ($_SESSION['otp'] != $_POST['otp']) {
             // $month = strtoupper(date("M", strtotime($date)));
             $uniqueid = str_replace(array("{prefix}", "{number}"), array($row4['prefix'], $generatedcode), $row4['pattern']);
         } else {
-            $cg['prefix'] = "USER";
+            $cg['prefix'] = "PM04";
             $cg['number'] = 0;
             $cg['pattern'] = "{prefix}{number}";
             $cg['category'] = "usercode";
