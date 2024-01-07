@@ -229,7 +229,7 @@ ob_start();
 
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; margin:0;">
                             <p>
-                                Or click on the link: <a href='<?= $redirecturl ?>/resetmpin?hakuna=<?= $id ?>'>https://www.pmsequity.online/resetmpin</a></p>
+                                Or click on the link: <a href='<?= $redirecturl ?>/resetmpin?hakuna=<?= $id ?>'>Click Here</a></p>
                             <p style="margin: 0;">
                                 If you did not initiate this request, please contact our support team immediately to investigate.
                             </p>
