@@ -771,15 +771,18 @@
 
         /*  ----------------------------------Browser alert End------------------------------------------ */
     </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-P9108ZJ253"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9108ZJ253"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-P9108ZJ253');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-P9108ZJ253');
+    </script>
 
 </head>
 
@@ -1016,8 +1019,8 @@
 
                             <div class="input-text">
                                 <div class="input-div">
-                                    <input type="text" id="comfirmpass" name="confirmpass" required require>
-                                    <span>Confirm Password</span>
+                                    <input type="number" id="mpin" name="mpin" required require>
+                                    <span>MPIN</span>
                                 </div>
                             </div>
                             <div class="buttons button_space">
@@ -1124,7 +1127,7 @@
             otpclick_form.addEventListener('click', function() {
                 var email = $("#email").val()
                 var username = $("#username").val()
-                if ($("#password").val() === '' || $("#password").val() !== $("#comfirmpass").val()) {
+                if ($("#password").val() === '' || $("#mpin").val().length !== 6) {
                     return false
                 }
                 formnumber++;
@@ -1261,6 +1264,12 @@
                 let password = $("#password").val()
                 if (vaildate_input.id === 'password' && vaildate_input.value === '') {
                     validate = false
+                    vaildate_input.classList.add('warning');
+                }
+                if (vaildate_input.id === 'mpin' && vaildate_input.value.length != 6) {
+                    console.log(vaildate_input.id, vaildate_input.value.length, 'mpin')
+                    validate = false
+                    alertify.alert('MPIN must be of 6 digits')
                     vaildate_input.classList.add('warning');
                 }
                 if (vaildate_input.id === 'mobileno' && vaildate_input.value.length != 10) {
