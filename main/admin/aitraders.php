@@ -11,14 +11,16 @@ ob_start();
     <!-- New Table -->
 
 
-    <div class="grid gap-6 mt-8 md:grid-cols-2 xl:grid-cols-2">
+    <div class="flex items-center justify-between">
         <!-- Card -->
 
         <h3 class="my-6 text-1xl font-semibold text-gray-700 dark:text-gray-200">
             Today's AI Traders Details
         </h3>
 
-
+        <button @click="openModal" onclick='dynamicmodal("ai", "addstock", "", "Add Stock")' class="my-6 px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+            + Add Position
+        </button>
     </div>
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
 

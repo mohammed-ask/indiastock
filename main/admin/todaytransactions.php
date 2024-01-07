@@ -9,7 +9,7 @@ ob_start();
     <div class="flex items-center justify-between">
         <h3 class="my-0 text-1xl font-semibold text-gray-700 dark:text-gray-200">Today Positions</h3>
 
-        <button @click="openModal" onclick='dynamicmodal("", "addstock", "", "Add Stock")' class="my-6 px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+        <button @click="openModal" onclick='dynamicmodal("advisor", "addstock", "", "Add Stock")' class="my-6 px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
             + Add Position
         </button>
     </div>

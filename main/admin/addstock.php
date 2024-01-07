@@ -1,6 +1,6 @@
 <?php
 include "main/session.php";
-
+$type = $_GET['hakuna'];
 ?>
 <style>
     .ui-autocomplete {
@@ -46,16 +46,16 @@ include "main/session.php";
             } ?>
         </select>
     </div>
-    <div class="mb-2"> <label for="Choose Client" class="block text-sm" style="margin-bottom: 5px;">
+    <!-- <div class="mb-2"> <label for="Choose Client" class="block text-sm" style="margin-bottom: 5px;">
             <span class="text-gray-700 dark:text-gray-400">Trade By</span>
 
         </label>
-        <select data-bvalidator="required" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" name="tradeby">
+        <select data-bvalidator="required" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" name="tradeby" value="<?= $type === 'advisor' ? 'Brocker' : 'AI' ?>">
             <option value="">Select Type</option>
             <option value="Brocker">Advisor</option>
             <option value="AI">AI Mode</option>
         </select>
-    </div>
+    </div> -->
     <div class="row">
         <div class="col-6 mb-2">
             <label for="buy" class="block text-sm" data-toggle="dropdown" style="margin-bottom: 5px;">
@@ -111,23 +111,25 @@ include "main/session.php";
     </div>
 
     <label class="block text-sm" style="margin-bottom: 5px;">
-       <div style="display: inline-flex;"> <span class="text-gray-700 dark:text-gray-400">Stock
-            Name</span> <span class="col-2 profile-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i> <p class="profile-tooltiptext">In case you search for Derivative, write like:<br>
-<b>Option Type-</b> NIFTY 23 May 2023 PE 2345263.00<br>
-[ STOCK Date of Expiry Option Type (PE/CE) Strike Price ]
-<br><br>
-<span><b>For Futures-</b> COPPER 23 May 2023<br>
-[ STOCK Date of Expiry ]</span>
-</p></span> </div>
+        <div style="display: inline-flex;"> <span class="text-gray-700 dark:text-gray-400">Stock
+                Name</span> <span class="col-2 profile-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
+                <p class="profile-tooltiptext">In case you search for Derivative, write like:<br>
+                    <b>Option Type-</b> NIFTY 23 May 2023 PE 2345263.00<br>
+                    [ STOCK Date of Expiry Option Type (PE/CE) Strike Price ]
+                    <br><br>
+                    <span><b>For Futures-</b> COPPER 23 May 2023<br>
+                        [ STOCK Date of Expiry ]</span>
+                </p>
+            </span> </div>
 
 
 
         <input type="text" name="symbol" id="symbol" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter Stock Name" data-bvalidator="required" />
     </label>
 
-    
 
-    
+
+
     <div class="row" id="getmargin">
         <div class="col-6 mb-2">
             <label class="block text-sm" style="margin-bottom: 5px;">
@@ -176,6 +178,7 @@ include "main/session.php";
             Submit
         </button>
     </div>
+    <input type="text" hidden name="tradeby" value="<?= $type === 'advisor' ? 'Brocker' : 'AI' ?>" id="">
     <div id="resultid"></div>
 </form>
 <script>

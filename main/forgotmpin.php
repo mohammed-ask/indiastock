@@ -1,9 +1,9 @@
 <?php
 session_start();
-if (isset($_SESSION['userid'])) {
-  $employeeid = $_SESSION['userid'];
-  header("location:administrator");
-}
+// if (isset($_SESSION['userid'])) {
+//   $employeeid = $_SESSION['userid'];
+//   header("location:administrator");
+// }
 include './main/function.php';
 include './main/conn.php';
 ?>
