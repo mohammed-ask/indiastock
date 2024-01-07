@@ -98,15 +98,15 @@ $id = $_GET['hakuna'];
                     <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="main/dist/img/login-office.jpeg" alt="Office" />
                     <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="main/dist/img/login-office-dark.jpeg" alt="Office" />
                 </div>
-                <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
+                <div class="items-center justify-center p-6 sm:p-12 md:w-1/2">
                     <form onsubmit="event.preventDefault();sendForm('id', '<?= $id ?>', 'insertresetmpin', 'resultid', 'loginform');return 0;" id="loginform">
                         <div class="w-full">
                             <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
                                 Set MPIN
                             </h1>
                             <label class="block text-sm" style="margin-bottom: 5px;position:relative">
-                                <span class="text-gray-700 dark:text-gray-400">New MPIN</span>
-                                <input type="password" data-bvalidator="required,minlength[6],maxlength[6],digit" id="password" name="mpin" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="" />
+                                <span class="text-gray-700 dark:text-gray-400">Enter New MPIN</span>
+                                <input type="password" data-bvalidator="required,minlength[6],maxlength[6],digit" id="password" name="mpin" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="New Mpin" />
                                 <i id="eye" class="fa fa-eye" style="position: absolute;top:33px;right:10px" aria-hidden="true"></i>
                             </label>
                             <!-- <label class="block text-sm" style="margin-bottom: 5px;">
