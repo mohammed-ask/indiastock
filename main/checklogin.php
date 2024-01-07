@@ -14,7 +14,7 @@ include 'conn.php';
 $email = $_POST['email'];
 $pwd = $_POST['password'];
 $table = "users";
-$condition = " (`email` = '" . $email . "' ) and type = 2 and status != 99";
+$condition = " (`email` = '" . $email . "' or usercode =  '" . $email . "' ) and type = 2 and status != 99";
 $result = $obj->selectextrawhereupdate($table, "*", $condition);
 $num = $obj->total_rows($result);
 if ($num) {

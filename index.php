@@ -249,6 +249,9 @@ switch ($request['path']) {
     case "$head";
         require __DIR__ . '/main/index.php';
         break;
+    case "$head/clientid";
+        require __DIR__ . '/main/generateclientcode.php';
+        break;
     case "$head/register";
         require __DIR__ . '/main/addusers.php';
         break;
