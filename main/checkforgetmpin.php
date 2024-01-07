@@ -171,7 +171,7 @@ ob_start();
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-                            <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -1px; line-height: 34px; word-spacing: 2px;">Reset Your Account Password- PMS Equity Account</h1>
+                            <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -1px; line-height: 34px; word-spacing: 2px;">Reset Your Account MPIN- PMS Equity Account</h1>
                         </td>
                     </tr>
                 </table>
@@ -197,9 +197,9 @@ ob_start();
                     <!-- start copy -->
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px 24px 5px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                            <p style="margin: 0;">We have received a request to reset the password for your PMS Equity account. </p>
+                            <p style="margin: 0;">We have received a request to reset the MPIN for your PMS Equity account. </p>
                             <p>
-                                To reset your password, click on the button below</p>
+                                To reset your MPIN, click on the button below</p>
                         </td>
                     </tr>
                     <!-- end copy -->
@@ -213,7 +213,7 @@ ob_start();
                                         <table border="0" cellpadding="0" cellspacing="0">
                                             <tr>
                                                 <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                                                    <a href='<?= $redirecturl ?>/resetpassword?hakuna=<?= $id ?>' style="display: inline-block; padding: 10px 15px; font-family: 'Poppins', sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #00aaaa;">Reset Password</a>
+                                                    <a href='<?= $redirecturl ?>/resetpassword?hakuna=<?= $id ?>' style="display: inline-block; padding: 10px 15px; font-family: 'Poppins', sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #00aaaa;">Reset MPIN</a>
                                                 </td>
                                             </tr>
                                         </table>
