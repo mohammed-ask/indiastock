@@ -170,7 +170,7 @@ text-align: center;}
                                 Login to PMS Equity
                             </h4>
                             <label class="block text-sm">
-                                <span class="text-gray-700 dark:text-gray-400">Email</span>
+                                <span class="text-gray-700 dark:text-gray-400">Email/Client ID</span>
                                 <input name="email" data-bvalidator='required' class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter your mail ID" />
                             </label>
                             <label class="block mt-4 mb-2 text-sm" style="position:relative">
