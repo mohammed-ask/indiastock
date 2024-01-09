@@ -62,7 +62,7 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
                             </select> -->
                         </label><br>
                         <label class="block text-md" style="margin-bottom: 5px;">
-                            <span class="text-gray-700 dark:text-gray-400">Subject To Write</span>
+                            <span class="text-gray-700 dark:text-gray-400">Subject</span>
                             <input name="subject" data-bvalidator="required" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Subject" />
                         </label><br>
                         <label class="block text-md" style="margin-bottom: 5px;">
@@ -91,7 +91,7 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
 $pagemaincontent = ob_get_contents();
 ob_end_clean();
 $pagemeta = "";
-$pagetitle = "PMS EQuity: Transaction";
+$pagetitle = "PMS EQuity: Mail";
 $contentheader = "";
 $pageheader = "";
 $extrajs = '
