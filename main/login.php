@@ -35,14 +35,17 @@ include './main/conn.php';
     <link rel="shortcut icon" href="main/images/logo/favicon.svg">
 
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-P9108ZJ253"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9108ZJ253"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-P9108ZJ253');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-P9108ZJ253');
+    </script>
 
     <style>
         /* --------------------alertify---------------- */
@@ -100,58 +103,64 @@ include './main/conn.php';
         }
 
         @media (max-width: 600px) {
-.d-app-none{
-    display: none;
-}
+            .d-app-none {
+                display: none;
+            }
 
         }
 
-/*  ----------------------------------Browser alert start------------------------------------------ */
+        /*  ----------------------------------Browser alert start------------------------------------------ */
 
-.browser-d-none {display: none !important;}
-
-        
-.browser-model-content{border-radius: 0rem 0rem 0.3rem 0.3rem;
-border: none;
-
-text-align: center;}
-
-.modal-dialog-broswer {
-    max-width: 350px;
-    margin: 0rem auto;
-}
-
-.modal-footer-browser{border-top: none !important;
-    padding: 0px 7px 6px 3px;
-    justify-content: center;
-}
-.browser-btn-primary {
-    color: #231515;
-    background-color: #ffffff;
-    border-color: #070809;
-   
-}
-
-.browser-btn-secondary {
-    color: #0b0707;
-    background-color: #6c757d00;
-    border-color: #6c757d;
-
-}
-
-.browser-btn {    
-
-    padding: 0.3rem 1.3rem;
-    font-size: 14px;
-    font-weight: 500;
-    background-color: #048f83;
-    color: white;
-    border: none;
-    
-}
+        .browser-d-none {
+            display: none !important;
+        }
 
 
-/*  ----------------------------------Browser alert End------------------------------------------ */
+        .browser-model-content {
+            border-radius: 0rem 0rem 0.3rem 0.3rem;
+            border: none;
+
+            text-align: center;
+        }
+
+        .modal-dialog-broswer {
+            max-width: 350px;
+            margin: 0rem auto;
+        }
+
+        .modal-footer-browser {
+            border-top: none !important;
+            padding: 0px 7px 6px 3px;
+            justify-content: center;
+        }
+
+        .browser-btn-primary {
+            color: #231515;
+            background-color: #ffffff;
+            border-color: #070809;
+
+        }
+
+        .browser-btn-secondary {
+            color: #0b0707;
+            background-color: #6c757d00;
+            border-color: #6c757d;
+
+        }
+
+        .browser-btn {
+
+            padding: 0.3rem 1.3rem;
+            font-size: 14px;
+            font-weight: 500;
+            background-color: #048f83;
+            color: white;
+            border: none;
+
+        }
+
+
+        /*  ----------------------------------Browser alert End------------------------------------------ */
     </style>
 </head>
 
@@ -181,24 +190,25 @@ text-align: center;}
                             <label class="block mt-4 mb-2 text-sm" style="position:relative">
                                 <span class="text-gray-700 dark:text-gray-400">CAPTCHA</span>
                                 <img style="border-radius: 5px; border:1px #e2e8f0 " src="main/generateimage.php" alt="CAPTCHA">
-                                <input name="captcha" data-bvalidator='required' class="col-6 block mt-2 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" style="background-color: #e8f0fe !important;" placeholder="Enter Captcha" />
+                                <input name="captcha" class="col-6 block mt-2 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" style="background-color: #e8f0fe !important;" placeholder="Enter Captcha" />
                             </label>
                             <div id="resultid"></div>
                             <!-- You should use a button here, as the anchor is only used for the example  -->
                             <button type="submit" class="mb-4 block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
                                 Log in
                             </button>
-<span>
-                            <p class="mt-4">
-                                <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="./forgotpassword">
-                                    Forgot your password?
-                                </a>
-                            </p>
-                            <p class="mt-1">
-                                <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="register">
-                                    Create account
-                                </a>
-                            </p></span>
+                            <span>
+                                <p class="mt-4">
+                                    <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="./forgotpassword">
+                                        Forgot your password?
+                                    </a>
+                                </p>
+                                <p class="mt-1">
+                                    <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="register">
+                                        Create account
+                                    </a>
+                                </p>
+                            </span>
                         </div>
                     </form>
                 </div>
