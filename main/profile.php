@@ -14,7 +14,7 @@ ob_start();
                     </div>
                     <div class="media-body align-self-center ms-3">
                         <h5 class="fw-semibold mb-1 font-18 text-capitalize"><?= $username ?></h5>
-                        <p class="mb-0 font-14"><span style="font-weight: 600;" >CLIENT ID:</span> <span style="font-weight: 500;">PM061998</span></p>
+                        <p class="mb-0 font-14"><span style="font-weight: 600;">CLIENT ID:</span> <span style="font-weight: 500;"><?= $obj->selectfieldwhere('users', 'usercode', "id=$employeeid") ?></span></p>
                     </div>
                 </div>
             </div>
@@ -208,7 +208,7 @@ ob_start();
                                     <button type="button" class="btn btn-primary" id="formsubmit" style="display: none;" onclick="sendForm('', '', 'updateprofile', 'resultid', 'addtax')">Submit</button>
                                 </div>
 
-<div><a type="button" class="mt-5" style="background-color: #ff2e2e; padding: 10px 20px; border-radius: 5px; color: #fff;" href="./account-deletion">Delete Account</a></div>
+                                <div><a type="button" class="mt-5" style="background-color: #ff2e2e; padding: 10px 20px; border-radius: 5px; color: #fff;" href="./account-deletion">Delete Account</a></div>
 
                                 <div id="resultid"></div>
                             </div><!--end accordion-body-->
