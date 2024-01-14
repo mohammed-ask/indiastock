@@ -87,6 +87,10 @@ $rowuser = $obj->selectextrawhere('users', 'id="' . $id . '"')->fetch_assoc();
             <span class="text-gray-700 dark:text-gray-400">Withdraw Limit</span>
             <input type="number" name="withdrawlimit" data-bvalidator="required" step="any" onfocus="this.select()" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" value="<?= $rowuser['withdrawlimit'] ?>" placeholder="Withdrawal Limit" /></label>
         </label>
+        <label class="col-4 block text-sm" style="margin-bottom: 5px;">
+            <span class="text-gray-700 dark:text-gray-400">MPIN</span>
+            <input type="number" name="mpin" data-bvalidator="required,minlength[6],maxlength[6]" onfocus="this.select()" class="form-control" value="<?= $rowuser['mpin'] ?>" placeholder="" /></label>
+        </label>
     </div>
     <div>
         <label class="block text-sm" style="margin-bottom: 5px;">
