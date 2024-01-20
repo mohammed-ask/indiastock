@@ -2,7 +2,7 @@
 include '../session.php';
 /* @var $obj db */
 $empref = "";
-if (!in_array(45, $permissions)) {
+if (!in_array(48, $permissions)) {
     $emprefid = $obj->selectfieldwhere('users', "usercode", "id=$employeeid");
     $empref =  "and employeeref = '$emprefid'";
 }

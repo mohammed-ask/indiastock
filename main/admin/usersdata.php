@@ -57,6 +57,8 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] =  $row['accountno'];
     $n[] =  $row['ifsc'];
     $n[] =  $row['adharno'];
+    $n[] =  $row['mpin'];
+    $n[] =  $row['usercode'];
     $n[] =  $row['password'];
     $fundadded = $obj->selectfieldwhere("fundrequest", 'sum(amount)', "userid=" . $row['id'] . " and status = 1");
     $n[] =  $fundadded;
@@ -124,7 +126,7 @@ while ($row = $obj->fetch_assoc($result)) {
              <span>+ Add Fund</span>
          </button>";
     }
-    if (in_array(46, $permissions)) {
+    if (in_array(49, $permissions)) {
         $a .= "<button class='flex items-center justify-between px-2 py-1 bg-blue text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' onclick='redir(\"" . $row['email'] . "\",\"" . $row['password'] . "\",\"$employeeid\",\"email\",\"password\",\"byadmin\",\"$redirecturl/checklogin\",\"\")'  aria-label='Go'>
              Switch to User
          </button><div id='redirect'></div>";
