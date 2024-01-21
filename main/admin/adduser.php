@@ -116,8 +116,8 @@
 
     <strong>Documents</strong>
     
-        <div class="row">
-            <label class="col-6 block text-sm mt-3" style="margin-bottom: 5px;">
+        <div class="row mt-3">
+            <label class="col-6 block text-sm" style="margin-bottom: 5px;">
                 <span class="text-gray-700 dark:text-gray-400">Aadhar Front Side</span>
                 <input hidden value="Aadhar Card Front" name="name[]">
                 <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
