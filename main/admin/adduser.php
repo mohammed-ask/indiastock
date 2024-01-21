@@ -116,44 +116,45 @@
 
     <strong>Documents</strong>
     
-        
-            <label class="block text-sm mt-3" style="margin-bottom: 5px;">
+        <div class="row">
+            <label class="col-6 block text-sm mt-3" style="margin-bottom: 5px;">
                 <span class="text-gray-700 dark:text-gray-400">Aadhar Front Side</span>
                 <input hidden value="Aadhar Card Front" name="name[]">
-                <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+                <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
             </label>
-            <label class="block text-sm" style="margin-bottom: 5px;">
+            <label class="col-6 block text-sm" style="margin-bottom: 5px;">
                 <input hidden value="Aadhar Card Back" name="name[]">
                 <span class="text-gray-700 dark:text-gray-400">Aadhar Back Side</span>
-                <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+                <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
             </label>
-        
+        </div>
     
-
-            <label class="block text-sm" style="margin-bottom: 5px;">
+        <div class="row">
+            <label class="col-6 block text-sm" style="margin-bottom: 5px;">
                 <span class="text-gray-700 dark:text-gray-400">Pan Card</span>
                 <input hidden value="PAN card" name="name[]">
 
-                <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+                <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
             </label>
-            <label class="block text-sm" sty le="margin-bottom: 5px;">
+            <label class="col-6 block text-sm" sty le="margin-bottom: 5px;">
                 <span class="text-gray-700 dark:text-gray-400">Signature</span>
                 <input hidden value="Signature" name="name[]">
-                <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
-            </label>
+                <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+            </label></div>
        
-
-        <label class="block text-sm" style="margin-bottom: 5px;">
+            <div class="row">
+        <label class="col-6 block text-sm" style="margin-bottom: 5px;">
             <span class="text-gray-700 dark:text-gray-400">Passport Size Photo</span>
             <input hidden value="Passport Size Photo" name="name[]">
-            <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+            <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
         </label>
-        <label class="block text-sm" style="margin-bottom: 5px;">
+        <label class="col-6 block text-sm" style="margin-bottom: 5px;">
             <span class="text-gray-700 dark:text-gray-400">Passbook</span>
             <input hidden value="Passbook" name="name[]">
-            <input style="padding: 0px; border-color: #00aaaa; font-size: 14px;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+            <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
         </label>
-    
+            </div>
+
     <div>
         <button type="submit" id="modalsubmit" class="w-full px-3 py-1 mt-6 text-sm font-medium hidden">
             Submit
