@@ -5,7 +5,8 @@ ob_start();
 ?>
 <div class="page-body">
     <div class="card card-default">
-        <div class="card-header flex" style="align-items: center;justify-content:space-between">
+        <div class=" flex" style="align-items: center;justify-content:space-between; padding: 0px 15px;
+">
             <h3 class="my-0 text-1xl font-semibold text-gray-700 dark:text-gray-200">Add Custom Contracts</h3>
             <div class="card-tools">
                 <?php if (in_array(46, $permissions)) { ?>
