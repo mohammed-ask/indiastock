@@ -71,9 +71,8 @@ if ($marketmaintanance) {
 
     <div class="row" id="userstock">
 
-        <div class="national-data">
+        <!-- <div class="national-data">
             <div class="container-fluid">
-                <!-- Page-Title -->
                 <div class="row">
                     <div class="col-sm-12 mt-2 mb-2">
                         <div class="page-title-box d-inline-block d-md-flex justify-content-start justify-content-md-between align-items-center">
@@ -91,7 +90,7 @@ if ($marketmaintanance) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
 

@@ -22,9 +22,8 @@ $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexcha
         return $data;
 });
 ?>
-<div class="national-data">
+<!-- <div class="national-data">
     <div class="container-fluid">
-        <!-- Page-Title -->
         <div class="row">
             <div class="col-sm-12 mt-2 mb-2">
                 <div class="page-title-box d-inline-block d-md-flex justify-content-start justify-content-md-between align-items-center">
@@ -42,7 +41,7 @@ $wstocks = array_filter($stockdata, function ($data) use ($watchlistsym, $sexcha
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <?php
 foreach ($stockdata as $data) { ?>
     <div class="col-lg-4">
