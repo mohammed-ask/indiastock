@@ -294,7 +294,7 @@ if ($mainpagemaintanance) { ?>
 
                     <div class="col-lg-7">
                         <h3 class="pt-0 pt-lg-5 mview">Generating wealth for you is at the heart of everything we do</h3>
-
+<p><b>Mr. Javed Hussain</b> is the distinguished CEO and Owner of PMS Equity Pvt. Ltd, bringing strategic vision and leadership to the company. With a wealth of experience in finance and business, he steers the organization towards success with a commitment to excellence and innovation.</p>
                         <!-- Tabs -->
                         <ul class="nav nav-pills mb-3">
                             <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1">Our Values</a></li>
