@@ -9,9 +9,11 @@ $id = $_GET['hakuna'];
 
     <div class="flex" style="align-items: center;justify-content:space-between">
         <h3>Fund History</h3>
+         <?php if (in_array(32, $permissions)) { ?>
         <button @click="openModal" onclick='dynamicmodal("<?= $id ?>", "addinvestmentamount", "", "Add Fund")' class="my-6 px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
             + Add Fund
         </button>
+                                               <?php } ?>
 
     </div>
 
