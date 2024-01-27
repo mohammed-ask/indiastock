@@ -56,6 +56,7 @@ if (!in_array(25, $permissions)) {
                         <th class="px-4 py-3">Amount</th>
                         <!-- <th class="px-4 py-3">Remark</th> -->
                         <th class="px-4 py-3">Screenshot</th>
+                        <th class="px-4 py-3">Status</th>
                         <!-- <th class="px-4 py-3">Action</th> -->
                     </tr>
                 </thead>

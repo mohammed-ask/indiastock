@@ -44,7 +44,7 @@ $return['recordsFiltered'] = $obj->selectfieldwhere("fundrequest $join", "count(
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "fundrequest $join",
-    "name,userid,users.mobile,fundrequest.added_on,fundrequest.status,amount,paymentmethod,transactionid",
+    "fundrequest.id,name,userid,users.mobile,fundrequest.added_on,fundrequest.status,amount,paymentmethod,transactionid",
     "fundrequest.status in (0,1,91) and visible = 'Yes' $empref $search $order limit $start, $limit",
 );
 $num = $obj->total_rows($result);
@@ -58,22 +58,25 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M,Y H:i");
     $n[] =  "<strong>" . $currencysymbol . $row['amount'] . "</strong>";
     // $n[] =  $row['remark'];
-    $n[] =  ' <a target="_blank"  href="../' . $obj->fetchattachment($row["paymentmethod"]) . '">Show Screenshot</a> ';
-    //     if ($row['status'] == 0) {
-    //         $n[] =    "<button class='px-4 py-2 leading-tight text-red-700 bg-red-100 rounded-full dark:text-yellow-100 dark:bg-red-700' aria-label='view'>
-    //     <span class='w-5 h-5' fill='currentColor'>Pending</span>
-    // </button>";
-    //     } elseif ($row['status'] == 1 && in_array(37, $permissions)) {
-    //         $n[] =    "<button class='px-4 py-2 leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-red-700' aria-label='view'>
-    //     <span class='w-5 h-5' fill='currentColor'>Approved</span>
-    // </button>";
-    //     } elseif ($row['status'] == 91 && in_array(37, $permissions)) {
-    //         $n[] =    "<button class='px-4 py-2 leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700' aria-label='view'>
-    //     <span class='w-5 h-5' fill='currentColor'>Rejected</span>
-    // </button>";
-    //     } else {
-    //         $n[] = "";
-    //     }
+    // $n[] =  ' <a target="_blank"  href="../' . $obj->fetchattachment($row["paymentmethod"]) . '">Show Screenshot</a> ';
+    $n[] =  "<button class='flex items-center justify-between px-2 py-1 bg-blue text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['paymentmethod'] . "\", \"showscreenshot\", \"\", \"\")'  aria-label='Go'>
+    <span>Show Screenshot</span>
+</button>";
+    if ($row['status'] == 0) {
+        $n[] =    "<button class='px-4 py-2 leading-tight text-red-700 bg-red-100 rounded-full dark:text-yellow-100 dark:bg-red-700' aria-label='view'>
+        <span class='w-5 h-5' fill='currentColor'>Pending</span>
+    </button>";
+    } elseif ($row['status'] == 1 && in_array(37, $permissions)) {
+        $n[] =    "<button class='px-4 py-2 leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-red-700' aria-label='view'>
+        <span class='w-5 h-5' fill='currentColor'>Approved</span>
+    </button>";
+    } elseif ($row['status'] == 91 && in_array(37, $permissions)) {
+        $n[] =    "<button class='px-4 py-2 leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700' aria-label='view'>
+        <span class='w-5 h-5' fill='currentColor'>Rejected</span>
+    </button>";
+    } else {
+        $n[] = "";
+    }
     $data[] = $n;
     $i++;
 }

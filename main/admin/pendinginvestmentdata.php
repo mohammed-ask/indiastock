@@ -59,7 +59,10 @@ while ($row = $obj->fetch_assoc($result)) {
     $n[] =  changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "d M,Y H:i");
     $n[] =  "<strong>" . $currencysymbol . $row['amount'] . "</strong>";
     // $n[] =  $row['remark'];
-    $n[] =  ' <a target="_blank" href="../' . $obj->fetchattachment($row["paymentmethod"]) . '"><img style="height:200px;width:200px" src="../' . $obj->fetchattachment($row["paymentmethod"]) . '" /></a ';
+    // $n[] =  ' <a target="_blank" href="../' . $obj->fetchattachment($row["paymentmethod"]) . '"><img style="height:200px;width:200px" src="../' . $obj->fetchattachment($row["paymentmethod"]) . '" /></a ';
+    $n[] =  "<button class='flex items-center justify-between px-2 py-1 bg-blue text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray' @click='openModal'  onclick='dynamicmodal(\"" . $row['paymentmethod'] . "\", \"showscreenshot\", \"\", \"\")'  aria-label='Go'>
+    <span>Show Screenshot</span>
+</button>";
     $appdata = "";
     if (in_array(37, $permissions)) {
         $appdata =  "<div class='tr'><div style='text-align:center;cursor:pointer'  class='showbox'>

@@ -246,6 +246,9 @@ switch ($request['path']) {
     case "$head/admin/editnominee";
         require __DIR__ . '/main/admin/editnominee.php';
         break;
+    case "$head/admin/showscreenshot";
+        require __DIR__ . '/main/admin/showscreenshot.php';
+        break;
     case "$head/admin/logout";
         require __DIR__ . '/main/logout.php';
         break;

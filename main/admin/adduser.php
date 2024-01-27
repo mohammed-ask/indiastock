@@ -88,10 +88,10 @@
             <span class="text-gray-700 dark:text-gray-400">Password</span>
             <input type="password" data-bvalidator="required" id="password" name="password" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Enter Password!" />
         </label>
-        <label class="col-6 block text-sm" style="margin-bottom: 5px;">
+        <!-- <label class="col-6 block text-sm" style="margin-bottom: 5px;">
             <span class="text-gray-700 dark:text-gray-400">Confirm Password</span>
             <input type="password" id="confirmpassword" data-bvalidator="required,matchconfirmpassword[password]" data-bvalidator-msg-matchconfirmpassword="Confirm Password Not Matched" class="block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Confirm Password" />
-        </label>
+        </label> -->
     </div>
     <div class="row">
         <label class="col-6 block text-sm" style="margin-bottom: 5px;">
@@ -115,34 +115,35 @@
         <input xdata-bvalidator="required" name="employeeref" class="select2 block w-full  text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="Employee ID For Furthur Reference" /></label>
 
     <strong>Documents</strong>
-    
-        <div class="row mt-3">
-            <label class="col-6 block text-sm" style="margin-bottom: 5px;">
-                <span class="text-gray-700 dark:text-gray-400">Aadhar Front Side</span>
-                <input hidden value="Aadhar Card Front" name="name[]">
-                <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
-            </label>
-            <label class="col-6 block text-sm" style="margin-bottom: 5px;">
-                <input hidden value="Aadhar Card Back" name="name[]">
-                <span class="text-gray-700 dark:text-gray-400">Aadhar Back Side</span>
-                <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
-            </label>
-        </div>
-    
-        <div class="row">
-            <label class="col-6 block text-sm" style="margin-bottom: 5px;">
-                <span class="text-gray-700 dark:text-gray-400">Pan Card</span>
-                <input hidden value="PAN card" name="name[]">
 
-                <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
-            </label>
-            <label class="col-6 block text-sm" sty le="margin-bottom: 5px;">
-                <span class="text-gray-700 dark:text-gray-400">Signature</span>
-                <input hidden value="Signature" name="name[]">
-                <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
-            </label></div>
-       
-            <div class="row">
+    <div class="row mt-3">
+        <label class="col-6 block text-sm" style="margin-bottom: 5px;">
+            <span class="text-gray-700 dark:text-gray-400">Aadhar Front Side</span>
+            <input hidden value="Aadhar Card Front" name="name[]">
+            <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+        </label>
+        <label class="col-6 block text-sm" style="margin-bottom: 5px;">
+            <input hidden value="Aadhar Card Back" name="name[]">
+            <span class="text-gray-700 dark:text-gray-400">Aadhar Back Side</span>
+            <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+        </label>
+    </div>
+
+    <div class="row">
+        <label class="col-6 block text-sm" style="margin-bottom: 5px;">
+            <span class="text-gray-700 dark:text-gray-400">Pan Card</span>
+            <input hidden value="PAN card" name="name[]">
+
+            <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+        </label>
+        <label class="col-6 block text-sm" sty le="margin-bottom: 5px;">
+            <span class="text-gray-700 dark:text-gray-400">Signature</span>
+            <input hidden value="Signature" name="name[]">
+            <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
+        </label>
+    </div>
+
+    <div class="row">
         <label class="col-6 block text-sm" style="margin-bottom: 5px;">
             <span class="text-gray-700 dark:text-gray-400">Passport Size Photo</span>
             <input hidden value="Passport Size Photo" name="name[]">
@@ -153,7 +154,7 @@
             <input hidden value="Passbook" name="name[]">
             <input style="padding: 3px; border-color: #00aaaa; font-size: 14px; background-color: #efffff;" xdata-bvalidator="required" class="form-control" type="file" name="path[]">
         </label>
-            </div>
+    </div>
 
     <div>
         <button type="submit" id="modalsubmit" class="w-full px-3 py-1 mt-6 text-sm font-medium hidden">
