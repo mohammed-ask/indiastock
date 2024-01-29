@@ -5,13 +5,15 @@ $id = $employeeid;
 $holdingtradeid = $obj->selectfieldwhere(
     "stocktransaction",
     "group_concat(distinct(stockid))",
-    "status = 0 and userid = $id and tradestatus='Open' and type='Holding' and stockid != '' and stockid is not null"
+    "status = 0 and userid = $id and tradestatus='Open' and type='Holding' and stockid != '' and stockid is not null",
+    1
 );
 if (!empty($holdingtradeid)) {
-    $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "(userid='" . $employeeid . "'||userid=0)  and id in (" . $holdingtradeid . ")");
+    $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "(userid='" . $employeeid . "'||userid=0)  and id in (" . $holdingtradeid . ")", 1);
     $rowfetch = mysqli_fetch_all($fetchshare, 1);
     $stockdata = $obj->fivepaisaapi($rowfetch);
 }
+print_r($stockdata);
 $limit = $_GET['length'];
 $start = $_GET['start'];
 $i = 1;
