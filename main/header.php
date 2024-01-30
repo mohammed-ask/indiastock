@@ -1,5 +1,5 @@
 <?php
-$unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $employeeid . " and readstatus = 0");
+$unreadmail =0;// $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $employeeid . " and readstatus = 0");
 $adminemail = '';
 $adminpassword = '';
 if (isset($_SESSION['adminid'])) {
