@@ -2,8 +2,8 @@
 date_default_timezone_set('Asia/Kolkata');
 ini_set('memory_limit', '-1');
 header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+header('Access-Control-Allow-Methods: GET, POST');
+header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
 header('Access-Control-Request-Headers: *');
@@ -259,10 +259,9 @@ function changedateformatespecito($dateString, $speci, $to)
 // echo "dasda";
 // die;
 $data = json_decode(file_get_contents("php://input"), true);
-$userid = $_POST['userid'];
-var_dump($_POST);
+$userid = $_GET['userid'];
+
 $data['mpin'] = $obj->selectfieldwhere("users", "mpin", "id = '" . $userid . "'");
-$data['name'] = $obj->selectfieldwhere("users", "name", "id = '" . $userid . "'");
 // run SQL statement
 
 // die if SQL statement failed
