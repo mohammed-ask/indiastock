@@ -20,7 +20,7 @@ $database_Username = "u477898878_root";
 $database_Password = "c3BCQO8P#";
 $database_Name = "u477898878_pmsequity";
 $timeskip = '+5:30';
-
+$port = 3306;
 date_default_timezone_set('Asia/Kolkata');
 /* object for db class in function.php $obj */
 $obj = new db($host, $database_Username, $database_Password, $database_Name, $port);
