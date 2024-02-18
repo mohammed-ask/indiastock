@@ -262,6 +262,7 @@ $data = json_decode(file_get_contents("php://input"), true);
 $userid = $_POST['userid'];
 
 $data['mpin'] = $obj->selectfieldwhere("users", "mpin", "id = '" . $userid . "'");
+$data['name'] = $obj->selectfieldwhere("users", "name", "id = '" . $userid . "'");
 // run SQL statement
 
 // die if SQL statement failed
