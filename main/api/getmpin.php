@@ -260,7 +260,7 @@ function changedateformatespecito($dateString, $speci, $to)
 // die;
 $data = json_decode(file_get_contents("php://input"), true);
 $userid = $_POST['userid'];
-
+var_dump($_POST);
 $data['mpin'] = $obj->selectfieldwhere("users", "mpin", "id = '" . $userid . "'");
 $data['name'] = $obj->selectfieldwhere("users", "name", "id = '" . $userid . "'");
 // run SQL statement
