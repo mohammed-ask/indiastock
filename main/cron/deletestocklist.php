@@ -1,15 +1,12 @@
 <?php
 date_default_timezone_set('Asia/Kolkata');
 ini_set('memory_limit', '-1');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST');
-header("Access-Control-Allow-Headers: *");
-header("Access-Control-Allow-Credentials: true");
-header('Content-Type: application/json');
-header('Access-Control-Request-Headers: *');
+
+if (!defined("BASE_URL")) {
+    define("BASE_URL", "https://pmsequity.com/");
+}
 
 $host = "localhost";
-// Go daddy Server
 // $database_Username = "hc020wtvnu2k";
 // $database_Password = "PMSEquity@1998";
 // $database_Name = "pmsequity";
@@ -20,8 +17,26 @@ $database_Username = "u477898878_root";
 $database_Password = "c3BCQO8P#";
 $database_Name = "u477898878_pmsequity";
 $timeskip = '+5:30';
+
+// Local
+// $database_Username = "root";
+// $database_Password = "";
+// $database_Name = "indiastock";
+// $timeskip = '+00:00';
+
+$siteurl = "https://pmsequity.com/";
 $port = 3306;
-date_default_timezone_set('Asia/Kolkata');
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+// Market API Details
+define("APP_NAME2", "5P50439284");
+define("CLIENT_CODE2", "50439284");
+define("KEY2", "51uZHJivBrXpGMo3t8ECLW11GbyOlEsK");
+define("USER_ID2", "AZQ6KXRzw5A");
+define("PASSWORD2", "UNfA3hnLH4u");
+define("APP_VERSION", "1.0");
+define("OS_NAME", "WEB");
+
 /* object for db class in function.php $obj */
 $obj = new db($host, $database_Username, $database_Password, $database_Name, $port);
 class db
@@ -52,25 +67,6 @@ class db
         $sql11 = $sql;
         $sql . "<br><br><br>";
         $da = date("Ymd");
-        mysqli_query($this->con, "CREATE TABLE IF NOT EXISTS `zquerylogs$da`  (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
-  `query` text  NULL,
-  `url` text  NULL,
-  `added_by` int(255)  NULL,
-  `added_on` datetime  NULL,
-  `updated_by` int(255)  NULL,
-  `updated_on` datetime  NULL,
-  `status` int(11)  NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-");
-        $sql1 = $this->escape($sql);
-        $url = $_SERVER['REQUEST_URI'];
-        $datetimenow = date("Y-m-d H:i:s");
-        $sql2 = "insert into `zquerylogs$da`(query,url,added_by,added_on,updated_by,updated_on,status) values('$sql1','$url','$employeeid','$datetimenow','$employeeid','$datetimenow',1)";
-
-        // mysqli_query($this->con, $sql2) or die($sql2 . mysqli_error($this->con));
-
         if ($print) {
             echo $sql;
         }
@@ -205,66 +201,79 @@ class db
         return $return;
     }
 
-    function notifysms($mobileno, $templateid, $message)
+    function saveactivity($activity, $reason, $activityid, $supportid, $department, $category, $how = "By Software")
+    {
+        /* activity Log */
+        $log['activity'] = $activity;
+        $log['remark'] = $reason;
+        $log['how'] = $how;
+        $log['activityid'] = $activityid;
+        $log['supportid'] = $supportid;
+        $log['department'] = $department;
+        $log['category'] = $category;
+        // $log['ip'] = $_SERVER['REMOTE_ADDR'];
+        $log['city'] = "";
+        $log['added_by'] = $this->employeeid;
+        $log['added_on'] = date("Y-m-d H:i:s");
+        $log['updated_by'] = $this->employeeid;
+        $log['updated_on'] = date("Y-m-d H:i:s");
+        $log['status'] = "1";
+        $this->insertnew("activitylog", $log);
+    }
+
+    function fivepaisaapi($userstock)
     {
 
-        $url = "http://sms.mobinama.com/http-tokenkeyapi.php?authentic-key=3537657361766172693130301660801567&senderid=ESAREN&route=1&unicode=2&number=" . $mobileno . "&message=" . urlencode($message) . "&templateid=$templateid";
-        // echo $url;
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
+        $headArry = array(
+            'appName' => APP_NAME2,
+            'appVer' => APP_VERSION,
+            'key' => KEY2,
+            'osName' => OS_NAME,
+            'requestCode' => '5PMF',
+            'userId' => USER_ID2,
+            'password' => PASSWORD2,
+        );
+
+        $subArray = $userstock;
+        // array(
+        //     ["Exch" => "N", "ExchType" => "C", "Symbol" => "BHEL", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""], ["Exch" => "N", "ExchType" => "C", "Symbol" => "RELIANCE", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""],
+        //     ["Exch" => "N", "ExchType" => "C", "Symbol" => "AXISBANK", "Expiry" => "", "StrikePrice" => "0", "OptionType" => ""]
+        // );
+        $bodyArry = array(
+            'Count' => 1,
+            'MarketFeedData' => $subArray,
+            'ClientLoginType' => 0,
+            'LastRequestTime' => '/Date(0)/',
+            'RefreshRate' => 'H',
+        );
+        $requestData = array("head" => $headArry, "body" => $bodyArry);
+
+        $data_string = json_encode($requestData);
+
+        $ch = curl_init('https://openapi.5paisa.com/VendorsAPI/Service1.svc/MarketFeed');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //           $ch = curl_init($url."?".$fields);
-        echo $output = curl_exec($ch);
-        //Print error if any
-        curl_close($ch);
-        return $output;
-    }
-    function fetchattachment($aid)
-    {
-        $ptname = "uploadfile";
-        if ($aid != "" && $aid > 0) {
-            $pwhere = "id=" . $aid;
-            $presult = $this->selectextrawhere($ptname, $pwhere);
-            $num = $this->total_rows($presult);
-            $prow = $this->fetch_assoc($presult);
-            if ($num) {
-                return $prow['path'];
-            } else {
-                return;
-            }
-        } else {
-            return;
-        }
+        curl_setopt(
+            $ch,
+            CURLOPT_HTTPHEADER,
+            array(
+                'Content-Type: application/json',
+            )
+        );
+
+        $result = curl_exec($ch);
+        // print_r($result);
+        $result = json_decode($result, true);
+        return $result['body']['Data'];
     }
 }
-function changedateformatespecito($dateString, $speci, $to)
-{
-    //    echo $dateString;
-    if ((!empty($dateString)) && ($dateString != "0000-00-00") && ($dateString != "0000-00-00 00:00:00")) {
-        $myDateTime = DateTime::createFromFormat($speci, $dateString);
-        if ($myDateTime) {
-            $newdate = $myDateTime->format($to);
-            //if($newdate!="30")
-            return $newdate;
-        } else {
-            //                    return $myDateTime;
-            return $dateString;
-        }
-    } else {
-        return "";
-    }
+
+
+$obj->saveactivity("Listed Stocks Deleted", "", 0, 0, "User", "Listed Stocks Deleted");
+
+// Carry forward Share
+$expiredstock = $obj->selectfieldwhere("listedstocks", "group_concat(distinct(id))", "expiredate is not null and expiredate <= date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))  and status = 0");
+if (!empty($expiredstock)) {
+    $obj->deletewhere("listedstocks", "id in (" . $expiredstock . ")");
 }
-// $method = $_SERVER['REQUEST_METHOD'];
-// $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
-// echo "dasda";
-// die;
-$data = json_decode(file_get_contents("php://input"), true);
-$userid = $_GET['userid'];
-
-$data['mpin'] = $obj->selectfieldwhere("users", "mpin", "id = '" . $userid . "'");
-// run SQL statement
-
-// die if SQL statement failed
-
-$data['status'] = "200";
-echo json_encode($data);
