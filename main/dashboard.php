@@ -318,11 +318,11 @@ if ($dashboardmaintanance) {
             
             <img style="border-radius: 8px 8px 0px 0px;" width="100%" src="main/dist/userimages/warning.gif" alt="app-coming-soon">
 
-            <div class="row" style="padding:8px 5px;">
+            <!-- <div class="row" style="padding:8px 5px;">
                 <div class="col-12"><a class="invest-now-button" href="portfolio">Invest Now</a></div>
                
 
-            </div>
+            </div> -->
 
         </div>
 
