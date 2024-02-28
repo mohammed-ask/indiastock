@@ -2,15 +2,15 @@
 include "main/session.php";
 ?>
 
-<div>
+<!-- <div>
     <h2 class="m-0 text-center font-15 py-3 px-0 font-weight-700">We regret to inform you that, due to ongoing bank issues, we are temporarily unable to process payments. Your cooperation is crucial, as payments made during this period are non-refundable. Our team is actively working to resolve the situation, and we will notify you promptly once the payment system is back to normal. We understand the inconvenience and appreciate your patience. If you have urgent concerns, reach out to our customer support.
 </h2>
-</div>
-
-<!-- <div>
-    <h5 class="m-0 text-center font-15 py-3 px-0 font-weight-700">Pay Using Internet Banking, Mobile Banking Apps & UPI Options</h5>
 </div> -->
-<!-- <div class="border rounded">
+
+<div>
+    <h5 class="m-0 text-center font-15 py-3 px-0 font-weight-700">Pay Using Internet Banking, Mobile Banking Apps & UPI Options</h5>
+</div>
+<div class="border rounded">
     <div class="bg-light">
         <h5 style="padding-left:16px !important;" class="m-0 font-14 p-2"><?= "Bank: " . $bankname ?></h5>
     </div>
@@ -90,7 +90,7 @@ include "main/session.php";
 
 
 
-</div> -->
+</div>
 <script>
     $("#modalfooterbtn").css('display', 'none')
 </script>
