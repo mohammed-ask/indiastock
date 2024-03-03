@@ -1507,7 +1507,7 @@ mark {
 }
 
 .card .card-header:first-child {
-    border-radius: 1rem
+    border-radius: 1rem;
 }
 
 .card .card-footer {
@@ -5516,3 +5516,7 @@ text-align: center;}
    .highcharts-container{
     border-radius: 20px !important;
    }
+
+   .tv-embed-widget-wrapper__body {
+    border: 1px solid #4e4eff !important;
+    border-radius: 1rem !important;}
