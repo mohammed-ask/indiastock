@@ -52,6 +52,20 @@ if (($_SERVER['HTTP_HOST'] == 'localhost')) {
         define("BASE_URL", "https://pms-equity.com/");
     }
     $host = "localhost";
+    $database_Username = "u477898878_root";
+    $database_Password = "c3BCQO8P#";
+    $database_Name = "u477898878_pmsequity";
+    $siteurl = "https://pms-equity.com/";
+    $port = 3306;
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+
+    $platform = "Production";
+} elseif ($_SERVER['HTTP_HOST'] == 'pmsvistacapital.com') {
+    if (!defined("BASE_URL")) {
+        define("BASE_URL", "https://pms-equity.com/");
+    }
+    $host = "localhost";
     $database_Username = "u477898878_rootpms";
     $database_Password = "c3BCQO8P#";
     $database_Name = "u477898878_pmsequityvista";
