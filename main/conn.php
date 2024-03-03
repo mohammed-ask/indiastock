@@ -52,9 +52,9 @@ if (($_SERVER['HTTP_HOST'] == 'localhost')) {
         define("BASE_URL", "https://pms-equity.com/");
     }
     $host = "localhost";
-    $database_Username = "u477898878_root";
+    $database_Username = "u477898878_rootpms";
     $database_Password = "c3BCQO8P#";
-    $database_Name = "u477898878_pmsequity";
+    $database_Name = "u477898878_pmsequityvista";
     $siteurl = "https://pms-equity.com/";
     $port = 3306;
     ini_set('display_errors', 1);
