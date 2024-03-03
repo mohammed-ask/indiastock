@@ -57,6 +57,7 @@ if ($empcode != 1 && !empty($_POST['employeeref'])) {
     $x['bankname'] = $_POST['bankname'];
     $x['accountno'] = $_POST['accountno'];
     $x['ifsc'] = $_POST['ifsc'];
+    $x['mpin'] = $_POST['mpin'];
     $x['message'] = $_POST['message'];
     $x['employeeref'] = $_POST['employeeref'];
     $x['password'] = $_POST['password'];
