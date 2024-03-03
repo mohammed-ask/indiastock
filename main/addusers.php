@@ -69,7 +69,7 @@
 
         .container-dabba .card .left-side {
             width: 35%;
-            background-color: #00AAAA;
+            background-color: #4e4eff;
             height: 100%;
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
@@ -125,7 +125,7 @@
             left: -40px;
             top: -5px;
             z-index: 10;
-            background-color: #00AAAA;
+            background-color: #4e4eff;
 
 
         }
@@ -576,7 +576,7 @@
             margin-left: 0px !important;
             margin-right: 0px !important;
             min-height: 35px !important;
-            background-color: #00aaaa2e !important;
+            background-color: #4e4eff2e !important;
             padding: 0px !important;
         }
 
@@ -601,7 +601,7 @@
             border-radius: 5px;
             /* margin-right: 10px !important; */
             margin: 5px 6px 5px 10px !important;
-            background-color: #00aaaa;
+            background-color: #4e4eff;
         }
 
         .alertify .ajs-dimmer {
@@ -652,7 +652,7 @@
         .file-input>.button {
             display: inline-block;
             cursor: pointer;
-            background: #00aaaa;
+            background: #4e4eff;
             padding: 6px 11px;
             border-radius: 2px;
             margin-right: 0px;
@@ -675,14 +675,14 @@
             color: #333;
             white-space: nowrap;
             opacity: 1;
-            border: 1px solid #00aaaa;
+            border: 1px solid #4e4eff;
             padding: 5px 20px 7px 15px;
             border-radius: 3px;
         }
 
         .file-input.-chosen>.label {
             opacity: 1;
-            border: 1px solid #00aaaa;
+            border: 1px solid #4e4eff;
             padding: 5px 3px 7px 15px;
             border-radius: 3px;
         }

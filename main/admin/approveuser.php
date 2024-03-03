@@ -217,7 +217,7 @@ if ($_GET['what'] === 'Approve') {
                                                 <tr>
                                                     <p style="margin-top:0;">Click button to login ↓</p>
                                                     <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                                                        <a href="https://pms-equity.com/login" style="display: block; padding: 7px 10px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 14px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #00aaaa;">Login</a>
+                                                        <a href="https://pms-equity.com/login" style="display: block; padding: 7px 10px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 14px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #4e4eff;">Login</a>
                                                     </td>
                                                 </tr>
                                             </table>

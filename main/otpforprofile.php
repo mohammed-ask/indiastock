@@ -211,7 +211,7 @@ ob_start();
                                         <table border="0" cellpadding="0" cellspacing="0">
                                             <tr>
                                                 <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                                                    <p style="display: inline-block; padding: 10px 40px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 20px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:10px; margin:0; background-color: #00aaaa;"><?= $code ?></p>
+                                                    <p style="display: inline-block; padding: 10px 40px; font-family: 'Poppins', Helvetica, Arial, sans-serif; font-size: 20px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:10px; margin:0; background-color: #4e4eff;"><?= $code ?></p>
                                                 </td>
                                             </tr>
                                         </table>

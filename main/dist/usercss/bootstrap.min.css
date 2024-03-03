@@ -8,7 +8,7 @@
 
 :root {
     --bs-blue: #0b51b7;
-    --bs-indigo: #00aaaa;
+    --bs-indigo: #4e4eff;
     --bs-purple: #6d81f5;
     --bs-pink: #fd3c97;
     --bs-red: #ef4d56;
@@ -29,7 +29,7 @@
     --bs-gray-700: #303e67;
     --bs-gray-800: #435177;
     --bs-gray-900: #000444;
-    --bs-primary: #00aaaa;
+    --bs-primary: #4e4eff;
     --bs-secondary: #7081b9;
     --bs-success: #43c295;
     --bs-info: #41cbd8;
@@ -2635,8 +2635,8 @@ textarea.form-control-lg {
 }
 
 .form-check-input:checked {
-    background-color: #00aaaa;
-    border-color: #00aaaa
+    background-color: #4e4eff;
+    border-color: #4e4eff
 }
 
 .form-check-input:checked[type=checkbox] {
@@ -2648,8 +2648,8 @@ textarea.form-control-lg {
 }
 
 .form-check-input[type=checkbox]:indeterminate {
-    background-color: #00aaaa;
-    border-color: #00aaaa;
+    background-color: #4e4eff;
+    border-color: #4e4eff;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e")
 }
 
@@ -2745,7 +2745,7 @@ textarea.form-control-lg {
     width: 1rem;
     height: 1rem;
     margin-top: -.25rem;
-    background-color: #00aaaa;
+    background-color: #4e4eff;
     border: 0;
     border-radius: 1rem;
     -webkit-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
@@ -2780,7 +2780,7 @@ textarea.form-control-lg {
 .form-range::-moz-range-thumb {
     width: 1rem;
     height: 1rem;
-    background-color: #00aaaa;
+    background-color: #4e4eff;
     border: 0;
     border-radius: 1rem;
     -moz-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
@@ -3303,8 +3303,8 @@ fieldset:disabled .btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #00aaaa;
-    border-color: #00aaaa
+    background-color: #4e4eff;
+    border-color: #4e4eff
 }
 
 .btn-primary:hover {
@@ -3344,8 +3344,8 @@ fieldset:disabled .btn {
 .btn-primary.disabled,
 .btn-primary:disabled {
     color: #fff;
-    background-color: #00aaaa;
-    border-color: #00aaaa
+    background-color: #4e4eff;
+    border-color: #4e4eff
 }
 
 .btn-secondary {
@@ -3819,14 +3819,14 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-primary {
-    color: #00aaaa;
-    border-color: #00aaaa
+    color: #4e4eff;
+    border-color: #4e4eff
 }
 
 .btn-outline-primary:hover {
     color: #fff;
-    background-color: #00aaaa;
-    border-color: #00aaaa
+    background-color: #4e4eff;
+    border-color: #4e4eff
 }
 
 .btn-check:focus+.btn-outline-primary,
@@ -3841,8 +3841,8 @@ fieldset:disabled .btn {
 .btn-outline-primary.dropdown-toggle.show,
 .btn-outline-primary:active {
     color: #fff;
-    background-color: #00aaaa;
-    border-color: #00aaaa
+    background-color: #4e4eff;
+    border-color: #4e4eff
 }
 
 .btn-check:active+.btn-outline-primary:focus,
@@ -3856,7 +3856,7 @@ fieldset:disabled .btn {
 
 .btn-outline-primary.disabled,
 .btn-outline-primary:disabled {
-    color: #00aaaa;
+    color: #4e4eff;
     background-color: transparent
 }
 
@@ -4282,7 +4282,7 @@ fieldset:disabled .btn {
 
 .btn-link {
     font-weight: 400;
-    color: #00aaaa;
+    color: #4e4eff;
     text-decoration: underline
 }
 
@@ -4626,7 +4626,7 @@ fieldset:disabled .btn {
 .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #00aaaa
+    background-color: #4e4eff
 }
 
 .dropdown-item.disabled,
@@ -4674,7 +4674,7 @@ fieldset:disabled .btn {
 .dropdown-menu-dark .dropdown-item.active,
 .dropdown-menu-dark .dropdown-item:active {
     color: #fff;
-    background-color: #00aaaa
+    background-color: #4e4eff
 }
 
 .dropdown-menu-dark .dropdown-item.disabled,
@@ -4835,7 +4835,7 @@ fieldset:disabled .btn {
 .nav-link {
     display: block;
     padding: .5rem .4rem;
-    color: #00aaaa;
+    color: #4e4eff;
     text-decoration: none;
     -webkit-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out
@@ -4905,7 +4905,7 @@ fieldset:disabled .btn {
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     color: #fff;
-    background-color: #00aaaa
+    background-color: #4e4eff
 }
 
 .nav-fill .nav-item,
@@ -5805,8 +5805,8 @@ fieldset:disabled .btn {
 }
 
 .accordion-button:not(.collapsed) {
-    color: #00aaaa;
-    background-color: #00aaaa14;
+    color: #4e4eff;
+    background-color: #4e4eff14;
     -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125)
 }
@@ -6248,7 +6248,7 @@ fieldset:disabled .btn {
     color: #fff;
     text-align: center;
     white-space: nowrap;
-    background-color: #00aaaa;
+    background-color: #4e4eff;
     -webkit-transition: width .6s ease;
     transition: width .6s ease
 }
@@ -6349,8 +6349,8 @@ fieldset:disabled .btn {
 .list-group-item.active {
     z-index: 2;
     color: #fff;
-    background-color: #00aaaa;
-    border-color: #00aaaa
+    background-color: #4e4eff;
+    border-color: #4e4eff
 }
 
 .list-group-item+.list-group-item {
@@ -7962,7 +7962,7 @@ fieldset:disabled .btn {
 }
 
 .link-primary {
-    color: #00aaaa
+    color: #4e4eff
 }
 
 .link-primary:focus,
@@ -8486,7 +8486,7 @@ fieldset:disabled .btn {
 }
 
 .border-primary {
-    border-color: #00aaaa !important
+    border-color: #4e4eff !important
 }
 
 .border-secondary {

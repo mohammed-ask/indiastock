@@ -213,7 +213,7 @@ ob_start();
                                         <table border="0" cellpadding="0" cellspacing="0">
                                             <tr>
                                                 <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                                                    <a href='<?= $redirecturl ?>/resetmpin?hakuna=<?= $id ?>' style="display: inline-block; padding: 10px 15px; font-family: 'Poppins', sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #00aaaa;">Reset MPIN</a>
+                                                    <a href='<?= $redirecturl ?>/resetmpin?hakuna=<?= $id ?>' style="display: inline-block; padding: 10px 15px; font-family: 'Poppins', sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight:bold; letter-spacing:2px; margin:0; background-color: #4e4eff;">Reset MPIN</a>
                                                 </td>
                                             </tr>
                                         </table>

@@ -51,7 +51,7 @@ while ($row = $obj->fetch_assoc($result)) {
     // $n[] = changedateformatespecito($row['added_on'], "Y-m-d H:i:s", "H:i:s");
     // $n[] = $sendmailfrom;
     // $n[] =  $row['subject'];
-    $n[] =  "<button class='btn btn-sm btn-success'  data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal(\"" . $row['id'] . "\", \"viewmaildetail\", \"\", \"View Message\")' style='background-color: #00aaaa;'>View Message</button>";
+    $n[] =  "<button class='btn btn-sm btn-success'  data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal(\"" . $row['id'] . "\", \"viewmaildetail\", \"\", \"View Message\")' style='background-color: #4e4eff;'>View Message</button>";
     $n[] = $row['readstatus'];
     $data[] = $n;
 

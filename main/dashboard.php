@@ -363,13 +363,13 @@ if ($dashboardmaintanance) {
 
         .invest-now-button{
             font-weight: 800;
-    color: #00aaaa;
+    color: #4e4eff;
     margin-top: 2px;
     font-size: 12px;
     border: 1px solid;
     padding: 7px 10px;
     border-radius: 9px;
-    background-color: #00aaaa0f;
+    background-color: #4e4eff0f;
         }
 
         .report-button {

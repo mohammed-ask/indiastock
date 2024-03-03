@@ -352,7 +352,7 @@ video {
     -moz-appearance: none;
     appearance: none;
     background-color: #eeffff;
-    border-color: #00aaaa;
+    border-color: #4e4eff;
     border-width: 1px;
     border-radius: .25rem;
     padding: .35rem .75rem;
@@ -2008,7 +2008,7 @@ width: 11rem;
 }
 
 .focus\:shadow-outline-purple:focus {
-    box-shadow: 0 0 0 3px #00aaaa45;
+    box-shadow: 0 0 0 3px #4e4eff45;
 }
 
 .theme-dark1 .dark1\:focus\:shadow-outline-gray:focus {

@@ -45,7 +45,7 @@ if (isset($_SESSION['adminid'])) {
             ?>
             <li class="">
                 <a class="nav-link arrow-none nav-icon" href="mail">
-                    <i style="color: #00aaaa;" class="fa-solid fa-message"></i>
+                    <i style="color: #4e4eff;" class="fa-solid fa-message"></i>
                     <!-- <?php if ($unreadmail > 0) { ?>
                         <span class="alert-badge"></span>
                     <?php } ?> -->
