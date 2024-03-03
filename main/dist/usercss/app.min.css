@@ -5511,3 +5511,8 @@ text-align: center;}
             
             padding-left: 2px;}
     }
+
+
+   .highcharts-container{
+    border-radius: 20px !important;
+   }
