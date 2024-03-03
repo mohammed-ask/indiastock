@@ -267,6 +267,17 @@ class db
         $result = json_decode($result, true);
         return $result['body']['Data'];
     }
+
+    function deletewhere($tb_name, $where, $print = 0)
+    {
+        $sql = "update`$tb_name` set status=99, updated_on = Now(), updated_by = " . $this->employeeid . " where $where";
+        //        $sql = "delete from `$tb_name` where $where ";
+        if ($this->execute($sql, $print)) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }
 
 
