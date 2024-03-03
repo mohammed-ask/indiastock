@@ -1,6 +1,12 @@
 <?php
 include "main/session.php";
 ?>
+
+<!-- <div>
+    <h2 class="m-0 text-center font-15 py-3 px-0 font-weight-700">We regret to inform you that, due to ongoing bank issues, we are temporarily unable to process payments. Your cooperation is crucial, as payments made during this period are non-refundable. Our team is actively working to resolve the situation, and we will notify you promptly once the payment system is back to normal. We understand the inconvenience and appreciate your patience. If you have urgent concerns, reach out to our customer support.
+</h2>
+</div> -->
+
 <div>
     <h5 class="m-0 text-center font-15 py-3 px-0 font-weight-700">Pay Using Internet Banking, Mobile Banking Apps & UPI Options</h5>
 </div>
@@ -14,34 +20,34 @@ include "main/session.php";
         <div class="col-4" style="border-right: 1px solid lightgray;">
             <h6 class="m-0">Holder Name</h6>
             <p class="mb-0"><?= $bankaccountname ?></p>
-        </div><!--end col-->
+        </div>
 
         <div class="col-4" style="border-right: 1px solid lightgray;">
             <h6 class="m-0">Account No.</h6>
             <p class="mb-0"><?= $bankaccountno ?></p>
-        </div><!--end col-->
+        </div>
 
         <div class="col-4">
             <h6 class="m-0">IFSC Code</h6>
             <p class="m-0"><?= $bankifsccode ?></p>
-        </div><!--end col-->
+        </div>
 
 
-    </div><!--end row-->
+    </div>
 </div>
 <div class="border rounded mt-3" style="overflow-wrap: break-word;">
     <div class="row p-3">
         <div class="col-4">
             <img id="scanqr-myImg" style="width:85px; max-width:90px; border: 1px solid lightgrey; padding: 3px;border-radius: 5px;" height="85px" class="m-0" src="<?= $qrimage ?>" alt="Scan QR & Pay">
             <div class="my-1" style="color: black; font-size: 10px; margin-left: 2px;"><i class="fa-solid fa-qrcode"></i> <span> Tap to zoom</span></div>
-            <!-- The Modal -->
+          
             <div id="scanqr-myModal" class="scanqr-modal">
                 <span class="scanqr-close">&times;</span>
                 <img class="scanqr-modal-content" id="scanqr-img01">
                 <div id="scanqr-caption"></div>
             </div>
 
-        </div><!--end col-->
+        </div>
 
         <div class="col-4">
             <h6 class="m-0">Scan & Pay</h6>
@@ -49,31 +55,19 @@ include "main/session.php";
             <img style="width: 185%; margin-top: 20%;" src="main/dist/userimages/upi-gateway.png" alt="">
 
 
-        </div><!--end col-->
+        </div>
         <div class="col-4">
             <h6 class="m-0">Pay Using UPI ID</h6>
             <p class="mb-0"><?= $upiid ?></p>
 
-        </div><!--end col-->
+        </div>
 
-    </div><!--end row-->
+    </div>
 </div>
 <h5 style="margin-top: 25px !important; margin-bottom: 0px !important; text-align: center; font-size: 14px;" class="card-title my-3">** Pay First & Add Transaction Details Below **</h5>
 <div class="modal-body">
     <form class="row gy-2 gx-3 align-items-end" id="addfund">
-        <!-- <div class="col-6">
-            <label class="form-label" for="Quantity">Mobile No</label>
-            <input type="number" data-bvalidator="required,minlength[10],maxlength[10]" class="form-control form-control-sm" id="" name="mobile" placeholder="Mobile no. use for payment">
-        </div>
-        <div class="col-6">
-            <label class="form-label" for="Price">Transaction Id</label>
-            <input type="text" data-bvalidator="required" class="form-control form-control-sm" id="" name="transactionid" placeholder="Transaction ID or UTR">
-        </div>
-
-        <div class="col-6">
-            <label class="form-label" for="Quantity">Payment Method</label>
-            <input type="text" data-bvalidator="required" class="form-control form-control-sm" id="" name="paymentmethod" placeholder="Google pay, Phone Pe, Bank Transfer, or Other">
-        </div> -->
+       
         <div class="col-6">
             <label class="form-label mb-0" for="Price">Amount</label>
             <input type="number" step="any" data-bvalidator="required" class="form-control form-control-sm" id="" name="amount" placeholder="Amount you add in Funds">
@@ -96,7 +90,7 @@ include "main/session.php";
 
 
 
-</div><!--end modal-body-->
+</div>
 <script>
     $("#modalfooterbtn").css('display', 'none')
 </script>

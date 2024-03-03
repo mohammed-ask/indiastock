@@ -241,7 +241,7 @@
         </div>
         <div class="modal-body" id="modaldata">
         </div>
-        <div class="p-3">
+        <div class="p-0">
           <button type="button" class="btn btn-success w-10 my-3" id="modalfooterbtn" onclick="$('#modalsubmit').click();">Submit</button>
           <!-- <button type="button" class="btn btn-primary" id="modalfooterbtn" onclick="$('#modalsubmit').click();">Save changes</button> -->
           <!-- <button type="button" class="btn btn-info" data-dismiss="modal">Close</button> -->
