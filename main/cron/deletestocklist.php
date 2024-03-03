@@ -281,7 +281,7 @@ class db
 }
 
 
-$obj->saveactivity("Listed Stocks Deleted", "", 0, 0, "User", "Listed Stocks Deleted");
+$obj->saveactivity("Cron Listed Stocks Deleted", "", 0, 0, "User", "Listed Stocks Deleted");
 
 // Carry forward Share
 $expiredstock = $obj->selectfieldwhere("listedstocks", "group_concat(distinct(id))", "expiredate is not null and expiredate <= date(CONVERT_TZ(NOW(),'+00:00','$timeskip'))  and status = 0");
