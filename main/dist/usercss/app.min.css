@@ -1497,8 +1497,8 @@ mark {
     margin-bottom: 16px;
     background-color: #fff;
     border: 1px solid #eceff5;
-    -webkit-box-shadow: 0 2px 6px 0 rgba(173, 175, 182, .3);
-    box-shadow: 0 2px 6px 0 rgba(173, 175, 182, .3)
+    -webkit-box-shadow: 0px 6px 10px 0px rgb(78 103 255 / 30%);
+    box-shadow: 0px 6px 10px 0px rgb(78 103 255 / 30%)
 }
 
 .card .card-header {
