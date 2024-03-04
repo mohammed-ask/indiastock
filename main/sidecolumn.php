@@ -123,7 +123,7 @@ $watchlistcount = $obj->selectfieldwhere("watchliststock", "count(id)", "userid=
 
                     <!-- TradingView Widget BEGIN -->
                     <div class="tradingview-widget-container">
-                        <div class="tradingview-widget-container__widget"></div>
+                        <div class="tradingview-widget-container__widget" style="border-radius: 1.1rem;"></div>
                         <div style="    background-color: white; position: absolute; right: 0; bottom: 1.5%; width: 37px; border-radius: 10px 0px 0px 10px; height: 24px;">
                         </div>
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
