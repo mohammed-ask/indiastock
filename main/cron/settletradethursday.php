@@ -271,7 +271,7 @@ class db
 }
 
 
-$obj->saveactivity("Thurday Cron Run", "", 0, 0, "User", "Thurday Cron Run");
+$obj->saveactivity("Cron Thurday Run", "", 0, 0, "User", "Thurday Cron Run");
 
 // Carry forward Share
 // $xx['type'] = 'Holding';

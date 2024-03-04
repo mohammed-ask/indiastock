@@ -117,7 +117,7 @@ $companyfavicon = $obj->fetchattachment($compdata["faviconicon"]);
 $qrimage = $obj->fetchattachment($compdata['paymentqr']);
 $upiid = $compdata['upiid'];
 $requesttoken = '';
-$redirecturl = ($platform == "test") ?  "http://localhost/indiastock" : "https://pmsequity.online";
+$redirecturl = ($platform == "test") ?  "http://localhost/indiastock" : "https://pmsvistacapital.com";
 if (isset($_GET['RequestToken'])) {
     $requesttoken = $_GET['RequestToken'];
 }

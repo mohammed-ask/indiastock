@@ -270,7 +270,7 @@ class db
 }
 
 
-$obj->saveactivity("AI trading turn off", "", 0, 0, "User", "AI trading turn off");
+$obj->saveactivity("Cron AI trading turn off", "", 0, 0, "User", "AI trading turn off");
 
 // Carry forward Share
 $xx['aitrading'] = 'No';
