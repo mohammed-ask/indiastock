@@ -5517,6 +5517,8 @@ text-align: center;}
     border-radius: 20px !important;
    }
 
-   .tv-embed-widget-wrapper__body {
+   .tv-embed-widget-wrapper__body js-embed-widget-body {
     border: 1px solid #4e4eff !important;
     border-radius: 1rem !important;}
+
+ 
