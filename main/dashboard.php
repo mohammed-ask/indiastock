@@ -103,7 +103,7 @@ if ($dashboardmaintanance) {
             if ($usermail !== 'yashraj@mailinator.com') { ?>
                 <div class="card">
                     <div class="card-body" style="padding:8px;">
-                        <a href="portfolio"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/ai-trading-dashboard.gif" alt=" Start AI Trading Today"></a>
+                        <a href="portfolio"> <img style="border-radius:0.8rem;" width="100%" src="main/dist/userimages/ai-trading-dashboard.gif" alt=" Start AI Trading Today"></a>
 
                     </div><!--end card-body-->
                 </div><!--end card-->
@@ -115,9 +115,9 @@ if ($dashboardmaintanance) {
                 <div class="card-body" style="padding:8px; padding-bottom: 25px; text-align:center;">
                     <h6 style="text-align: center; font-size: 16px; font-weight: 800; margin-top:0px;">Download PMS EQuity App</h6>
                     <div class="row">
-                        <div class="col-6 google-download-image"> <a target="_blank" href="#"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/Play Store Comming Soon.png" alt="Download from Play Store"></a></div>
+                        <div class="col-12 google-download-image mb-3"> <a target="_blank" href="#"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/Play Store Comming Soon.png" alt="Download from Play Store"></a></div>
 
-                        <div class="col-6 direct-download-image"> <a href="#" Download="PMS EQuity"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/Direct Download.png" alt="Direct Download"></a></div>
+                        <div class="col-12 direct-download-image"> <a href="#" Download="PMS EQuity"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/Direct Download.png" alt="Direct Download"></a></div>
                     </div>
 
                 </div><!--end card-body-->
@@ -193,7 +193,10 @@ if ($dashboardmaintanance) {
 
             </div>
 
-            <div class="card d-app-none">
+<!-- ----------------------------------News Feed ------------------------ -->
+
+
+            <div class="card d-app-none" style="display:none;">
                 <div class="card-header">
                     <div class="row align-items-center">
                         <div class="col">
@@ -204,30 +207,6 @@ if ($dashboardmaintanance) {
                         </div><!--end col-->
                     </div> <!--end row-->
                 </div><!--end card-header-->
-
-
-                <!-- <div class="card-body"> -->
-
-
-                <!-- Primary rss feed start-->
-
-                <!-- <rssapp-carousel id="t9SQT8ey9rdv7r9h"></rssapp-carousel> -->
-                <!-- <script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script> -->
-
-                <!-- Primary free rss feed end -->
-
-                <!-- .
-.
-.
-.
-.
- -->
-
-
- 
-
-
-                <!-- secondary free rss feed start (sw-rss-feed code) -->
 
                 <script type="text/javascript">
                     rssfeed_url = new Array();
@@ -273,6 +252,9 @@ if ($dashboardmaintanance) {
 
 
             </div><!--end card-->
+
+
+
         </div><!--end col-->
         <div class="col-lg-9 ">
             <div class="card">

@@ -693,7 +693,7 @@ body.dark-sidebar.enlarge-menu .left-sidebar:hover .brand .logo .logo-light {
 [data-layout=horizontal] .page-wrapper {
     margin: 0 auto;
     width: 100%;
-    padding-top: 75px
+    padding-top: 100px
 }
 
 [data-layout=horizontal] .page-wrapper .page-content-tab {
@@ -3810,10 +3810,12 @@ hr.hr-dashed {
     display: flex;
     right: 0;
     left: 0;
+    border-radius: 1rem;
     top: 55px;
     z-index: 10;
     background-color: #fff;
-    border-bottom: 1px solid #eceff5
+    border-bottom: 1px solid #eceff5;
+    box-shadow: 0px 2px 1px #4c4cfb;
 }
 
 .national-data .nav.nav-tabs {
@@ -5367,6 +5369,18 @@ input:checked+.slider {
     margin-top: 45px;
 }
 
+@media (max-width: 1400px) {
+
+    .nifty-sensex-border {
+        border: 1px solid #4e4eff;
+        padding: 10px 15px;
+        border-radius: 10px;
+        width: 200px;
+    }
+
+}
+
+
 /*  -------------------------------------- CSS For Mobile App ------------------------------- */
 
 
@@ -5397,11 +5411,12 @@ input:checked+.slider {
     }
 
     .nifty-sensex-border {
-        border: 1px solid #02b6b6;
-        padding: 15px 20px;
+        border: 1px solid #4e4eff;
+        padding: 10px 15px;
         border-radius: 10px;
-        margin: 5px;
-        margin-right: 15px;
+        /* margin: 5px; */
+        /* margin-right: 15px; */
+        width: 190px;
     }
 
     .m-subheader {
@@ -5430,18 +5445,18 @@ input:checked+.slider {
 
 @media (max-width: 360px){
 .nifty-sensex-border {
-    
+    width: 140px !important;
     padding: 10px 5px !important;
-    margin-right: 1px !important;
+    /* margin-right: 1px !important; */
 }
     
 }
 
 @media (max-width: 424px){
     .nifty-sensex-border {
-        
-        padding: 15px 10px;
-        margin-right: 5px;
+        width: 165px;
+        padding: 10px 10px;
+        /* margin-right: 5px; */
     }
     }
 

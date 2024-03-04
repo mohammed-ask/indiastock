@@ -6915,7 +6915,7 @@ fieldset:disabled .btn {
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, .2);
-    border-radius: .3rem;
+    border-radius: 1rem;
     outline: 0
 }
 
@@ -6951,8 +6951,8 @@ fieldset:disabled .btn {
     justify-content: space-between;
     padding: 1rem 1rem;
     border-bottom: 1px solid #eaf0f9;
-    border-top-left-radius: calc(.3rem - 1px);
-    border-top-right-radius: calc(.3rem - 1px)
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem
 }
 
 .modal-header .btn-close {

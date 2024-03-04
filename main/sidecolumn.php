@@ -3,7 +3,7 @@ $watchlistcount = $obj->selectfieldwhere("watchliststock", "count(id)", "userid=
 
 ?>
 <div class="col-lg-3 mb-3">
-    <div class="position-sticky" style="top: 120px">
+    <div class="position-sticky" style="top: 145px">
         <!--   <div class="card">
             <div class="card-body">
                  <div class="stock-search">
@@ -121,8 +121,12 @@ $watchlistcount = $obj->selectfieldwhere("watchliststock", "count(id)", "userid=
             <div class="position-sticky" style="top: 85px !important">
                 <div  class="card top-margin-for-sidebar" style="width: 100% !important; height: 500px !important">
 
+
+
+                
+
                     <!-- TradingView Widget BEGIN -->
-                    <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container" style="border-radius:1rem !important;">
                         <div class="tradingview-widget-container__widget" style="border-radius: 1.1rem;"></div>
                         <div style="    background-color: white; position: absolute; right: 0; bottom: 1.5%; width: 37px; border-radius: 10px 0px 0px 10px; height: 24px;">
                         </div>
@@ -148,6 +152,7 @@ $watchlistcount = $obj->selectfieldwhere("watchliststock", "count(id)", "userid=
                                 "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
                                 "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
                                 "symbolActiveColor": "rgba(41, 98, 255, 0.12)"
+                                "borderRadius": "rgba(41, 98, 255, 0.12)"
                             }
                         </script>
                     </div>

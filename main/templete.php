@@ -148,7 +148,7 @@
     font-weight: 500;
     letter-spacing: 1px;
     text-decoration: none;
-    color: #109090;
+    color: #4e4eff;
     line-height: 1;
     vertical-align: middle;
     display: flex;
@@ -172,7 +172,7 @@
   .nav--icons ul li a:hover,
   .nav--icons ul li a.is-active {
     color: #fff;
-    background-color: #109090;
+    background-color: #4e4eff;
   }
 
   .nav--icons ul li a:hover span,
