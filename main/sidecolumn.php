@@ -119,7 +119,7 @@ $watchlistcount = $obj->selectfieldwhere("watchliststock", "count(id)", "userid=
             </div><!--end card-->
         <?php } else { ?>
             <div class="position-sticky" style="top: 85px !important">
-                <div  class="card top-margin-for-sidebar" style="width: 100% !important; height: 500px !important">
+                <div  class="card top-margin-for-sidebar" style="width: 100% !important; height: 500px !important; ">
 
 
 
@@ -140,7 +140,7 @@ $watchlistcount = $obj->selectfieldwhere("watchliststock", "count(id)", "userid=
                                 "width": "100%",
                                 "height": "100%",
                                 "largeChartUrl": "",
-                                "isTransparent": false,
+                                "isTransparent": true,
                                 "showSymbolLogo": false,
                                 "showFloatingTooltip": false,
                                 "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
@@ -152,7 +152,7 @@ $watchlistcount = $obj->selectfieldwhere("watchliststock", "count(id)", "userid=
                                 "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
                                 "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
                                 "symbolActiveColor": "rgba(41, 98, 255, 0.12)"
-                                "borderRadius": "rgba(41, 98, 255, 0.12)"
+                            
                             }
                         </script>
                     </div>

@@ -111,7 +111,7 @@ foreach ($stockdata as $data) { ?>
 
                     <div>
                         <a href="viewchart?token=<?= $data['Token'] ?>&exchangetype=<?= $data['ExchType'] ?>&exchange=<?= $data['Exch'] ?>">
-                            <p class="mb-0 text-muted">View Chart <span><i class="fa-solid fa-arrow-right"></i></span></p>
+                            <p class="mb-0 text-muted">View Chart <span><i class="fa-solid fa-chart-line"></i></span></p>
                         </a>
                     </div>
                 </div>

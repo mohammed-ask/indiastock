@@ -4480,7 +4480,7 @@ ul.listree-submenu-items {
 
 .action-icons ul li {
     border: 1px solid #eceff5;
-    padding: 4px 8px 2px 6px;
+    padding: 5px 12px 5px 12px;
     border-radius: 5px;
     background-color: #cfcfcf;
 
@@ -5013,7 +5013,7 @@ ul.listree-submenu-items {
     visibility: hidden;
     width: 70vw;
 
-    background-color: #057c7c;
+    background-color: #4e4eff;
     color: #fff;
     text-align: center;
     border-radius: 5px;
@@ -5049,7 +5049,7 @@ ul.listree-submenu-items {
 } */
 
 input:checked+.slider {
-    background-color: #057c7c !important;
+    background-color: #4e4eff !important;
 }
 
 
@@ -5084,7 +5084,7 @@ input:checked+.slider {
 .profile-tooltip-market .profile-tooltiptext-market {
     visibility: hidden;
     width: 55vw;
-    background-color: #057c7c;
+    background-color: #4e4eff;
     color: #fff;
     text-align: center;
     border-radius: 5px;
@@ -5129,7 +5129,7 @@ input:checked+.slider {
     visibility: hidden;
     width: 70vw;
 
-    background-color: #057c7c;
+    background-color: #4e4eff;
     color: #fff;
     text-align: center;
     border-radius: 5px;
@@ -5536,4 +5536,7 @@ text-align: center;}
     border: 1px solid #4e4eff !important;
     border-radius: 1rem !important;}
 
- 
+    #tradingview-container {
+        border-radius: 1rem; /* Adjust the radius as needed */
+        overflow: hidden; /* Ensures that the border-radius is applied */
+    }
