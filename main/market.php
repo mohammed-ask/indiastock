@@ -150,7 +150,7 @@ if ($marketmaintanance) {
                                                     font-weight: 500 !important; margin-right: 10px !important;">
                                         <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $data["Token"] ?>", "buystock","", "Buy Stock")'><i class=""></i> Buy</a>
                                     </li><!--end /li-->
-                                    <li class="list-inline-item align-self-center mx-0 bg-danger" style="padding: 5px 15px !important;
+                                    <li class="list-inline-item align-self-center mx-0 bg-danger" style="padding: 5px 15px !important; color: #fff;
                                                     font-weight: 500 !important; margin-right: 10px !important;">
                                         <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $data["Token"] ?>", "sellstock","", "Sell Stock")'>Sell</a>
                                     </li><!--end /li-->

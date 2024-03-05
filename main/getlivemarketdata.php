@@ -74,15 +74,15 @@ foreach ($stockdata as $data) { ?>
                         <p class="mb-1 text-muted">Open</p>
                         <span>₹144.45</span>
                     </div> -->
-                    <div class="col-6 col-md-4 border-end">
+                    <div class="col-4 col-md-4 border-end">
                         <p class="mb-1 text-muted">High</p>
                         <span><?= $currencysymbol ?><?= $data['High'] ?></span>
                     </div>
-                    <div class="col-6 col-md-4 border-end">
+                    <div class="col-4 col-md-4 border-end">
                         <p class="mb-1 text-muted">Low</p>
                         <span><?= $currencysymbol ?><?= $data['Low'] ?></span>
                     </div>
-                    <div class="col-6 col-md-4">
+                    <div class="col-4 col-md-4">
                         <p class="mb-1 text-muted">Close</p>
                         <span><?= $currencysymbol ?><?= $data['PClose'] ?></span>
                     </div>
@@ -93,11 +93,11 @@ foreach ($stockdata as $data) { ?>
                 <div class="d-flex justify-content-between">
                     <div class="action-icons">
                         <ul class="list-inline">
-                            <li class="list-inline-item align-self-center mx-0 bg-success" style="padding: 3px 8px 3px 8px !important;
+                            <li class="list-inline-item align-self-center mx-0 bg-success" style="padding: 5px 15px !important; color: #fff;
                                                     font-weight: 500 !important; margin-right: 10px !important;">
                                 <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $data["Token"] ?>", "buystock","<?= $data["Exch"] ?>", "Buy Stock")'><i class=""></i> Buy</a>
                             </li><!--end /li-->
-                            <li class="list-inline-item align-self-center mx-0 bg-danger" style="padding: 3px 8px 3px 8px !important;
+                            <li class="list-inline-item align-self-center mx-0 bg-danger" style="padding: 5px 15px !important; color: #fff;
                                                     font-weight: 500 !important; margin-right: 10px !important;">
                                 <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $data["Token"] ?>", "sellstock","<?= $data["Exch"] ?>", "Sell Stock")'>Sell</a>
                             </li><!--end /li-->
