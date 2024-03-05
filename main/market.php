@@ -146,7 +146,7 @@ if ($marketmaintanance) {
                         <div class="d-flex justify-content-between">
                             <div class="action-icons">
                                 <ul class="list-inline">
-                                    <li class="list-inline-item align-self-center mx-0 bg-success" style="padding: 3px 8px 3px 8px !important;
+                                    <li class="list-inline-item align-self-center mx-0 bg-success" style="padding: 5px 15px !important; color: #fff;
                                                     font-weight: 500 !important; margin-right: 10px !important;">
                                         <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $data["Token"] ?>", "buystock","", "Buy Stock")'><i class=""></i> Buy</a>
                                     </li><!--end /li-->
