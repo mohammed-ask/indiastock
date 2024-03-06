@@ -5455,7 +5455,7 @@ input:checked+.slider {
 @media (max-width: 424px){
     .nifty-sensex-border {
         width: 165px;
-        padding: 10px 10px;
+        padding: 12px 10px;
         /* margin-right: 5px; */
     }
     }
