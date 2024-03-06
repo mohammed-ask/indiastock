@@ -113,11 +113,11 @@ if ($dashboardmaintanance) {
             <!-- -------------------------------------Download Buttons Start----------------- -->
             <div class="app-download-buttons d-app-none">
                 <div class="card-body" style="padding:8px; padding-bottom: 25px; text-align:center;">
-                    <h6 style="text-align: center; font-size: 16px; font-weight: 800; margin-top:0px;">Download PMS EQuity App</h6>
+                    <h6 style="text-align: center; font-size: 16px; font-weight: 800; margin-top:0px;">Download PMS Mobile App</h6>
                     <div class="row">
                         <div class="col-12 google-download-image mb-3"> <a target="_blank" href="#"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/Play Store Comming Soon.png" alt="Download from Play Store"></a></div>
 
-                        <div class="col-12 direct-download-image"> <a href="#" Download="PMS EQuity"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/Direct Download.png" alt="Direct Download"></a></div>
+                        <div class="col-12 direct-download-image"> <a href="main\dist\download-app\vista.apk" Download="PMS Vista"> <img style="border-radius:4px;" width="100%" src="main/dist/userimages/Direct Download.png" alt="Direct Download"></a></div>
                     </div>
 
                 </div><!--end card-body-->
