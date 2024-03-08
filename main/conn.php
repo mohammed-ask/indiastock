@@ -133,7 +133,7 @@ if ($dayOfWeek >= 1 && $dayOfWeek <= 7 && $dayOfWeek != 6) {
     }
 }
 $timeskip = ($platform == "test") ?  '+00:00' : '+5:30';
-$apiinterval = 22000;
+$apiinterval = 5000;
 $mainpagemaintanance = false;
 $dashboardmaintanance = false;
 $marketmaintanance = false;
