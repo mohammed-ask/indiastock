@@ -133,7 +133,7 @@ $email = $obj->selectfieldwhere("users", 'email', "id=$employeeid");
                                 </div>
 
                             </form>
-                            <button style="background-color: #057c7c;" class="btn btn-success w-10 my-3" onclick="sendForm('', '', 'insertmail', 'resultid', 'addtax')">Send Message</button>
+                            <button style="background-color: #4e4eff;" class="btn btn-success w-10 my-3" onclick="sendForm('', '', 'insertmail', 'resultid', 'addtax')">Send Message</button>
                             <div class="col-md-12" id="resultid"></div>
 
                         </div><!--end modal-body-->

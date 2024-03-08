@@ -1132,7 +1132,7 @@ a.ui-button:active,
 .ui-button:active,
 .ui-button.ui-state-active:hover {
 	
-	background: #057c7c;
+	background: #4e4eff;
 	font-weight: normal;
 	color: #ffffff;
 }
@@ -1148,7 +1148,7 @@ a.ui-button:active,
 .ui-state-active a:visited {
 	color: #ffffff !important;
 	text-decoration: none;
-	background-color: #057c7c;
+	background-color: #4e4eff;
 }
 
 /* Interaction Cues

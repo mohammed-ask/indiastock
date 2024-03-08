@@ -84,7 +84,7 @@ include "main/session.php";
             <li>There is no any hidden Charges like transaction fee, processing fee & more.</li>
         </ul>
 
-        <button style="background-color: #057c7c;" class="btn btn-success w-100 my-3" onclick="event.preventDefault();sendForm('', '', 'insertfund', 'resultid', 'addfund')">Send Payment Details For Approval</button>
+        <button style="background-color: #4e4eff;" class="btn btn-success w-100 my-3" onclick="event.preventDefault();sendForm('', '', 'insertfund', 'resultid', 'addfund')">Send Payment Details For Approval</button>
         <div class="col-md-12" id="resultid"></div>
     </form>
 

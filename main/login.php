@@ -117,7 +117,7 @@ include './main/conn.php';
 
 
         .browser-model-content {
-            border-radius: 0rem 0rem 0.3rem 0.3rem;
+            border-radius: 0.3rem 0.3rem;
             border: none;
 
             text-align: center;
@@ -125,7 +125,7 @@ include './main/conn.php';
 
         .modal-dialog-broswer {
             max-width: 350px;
-            margin: 0rem auto;
+            margin: 15rem 1rem 0rem 1rem;
         }
 
         .modal-footer-browser {
@@ -153,7 +153,7 @@ include './main/conn.php';
             padding: 0.3rem 1.3rem;
             font-size: 14px;
             font-weight: 500;
-            background-color: #048f83;
+            background-color: #4e4eff;
             color: white;
             border: none;
 
@@ -166,13 +166,10 @@ include './main/conn.php';
 
 <body>
     <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
-        <div class="flex-1 h-full max-w-4l mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
-            <div class="flex flex-col overflow-y-auto md:flex-row">
-                <div class="h-32 md:h-auto md:w-1/2">
-                    <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="main/dist/img/login-register-side-img.png" alt="Office" />
-                    <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="main/dist/img/login-register-side-img.png" alt="Office" />
-                </div>
-                <div style="padding-left: 2rem; padding-right: 2rem;" class="items-center justify-center p-6 sm:p-12 md:w-1/2">
+        <div class="flex-1 h-full max-w-l mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
+            <div>
+             
+                <div style="padding-left: 2rem; padding-right: 2rem;" class="p-6 sm:p-12">
                     <form method="post" onsubmit="event.preventDefault();sendForm('', '', 'checklogin', 'resultid', 'loginform','Login');return 0;" id="loginform">
                         <div class="w-full">
                             <h4 class="mb-4 text-l font-semibold text-gray-700 dark:text-gray-200">

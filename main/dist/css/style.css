@@ -311,7 +311,7 @@ p {
 }
 
 input:checked+.slider {
-  background-color: #057c7c;
+  background-color: #4e4eff;
 }
 
 input:focus+.slider {
@@ -387,7 +387,7 @@ input:checked+.slider:before {
 }
 
 .bg-purple {
-  background-color: #057c7c !important;
+  background-color: #4e4eff !important;
 }
 
 
@@ -426,7 +426,7 @@ height: auto;
 }
 
 .bg-theme-color{
-background-color: #057c7c;
+background-color: #4e4eff;
 color: #fff !important;
 }
 
@@ -542,7 +542,7 @@ display: none;
   visibility: hidden;
   width: 85vw;
 
-  background-color: #057c7c;
+  background-color: #4e4eff;
   color: #fff;
   text-align: left;
   border-radius: 5px;

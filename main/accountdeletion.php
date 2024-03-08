@@ -213,7 +213,7 @@ include './main/conn.php';
                                 <p class="mt-4 flex">
                                     <a class="text-md font-medium text-purple-600 dark:text-purple-400 hover:underline" href="./login">
                                    Go to Dashboard or Login !
-                                    </a>  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #057c7c; margin-left:5px;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 15v-4H7v-2h5V7l5 5-5 5z"></path></svg>
+                                    </a>  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #4e4eff; margin-left:5px;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 15v-4H7v-2h5V7l5 5-5 5z"></path></svg>
                                 </p>
 
                             </span>

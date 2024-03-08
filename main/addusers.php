@@ -69,7 +69,7 @@
 
         .container-dabba .card .left-side {
             width: 35%;
-            background-color: #4e4eff;
+            background-color: #0000cb;
             height: 100%;
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
@@ -110,7 +110,7 @@
             margin-left: 40px;
             margin-top: 40px;
             counter-increment: container-dabba 1;
-            color: #065b5b;
+            color: #9797ff;
         }
 
         .progress-bar li::before {
@@ -237,7 +237,7 @@
             border: none;
             outline: 0;
             border-radius: 5px;
-            border: 1px solid #057c7c;
+            border: 1px solid #4e4eff;
             gap: 20px;
             box-sizing: border-box;
             padding: 0px 10px;
@@ -249,7 +249,7 @@
             border: none;
             outline: 0;
             border-radius: 5px;
-            border: 1px solid #057c7c;
+            border: 1px solid #4e4eff;
             gap: 20px;
             box-sizing: border-box;
             padding: 0px 10px;
@@ -261,7 +261,7 @@
             border: none;
             outline: 0;
             border-radius: 5px;
-            border: 1px solid #057c7c;
+            border: 1px solid #4e4eff;
             gap: 20px;
             box-sizing: border-box;
             padding: 0px 10px;
@@ -273,7 +273,7 @@
             border: none;
             outline: 0;
             border-radius: 5px;
-            border: 1px solid #057c7c;
+            border: 1px solid #4e4eff;
             gap: 20px;
             box-sizing: border-box;
             padding: 0px 10px;
@@ -285,7 +285,7 @@
             border: none;
             outline: 0;
             border-radius: 5px;
-            border: 1px solid #057c7c;
+            border: 1px solid #4e4eff;
             gap: 20px;
             box-sizing: border-box;
             padding: 0px 10px;
@@ -318,7 +318,7 @@
             width: 100px;
             border: none;
             border-radius: 5px;
-            background-color: #057c7c;
+            background-color: #4e4eff;
             font-size: 12px;
             color: #fff;
             cursor: pointer;
@@ -332,8 +332,8 @@
 
         .button_space button:nth-child(1) {
             background-color: #fff;
-            color: #057c7c;
-            border: 1px solid #057c7c;
+            color: #4e4eff;
+            border: 1px solid #4e4eff;
         }
 
         .user_card {
@@ -667,7 +667,7 @@
 
 
         .file-input:hover>.button {
-            background: #057c7c;
+            background: #4e4eff;
             color: white;
         }
 

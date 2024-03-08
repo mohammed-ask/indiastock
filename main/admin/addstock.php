@@ -112,7 +112,7 @@ $type = $_GET['hakuna'];
 
     <label class="block text-sm" style="margin-bottom: 5px;">
         <div style="display: inline-flex;"> <span class="text-gray-700 dark:text-gray-400">Stock
-                Name</span> <span class="col-2 profile-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
+                Name</span> <span class="col-2 profile-tooltip"><i style="color: #4e4eff;" class="fa-solid fa-circle-info"></i>
                 <p class="profile-tooltiptext">In case you search for Derivative, write like:<br>
                     <b>Option Type-</b> NIFTY 23 May 2023 PE 2345263.00<br>
                     [ STOCK Date of Expiry Option Type (PE/CE) Strike Price ]

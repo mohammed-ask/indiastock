@@ -152,7 +152,7 @@ if ($portfoliomaintanance) {
                             ?>
                             <span class="h5">₹<?= round($investmentamount) ?></span>
                             <h6 class="text-uppercase font-11 text-muted mt-2 m-0">Current Value</h6>
-                            <h6 class="text-uppercase font-10 text-muted mt-2 m-0 portfolio-cbody"><span style="display: inline-flex;justify-content:center;align-items:center"><span>Net Amount</span> <span><span class="profile-tooltip mt-0"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
+                            <h6 class="text-uppercase font-10 text-muted mt-2 m-0 portfolio-cbody"><span style="display: inline-flex;justify-content:center;align-items:center"><span>Net Amount</span> <span><span class="profile-tooltip mt-0"><i style="color: #4e4eff;" class="fa-solid fa-circle-info"></i>
                                             <p class="text-capitalize profile-tooltiptext">The net amount, including your profit & loss, available for withdrawal at any time.</p>
                                         </span></span></span></h6>
 

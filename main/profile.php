@@ -162,7 +162,7 @@ ob_start();
                                     <span>
                                         <h5 class="mt-3 font-13">Carry Forward Trade</h5>
                                     </span>
-                                    <div class="profile-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
+                                    <div class="profile-tooltip"><i style="color: #4e4eff;" class="fa-solid fa-circle-info"></i>
                                         <p class="profile-tooltiptext">If you keep it turned on, your stocks bought today will be converted to holdings. However, if you turn it off, your today's stocks will be sold at the market close time.</p>
                                     </div>
                                 </div>
@@ -180,7 +180,7 @@ ob_start();
                                         <h5 class="mt-4 font-13">Long-Term Holding</h5>
                                     </span>
 
-                                    <div class="profile-tooltip"><i style="color: #057c7c;" class="fa-solid fa-circle-info"></i>
+                                    <div class="profile-tooltip"><i style="color: #4e4eff;" class="fa-solid fa-circle-info"></i>
                                         <p class="profile-tooltiptext">By turning on this option, you can hold this asset for as long as you want without being automatically sold or bought, whether it's for weeks, months, or whenever you choose.</p>
                                     </div>
                                 </div>

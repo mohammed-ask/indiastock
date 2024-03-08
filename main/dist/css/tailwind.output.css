@@ -351,7 +351,7 @@ video {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-color: #eeffff;
+    background-color: #e9e9ff;
     border-color: #4e4eff;
     border-width: 1px;
     border-radius: .25rem;
@@ -675,43 +675,44 @@ print and (-ms-high-contrast:none) {
 
 .bg-teal-100 {
     --bg-opacity: 1;
-    background-color: #d5f5f6;
-    background-color: rgba(213, 245, 246, var(--bg-opacity))
+    background-color: #d9ebff !important;
+    border-radius: 5px;
+    
 }
 
 .bg-teal-500 {
     --bg-opacity: 1;
-    background-color: #0694a2;
+    background-color: #9494f8;
     background-color: rgba(6, 148, 162, var(--bg-opacity))
 }
 
 .bg-teal-600 {
     --bg-opacity: 1;
-    background-color: #047481;
+    background-color: #7070f9;
     background-color: rgba(4, 116, 129, var(--bg-opacity))
 }
 
 .bg-blue-100 {
     --bg-opacity: 1;
-    background-color: #e1effe;
+    background-color: #dcdcfe;
     background-color: rgba(225, 239, 254, var(--bg-opacity))
 }
 
 .bg-blue-500 {
     --bg-opacity: 1;
-    background-color: #057c7c;
+    background-color: #4e4eff;
     
 }
 
 .bg-blue-600 {
     --bg-opacity: 1;
-    background-color: #057c7c;
+    background-color: #4e4eff;
     
 }
 
 .bg-purple-600 {
     --bg-opacity: 1;
-    background-color: #057c7c;
+    background-color: #4e4eff;
 }
 
 .hover\:bg-gray-100:hover {
@@ -722,7 +723,7 @@ print and (-ms-high-contrast:none) {
 
 .hover\:bg-purple-700:hover {
     --bg-opacity: 1;
-    background-color: #046b6b;
+    background-color:#4e4eff ;
     
 }
 
@@ -738,7 +739,7 @@ print and (-ms-high-contrast:none) {
 
 .active\:bg-purple-600:active {
     --bg-opacity: 1;
-    background-color: #046b6b;;
+    background-color: #4e4eff;;
     
 }
 
@@ -1268,6 +1269,11 @@ print and (-ms-high-contrast:none) {
     max-height: 36rem
 }
 
+.max-w-l {
+    max-width: 25rem
+}
+
+
 .max-w-xl {
     max-width: 36rem
 }
@@ -1712,7 +1718,7 @@ print and (-ms-high-contrast:none) {
 
 .text-purple-600 {
     --text-opacity: 1;
-    color: #057c7c;
+    color: #4e4eff;
     
 }
 

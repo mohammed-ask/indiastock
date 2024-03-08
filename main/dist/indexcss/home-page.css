@@ -220,7 +220,7 @@ body {
   background-color: #fff;
   font-size: 18px;
   font-weight: 600;
-  color: #057c7c;
+  color: #4e4eff;
   text-transform: capitalize;
   padding: 12px 13px;
   border-radius: 8px;
@@ -231,7 +231,7 @@ body {
 .banner-create-button{
 
   display: inline-block;
-  background-color: #057c7c;
+  background-color: #4e4eff;
   font-size: 16px;
   margin-top: 30px;
   font-weight: 500;
@@ -1077,7 +1077,7 @@ contact form & contact background
 
 .contact-us {
   padding: 75px 0px;
-  background-color: #057c7c;
+  background-color: #4e4eff;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1143,7 +1143,7 @@ form#contact textarea::placeholder {
 
 form#contact button {
   display: inline-block;
-  background-color: #057c7c;
+  background-color: #4e4eff;
   font-size: 15px;
   font-weight: 400;
   color: #fff;
@@ -1489,7 +1489,7 @@ section.testimonials {
   margin: 0 auto;
   float: none;
   display: table;
-  color: #057c7c;
+  color: #4e4eff;
 }
 
 /*--------------------------------------------------------------
@@ -1507,7 +1507,7 @@ section.testimonials {
 }
 
 .featured-services .service-item .icon i {
-  color: #057c7c;
+  color: #4e4eff;
   font-size: 36px;
   transition: 0.3s;
 }
@@ -1759,7 +1759,7 @@ section.testimonials {
 
 .contact .info-item i {
   font-size: 24px;
-  color: #057c7c;
+  color: #4e4eff;
   transition: all 0.3s ease-in-out;
   margin-right: 20px;
 }
@@ -1917,7 +1917,7 @@ section.testimonials {
   margin: 0;
   width: 72px;
   height: 72px;
-  background: #057c7c;
+  background: #4e4eff;
   border-radius: 50px;
   display: flex;
   align-items: center;
