@@ -62,7 +62,7 @@ include "templete.php";
             "ajax": "../main/admin/employeeuserdata.php",
             "processing": true,
             "serverSide": true,
-            "pageLength": 15,
+            "pageLength": 500,
             "paging": true,
             "lengthChange": false,
             "searching": false,
