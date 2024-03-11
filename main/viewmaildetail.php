@@ -25,5 +25,5 @@ $type = $what == 'sentmail' ? 'senderid' : 'receiverid';
     <?php } ?>
 </div>
 <script>
-    $('#modalfooterbtn').html('Reply')
+    ('').html('')
 </script>

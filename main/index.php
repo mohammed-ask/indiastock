@@ -212,7 +212,7 @@ if ($mainpagemaintanance) { ?>
                         <h5 class="d-flex align-items-center mt-4" style="font-weight:700;">AI Trade Mode</h5>
                         <p>Unlock the future of trading with our AI Trade Mode, which provides you with intelligent, data-driven trading suggestions and strategies, enhancing your decision-making and boosting your trading success..</p>
 <div class="row mt-3">
-    <div class="col-6"><a target="_blank" href="#"><img class="download-img" src="main\dist\indeximage\playstore-coming-soon.png" alt="Download From Playstore"></a></div>
+    <div class="col-6"><a target="_blank" href="https://play.google.com/store/apps/details?id=com.pmsvistacapital"><img class="download-img" src="main\dist\indeximage\playstore-coming-soon.png" alt="Download From Playstore"></a></div>
     <div class="col-6"><a class="margin-for-deshboard" href="main\dist\download-app\vista.apk" Download="PMS Vista"><img class="download-img" src="main\dist\indeximage\direct-download.png" alt=""></a></div>
 </div>
 
