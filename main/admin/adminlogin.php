@@ -112,7 +112,7 @@ text-align: center;}
 .modal-dialog-broswer {
     max-width: 350px;
     margin: auto;
-            margin-top: 30%;
+            margin-top: 20%;
 }
 
 .modal-footer-browser{border-top: none !important;
