@@ -51,7 +51,8 @@ $id = $_GET['hakuna'];
 
         .modal-dialog-broswer {
             max-width: 350px;
-            margin: 0rem auto;
+            margin: auto;
+            margin-top: 30%;
         }
 
         .modal-footer-browser {
