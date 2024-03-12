@@ -154,7 +154,7 @@ if ($marketmaintanance) {
                                                     font-weight: 500 !important; margin-right: 10px !important;">
                                         <a style="cursor:pointer" data-bs-toggle='modal' data-bs-target='#myModal' onclick='dynamicmodal("<?= $data["Token"] ?>", "sellstock","", "Sell Stock")'>Sell</a>
                                     </li><!--end /li-->
-                                    <li <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='background-color:#0073cf;cursor:pointer'" : "style='cursor:pointer'" ?> class="list-inline-item align-self-center mx-0">
+                                    <li <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='background-color:#0073cf; border-radius:30px; cursor:pointer'" : "style='cursor:pointer'" ?> class="list-inline-item align-self-center mx-0">
 
                                         <i <?= (in_array($data['Symbol'], $watchlistsym) && in_array($data['Exch'], $sexchange)) ?  "style='color:white'" : "" ?> onclick="addtowatchlist('<?= $data['Symbol'] ?>','<?= $data['Exch']  ?>','<?= $data['Token']  ?>')" class="fa-solid fa-plus email-action-icons-item"></i>
                                     </li><!--end /li-->
