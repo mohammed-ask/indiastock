@@ -157,7 +157,6 @@ include './main/conn.php';
             background-color: #4e4eff;
             color: white;
             border: none;
-
         }
 @media screen and (max-width: 768px){
     .modal-dialog-broswer {
