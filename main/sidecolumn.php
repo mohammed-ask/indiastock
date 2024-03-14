@@ -3,7 +3,7 @@ $watchlistcount = $obj->selectfieldwhere("watchliststock", "count(id)", "userid=
 
 ?>
 <div class="col-lg-3 mb-3">
-    <div class="position-sticky" style="top: 100px">
+    <div class="position-sticky" style="top: 145px">
         <!--   <div class="card">
             <div class="card-body">
                  <div class="stock-search">
