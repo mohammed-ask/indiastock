@@ -34,7 +34,7 @@ if (in_array(34, $permissions)) {
                     <p class="mb-2  font-medium text-gray-600 dark:text-gray-400">
                         Active clients
                     </p>
-                    <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    <p class="text-md font-semibold text-gray-700 dark:text-gray-200">
                         <?= $activeclient ?>
                     </p>
                 </div>
@@ -51,7 +51,7 @@ if (in_array(34, $permissions)) {
                     <p class="mb-2  font-medium text-gray-600 dark:text-gray-400">
                         Total investment
                     </p>
-                    <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    <p class="text-md font-semibold text-gray-700 dark:text-gray-200">
                         <span>₹</span> <?= round($totalinv + $opentradeamt, 2) ?>
                     </p>
                 </div>
@@ -65,7 +65,7 @@ if (in_array(34, $permissions)) {
                     <p class="mb-2  font-medium text-gray-600 dark:text-gray-400">
                         Pending approval
                     </p>
-                    <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    <p class="text-md font-semibold text-gray-700 dark:text-gray-200">
                         <?= $pendinguser ?>
                     </p>
                 </div>
@@ -79,7 +79,7 @@ if (in_array(34, $permissions)) {
                     <p class="mb-2  font-medium text-gray-600 dark:text-gray-400">
                         Open positions
                     </p>
-                    <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    <p class="text-md font-semibold text-gray-700 dark:text-gray-200">
                         <?= $openposition ?>
                     </p>
                 </div>
