@@ -87,59 +87,62 @@ include './main/conn.php';
       transition-duration: 500ms !important;
     }
 
-    /*  ----------------------------------Browser alert start------------------------------------------ */
+        /*  ----------------------------------Browser alert start------------------------------------------ */
 
-    .browser-d-none {
-      display: none !important;
-    }
+        .browser-d-none {
+            display: none !important;
+        }
 
 
-    .browser-model-content {
-      border-radius: 0rem 0rem 0.3rem 0.3rem;
-      border: none;
+        .browser-model-content {
+            border-radius: 0.3rem 0.3rem;
+            border: none;
 
-      text-align: center;
-    }
+            text-align: center;
+        }
 
-    .modal-dialog-broswer {
-      max-width: 350px;
-      margin: auto;
+        .modal-dialog-broswer {
+            max-width: 350px;
+            margin: auto;
             margin-top: 20%;
-    }
+        }
 
-    .modal-footer-browser {
-      border-top: none !important;
-      padding: 0px 7px 6px 3px;
-      justify-content: center;
-    }
+        .modal-footer-browser {
+            border-top: none !important;
+            padding: 0px 7px 6px 3px;
+            justify-content: center;
+        }
 
-    .browser-btn-primary {
-      color: #231515;
-      background-color: #ffffff;
-      border-color: #070809;
+        .browser-btn-primary {
+            color: #231515;
+            background-color: #ffffff;
+            border-color: #070809;
 
-    }
+        }
 
-    .browser-btn-secondary {
-      color: #0b0707;
-      background-color: #6c757d00;
-      border-color: #6c757d;
+        .browser-btn-secondary {
+            color: #0b0707;
+            background-color: #6c757d00;
+            border-color: #6c757d;
 
-    }
+        }
 
-    .browser-btn {
+        .browser-btn {
 
-      padding: 0.3rem 1.3rem;
-      font-size: 14px;
-      font-weight: 500;
-      background-color: #048f83;
-      color: white;
-      border: none;
+            padding: 0.3rem 1.3rem;
+            font-size: 14px;
+            font-weight: 500;
+            background-color: #4e4eff;
+            color: white;
+            border: none;
+        }
+@media screen and (max-width: 768px){
+    .modal-dialog-broswer {
+            margin-top: 60%;
+        }
+}
 
-    }
-
-
-    /*  ----------------------------------Browser alert End------------------------------------------ */
+        /*  ----------------------------------Browser alert End------------------------------------------ */
   </style>
 
 </head>

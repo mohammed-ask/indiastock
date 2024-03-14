@@ -35,15 +35,15 @@ $id = $_GET['hakuna'];
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
 
     <style>
-        /*  ----------------------------------Browser alert start------------------------------------------ */
+            /*  ----------------------------------Browser alert start------------------------------------------ */
 
-        .browser-d-none {
+            .browser-d-none {
             display: none !important;
         }
 
 
         .browser-model-content {
-            border-radius: 0rem 0rem 0.3rem 0.3rem;
+            border-radius: 0.3rem 0.3rem;
             border: none;
 
             text-align: center;
@@ -80,13 +80,17 @@ $id = $_GET['hakuna'];
             padding: 0.3rem 1.3rem;
             font-size: 14px;
             font-weight: 500;
-            background-color: #048f83;
+            background-color: #4e4eff;
             color: white;
             border: none;
-
         }
+@media screen and (max-width: 768px){
+    .modal-dialog-broswer {
+            margin-top: 60%;
+        }
+}
 
-
+        /*  ----------------------------------Browser alert End------------------------------------------ */
         /*  ----------------------------------Browser alert End------------------------------------------ */
     </style>
 </head>
