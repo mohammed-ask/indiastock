@@ -161,7 +161,7 @@ include './main/conn.php';
         }
 @media screen and (max-width: 768px){
     .modal-dialog-broswer {
-            margin-top: 55%;
+            margin-top: 60%;
         }
 }
 
