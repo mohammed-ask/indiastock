@@ -922,7 +922,7 @@ print and (-ms-high-contrast:none) {
 }
 
 .rounded-lg {
-    border-radius: .5rem
+    border-radius: 1rem !important
 }
 
 .rounded-full {
