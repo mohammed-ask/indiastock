@@ -382,8 +382,8 @@ video {
 
 .form-input:focus {
     outline: none;
-    box-shadow: 0 0 0 3px #cfffff !important;
-    border-color: #0cd1d1 !important
+    box-shadow: 0 0 0 3px #eaeaff !important;
+    border-color: #4e4eff !important;
 }
 
 .form-textarea {
