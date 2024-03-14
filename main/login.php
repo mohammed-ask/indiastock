@@ -159,7 +159,11 @@ include './main/conn.php';
             border: none;
 
         }
-
+@media screen and (max-width: 768px){
+    .modal-dialog-broswer {
+            margin-top: 55%;
+        }
+}
 
         /*  ----------------------------------Browser alert End------------------------------------------ */
     </style>
