@@ -1,6 +1,11 @@
 <?php
 include '../session.php';
 /* @var $obj db */
+$empref = "";
+if ($adminid != 46) {
+    $emprefid = $obj->selectfieldwhere('users', "usercode", "id=$employeeid");
+    $empref =  "and employeeref = '$emprefid'";
+}
 $limit = $_GET['length'];
 $start = $_GET['start'];
 $i = 1;
@@ -37,9 +42,9 @@ $return['recordsTotal'] = $obj->selectfieldwhere("bankaccountchange  ", "count(b
 $return['recordsFiltered'] = $obj->selectfieldwhere("bankaccountchange ", "count(bankaccountchange.id)", "status in (0) $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
-    "bankaccountchange ",
+    "bankaccountchange inner join users on users.id = bankaccountchange.userid",
     "*",
-    "status in (0) $search $order limit $start, $limit"
+    "status in (0) $empref $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
