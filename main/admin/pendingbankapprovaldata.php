@@ -44,7 +44,7 @@ $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "bankaccountchange inner join users on users.id = bankaccountchange.userid",
     "*",
-    "status in (0) $empref $search $order limit $start, $limit"
+    "bankaccountchange.status in (0) $empref $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
