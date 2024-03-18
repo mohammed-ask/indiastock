@@ -1,6 +1,11 @@
 <?php
 include '../session.php';
 /* @var $obj db */
+$empref = "";
+if ($adminid != 46) {
+    $emprefid = $obj->selectfieldwhere('users', "usercode", "id=$employeeid");
+    $empref =  "and employeeref = '$emprefid'";
+}
 $limit = $_GET['length'];
 $start = $_GET['start'];
 $i = 1;
@@ -34,13 +39,13 @@ if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][
     $search .= " and withdrawalrequests.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
 $join = "inner join users on users.id = withdrawalrequests.userid";
-$return['recordsTotal'] = $obj->selectfieldwhere("withdrawalrequests $join", "count(withdrawalrequests.id)", "withdrawalrequests.status in (1,0,91) ");
-$return['recordsFiltered'] = $obj->selectfieldwhere("withdrawalrequests $join", "count(withdrawalrequests.id)", "withdrawalrequests.status in (1,0,91)  $search ");
+$return['recordsTotal'] = $obj->selectfieldwhere("withdrawalrequests $join", "count(withdrawalrequests.id)", "withdrawalrequests.status in (1,0,91) $empref ");
+$return['recordsFiltered'] = $obj->selectfieldwhere("withdrawalrequests $join", "count(withdrawalrequests.id)", "withdrawalrequests.status in (1,0,91) $empref $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "withdrawalrequests $join",
     "withdrawalrequests.id,name,investmentamount,mobile,amount,withdrawalrequests.status,remark,withdrawalrequests.added_on,userid",
-    "withdrawalrequests.status in (1,0,91)  $search $order limit $start, $limit"
+    "withdrawalrequests.status in (1,0,91) $empref $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
