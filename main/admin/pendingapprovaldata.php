@@ -1,6 +1,11 @@
 <?php
 include '../session.php';
 /* @var $obj db */
+$empref = "";
+if ($adminid != 46) {
+    $emprefid = $obj->selectfieldwhere('users', "usercode", "id=$employeeid");
+    $empref =  "and employeeref = '$emprefid'";
+}
 $limit = $_GET['length'];
 $start = $_GET['start'];
 $i = 1;
@@ -39,7 +44,7 @@ $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "users ",
     "*",
-    "status in (0) and type = 2 $search $order limit $start, $limit"
+    "status in (0) and type = 2 $empref $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
