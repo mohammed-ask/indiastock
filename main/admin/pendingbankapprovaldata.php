@@ -38,13 +38,13 @@ if ((isset($_GET['columns'][0]["search"]["value"])) && (!empty($_GET['columns'][
 if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][1]["search"]["value"]))) {
     $search .= " and bankaccountchange.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
-$return['recordsTotal'] = $obj->selectfieldwhere("bankaccountchange  ", "count(bankaccountchange.id)", "status in (0)");
-$return['recordsFiltered'] = $obj->selectfieldwhere("bankaccountchange ", "count(bankaccountchange.id)", "status in (0) $search ");
+$return['recordsTotal'] = $obj->selectfieldwhere("bankaccountchange inner join users on users.id = bankaccountchange.userid ", "count(bankaccountchange.id)", "bankaccountchange.status in (0)");
+$return['recordsFiltered'] = $obj->selectfieldwhere("bankaccountchange inner join users on users.id = bankaccountchange.userid", "count(bankaccountchange.id)", "bankaccountchange.status in (0) $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "bankaccountchange inner join users on users.id = bankaccountchange.userid",
     "*",
-    "status in (0) $empref $search $order limit $start, $limit"
+    "bankaccountchange.status in (0) $empref $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
