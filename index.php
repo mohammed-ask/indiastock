@@ -106,7 +106,7 @@ switch ($request['path']) {
         require __DIR__ . '/main/admin/viewusers.php';
         break;
     case "$head/admin/register";
-        require __DIR__ . '/main/admin/demoregister.php';
+        require __DIR__ . '/main/admin/addusers.php';
         break;
     case "$head/admin/adduser";
         require __DIR__ . '/main/admin/adduser.php';
