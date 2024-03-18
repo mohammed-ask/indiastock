@@ -193,7 +193,7 @@ ob_start();
                     <!-- start copy -->
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px 24px 5px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                            <p style="margin: 0;">Thank you for registering with <a href="https://pms-equity.com/">PMS Equity</a>. Please confirm your account.</p>
+                            <p style="margin: 0;">Thank you for registering with <a href="https://pmsvistacapital.com/">PMS Equity</a>. Please confirm your account.</p>
                             <p>
 
                                 To complete your registration, please enter the OTP / Confirmation code to the website:</p>
@@ -236,7 +236,7 @@ ob_start();
                     <!-- start copy -->
                     <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">
-                            <p style="margin: 0;">Best regards,<br>PMS Equity Team</p><img width="145px" style=" margin-top: 20px;" src="https://pms-equity.com/main/images/pmslogo.png">
+                            <p style="margin: 0;">Best regards,<br>PMS Equity Team</p><img width="145px" style=" margin-top: 20px;" src="https://pmsvistacapital.com/main/images/pmslogo.png">
                         </td>
                     </tr>
                     <!-- end copy -->
