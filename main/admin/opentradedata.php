@@ -1,6 +1,10 @@
 <?php
 include '../session.php';
 /* @var $obj db */
+if ($adminid != 46) {
+    $emprefid = $obj->selectfieldwhere('users', "usercode", "id=$employeeid");
+    $empref =  "and employeeref = '$emprefid'";
+}
 $limit = $_GET['length'];
 $start = $_GET['start'];
 $i = 1;
@@ -33,13 +37,15 @@ if ((isset($_GET['columns'][0]["search"]["value"])) && (!empty($_GET['columns'][
 if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][1]["search"]["value"]))) {
     $search .= " and stocktransaction.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
-$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and type='Intraday' and tradestatus='Open'");
-$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction", "count(stocktransaction.id)", "status = 0 and type='Intraday' and tradestatus='Open' $search ");
+$join = "inner join users on users.id = stocktransaction.userid";
+
+$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 0 and type='Intraday' and tradestatus='Open' $empref");
+$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 0 and type='Intraday' and tradestatus='Open' $empref $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
-    "stocktransaction",
+    "stocktransaction $join",
     "*",
-    "status = 0 and type='Intraday' and tradestatus='Open' $search $order limit $start, $limit"
+    "stocktransaction.status = 0 and type='Intraday' and tradestatus='Open' $empref $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
