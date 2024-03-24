@@ -2,8 +2,7 @@
 include '../session.php';
 /* @var $obj db */
 $empref = "";
-echo $adminid;
-if ($adminid != 46) {
+if ($adminid != $employeeid) {
     $emprefid = $obj->selectfieldwhere('users', "usercode", "id=$employeeid");
     $empref =  "and employeeref = '$emprefid'";
 }
@@ -47,8 +46,7 @@ $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction $join",
     "*",
-    "stocktransaction.status = 0 and stocktransaction.type='Intraday' and tradestatus='Open' $empref $search $order limit $start, $limit",
-    1
+    "stocktransaction.status = 0 and stocktransaction.type='Intraday' and tradestatus='Open' $empref $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
