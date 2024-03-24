@@ -46,7 +46,8 @@ $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction $join",
     "*",
-    "stocktransaction.status = 0 and stocktransaction.type='Intraday' and tradestatus='Open' $empref $search $order limit $start, $limit"
+    "stocktransaction.status = 0 and stocktransaction.type='Intraday' and tradestatus='Open' $empref $search $order limit $start, $limit",
+    1
 );
 $num = $obj->total_rows($result);
 $data = array();
