@@ -40,13 +40,13 @@ if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][
 }
 $join = "inner join users on users.id = stocktransaction.userid";
 
-$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 0 and type='Intraday' and tradestatus='Open' $empref");
-$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 0 and type='Intraday' and tradestatus='Open' $empref $search ");
+$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 0 and stocktransaction.type='Intraday' and tradestatus='Open' $empref");
+$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 0 and stocktransaction.type='Intraday' and tradestatus='Open' $empref $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction $join",
     "*",
-    "stocktransaction.status = 0 and type='Intraday' and tradestatus='Open' $empref $search $order limit $start, $limit"
+    "stocktransaction.status = 0 and stocktransaction.type='Intraday' and tradestatus='Open' $empref $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();

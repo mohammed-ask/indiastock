@@ -5,7 +5,7 @@ include '../session.php';
 // $holdingtradeid = $obj->selectfieldwhere(
 //     "stocktransaction",
 //     "group_concat(distinct(stockid))",
-//     "status = 0 and userid = $id and tradestatus='Open' and type='Holding'"
+//     "status = 0 and userid = $id and tradestatus='Open' and stocktransaction.type='Holding'"
 // );
 // if (!empty($holdingtradeid)) {
 //     $fetchshare = $obj->selectextrawhereupdate('userstocks', "Exch,ExchType,Symbol,Expiry,StrikePrice,OptionType", "userid='" . $employeeid . "' and status = 1 and id in (" . $holdingtradeid . ")");
@@ -51,13 +51,13 @@ if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][
 }
 $join = "inner join users on users.id = stocktransaction.userid";
 
-$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 0  and type='Holding' $empref");
-$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 0  and type='Holding' $empref $search ");
+$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 0  and stocktransaction.type='Holding' $empref");
+$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 0  and stocktransaction.type='Holding' $empref $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction $join",
     "*",
-    "stocktransaction.status = 0  and tradestatus='Open' and type='Holding' $empref $search $order limit $start, $limit"
+    "stocktransaction.status = 0  and tradestatus='Open' and stocktransaction.type='Holding' $empref $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
