@@ -12,6 +12,7 @@ include '../session.php';
 //     $rowfetch = mysqli_fetch_all($fetchshare, 1);
 //     $stockdata = $obj->fivepaisaapi($rowfetch);
 // }
+$empref = "";
 if ($adminid != 46) {
     $emprefid = $obj->selectfieldwhere('users', "usercode", "id=$employeeid");
     $empref =  "and employeeref = '$emprefid'";
