@@ -1,6 +1,11 @@
 <?php
 include '../session.php';
 /* @var $obj db */
+$empref = "";
+if ($adminid != $employeeid) {
+    $emprefid = $obj->selectfieldwhere('users', "usercode", "id=$employeeid");
+    $empref =  "and employeeref = '$emprefid'";
+}
 $limit = $_GET['length'];
 $start = $_GET['start'];
 $i = 1;
@@ -34,13 +39,13 @@ if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][
     $search .= " and aitraders.userid like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
 $join = "inner join users on users.id = aitraders.userid";
-$return['recordsTotal'] = $obj->selectfieldwhere("aitraders $join", "count(aitraders.id)", "aitraders.status=1 ");
-$return['recordsFiltered'] = $obj->selectfieldwhere("aitraders $join", "count(aitraders.id)", "aitraders.status=1  $search ");
+$return['recordsTotal'] = $obj->selectfieldwhere("aitraders $join", "count(aitraders.id)", "aitraders.status=1 $empref ");
+$return['recordsFiltered'] = $obj->selectfieldwhere("aitraders $join", "count(aitraders.id)", "aitraders.status=1 $empref  $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "aitraders $join",
     "`aitraders`.`added_on`, `aitraders`.`userid`,`users`.`name`,`users`.`mobile`,`users`.`email`,`aitraders`.`id`,`aitraders`.`aifund`,`aitraders`.`riskprct`,`aitraders`.`tradedone` ",
-    "aitraders.status=1  $search $order limit $start, $limit"
+    "aitraders.status=1 $empref  $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();

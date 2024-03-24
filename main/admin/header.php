@@ -1,8 +1,13 @@
 <?php
+$empref = "";
+if ($adminid != $employeeid) {
+    $emprefid = $obj->selectfieldwhere('users', "usercode", "id=$employeeid");
+    $empref =  "and employeeref = '$emprefid'";
+}
 $unreadmail = $obj->selectfieldwhere("mail", "count(id)", "receiverid =" . $employeeid . " and readstatus = 0");
-$pendinguser = $obj->selectfieldwhere("users", "count(id)", "status =0");
-$pendingfund = $obj->selectfieldwhere("fundrequest", "count(id)", "status =0");
-$todayaitraders = $obj->selectfieldwhere("aitraders", "count(id)", "status =1");
+$pendinguser = $obj->selectfieldwhere("users", "count(id)", "status =0 $empref");
+$pendingfund = $obj->selectfieldwhere("fundrequest inner join users on users.id = fundrequest.userid", "count(id)", "status =0 $empref");
+$todayaitraders = $obj->selectfieldwhere("aitraders inner join users on users.id = aitraders.userid", "count(id)", "status =1 $empref");
 ?>
 <header class="z-10 py-3 bg-white shadow-md dark:bg-gray-800">
     <div class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300" style="padding-left: 16px !important; padding-right: 16px !important;">

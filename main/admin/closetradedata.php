@@ -12,6 +12,11 @@ include '../session.php';
 //     $stockdata = $obj->fivepaisaapi($rowfetch);
 // }
 /* @var $obj db */
+$empref = "";
+if ($adminid != $employeeid) {
+    $emprefid = $obj->selectfieldwhere('users', "usercode", "id=$employeeid");
+    $empref =  "and employeeref = '$emprefid'";
+}
 $limit = $_GET['length'];
 $start = $_GET['start'];
 $i = 1;
@@ -44,14 +49,15 @@ if ((isset($_GET['columns'][0]["search"]["value"])) && (!empty($_GET['columns'][
 if ((isset($_GET['columns'][1]["search"]["value"])) && (!empty($_GET['columns'][1]["search"]["value"]))) {
     $search .= " and stocktransaction.description like '" . $_GET['columns'][1]["search"]["value"] . "'";
 }
-$join = "inner join closetradedetail on closetradedetail.tradeid = stocktransaction.id";
-$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 1");
-$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 1 $search ");
+$join = "inner join users on users.id = stocktransaction.userid ";
+$join .= "inner join closetradedetail on closetradedetail.tradeid = stocktransaction.id";
+$return['recordsTotal'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 1 $empref");
+$return['recordsFiltered'] = $obj->selectfieldwhere("stocktransaction $join", "count(stocktransaction.id)", "stocktransaction.status = 1 $empref $search ");
 $return['draw'] = $_GET['draw'];
 $result = $obj->selectextrawhereupdate(
     "stocktransaction $join",
     "stocktransaction.id,stocktransaction.symbol,stocktransaction.qty,stocktransaction.price,closetradedetail.price as cprice,stocktransaction.totalamount,stocktransaction.trademethod,stocktransaction.added_on,stocktransaction.userid,stocktransaction.tradestatus,datetime,closetime,closetradedetail.added_on as closeon,mktlot,totalprofit,profitprcnt,stoplossamt",
-    "stocktransaction.status = 1 $search $order limit $start, $limit"
+    "stocktransaction.status = 1 $empref $search $order limit $start, $limit"
 );
 $num = $obj->total_rows($result);
 $data = array();
