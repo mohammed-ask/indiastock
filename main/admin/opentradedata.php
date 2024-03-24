@@ -2,6 +2,7 @@
 include '../session.php';
 /* @var $obj db */
 $empref = "";
+echo $adminid;
 if ($adminid != 46) {
     $emprefid = $obj->selectfieldwhere('users', "usercode", "id=$employeeid");
     $empref =  "and employeeref = '$emprefid'";
